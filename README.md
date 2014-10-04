@@ -68,7 +68,6 @@ linux 上系统升级分两部分，一部分是内核升级，一部分是发�
 zypper in kernel-desktop
 ```  
 之后，你系统中将存有两个内核，kernel-default 和 kernel-desktop，如果系统中存在了多个可用内核，那就需要有个地方去记录、管理可用内核列表 —— /boot/grub2/grub.cfg，该文件中存放了不同版本内核列表，大概结构如下：
-
 ```  
 ### BEGIN /etc/grub.d/10_linux ### 
 menuentry 'openSUSE 12.2' …
@@ -118,7 +117,6 @@ uname -r
 ```  
 less /proc/meminfo
 ```  
-
 可查看系统识别的物理内存（输出第一行 MemTotal 字段中显示）。
 
 #####发行套件升级
