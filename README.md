@@ -1,6 +1,4 @@
-<p align="center">
-<h1>美丽新世界：linux 下的惬意生活</h1>
-</p>
+<h1 align="center">美丽新世界：linux 下的惬意生活</h1>
 yangyang.gnu@gmail.com  
 2014-9-25 15:45:04   
 
