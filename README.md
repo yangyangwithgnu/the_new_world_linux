@@ -21,10 +21,10 @@ linux 本身还算不上完整的操作系统，它仅是个内核（一方面�
 linux 的发行套件多达 140+，但本质上大同小异，选定 kernel、包管理器、桌面环境、shell 后在系统层面就基本定型了，再按不同用途选定对应应用软件那么应用层面也就有了，最后就形成了各类发行套件，比如，盲人的 vinux、教育培训的 ubermix、家庭影院的 OpenELEC、安全渗透的 kali、国人专供的 deepin。所以，基本上，你不要在发行套件的选择上消耗精力，目前的主流发行套件包括：slackware、debian、fedora、arch、gentoo、ubuntu、lfs、openSUSE 等，它们各具特色、追随者众，比如，slackware 是目前存活时间最长古董级的发行套件（经验丰富），fedora 是 redhat 进行新技术实验的发行套件（技术创新），ubuntu 号称零配置开箱即用的发行套件（简单易用）、LFS（linux from scratch）让你从无到有构建个人专属的发行套件（配置灵活）、经验丰富+技术创新+简单易用+配置灵活 = openSUSE！所以，我向你推荐它。
 
 openSUSE 最早是 slackware 在德国的本地化版本，后来因其加入了大量特色功能升格为单独的发行套件，其原名为 suse linux，10.2 版开始更名为 openSUSE。openSUSE 由 novell 公司赞助、社区推动的发行套件，它的相关源码和技术可由 novell 使用，作为 novell 企业版发行套件 SLES 的基础。openSUSE 旨在：a）推进 linux 在全球广泛使用；b）降低 linux 使用门槛，成为易于上手的发行套件；c）成为技术黑客和软件开发人员的首选平台。openSUSE 的 logo 是只可爱的变色龙，以此象征 openSUSE 灵活、敏捷的特性。当然，本文并不局限 openSUSE，适用于任何发行套件。
-<p align="center">
+<div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/logo.png" alt=""/><br>
 (logo)
-</p>
+</div>
 
 另外，关于发行套件的版本更替，通常我会在最新正式版放出半年后再考虑，原因有二：一方面经过半年的大规模外部用户测试，大量 bug 已被发现并修正，一定程度上规避了使用系统的不稳定性；一方面各类应用软件开发人员有足够时间针对新版本的发行套件进行功能升级和兼容性优化，让我真真正正感受到新版本带来的各项提升。
 
@@ -38,10 +38,10 @@ openSUSE 最早是 slackware 在德国的本地化版本，后来因其加入了
 3. 第三步，安装系统。整个过程一路 next，除了时区选用 UTC、分区大小两个关键点稍加留意外，基本零难度。建议依次创建如下分区：/、swap、/home、/data。几点说明：  
   * linux 的分区不同于 windows，分区后没有所谓的 C:、D: 盘，而是一个个文件系统，这些文件系统没有具体名称，必须先挂载到某个目录（称之为挂载点）下才能正常使用，分区与目录一一对应；  
   * 操作系统为扩展物理内存容量通常设有“虚拟内存”机制，将不活波内存页（如，未关闭但长时间没使用的程序）从物理内存移至硬盘的虚拟内存，从而释放宝贵的物理内存空间，swap 分区就是所谓的虚拟内存，一般将其容量规划得等同于物理内存即可，但，只有在物理内存吃紧时（如，启用多个大型程序、运行了存在严重泄漏的程序）系统才会使用 swap，换言之，如果你机器物理内存较大（如，8G），也不一定非要将 swap 分区划为与物理内存一样大，给个 2G 让系统应个急即可。另外，由于不存在由用户直接发起的swap分区读写的场景，所以该分区不用挂载目录，由系统自行管理。如果想查看 swap 实时使用情况，可执行“vmstat 1”命令，输出信息中，si 表示 1 秒内写入 sawp 的内存页大小，so 从 swap 中读出的内存页大小，单位为 K；
-<p align="center">
+<div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%9F%A5%E7%9C%8Bswap%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5.png" alt=""/><br>
 （查看swap使用情况）
-</p>
+</div>
   * 用户相关信息（如，应用程序的配置文件）通常放在 /home 目录中，为避免重装系统导致各类配置文件丢失，需将 /home 放在独立分区上。应用程序配置文件通常位于如下路径：~/.[app_name]、~/.config/、~/.local/share/、~/.local/share/applications/、/etc/[app_name].conf，若发现程序运行异常，可先删除相关配置文件再试试；  
   * 所有非系统数据（如，歌曲、ebook、安装程序）都放在独立分区 /data 上，以便定期备份。
 
