@@ -32,15 +32,16 @@ openSUSE 最早是 slackware 在德国的本地化版本，后来因其加入了
 既然是普通用户使用的发行套件，势必集成了某种桌面环境以便用户通过可视化界面操作计算机（底层由 x.org 提供图形图像服务，中间由桌面环境负责统一管理各应用软件发起的图形绘制请求并协调 x.org 予以响应）。基本上，各类发行套件都提供 gnome 和 kde 两种桌面环境供君选择（此外，还有 xfce、lxde、ede、rox 等等其他桌面环境可单独下载安装）。gnome 是隶属 GNU 项目群的子项目，全称为 the gnu network object model environment，采用 GTK（由 C 语言编写）作为底层开发库；KDE 全称 kool desktop environment，采用 QT（由 C++ 语言编写）作为底层开发库。gnome 和 kde 是 linux 中最为流行的桌面环境，从操作习惯和界面风格来看，我更喜欢 gnome。
 
 安装发行套件包括如下几步：  
-第一步，下载镜像。选择桌面环境（gnome 或 kde）、系统构架（32 位或 64 位）；  
-第二步，制作安装 U 盘。U 盘安装既节省光盘介质费用，又能大幅提升安装速度，逐渐成为你安装系统的首选。借由 imagewriter 制作启动盘；  
-第三步，安装系统。整个过程一路 next，除了时区选用 UTC、分区大小两个关键点稍加留意外，基本零难度。建议依次创建如下分区：/、swap、/home、/data。几点说明：  
+
+1. 第一步，下载镜像。选择桌面环境（gnome 或 kde）、系统构架（32 位或 64 位）；  
+2. 第二步，制作安装 U 盘。U 盘安装既节省光盘介质费用，又能大幅提升安装速度，逐渐成为你安装系统的首选。借由 imagewriter 制作启动盘；  
+3. 第三步，安装系统。整个过程一路 next，除了时区选用 UTC、分区大小两个关键点稍加留意外，基本零难度。建议依次创建如下分区：/、swap、/home、/data。几点说明：  
 0）linux 的分区不同于 windows，分区后没有所谓的 C:、D: 盘，而是一个个文件系统，这些文件系统没有具体名称，必须先挂载到某个目录（称之为挂载点）下才能正常使用，分区与目录一一对应；  
 1）操作系统为扩展物理内存容量通常设有“虚拟内存”机制，将不活波内存页（如，未关闭但长时间没使用的程序）从物理内存移至硬盘的虚拟内存，从而释放宝贵的物理内存空间，swap 分区就是所谓的虚拟内存，一般将其容量规划得等同于物理内存即可，但，只有在物理内存吃紧时（如，启用多个大型程序、运行了存在严重泄漏的程序）系统才会使用 swap，换言之，如果你机器物理内存较大（如，8G），也不一定非要将 swap 分区划为与物理内存一样大，给个 2G 让系统应个急即可。另外，由于不存在由用户直接发起的swap分区读写的场景，所以该分区不用挂载目录，由系统自行管理。如果想查看 swap 实时使用情况，可执行“vmstat 1”命令，输出信息中，si 表示 1 秒内写入 sawp 的内存页大小，so 从 swap 中读出的内存页大小，单位为 K；
-<p align="center">
+<div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%9F%A5%E7%9C%8Bswap%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5.png" alt=""/><br>
 （查看swap使用情况）
-</p>
+</div>
 2）用户相关信息（如，应用程序的配置文件）通常放在 /home 目录中，为避免重装系统导致各类配置文件丢失，需将 /home 放在独立分区上。应用程序配置文件通常位于如下路径：~/.[app_name]、~/.config/、~/.local/share/、~/.local/share/applications/、/etc/[app_name].conf，若发现程序运行异常，可先删除相关配置文件再试试；  
 3）所有非系统数据（如，歌曲、ebook、安装程序）都放在独立分区 /data 上，以便定期备份。
 
@@ -132,11 +133,22 @@ CLUTTER_VBLANK=True
 第二步，下载主题。推荐两个 gnome3 相关的主题网站：http://gnome-look.org 与 http://linux-lounge.deviantart.com，慢慢选，喜欢哪个下哪个。个人非常喜欢那种扁、平、薄的风格，GTK 主题选用 Numix-Solarized（https://github.com/HuiJun/Numix-Solarized），搭配 faenza 图标主题（http://tiheum.deviantart.com/art/Faenza-Icons-173323228）效果非常不错。
 第三步，安装主题。将相关主题拷贝至 /usr/share/themes/ 和 /usr/share/icons/ 目录即可。具体而言，GTK 主题 Numix 解压后的 Numix/、Numix - GTK3.4/ 目录拷贝至 /usr/share/themes/，faenza 图标主题解压后得到压缩文件 Faenza.tar.gz、Faenza-Dark.tar.gz、Faenza-Darker.tar.gz、Faenza-Darkest.tar.gz 分别再解压后得到 Faenza、Faenza-Dark、Faenza-Darker、Faenza-Darkest 等四个目录拷贝至 /usr/share/icons/ 目录。注意，a）如果无法选择对应主题，请确认是否多套了一层目录；b）/usr/share/themes/ 和 /usr/share/icons/ 目录中系统自带主题和图标切勿删除，否则将导致无法登录图像界面；
 第四步，选择主题。运行 tweak tool，参照下图选择窗口和图标主题：
-
+<p align="center">
+<img src="" alt=""/><br>
+（查看swap使用情况）
+</p>
 （选择主题）
 第五步，启用主题。键入 alt+f2，输入 r 回车，看到没，刚才选择的主题已经生效。最终效果如下：
+<p align="center">
+<img src="" alt=""/><br>
+（查看swap使用情况）
+</p>
 （gnome3-holo）
 第六步，字体美化。openSUSE 中文显示默认采用文泉驿字体，相比之下，更喜欢微软雅黑那种方方正正的饱满字体，但微软雅黑中的英文字体又不咋地，有人发布了一款增强了英文字体的微软雅黑——yahei consolas hybrid 字体，可以下来试试，效果非常不错（本文全文采用的就是这种字体）。双击字体按提示安装，安装完后进入 advanced settings，按如下设置即可：
+<p align="center">
+<img src="" alt=""/><br>
+（查看swap使用情况）
+</p>
 （字体设置）
 第七步，动态壁纸。GNOME3改变了很多传统用户习惯，淡化桌面概念就算之一，默认不再有桌面图标、无法将窗口最小化到任务栏、没有返回桌面按钮，99% 时间你看到的是某个应用程序的全屏窗口，体现了“内容至上”的理念，正因为此，GNOME3 中不再有动态壁纸功能，用户只有 1% 的时间可能看到桌面墙纸，动态壁纸功能理当下线——GNOME3 设计人员托梦告诉我滴 ~_~。如果你仍然迷恋动态壁纸，可以通过如下方式实现：
 首先实现基础功能。将如下 shell 代码拷贝至 auto_wallpaper.sh 文件，其中，两处的 /data/misc/software/misc./gnome3/wallpaper/ 替换为你存放图片的目录，4096 替换成你希望间隔多少秒自动切换一次墙纸（why 4096? that is 2^12, and that is 68m :-）
@@ -182,8 +194,17 @@ gedit 取消自动备份： org - gnome - gedit - preferences - editor，取消 
 word、excel、powerpoint 等三个软件是 windows 中必装的办公文书软件，以支撑我们文字处理、表格制作、汇报演示等工作需要。linux 中我们对应有writer、calc、impress 等软件，这三个软件（外加 draw、math、base）就是大名鼎鼎的 libreoffice 套件。libreoffice 完全兼容 ms-office 文档，甚至还可以直接转存为 pdf 格式文件，
 软件名称：libreoffice
 界面截图：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （writer）
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （calc）
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （impress）
 设置调整：tools -> options -> language settings -> writing aids，取消 options 中的所有选项，以禁止拼写检查。
 
@@ -191,7 +212,13 @@ word、excel、powerpoint 等三个软件是 windows 中必装的办公文书软
 很多人喜欢通过邮件服务提供商官网进行邮件收发，强烈建议改用邮件客户端，避免频繁登录邮箱，同时，还能离线查阅邮件内容。好的邮件客户端除了正常收发邮件外，还应具备地址簿管理、垃圾邮件过滤、多账户管理、日程安排、同步删除远程邮件，甚至为常见邮件提供商智能配置等等高级功能，thunderbird 算是不错的。
 软件名称：thunderbird
 界面截图：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （thunderbird）
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （写邮件）
 
 1.3 电子书阅读
@@ -201,20 +228,35 @@ word、excel、powerpoint 等三个软件是 windows 中必装的办公文书软
 世上有三件事你无法回避：死亡、税收、阅读 PDF 文档。
 软件名称：evince
 界面截图：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （evince）
 使用问题：你知道，正常情况下，被选中的文本段会反色高亮显示，估计是 evince 本地化问题（未用 unicode 编码 -_-??），某些中文 pdf 文档，反色显示的文字会成乱码，虽不影响真正复制到粘贴板中的内容（换言之，从 evince 中复制出来的文字仍正常），但一定程度上影响了我等喜欢选中一段看一段的用户阅读体验。如下图所示：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （未选前的文本）
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （选中后的文本）
 其他说明：推荐几个常用的软件开发相关电子书下载网站：http://it-ebooks.info、http://www.freetechbooks.com。
 另外，我对 pdf 修改也有使用需求。很遗憾，linux 下并无稳定、高质量的 pdf 修改开源工具，上古时代的 pdftk、flpsed、pdfedit 一众古董完全派不上场，pdf studio 算是唯一功能达标的，但又是闭源共享软件，不推荐。既然修改不了 pdf，添加注释总可以吧，xournal 就是满足这一需求的软件。
 软件名称：xournal
 界面截图：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （PDF修改）
 
 1.3.2 chm 阅读
 虽然 chm 文档越来越少，但难免还是会遇到，有两个工具可阅读 chm：chmsee 和 kchmviewer。
 软件名称：chmsee；
 界面截图：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （chmsee）
 
 2 娱乐休闲
@@ -224,6 +266,9 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 常见的音频格式包括：mp3、ogg、aac、mp4、ape、wav、flac 等，windows 下知名的音频播放器 foobar2000 完美支持这些格式，linux 下的 deadbeef 从解码效果来看，有过之而无不及。
 软件名称：deadbeef
 界面截图：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （deadbeef）
 设置调整：无；
 使用问题：
@@ -234,7 +279,13 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 我看电影有个习惯，喜欢把电影全屏铺满后再看，这样不至于在如今满是宽屏幕的环境中把人物压缩得又扁又胖。另外，针对视频文件名类似的多个文件要能连续播放（也就是连续自动播放连续剧）。linux 下找了一圈都没发现满意的，包括大名鼎鼎的 vcl 和mplayer，直到有天我遇到 umplayer。umplayer 是基于 mplayer 二次开发的软件，默认支持（即内置相关格式解码器） mkv、wmv、avi、mpg、3gp、mov、rm、mpeg、mp4 等视频格式。
 软件名称：umplayer
 界面截图：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （普通比例）
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （全屏铺满）
 设置调整：全屏铺满设置：video -> aspect ratio -> disabled；
 使用问题：全屏纵向拉伸设置只能针对单部影片有效，无法保持为永久设置，播放其他影片需要重新设置；
@@ -244,6 +295,9 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 听到一首喜欢的歌曲，想把它设置为手机来电铃声，但整首歌曲又太长，最好能把高潮部分提取出来，一来电就进入高潮（-_-$，你想啥～）。
 软件名称：audacity；
 界面截图：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （audacity）
 
 3 网上冲浪 
@@ -253,27 +307,51 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 浏览器是互联网入口，各大互联网公司必争之地。opera、chrome、firefox 三大浏览器，opera 功能上没有多少过人之处且不开源，丢之；chrome 虽有开源版本 chromium，但很多插件都仅支持 windows 平台而在 linux 下无法使用（包括google自己出品的 Chrome Toolbox），弃之；firefox，开源且以 linux 为第一阵营，凭借其高安全性和可扩充性赢得大量忠实用户。
 软件名称：firefox；
 界面截图：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （firefox）
 你对 firefox 的任何需求，几乎都可以通过其丰富的插件资源得到满足（另一个有如此庞大插件资源的软件当数 vim 了，后面有介绍）。进入 tools -> add-ons 即可在线查找需要的插件，找到后点击在线安装即可，安装完成需重启浏览器以让新装插件生效。下面介绍几款我觉得非常有用的插件。
 下载管理，download status bar。完全替代 firefox 自带的下载管理器，它可以实时查看下载进度、可以直接打开下载完的文件、可以根据当前下载速度用不同颜色高亮提示等等。如下图，第一个文件已下载完毕，第二个正在下载，实时速度为 167.2K、下载进度为 19%、橙色背景表示速度在 200K 以下，若达到 600K 则会显示为绿色：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （download statusbar）
 对象拖拽，quickdrag。若拖拽链接则直接打开，若拖动文本则在当前搜索引擎中搜索。如下图所示：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （对象拖拽插件 quickdrag）
 另外，我不太喜欢立即激活新页面，本来 firefox 中有个选项（preferences -> tabs -> when I open a link in a new tab, switch to it immediately）可用于此设置，但长年无效，只能直接修改它的配置项：地址栏中输入 about:config，查找 browser.tabs.loadDivertedInBackground 配置项，双击使其为 true 即可。
 鼠标手势，all-in-one gestures。我常用的右键向左拖动表示退回、向右拖动表示前进。如下所示：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （鼠标手势插件 all-in-one gestures）
 双击关闭 tab，close tab by double click。无须多说，个人习惯；
 侧边显示，all-in-one sidebar。将收藏夹、下载管理、插件管理、访问历史等统一收纳到侧边条中，如下图所示：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （侧边显示插件 all-in-one sidebar）
 恢复关闭页面，Undo Closed Tabs Button。下载安装好后，先要通过 customize 将 undo 图标拖动到 firefox 工具栏中才能看到。如下图所示：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （恢复关闭页面插件 Undo Closed Tabs Button）
 flash 播放。目前几乎所有在线视频、在线文库等网站都通过 flash 实现（亲，我说的通过浏览器直接访问，我知道你 iphone 也可以观看在线视频，但那是通过安装本地APP 观看，与这儿说的事情没啥干系），常逛这类网站的朋友必须得装 flash 插件才能正常访问。adobe 不给力，导致很多浏览器加载 flash 文件时失败，提示 the adobe flash plugin has crashed：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （flash插件报错）
 到 adobe 官网 http://get.adobe.com/flashplayer/otherversions/ 下载最新版的 *.tar.gz，解压后提取 libflashplayer.so 至 /usr/lib/browser-plugins/libflashplayer.so，重启 firefox 即可正常显示 flash。
 另外，如果你用的是 chromium 则不太可能出现 flash 显示问题。这是因为 google 与 adobe 合作开发了一项称之为 pepper API 的新技术，google 自家的 chromium 肯定支持 pepper，这就使得 flash 可以以插件的形式运行在 chromium 浏览器中。包括 firefox 在内的其它浏览器则不支持这项技术，因此也就无法播放 flash。
 听闻 adobe 公告，从 11.2 以后不再支持 linux 平台，唉，乔帮主英明，adobe 要自掘坟墓咱也别拦他，全当在给 HTML5 腾位置吧。
 在线视频下载，1-Click YouTube Video Download。随着在线视频的繁荣，国外的 YouTube、国内的 PPTV 等一大批视频网站上沉淀了很多有价值的视频，考虑到天朝宽带排名全球 96 位的现状，为了不影响观影体验，我有很强的驱动力将在线视频下载到本地。
 YouTube 上的视频，可由插件 1-Click YouTube Video Download 实现下载。安装好该插件重启 firefox 后，进入某个具体视频页面，在视频左下角多了个 Download 按钮，点击该按钮你将看到不同分辨率的视频下载地址列表，见下图：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （YouTube 在线视频下载插件 1-Click YouTube Video Download）
 此外，国外 vimeo、metacafe、intv 甚至 facebook 等等网站上的视频，我推荐你使用在线工具 http://en.savefrom.net/ 解析视频地址；国内的 PPTV、优酷、土豆、奇艺等等视频网站，可以通过硕鼠 http://www.flvcd.com 解析。
 添加搜索引擎，Add to Search Bar。互联网是个巨大的知识库，你需要的任何知识都可以从中获取，前提是有个给力的搜索引擎。在我看来，好的搜索引擎应该：检索范围广泛、收录页面快速、检索结果无屏蔽、原创内容优先、智能分析相似关键字。
@@ -288,8 +366,14 @@ http://tw.search.yahoo.com 和 http://www.google.com.tw（及其搜索结果）�
 另外，但凡中译书籍，建议直接海购繁体中文版，前面说过台湾人翻译的质量远胜囧朝，再次悲哀 :-(。
 话外音，国外将冏朝中文叫作 simplified chinese，而将台湾中文叫作 traditional chinese，也就是说，在老外眼里，冏朝用的是删减后的中文，而台湾用的才是老祖宗传下来的纯正传统中文。
 添加搜索引擎。安装好 Add to Search Bar，在搜索引擎首页的输入框中右键，选择 add to search bar 即可，如下图所示：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （Add to Search Bar）
 添加后，在浏览器的搜索引擎列表中查看所有搜索引擎：
+<p align="center">
+<img src="" alt=""/><br>
+</p>
 （搜索引擎列表）
 搜索操作习惯。你可以在 firefox 右上角的搜索引擎列表中选择喜欢的引擎直接搜索，也可以在页面上（借助 quickdrag）直接拖拽要搜索的关键字启用当前引擎进行搜索；
 代理开关，Autoproxy。Autoproxy 本身不具备代理功能，它通过一个在线配置文件，实时分析用户发起的网站访问请求中，哪些必须走代理访问、哪些可以直接访问。具体请见“搭梯翻墙”章节，Autoproxy 辅助 GoAgnet 可实现完美翻墙。
