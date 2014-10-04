@@ -162,18 +162,33 @@ CLUTTER_VBLANK=True
 * 主题引擎：murrine、unico、adwaita、canvas、pixbuf 等几类主题引擎必须安装。若安装主题后仍存在滚动条粗大、按钮错位等情况，再把 gtk2-engine-*、gtk3-engine-* 安装上；
 * 安装路径。一般而言，主题文件和图标分别放至全局目录 /usr/share/themes/ 和 /usr/share/icons/，或者分别放至账号目录 ~/.themes 和 ~/.icons 均可。建议优选全局目录，账号目录有一定几率导致主题失效；
 
-第二步，下载主题。推荐两个 gnome3 相关的主题网站：http://gnome-look.org 与 http://linux-lounge.deviantart.com，慢慢选，喜欢哪个下哪个。个人非常喜欢那种扁、平、薄的风格，GTK 主题选用 Numix-Solarized（https://github.com/HuiJun/Numix-Solarized），搭配 faenza 图标主题（http://tiheum.deviantart.com/art/Faenza-Icons-173323228）效果非常不错。
+第二步，下载主题。推荐两个 gnome3 相关的主题网站：http://gnome-look.org 与 http://linux-lounge.deviantart.com ，慢慢选，喜欢哪个下哪个。个人非常喜欢那种扁、平、薄的风格，GTK 主题选用 Numix-Solarized（https://github.com/HuiJun/Numix-Solarized），搭配 faenza 图标主题（http://tiheum.deviantart.com/art/Faenza-Icons-173323228）效果非常不错。
 
 第三步，安装主题。将相关主题拷贝至 /usr/share/themes/ 和 /usr/share/icons/ 目录即可。具体而言，GTK 主题 Numix 解压后的 Numix/、Numix - GTK3.4/ 目录拷贝至 /usr/share/themes/，faenza 图标主题解压后得到压缩文件 Faenza.tar.gz、Faenza-Dark.tar.gz、Faenza-Darker.tar.gz、Faenza-Darkest.tar.gz 分别再解压后得到 Faenza、Faenza-Dark、Faenza-Darker、Faenza-Darkest 等四个目录拷贝至 /usr/share/icons/ 目录。注意，a）如果无法选择对应主题，请确认是否多套了一层目录；b）/usr/share/themes/ 和 /usr/share/icons/ 目录中系统自带主题和图标切勿删除，否则将导致无法登录图像界面；
 
 第四步，选择主题。运行 tweak tool，参照下图选择窗口和图标主题：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E9%80%89%E6%8B%A9%E4%B8%BB%E9%A2%98.png" alt=""/><br>
 （选择主题）
+</div>
+
 第五步，启用主题。键入 alt+f2，输入 r 回车，看到没，刚才选择的主题已经生效。最终效果如下：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/GNOME3-HOLO.png" alt=""/><br>
 （gnome3-holo）
+</div>
+
 第六步，字体美化。openSUSE 中文显示默认采用文泉驿字体，相比之下，更喜欢微软雅黑那种方方正正的饱满字体，但微软雅黑中的英文字体又不咋地，有人发布了一款增强了英文字体的微软雅黑——yahei consolas hybrid 字体，可以下来试试，效果非常不错（本文全文采用的就是这种字体）。双击字体按提示安装，安装完后进入 advanced settings，按如下设置即可：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE.png" alt=""/><br>
 （字体设置）
-第七步，动态壁纸。GNOME3改变了很多传统用户习惯，淡化桌面概念就算之一，默认不再有桌面图标、无法将窗口最小化到任务栏、没有返回桌面按钮，99% 时间你看到的是某个应用程序的全屏窗口，体现了“内容至上”的理念，正因为此，GNOME3 中不再有动态壁纸功能，用户只有 1% 的时间可能看到桌面墙纸，动态壁纸功能理当下线——GNOME3 设计人员托梦告诉我滴 ~_~。如果你仍然迷恋动态壁纸，可以通过如下方式实现：
-首先实现基础功能。将如下 shell 代码拷贝至 auto_wallpaper.sh 文件，其中，两处的 /data/misc/software/misc./gnome3/wallpaper/ 替换为你存放图片的目录，4096 替换成你希望间隔多少秒自动切换一次墙纸（why 4096? that is 2^12, and that is 68m :-）
+</div>
+
+第七步，动态壁纸。GNOME3改变了很多传统用户习惯，淡化桌面概念就算之一，默认不再有桌面图标、无法将窗口最小化到任务栏、没有返回桌面按钮，99% 时间你看到的是某个应用程序的全屏窗口，体现了“内容至上”的理念，正因为此，GNOME3 中不再有动态壁纸功能，用户只有 1% 的时间可能看到桌面墙纸，动态壁纸功能理当下线——GNOME3 设计人员托梦告诉我滴 ~\_~。如果你仍然迷恋动态壁纸，可以通过如下方式实现：
+
+首先实现基础功能。将如下 shell 代码拷贝至 auto_wallpaper.sh 文件，其中，两处的 /data/misc/software/misc./gnome3/wallpaper/ 替换为你存放图片的目录，4096 替换成你希望间隔多少秒自动切换一次墙纸：
+
+```
 #!/bin/bash 
 cd /data/misc/software/misc./gnome3/wallpaper/ 
 while [ 1 ] 
@@ -184,12 +199,24 @@ while [ 1 ]
   gsettings set org.gnome.desktop.background picture-uri "file:/data/misc/software/misc./gnome3/wallpaper/${!random_num}" 
   sleep 4096	# 68分钟变化一次桌面墙纸 
 done
+```
+
 然后实现停止动态壁纸。先找到 auto_wallpaper.sh 脚本的进程 ID（严格地说，应该是启动该脚本的父 shell 进程 ID）：
+
+```
 linux-asze:~ # ps -ef | grep auto_wallpaper 
 root 3027 1 0 16:58 ? 00:00:00 /usr/bin/gnome-terminal -x /bin/sh -c '/data/misc/software/misc./gnome3/wallpaper/auto_wallpaper.sh'
+```
+
 直接杀掉该脚本：
+
+```
 kill -9 3027
+```
+
 最后实现自动启动。将如下代码拷贝至 auto_wallpaper.desktop，并将该文件移至 ~/.config/autostart/ 目录。其中，/data/misc/software/misc./gnome3/wallpaper/auto_wallpaper.sh 替换为上面保存的 auto_wallpaper.sh 文件多绝对路径：
+
+```
 [Desktop Entry] 
 Name=auto_wallpaper 
 Exec=/data/misc/software/misc./gnome3/wallpaper/auto_wallpaper.sh 
@@ -197,19 +224,23 @@ Comment=change wallpaper every so often
 Hidden=false 
 Type=Application 
 X-GNOME-Autostart-enabled=true
+```
+
 说了这么多，作为普通用户，我们关注的还是 openSUSE 如何支撑我们的日常工作、生活需求。接下来看看，那些借助社区力量开发的优秀开源产品。（注，未特别说明，以下介绍的软件均可通过软件仓库查找、下载、安装）
-如果你需要的软件在添加的各类软件仓库中都无法找到，可依次尝试如下两个专用搜索引擎：http://software.openSUSE.org/search 和 http://www.rpmfind.net，若还是无法找到，只有借助通用搜索引擎找到该软件官网，再下载安装。
+
+如果你需要的软件在添加的各类软件仓库中都无法找到，可依次尝试如下两个专用搜索引擎：http://software.openSUSE.org/search 和 http://www.rpmfind.net ，若还是无法找到，只有借助通用搜索引擎找到该软件官网，再下载安装。
 
 ####0.3.4 其他设置
 某些软件在界面上未提供用于设置的 preferences 菜单项（如 gedit、 nautilus），这时只有请出 dconf-editor。windows 的很多底层设置可以在注册表中进行，linux 对应可以在 DBUS 中设置，dconf-editor 就是 DBUS 的图形界面编辑器。dconf-editor 管理的设置很多，大家可以自己琢磨玩玩，如下几类我建议你考虑：
-gedit 取消自动备份： org - gnome - gedit - preferences - editor，取消 create-backup-copy ；
-清空回收站时无须再次确认：org - gnome - nautilus - preferences，取消 confirm-trash；
-文件管理器顶部显示当前路径：org - gnome - nautilus - preferences，勾选 always use location entry；
-文件管理器 nautilus 以详情列表模式罗列文件列表：org - gnome - nautilus - preferences，default-floder-viewer 选择 list-view；
-文件列表以小图标且显示 ：org - gnome - nautilus - list_view，default-zoom-level 设置为 smallest；
-文件列表以树形目录显示 ：org - gnome - nautilus - list_view，勾选 use-tree-view。
 
-1 日常办公
+* gedit 取消自动备份： org - gnome - gedit - preferences - editor，取消 create-backup-copy ；
+* 清空回收站时无须再次确认：org - gnome - nautilus - preferences，取消 confirm-trash；
+* 文件管理器顶部显示当前路径：org - gnome - nautilus - preferences，勾选 always use location entry；
+* 文件管理器 nautilus 以详情列表模式罗列文件列表：org - gnome - nautilus - preferences，default-floder-viewer 选择 list-view；
+* 文件列表以小图标且显示 ：org - gnome - nautilus - list_view，default-zoom-level 设置为 smallest；
+* 文件列表以树形目录显示 ：org - gnome - nautilus - list_view，勾选 use-tree-view。
+
+##1 日常办公
 现在的企事业单位几乎都需借助电脑办公，医生看病开处方、营业厅办理业务、会计帐务处理等等，电脑已成为各行各业办公的主要途径和手段。下面介绍几类常见的办公需求。
 
 1.1 办公文书
