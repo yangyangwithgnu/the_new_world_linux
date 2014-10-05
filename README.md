@@ -825,7 +825,7 @@ tar -p -cf - /data --exclude='/data/misc/tmp' --exclude='/data/misc/software/vm/
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E5%8F%AF%E8%A7%86%E5%8C%96%E5%A4%87%E4%BB%BD%E8%BF%9B%E5%BA%A6.png" alt=""/><br />
 （可视化备份进度）
-</div>
+</div>  
 
 好了，到此包括打包、压缩、排除不重要目录、打时间戳、显示进度等特性在内的 linux 常规备份操作就介绍完了，一条命令啰哩吧嗦说了一大堆，大妈命～～。内容是多了点，一次没看明白就多看几次，其实也不复杂，我们一起看看简化模型吧（啰嗦的平方就是在下，谢谢，：O）。
 
@@ -899,31 +899,54 @@ linux 采用的文件布局策略——所有文件分散布局，相邻文件�
 ##5 图形图像
 我们活在五彩斑斓的世界，色彩组成了世间万物。计算机是真实世界的数字扩展，当然也应该多彩绚丽。
 
-5.1 图片编辑
+###5.1 图片编辑
 玩单反的朋友用 photoshop，玩单反又玩 linux 的朋友用 gimp。gimp 是 linux 下著名的图形处理工具（同时，由它衍生出来了一种功能强大、设计灵活的通用图形库gtk，gtk 被 gnome 选作基础库，成为 gnome 环境中图形应用程序的开发标准），功能与 photoshop 不分上下。
+
 软件名称：gimp
+
 界面截图：后面绿色区域是桌面背景啦，另，图中大象的玩弄、抚摸以及搓揉权归属吴凤辉先生，特此声明！
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/GIMP.png" alt=""/><br />
 （gimp）
+</div>
 
-5.2 色彩提取
+###5.2 色彩提取
 有时看到很好的配色方案想要把色彩记录下来，这时就需要一款提取色彩值的工具。
-软件名称：gpick
-界面截图：
-（gpick）
 
-5.3 屏幕截图
-截图是很常用到的一种工具，我认为一个好的截图工具至少应具备能截取视频图片、能放大像素以让用户精确截图、预置常用的截图模式（即，除截取鼠标选中区域外，能针对窗口、菜单、提示气泡等直接截取）等功能点。shutter 号称 linux 下最强截图工具，支持我提的几点要求，值得推荐。
-软件名称：shutter；
+软件名称：gpick
+
 界面截图：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/gpick.png" alt=""/><br />
+（gpick）
+</div>
+
+###5.3 屏幕截图
+截图是很常用到的一种工具，我认为一个好的截图工具至少应具备能截取视频图片、能放大像素以让用户精确截图、预置常用的截图模式（即，除截取鼠标选中区域外，能针对窗口、菜单、提示气泡等直接截取）等功能点。shutter 号称 linux 下最强截图工具，支持我提的几点要求，值得推荐。
+
+软件名称：shutter；
+
+界面截图：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/shutter.png" alt=""/><br />
 （shutter）
+</div>
+
 其他说明：shutter 有个小 BUG，在该软件中设置了快捷键无法生效，会报错 WARNING: DBus connection to org.freedesktop.compiz failed --> setting keyboard shortcuts may not work when using compiz。要解决该问题，可设置系统的全局快捷键，通过全局快捷键从命令行启动 shutter 完成不同模式截图操作：进入系统快捷键设置界面 system settings -> keyboard -> shortcuts -> custom shortcuts -> +，在 name 中输入快捷键名（如 screenshot win），command 中输入具体命令（如，shutter --window --min_at_startup），保存，点击 new accelerator，接着你点击需要设置的快捷键（如敲击 F4，不是输入 F、4 两个字符），这样即可完成 F4 调用 shutter 实现截取整个窗口的功能，同理，shutter --select --min_at_startup 截取指定区域、shutter --full --min_at_startup 截取整个屏幕、shutter --web=http://www.csdn.net --min_at_startup 截取完整网页。另外，选择快捷键时注意不要与系统常见默认快捷键冲突。
 
-5.4 屏幕录像
+###5.4 屏幕录像
 说了屏幕截图肯定要说屏幕录像，如果是一副图抵得上 100 个字，那么一段视频就是100 副图。录屏工具生成的视频格式非常重要，最高压缩比的视频文件体积都不小，能表达连续动作又能比视频文件体积小的文件格式是什么？gif 格式。byzanz 可以将录屏内容直接输出到 gif 文件中。byzanz 是个命令行工具，但操作不难。
+
+```
 byzanz-record -d 16 -c test.gif
+```
 其中，-d 表示以秒为单位的录屏时长，-c 表示包括录制鼠标。
+
 真心喜欢这个软件，但受限于需要手工指定屏幕位置以及录屏时长，灵活性相对欠缺。就我而言，存在三个硬伤。
-硬伤一，无法针对选定区域录屏。byzanz 支持在命令行参数中输入屏幕坐标来指定录屏区域，这在实际操作过程中非常麻烦。如果有个命令行程序可以获取鼠标在屏幕上拖拉矩形区域的坐标，并输出坐标结果，那么不就可以将坐标输出给 byzanz，实现对指定区域录屏的效果。一翻搜索后，果然找到名为 xrectsel 的工具（https://github.com/lolilolicon/xrectsel），下载安装好。结合 byzanz 和 xrectsel 写了个脚本 byzanz-record-region.sh 实现针对选定区域录屏，代码如下：
+
+硬伤一，无法针对选定区域录屏。byzanz 支持在命令行参数中输入屏幕坐标来指定录屏区域，这在实际操作过程中非常麻烦。如果有个命令行程序可以获取鼠标在屏幕上拖拉矩形区域的坐标，并输出坐标结果，那么不就可以将坐标输出给 byzanz，实现对指定区域录屏的效果。一翻搜索后，果然找到名为 xrectsel 的工具（https://github.com/lolilolicon/xrectsel ），下载安装好。结合 byzanz 和 xrectsel 写了个脚本 byzanz-record-region.sh 实现针对选定区域录屏，代码如下：
+
+```
 #!/bin/bash
 
 # recording duration
@@ -959,7 +982,11 @@ byzanz-record --cursor --delay=0 --duration=$DURA ${ARGUMENTS} $OUTPUT 2>/dev/nu
 beep
 echo "END <<<<"
 echo "you get $OUTPUT"
+```
+
 硬伤二，无法针对指定窗口录屏。有了前面的思路，我们只需找个能获取指定窗口坐标的命令行工具，将坐标结果输入给 byzanz 即可。搜索下，有个 xwininfo 的工具，结合 byzanz，写了个脚本 byzanz-record-window.sh 实现针对指定窗口录屏，代码如下：
+
+```
 #!/bin/bash
 
 # recording duration
@@ -994,53 +1021,89 @@ byzanz-record --cursor --delay=0 --duration=$DURA --x=$X --y=$Y --width=$W --hei
 beep
 echo "END <<<<"
 echo "you get $OUTPUT"
+```
+
 硬伤三，无法按需主动停止录屏。byzanz 是实时写文件，所以直接 ctrl-c 中断任务即可。
+
 以后，要对窗口录屏可运行 ./byzanz-record-window.sh 脚本，要对选择区域录屏可运行 ./byzanz-record-region.sh，输出结果位于当前工作目录中。
 
-6 windows 应用
+##6 windows 应用
 无论如何，在当前环境下完全摒弃 windows 是不现实的，主要原因之一，某些市场占有率极高的软件并无对应 linux 版本，就我而言，至少三类应用：在线购物、即时通讯、离线下载。
+
 有些 linuxer 认为引入 windows 程序会玷污 linux 的纯洁性，宁愿放弃某些应用，也不愿和 windows 沾边。个人认为，任何事情不要走极端，我们玩 linux，是为了享受它带来的开放、自由、创新，但同时，也不要人为丢弃 windows 提供的特有服务，毕竟，我们使用电脑是为了解决实际问题，而不是向谁证明“我是一名纯正的 linuxer”。当然，如果有功能类似的软件，肯定会优先选用 linux 版本，这点无须质疑。我们需要借助 windows，这倒不是 linux 系统本身不够完善，而是某些应用软件开发商只发布了 windows 版本，且那些软件又掌握着其所在领域的垄断权，以至于第三方即便有心也无力在 linux 下开发类似软件。
+
 linux 和 windows 两种操作系统有各自的可执行文件格式（前者为 ELF、后者为 PE）、有各自的应用程序编程接口（前者为 SUS、后者为 win32 API），因此，针对某种操作系统开发的应用程序理论上二进制是无法在直接在另外的系统上直接运行。当然，那些采用解释性语言开发的程序，只要目标系统上有对应解释器或虚拟机是可以的；又或者，编译性语言使用某种平台无关的中间层库，也可以在一定程度上达到移植的目的。但是，这两种场景的前提是能获取源码，对于不能获取源码的应用程序，目前有两类解决方式：转换层方式（模拟 Windows 操作系统）和虚拟机方式（模拟计算机硬件）。
+
 我们说的第一类解决方式，是在 linux 中部署一套为 windows API 转换层，我们让应用程序在转换层中运行，应用程序继续调用 windows 提供的 API，转换层接收到 API 请求后将具体执行操作传递给 linux 系统，linux 执行完后返回的转换层，转换层将请求执行结果反馈给 windows 应用程序，完成一次 API 请求，这样重复往返多次不同 API 调用，最终模拟完成整个应用程序执行过程。这种方式虽然可行，但也不完美：a）操作系统本身就是由大量 API 组合而成，如果实现了所有 windows API 那差不多实现了 windows 系统，从工作量和复杂度上来说，这不是哪个开源社区能够负担得起的，所以，目前做得最好的转换层（wine）也仅实现了部分 API，这意味着，不是所有 windows 程序都可以在转换层中运行，这是一个问题；b）既然是模拟 API，那么从执行效率（实时性）、执行结果（正确性）上看，肯定与直接在 windows 中执行存在明显差距，时常会出现程序异常退出、运行缓慢等等问题，这对实时性要求较高的应用（在线游戏）来说，是用户无法接受的。正因为此，不推荐该方式。
+
 第二类解决方式是安装虚拟机，在虚拟机中安装一个 windows 操作系统，这就像和你直接安装的 windows 一样，这样就有了一整套完整的 windows API，所有应用程序均可正常运行。如果在 linux 中出现 windows 应用让你胃口不佳、疲软乏力、夜不能寐，你得自我开导，你可以把它想成 java 应用要运行在 JVM 中，所以 windows 应用运行在 windows 虚拟机中，windows 就是你 linux 中的一个运行环境，与 OpenOffice、thunderbird、firefox 等等软件一样，这下是不是轻松许多 ：D。
+
 virtualbox，著名的开源虚拟机（别管它的东家：）。VB 将客系统（虚拟机内的操作系统）的所有硬件请求直接透传至底层硬件平台，而非通过主系统（运行虚拟机的操作系统）中转，一定程度上提升了客系统的性能。
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/virtualbox%E4%B8%AD%E8%BF%90%E8%A1%8C%E8%BF%85%E9%9B%B7.png" alt=""/><br />
 （virtualbox 中运行迅雷）
+</div>
 请从 VB 官网下载你发行套件对应的安装程序，切勿从软件仓库中安装，仓库中的版本无法识别 USB 设备。
 
-6.1 版本选择
-在我的使用场景中，windows 系统的用途变得非常单一，仅为我提供在线购物、及时通讯、离线下载三类服务，所以，在 windows 版本选择上，我希望越精简越好，以达到尽可能少占用计算和存储资源的目的。winXP，体积倒是小，2001 年的系统，太古老，缺失很多现代功能，再加上微软从 2014 年 4 月 8 日停止对其更新，稳定性较差，不想用；winPE，windows 预安装环境，一种不用安装、直接插入 U 盘就可使用的 windows 版本，通常用于系统恢复，缺失很多核心功能，不可用；新雨林木风版 win7，著名的第三方精简 windows，系统内核都被动过手脚，谁知道有没有后门木马，我可是要在线购物啊，风险太大，不敢用。微软于 2011 年初发布了一款在 win7 基础上简化而来的瘦身版 windows 操作系统，winTPC（Windows Thin PC，http://www.microsoft.com/wintpc），用于在老旧设备上享受 win7 的基础功能，相较 win7，winTPC 装完后的裸系统，硬盘空间从 8.7G 减至 2.7G，内存使用率从 621M 减至 505M，安全性、功能性、轻便性都达标，就它了，非常适合我的使用场景。
-winTPC 下载地址 http://download.microsoft.com/download/C/D/7/CD789C98-6C1A-43D6-87E9-F7FDE3806950/ThinPC_110415_EVAL_x86fre.iso，下载后在 VB 中安装 winTPC。默认情况，winTPC 只能免费使用 180 天，到期后，每次登录系统将提示激活，桌面背景也会变为纯黑且无法调整，甚至连 office 套件都将无法使用。别急，微软这次还算大方，公布了一种延长免费使用期限的方法：默认免费使用 180 天，到期后，执行
+###6.1 版本选择
+在我的使用场景中，windows 系统的用途变得非常单一，仅为我提供在线购物、及时通讯、离线下载三类服务，所以，在 windows 版本选择上，我希望越精简越好，以达到尽可能少占用计算和存储资源的目的。winXP，体积倒是小，2001 年的系统，太古老，缺失很多现代功能，再加上微软从 2014 年 4 月 8 日停止对其更新，稳定性较差，不想用；winPE，windows 预安装环境，一种不用安装、直接插入 U 盘就可使用的 windows 版本，通常用于系统恢复，缺失很多核心功能，不可用；新雨林木风版 win7，著名的第三方精简 windows，系统内核都被动过手脚，谁知道有没有后门木马，我可是要在线购物啊，风险太大，不敢用。微软于 2011 年初发布了一款在 win7 基础上简化而来的瘦身版 windows 操作系统，winTPC（Windows Thin PC，http://www.microsoft.com/wintpc ），用于在老旧设备上享受 win7 的基础功能，相较 win7，winTPC 装完后的裸系统，硬盘空间从 8.7G 减至 2.7G，内存使用率从 621M 减至 505M，安全性、功能性、轻便性都达标，就它了，非常适合我的使用场景。
+
+winTPC 下载地址 http://download.microsoft.com/download/C/D/7/CD789C98-6C1A-43D6-87E9-F7FDE3806950/ThinPC_110415_EVAL_x86fre.iso ，下载后在 VB 中安装 winTPC。默认情况，winTPC 只能免费使用 180 天，到期后，每次登录系统将提示激活，桌面背景也会变为纯黑且无法调整，甚至连 office 套件都将无法使用。别急，微软这次还算大方，公布了一种延长免费使用期限的方法：默认免费使用 180 天，到期后，执行
+
+```
 slmgr.vbs -rearm
+```
 可延长 180 天，微软允许你这样重复 5 次，再次到期后，将注册表项 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform\"SkipRearm" 的值改为 1，又可重复 8 次，换言之，从初次安装到完全过期，可以用 7 年时间（(1 + 5 + 8) * 180 天）。7 年，差不多你也该重装系统了。
-   winTPC 裁剪了大量非必要的服务和功能，其中包括中文语言包，若缺失将导致中文乱码，所以，必须自行安装中文包。先下载中文包 http://forums.mydigitallife.info/threads/27977-Windows-Embedded-Standard-7-Windows-Thin-PC-language-packs（墙外），接着确保以 admin 登录系统（参考 http://jingyan.baidu.com/article/ab69b270ff426e2ca6189f54.html），然后将中文语言包 chinese_language_package.cab 拷贝至 C:\，最后执行
+
+winTPC 裁剪了大量非必要的服务和功能，其中包括中文语言包，若缺失将导致中文乱码，所以，必须自行安装中文包。先下载中文包 http://forums.mydigitallife.info/threads/27977-Windows-Embedded-Standard-7-Windows-Thin-PC-language-packs （墙外），接着确保以 admin 登录系统（参考 http://jingyan.baidu.com/article/ab69b270ff426e2ca6189f54.html ），然后将中文语言包 chinese_language_package.cab 拷贝至 C:\，最后执行
+
+```
 dism /online /add-package /packagepath:C:\lp.cab 
+```
 后重启生效 。
+
 要像使用原生 windows 那样使用装在 VB 中的 winTPC，你还得注意以下几方面。
-内核管理。VB 对内核版本非常敏感，一旦有内核升级，必须对 VB 核心模块进行重新编译。别担心，不需要你具备程序员的能力，VB 会自动执行，你，负责为它准备相关编译工具：编译器 gcc、构建工具 make、内核头文件 kernel-dev，这三个工具均可通过软件仓库安装。一旦就绪，用 root 权限执行
+
+* 内核管理。VB 对内核版本非常敏感，一旦有内核升级，必须对 VB 核心模块进行重新编译。别担心，不需要你具备程序员的能力，VB 会自动执行，你，负责为它准备相关编译工具：编译器 gcc、构建工具 make、内核头文件 kernel-dev，这三个工具均可通过软件仓库安装。一旦就绪，用 root 权限执行
+
+```
 /etc/init.d/vboxdrv setup
+```
 即可；
-显卡管理。要让 VB 中的 winTPC 支持 3D 显卡加速，必须安装内置增强包。增强包只有在 windows 的安全模式下才能完整安装，windows 虚拟机启动时按 F8 进入安全模式，选择 virtualbox 菜单 devices - install guest additions 进行内置增强包的安装；
-USB 管理。要让 VB 完全支持 USB 设备，除了安装内置增强包外，还应安装外置增强包。VB 官网下载 VirtualBox Extension Pack 外置增强包，从 VB 控制界面 file - preferences - exensions 中选择安装外置增强包，从 machine - settings - usb  中选中 enable usb controller 和 enable usb 2.0 (EHCI) controller，保存后重启主系统（对，不仅 VB 重启）。一般情况下，你插入的 USB 设备先是被主系统识别，要让客系统识别，必须在客系统中将其勾选出来，如果某个 USB 设备你只会在客系统中使用，这冗余一步未免麻烦，这时可以设置 USB 设备过滤器，让主系统自动移交控制权给客系统，比如，我的建行 U 盾“DMWZ Co. eSafeE_H”，如下图设置后，它将自动出现在客系统中：
+
+* 显卡管理。要让 VB 中的 winTPC 支持 3D 显卡加速，必须安装内置增强包。增强包只有在 windows 的安全模式下才能完整安装，windows 虚拟机启动时按 F8 进入安全模式，选择 virtualbox 菜单 devices - install guest additions 进行内置增强包的安装；
+
+* USB 管理。要让 VB 完全支持 USB 设备，除了安装内置增强包外，还应安装外置增强包。VB 官网下载 VirtualBox Extension Pack 外置增强包，从 VB 控制界面 file - preferences - exensions 中选择安装外置增强包，从 machine - settings - usb  中选中 enable usb controller 和 enable usb 2.0 (EHCI) controller，保存后重启主系统（对，不仅 VB 重启）。一般情况下，你插入的 USB 设备先是被主系统识别，要让客系统识别，必须在客系统中将其勾选出来，如果某个 USB 设备你只会在客系统中使用，这冗余一步未免麻烦，这时可以设置 USB 设备过滤器，让主系统自动移交控制权给客系统，比如，我的建行 U 盾“DMWZ Co. eSafeE_H”，如下图设置后，它将自动出现在客系统中：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/USB%20%E8%AE%BE%E5%A4%87%E8%BF%87%E6%BB%A4%E5%99%A8.png" alt=""/><br />
 （USB 设备过滤器）
-另外，有时你可能会遇到客系统提示无法获取 USB 设备控制权的提示“Failed to create a proxy device for the USB device. (Error: VERR_READ_ERROR)”，十有八九是你主系统中未正确设置将该设备的读写权限，给拥有者、群组、其他三类用户均分配读写权限
+</div>
+另外，有时你可能会遇到客系统提示无法获取 USB 设备控制权的提示“Failed to create a proxy device for the USB device. (Error: VERR_READ_ERROR)”，十有八九是你主系统中未正确设置将该设备的读写权限，给拥有者、群组、其他三类用户均分配读写权限  
+```
 chmod a=rw usbname1 usbname2
+```  
 重启 VB 即可。
 
-6.2 资源下载
+###6.2 资源下载
 在我看来，优秀的下载工具至少应具备如下功能：支持主流公有下载协议（bt、ed2k、ftp）、支持不同协议从多个来源下载同个文件（如，你通过 ftp 协议下载文件 big_file.iso，下载工具智能分析找出其他协议在不同渠道中是否有同个 big_file.iso 文件，实现从原地址下载的同时也从所有其他尽可能多的地址下载同个 big_file.iso）、支持断线续传，所以，老牌下载工具 wget 已无法满足需求，推荐三个下载利器推荐：aria2、MLDonkey、uGet，优选 aria2，非常强大的下载利器，不过是命令行程序，以后考虑为它写个 GUI 前端，喜欢 GUI 的选用 uGet。
+
 如果你是在国外网络环境中，有这几个工具之一也就足够了，但在冏朝就没那么单纯了，下载一定需要离线。目前有两款离线下载工具迅雷和 QQ 旋风。你知道，迅雷被 +- 和谐了，基本无法下载爱情动作片，所以仍然用迅雷的骚年，戒爱吧。我最近开始用 QQ 旋风，发现其优势有四：一是即便同样被视为违规资源但完全不影响下载速度，二是 QQ 旋风有个网页版支持跨平台（所以 linux 下诞生了 xfdown），三是资源消耗奇低，四是完全兼容迅雷私有协议 thunder:// 的下载地址。
+
 前一节介绍的 VB 虚拟机 winTPC，直接安装 QQ 旋风即可。
 
-6.3 网上购物
+###6.3 网上购物
 网上购物涉及两类操作，网银支付和在线交流，前者就是各大银行的在线支付程序，后者指的是淘宝旺旺软件，典型的两类 windows 原生应用，请参考上例在 windows 虚拟机中安装对应软件即可。唯一需要注意的 U 盾的识别，插入 U 盾后，先到 VB 中 setting - usb，勾选 enable usb controller，再到 windows 虚拟机中 devices - usb devices 列表中选中对应 U 盾，这样，windows 就能正确识别 U 盾了。其他 USB 设备的识别与之类似；
+
 啰嗦两句网银支付。目前看来，朝内绝大部分银行仅支持 windows + IE 平台在线支付，完全忽视非 windows 用户的存在，强烈谴责“为保障您的资金安全，我行建议您在 windows 系统中完成交易”，举着安全大旗招摇过市（windows 安全？你银行服务器莫非装的高大上 windows server 2K8），相反，国外各大银行遵循标准化，支持在各类操作系统、浏览器上进行网上交易，如，美国花旗、汇丰，更有甚者（德国的银行业），银行对外开放 API，允许用户自行开发交易程序，怎么没见这些银行发生安全事故！当然，不是所有朝内银行都是“如此重视安全”，浦发银行是少数几家支持跨平台交易的银行，大家风范，值得推荐（不过营业网点较少，二三线城市几乎没有）。
+
 http://www.openbanks.info 是一个专注于探讨网银跨平台主题的网站，有兴趣可以逛逛。
 
-6.4 即时通讯
+###6.4 即时通讯
 常见的 IM 工具包括飞信、QQ、旺旺，这三个 IM 都有对应的 linux 版本，但，不论是官方发布的还是第三方通过逆向工程实现的，从功能完整性、运行稳定性、界面友好性来看，均与 windows 原生版本存在巨大差距，实际使用效果并不理想。如果的确要用，建议参照上例，在 windows 虚拟机中安装运行。
+
 或许是冏朝的 linux 用户量过少（linux 在全球桌面领域占有率仅为 2%，且主要分布在万恶的欧美等资本主义国家），国内软件开发商基本采用忽略态度，即便发布了 linux 版的程序，要么长年不更新（QQ for linux 从 2009 年 1 月发布后从未更新过，http://im.qq.com/qq/linux/download.shtml）、要么不对外发布（aliwangwang for linux，仅用于淘宝公司内部测试，http://ge.tt/8sppgia），在此呼吁各大开发商，请对 linux 予以正确的认识和重视，尊重我们选择操作系统的权利。（不得不承认，QQ 在囧朝不仅是 IM 工具，而是一种通讯渠道，如果你真离不开它，可以考虑web QQ（http://web.qq.com）
 
-7 其他杂项
+#7 其他杂项
 前面介绍了各种常用软件，除此之外，还有些我个人经常用到但有不能归入前面分类中的软件，暂且放置于此。
 
 7.1 蓝牙收发
