@@ -1064,23 +1064,25 @@ dism /online /add-package /packagepath:C:\lp.cab
 
 要像使用原生 windows 那样使用装在 VB 中的 winTPC，你还得注意以下几方面。
 
-* 内核管理。VB 对内核版本非常敏感，一旦有内核升级，必须对 VB 核心模块进行重新编译。别担心，不需要你具备程序员的能力，VB 会自动执行，你，负责为它准备相关编译工具：编译器 gcc、构建工具 make、内核头文件 kernel-dev，这三个工具均可通过软件仓库安装。一旦就绪，用 root 权限执行
+内核管理。VB 对内核版本非常敏感，一旦有内核升级，必须对 VB 核心模块进行重新编译。别担心，不需要你具备程序员的能力，VB 会自动执行，你，负责为它准备相关编译工具：编译器 gcc、构建工具 make、内核头文件 kernel-dev，这三个工具均可通过软件仓库安装。一旦就绪，用 root 权限执行
+
 ```
 /etc/init.d/vboxdrv setup
 ```
 即可；
 
-* 显卡管理。要让 VB 中的 winTPC 支持 3D 显卡加速，必须安装内置增强包。增强包只有在 windows 的安全模式下才能完整安装，windows 虚拟机启动时按 F8 进入安全模式，选择 virtualbox 菜单 devices - install guest additions 进行内置增强包的安装；
+显卡管理。要让 VB 中的 winTPC 支持 3D 显卡加速，必须安装内置增强包。增强包只有在 windows 的安全模式下才能完整安装，windows 虚拟机启动时按 F8 进入安全模式，选择 virtualbox 菜单 devices - install guest additions 进行内置增强包的安装；
 
-* USB 管理。要让 VB 完全支持 USB 设备，除了安装内置增强包外，还应安装外置增强包。VB 官网下载 VirtualBox Extension Pack 外置增强包，从 VB 控制界面 file - preferences - exensions 中选择安装外置增强包，从 machine - settings - usb  中选中 enable usb controller 和 enable usb 2.0 (EHCI) controller，保存后重启主系统（对，不仅 VB 重启）。一般情况下，你插入的 USB 设备先是被主系统识别，要让客系统识别，必须在客系统中将其勾选出来，如果某个 USB 设备你只会在客系统中使用，这冗余一步未免麻烦，这时可以设置 USB 设备过滤器，让主系统自动移交控制权给客系统，比如，我的建行 U 盾“DMWZ Co. eSafeE_H”，如下图设置后，它将自动出现在客系统中：
+USB 管理。要让 VB 完全支持 USB 设备，除了安装内置增强包外，还应安装外置增强包。VB 官网下载 VirtualBox Extension Pack 外置增强包，从 VB 控制界面 file - preferences - exensions 中选择安装外置增强包，从 machine - settings - usb  中选中 enable usb controller 和 enable usb 2.0 (EHCI) controller，保存后重启主系统（对，不仅 VB 重启）。一般情况下，你插入的 USB 设备先是被主系统识别，要让客系统识别，必须在客系统中将其勾选出来，如果某个 USB 设备你只会在客系统中使用，这冗余一步未免麻烦，这时可以设置 USB 设备过滤器，让主系统自动移交控制权给客系统，比如，我的建行 U 盾“DMWZ Co. eSafeE_H”，如下图设置后，它将自动出现在客系统中：
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/USB%20%E8%AE%BE%E5%A4%87%E8%BF%87%E6%BB%A4%E5%99%A8.png" alt=""/><br />
 （USB 设备过滤器）
 </div>
-另外，有时你可能会遇到客系统提示无法获取 USB 设备控制权的提示“Failed to create a proxy device for the USB device. (Error: VERR_READ_ERROR)”，十有八九是你主系统中未正确设置将该设备的读写权限，给拥有者、群组、其他三类用户均分配读写权限  
+另外，有时你可能会遇到客系统提示无法获取 USB 设备控制权的提示“Failed to create a proxy device for the USB device. (Error: VERR_READ_ERROR)”，十有八九是你主系统中未正确设置将该设备的读写权限，给拥有者、群组、其他三类用户均分配读写权限
+
 ```
 chmod a=rw usbname1 usbname2
-```  
+```
 重启 VB 即可。
 
 ###6.2 资源下载
