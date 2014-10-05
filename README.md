@@ -1112,7 +1112,7 @@ http://www.openbanks.info 是一个专注于探讨网银跨平台主题的网站
 
 openSUSE 默认已经安装好相关蓝牙管理程序（核心程序 gnome-bluetooth 和 bluez），请确认正确、完整安装。在开始之前，我们先要进行文件共享设置，以便笔记本接收手机发送的图片。运行 personal file sharing 程序，按参照下图选中所有勾选框：
 <div align="center">
-<img src="" alt=""/><br />
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E5%85%81%E8%AE%B8%E8%93%9D%E7%89%99%E6%8E%A5%E6%94%B6%E6%96%87%E4%BB%B6.png" alt=""/><br />
 （允许蓝牙接收文件）
 </div>
 
@@ -1120,17 +1120,17 @@ openSUSE 默认已经安装好相关蓝牙管理程序（核心程序 gnome-blue
 
 首先，运行 bluetooth，出现如下界面：
 <div align="center">
-<img src="" alt=""/><br />
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%9C%AA%E6%B7%BB%E5%8A%A0%E9%85%8D%E5%AF%B9%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87.png" alt=""/><br />
 （未添加配对蓝牙设备）
 </div>
 然后，点击“+”添加配对手机：
 <div align="center">
-<img src="" alt=""/><br />
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%B7%BB%E5%8A%A0%E6%89%8B%E6%9C%BA%E2%80%9C%E6%9D%8E%E5%A4%A7%E8%88%85%E2%80%9D.png" alt=""/><br />
 （添加手机“李大舅”：-）
 </div>
 接着，点击右下角 browse files... 浏览手机存储卡，下图为手机存储文件列表：
 <div align="center">
-<img src="" alt=""/><br />
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%89%8B%E6%9C%BA%E5%AD%98%E5%82%A8%E5%8D%A1%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8.png" alt=""/><br />
 （手机存储卡文件列表）
 </div>
 最后，后续在笔记本和手机目录间剪切文件即可实现蓝牙文件传送。
@@ -1142,19 +1142,19 @@ openSUSE 默认已经安装好相关蓝牙管理程序（核心程序 gnome-blue
 
 第一步，在被管端运行 AirDroid，程序将随机生成控制端访问该被管端的验证码，以及控制端访问的 IP（用于无互联网环境）和 URL（用于有互联网环境）地址。如下图所示：
 <div align="center">
-<img src="" alt=""/><br />
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E8%A2%AB%E7%AE%A1%E7%AB%AF%E7%94%9F%E6%88%90%E9%AA%8C%E8%AF%81%E7%A0%81.png" alt=""/><br />
 （被管端生成验证码）
 </div>
 
 第二步，在控制端用浏览器访问 http://web.airdroid.com ，并输入上面的验证码：
 <div align="center">
-<img src="" alt=""/><br />
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%8E%A7%E5%88%B6%E7%AB%AF%E8%BE%93%E5%85%A5%E9%AA%8C%E8%AF%81%E7%A0%81.png" alt=""/><br />
 （控制端输入验证码）
 </div>
 
 第三步，在控制端随心控制被管端：
 <div align="center">
-<img src="" alt=""/><br />
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%8E%A7%E5%88%B6%E8%A2%AB%E7%AE%A1%E7%AB%AF.png" alt=""/><br />
 （控制被管端）
 </div>
 
