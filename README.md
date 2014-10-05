@@ -266,54 +266,65 @@ word、excel、powerpoint 等三个软件是 windows 中必装的办公文书软
 
 ###1.2 电邮收发
 很多人喜欢通过邮件服务提供商官网进行邮件收发，强烈建议改用邮件客户端，避免频繁登录邮箱，同时，还能离线查阅邮件内容。好的邮件客户端除了正常收发邮件外，还应具备地址簿管理、垃圾邮件过滤、多账户管理、日程安排、同步删除远程邮件，甚至为常见邮件提供商智能配置等等高级功能，thunderbird 算是不错的。
+
 软件名称：thunderbird
+
 界面截图：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/thunderbird.png" alt=""/><br>
 （thunderbird）
-<div align="center">
-<img src="" alt=""/><br>
 </div>
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E5%86%99%E9%82%AE%E4%BB%B6.png" alt=""/><br>
 （写邮件）
+</div>
 
 ###1.3 电子书阅读
 电子书格式类型较多，包括 hlp、lit、wdl、ceb、abm、pdg、epub、pdf、chm 等等，但常见的还是最后两类。下面介绍下 pdf 和 chm 的阅读器。
 
 ####1.3.1 pdf 阅读
 世上有三件事你无法回避：死亡、税收、阅读 PDF 文档。
+
 软件名称：evince
+
 界面截图：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/evince.png" alt=""/><br>
 （evince）
-使用问题：你知道，正常情况下，被选中的文本段会反色高亮显示，估计是 evince 本地化问题（未用 unicode 编码 -_-??），某些中文 pdf 文档，反色显示的文字会成乱码，虽不影响真正复制到粘贴板中的内容（换言之，从 evince 中复制出来的文字仍正常），但一定程度上影响了我等喜欢选中一段看一段的用户阅读体验。如下图所示：
-<div align="center">
-<img src="" alt=""/><br>
 </div>
+
+使用问题：你知道，正常情况下，被选中的文本段会反色高亮显示，估计是 evince 本地化问题（未用 unicode 编码 -\_-??），某些中文 pdf 文档，反色显示的文字会成乱码，虽不影响真正复制到粘贴板中的内容（换言之，从 evince 中复制出来的文字仍正常），但一定程度上影响了我等喜欢选中一段看一段的用户阅读体验。如下图所示：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%9C%AA%E9%80%89%E5%89%8D%E7%9A%84%E6%96%87%E6%9C%AC.png" alt=""/><br>
 （未选前的文本）
-<div align="center">
-<img src="" alt=""/><br>
 </div>
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E9%80%89%E4%B8%AD%E5%90%8E%E7%9A%84%E6%96%87%E6%9C%AC.png" alt=""/><br>
 （选中后的文本）
-其他说明：推荐几个常用的软件开发相关电子书下载网站：http://it-ebooks.info、http://www.freetechbooks.com。
+</div>
+
+其他说明：推荐几个常用的软件开发相关电子书下载网站：http://it-ebooks.info 、http://www.freetechbooks.com 。
+
 另外，我对 pdf 修改也有使用需求。很遗憾，linux 下并无稳定、高质量的 pdf 修改开源工具，上古时代的 pdftk、flpsed、pdfedit 一众古董完全派不上场，pdf studio 算是唯一功能达标的，但又是闭源共享软件，不推荐。既然修改不了 pdf，添加注释总可以吧，xournal 就是满足这一需求的软件。
+
 软件名称：xournal
+
 界面截图：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/PDF%E4%BF%AE%E6%94%B9.png" alt=""/><br>
 （PDF修改）
+</div>
 
 ####1.3.2 chm 阅读
 虽然 chm 文档越来越少，但难免还是会遇到，有两个工具可阅读 chm：chmsee 和 kchmviewer。
+
 软件名称：chmsee；
+
 界面截图：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/chmsee.png" alt=""/><br>
 （chmsee）
+</div>
 
 ##2 娱乐休闲
 linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同时，也可为你提供日常休闲娱乐。
