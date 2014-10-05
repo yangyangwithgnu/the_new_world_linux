@@ -485,13 +485,13 @@ YouTube 上的视频，可由插件 1-Click YouTube Video Download 实现下载�
 
 **HTTP 抓包**，Live HTTP Headers。作为一名伪 geek，深挖本质是必不可少的特质，有了它，任何网页请求都逃不过你的法眼：
 <div align="center">
-<img src="" alt=""/><br />
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/HTTP%20%E6%8A%93%E5%8C%85.gif" alt=""/><br />
 （HTTP 抓包）
 </div>
 
 **自定义客户端类型**，User Agent Switcher。某些网站会限制客户端类型，比如，你公司的 OA 系统，必须是 win + IE 才能访问。服务端通过解析 HTTP 报文中的 User-Agent 字段进行判断是否满足要求。这时，你可以用 User Agent Switcher 插件欺骗服务端，达到随意指定客户端类型的目的，比如，指定为 win7 + IE10 可以伪装成一台办公网内的普通电脑，指定为 ios7 + Safari5 甚至可以伪装成一台 iphone 手机，访问 http://www.useragentstring.com/ 确认是否生效。可伪装类型的完整列表见 http://www.useragentstring.com/pages/useragentstring.php 。未开启 User Agent Switcher 时，访问 http://www.useragentstring.com/ 侦测到我的系统为 Mozilla/5.0 (X11; Linux i686; rv:31.0) Gecko/20100101 Firefox/31.0，开启 User Agent Switcher 后，再次访问 http://www.useragentstring.com/ 侦测到的系统则变为我指定的 Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)，如如下图所示：
 <div align="center">
-<img src="" alt=""/><br />
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%B1%BB%E5%9E%8B.gif" alt=""/><br />
 （自定义客户端类型）
 </div>
 
