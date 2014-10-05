@@ -702,7 +702,7 @@ ExitNodes {MY}
 # 严格按 ExitNodes 设定选用出口中继，即便没有可用中继导致创建地下网络路径失败也要严格选用 
 StrictNodes 1
 ```
-其中，我希望出口 IP 位于马来西亚，所以在 {} 设定为 MY，你可以换成任何你希望的国家或地区，比如想要台湾 IP，可以设定为 TW，完整国家代码参见 http://zh.wikipedia.org/wiki/ISO_3166-1 。
+其中，我希望出口 IP 位于马来西亚，所以在 {} 设定为 MY，你可以换成任何你希望的国家或地区，比如想要台湾 IP，可以设定为 TW，完整国家代码参见 http://zh.wikipedia.org/wiki/%E5%9C%8B%E5%AE%B6%E5%9C%B0%E5%8D%80%E4%BB%A3%E7%A2%BC 。
 
 * 方式二，按节点名进行指定，在 tor 配置文件中增加如下信息：
 
