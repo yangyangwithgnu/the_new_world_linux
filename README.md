@@ -8,15 +8,6 @@ yangyang.gnu@gmail.com
 
 <!--**讨论**：任何意见建议移步 http://www.v2ex.com/t/123175  -->
 
-<!--当前在线人数-->
-<script language="JavaScript"> 
-var ref = (''+document.referrer+'');
-var w_h = window.screen.width + " x " + window.screen.height;
-document.write('<script src="http://freehostedscripts.net/ocounter.php?site=ID3995775&e1=Online User&e2=Online Users&r=' + ref + '&m=0&wh=' + w_h + '"><\/script>'); 
-</script>
-
-<!--访问人数-->
-<script language="JavaScript" src="http://freehostedscripts.net/ocount.php?site=ID2487263&name=Visits"></script>
 
 
 ==================
@@ -386,103 +377,141 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 （audacity）
 </div>
 
-#3 网上冲浪 
+##3 网上冲浪 
 问：宅男最怕失去啥？答：网络（谁说苍老师？@\_@！）。网络在给我们带来无限乐趣的同时，也在不断地改变着人类生活方式。
 
-3.1 网页浏览
+###3.1 网页浏览
 浏览器是互联网入口，各大互联网公司必争之地。opera、chrome、firefox 三大浏览器，opera 功能上没有多少过人之处且不开源，丢之；chrome 虽有开源版本 chromium，但很多插件都仅支持 windows 平台而在 linux 下无法使用（包括google自己出品的 Chrome Toolbox），弃之；firefox，开源且以 linux 为第一阵营，凭借其高安全性和可扩充性赢得大量忠实用户。
+
 软件名称：firefox；
+
 界面截图：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/firefox.png" alt=""/><br>
 （firefox）
+</div>
+
 你对 firefox 的任何需求，几乎都可以通过其丰富的插件资源得到满足（另一个有如此庞大插件资源的软件当数 vim 了，后面有介绍）。进入 tools -> add-ons 即可在线查找需要的插件，找到后点击在线安装即可，安装完成需重启浏览器以让新装插件生效。下面介绍几款我觉得非常有用的插件。
-下载管理，download status bar。完全替代 firefox 自带的下载管理器，它可以实时查看下载进度、可以直接打开下载完的文件、可以根据当前下载速度用不同颜色高亮提示等等。如下图，第一个文件已下载完毕，第二个正在下载，实时速度为 167.2K、下载进度为 19%、橙色背景表示速度在 200K 以下，若达到 600K 则会显示为绿色：
+
+**下载管理**，download status bar。完全替代 firefox 自带的下载管理器，它可以实时查看下载进度、可以直接打开下载完的文件、可以根据当前下载速度用不同颜色高亮提示等等。如下图，第一个文件已下载完毕，第二个正在下载，实时速度为 167.2K、下载进度为 19%、橙色背景表示速度在 200K 以下，若达到 600K 则会显示为绿色：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/download%20statusbar.png" alt=""/><br>
 （download statusbar）
-对象拖拽，quickdrag。若拖拽链接则直接打开，若拖动文本则在当前搜索引擎中搜索。如下图所示：
-<div align="center">
-<img src="" alt=""/><br>
 </div>
+
+**对象拖拽**，quickdrag。若拖拽链接则直接打开，若拖动文本则在当前搜索引擎中搜索。如下图所示：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E5%AF%B9%E8%B1%A1%E6%8B%96%E6%8B%BD%E6%8F%92%E4%BB%B6%20quickdrag.gif" alt=""/><br>
 （对象拖拽插件 quickdrag）
+</div>
+
 另外，我不太喜欢立即激活新页面，本来 firefox 中有个选项（preferences -> tabs -> when I open a link in a new tab, switch to it immediately）可用于此设置，但长年无效，只能直接修改它的配置项：地址栏中输入 about:config，查找 browser.tabs.loadDivertedInBackground 配置项，双击使其为 true 即可。
-鼠标手势，all-in-one gestures。我常用的右键向左拖动表示退回、向右拖动表示前进。如下所示：
+
+**鼠标手势**，all-in-one gestures。我常用的右键向左拖动表示退回、向右拖动表示前进。如下所示：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E9%BC%A0%E6%A0%87%E6%89%8B%E5%8A%BF%E6%8F%92%E4%BB%B6%20all-in-one%20gestures.gif" alt=""/><br>
 （鼠标手势插件 all-in-one gestures）
-双击关闭 tab，close tab by double click。无须多说，个人习惯；
-侧边显示，all-in-one sidebar。将收藏夹、下载管理、插件管理、访问历史等统一收纳到侧边条中，如下图所示：
-<div align="center">
-<img src="" alt=""/><br>
 </div>
+
+**双击关闭 tab**，close tab by double click。无须多说，个人习惯；
+
+**侧边显示**，all-in-one sidebar。将收藏夹、下载管理、插件管理、访问历史等统一收纳到侧边条中，如下图所示：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/all-in-one%20sidebar.png" alt=""/><br>
 （侧边显示插件 all-in-one sidebar）
-恢复关闭页面，Undo Closed Tabs Button。下载安装好后，先要通过 customize 将 undo 图标拖动到 firefox 工具栏中才能看到。如下图所示：
-<div align="center">
-<img src="" alt=""/><br>
 </div>
+
+**恢复关闭页面**，Undo Closed Tabs Button。下载安装好后，先要通过 customize 将 undo 图标拖动到 firefox 工具栏中才能看到。如下图所示：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%81%A2%E5%A4%8D%E5%85%B3%E9%97%AD%E9%A1%B5%E9%9D%A2%E6%8F%92%E4%BB%B6%20Undo%20Closed%20Tabs%20Button.gif" alt=""/><br>
 （恢复关闭页面插件 Undo Closed Tabs Button）
-flash 播放。目前几乎所有在线视频、在线文库等网站都通过 flash 实现（亲，我说的通过浏览器直接访问，我知道你 iphone 也可以观看在线视频，但那是通过安装本地APP 观看，与这儿说的事情没啥干系），常逛这类网站的朋友必须得装 flash 插件才能正常访问。adobe 不给力，导致很多浏览器加载 flash 文件时失败，提示 the adobe flash plugin has crashed：
-<div align="center">
-<img src="" alt=""/><br>
 </div>
+
+**flash 播放**。目前几乎所有在线视频、在线文库等网站都通过 flash 实现（亲，我说的通过浏览器直接访问，我知道你 iphone 也可以观看在线视频，但那是通过安装本地APP 观看，与这儿说的事情没啥干系），常逛这类网站的朋友必须得装 flash 插件才能正常访问。adobe 不给力，导致很多浏览器加载 flash 文件时失败，提示 the adobe flash plugin has crashed：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/flash%E6%8F%92%E4%BB%B6%E6%8A%A5%E9%94%99.png" alt=""/><br>
 （flash插件报错）
-到 adobe 官网 http://get.adobe.com/flashplayer/otherversions/ 下载最新版的 *.tar.gz，解压后提取 libflashplayer.so 至 /usr/lib/browser-plugins/libflashplayer.so，重启 firefox 即可正常显示 flash。
+</div>
+
+到 adobe 官网 http://get.adobe.com/flashplayer/otherversions/ 下载最新版的 \*.tar.gz，解压后提取 libflashplayer.so 至 /usr/lib/browser-plugins/libflashplayer.so，重启 firefox 即可正常显示 flash。
+
 另外，如果你用的是 chromium 则不太可能出现 flash 显示问题。这是因为 google 与 adobe 合作开发了一项称之为 pepper API 的新技术，google 自家的 chromium 肯定支持 pepper，这就使得 flash 可以以插件的形式运行在 chromium 浏览器中。包括 firefox 在内的其它浏览器则不支持这项技术，因此也就无法播放 flash。
+
 听闻 adobe 公告，从 11.2 以后不再支持 linux 平台，唉，乔帮主英明，adobe 要自掘坟墓咱也别拦他，全当在给 HTML5 腾位置吧。
-在线视频下载，1-Click YouTube Video Download。随着在线视频的繁荣，国外的 YouTube、国内的 PPTV 等一大批视频网站上沉淀了很多有价值的视频，考虑到天朝宽带排名全球 96 位的现状，为了不影响观影体验，我有很强的驱动力将在线视频下载到本地。
+
+**在线视频下载**，1-Click YouTube Video Download。随着在线视频的繁荣，国外的 YouTube、国内的 PPTV 等一大批视频网站上沉淀了很多有价值的视频，考虑到天朝宽带排名全球 96 位的现状，为了不影响观影体验，我有很强的驱动力将在线视频下载到本地。
+
 YouTube 上的视频，可由插件 1-Click YouTube Video Download 实现下载。安装好该插件重启 firefox 后，进入某个具体视频页面，在视频左下角多了个 Download 按钮，点击该按钮你将看到不同分辨率的视频下载地址列表，见下图：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/YouTube%20%E5%9C%A8%E7%BA%BF%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6%201-Click%20YouTube%20Video%20Download.gif" alt=""/><br>
 （YouTube 在线视频下载插件 1-Click YouTube Video Download）
+</div>
+
 此外，国外 vimeo、metacafe、intv 甚至 facebook 等等网站上的视频，我推荐你使用在线工具 http://en.savefrom.net/ 解析视频地址；国内的 PPTV、优酷、土豆、奇艺等等视频网站，可以通过硕鼠 http://www.flvcd.com 解析。
-添加搜索引擎，Add to Search Bar。互联网是个巨大的知识库，你需要的任何知识都可以从中获取，前提是有个给力的搜索引擎。在我看来，好的搜索引擎应该：检索范围广泛、收录页面快速、检索结果无屏蔽、原创内容优先、智能分析相似关键字。
+
+**添加搜索引擎**，Add to Search Bar。互联网是个巨大的知识库，你需要的任何知识都可以从中获取，前提是有个给力的搜索引擎。在我看来，好的搜索引擎应该：检索范围广泛、收录页面快速、检索结果无屏蔽、原创内容优先、智能分析相似关键字。
+
 搜索引擎如何选择？根据搜索内容的不同，我会依次使用如下几个引擎进行查找：
-英文资料，先 http://www.duckduckgo.com 后 http://www.google.com，前者剔重算法完胜后者，而且搜索过的关键字绝对不记入 cookie。（从大陆发起的访问自动被转向到香港服务器 http://www.google.com.hk，要访问美国服务器可用如下网址 http://www.google.com/ncr，其中，ncr 为 no country redirect，即不根据访问请求发起国家进行重定向）；
-中文技术资料，先 http://tw.search.yahoo.com 后 http://www.google.com.tw（百毒？没听过 ^o^）；
+
+1. 英文资料，先 http://www.duckduckgo.com 后 http://www.google.com，前者剔重算法完胜后者，而且搜索过的关键字绝对不记入 cookie。（从大陆发起的访问自动被转向到香港服务器 http://www.google.com.hk，要访问美国服务器可用如下网址 http://www.google.com/ncr，其中，ncr 为 no country redirect，即不根据访问请求发起国家进行重定向）；
+2. 中文技术资料，先 http://tw.search.yahoo.com 后 http://www.google.com.tw（百毒？没听过 ^o^）；
+
 啰嗦几句，台湾人的技术文章多以原创为主，不像冏朝清一色的转载，特别是，很多国外经典计算机书籍引入冏朝后，被所谓的大学教授翻译得比日文还难读（《thinking in c++》，多经典的一本书，翻译得老子想骂人），这时，可以考虑找对应台译版（台版《thinking in c++》由蔡明志先生翻译），虽说有些术语叫法不同，但基本体现了著作原意。
+
 如果你要用台湾搜索引擎查找技术资料，得注意以下几点：
-http://tw.search.yahoo.com 和 http://www.google.com.tw（及其搜索结果）均为墙外网站，要想正常访问必须搭梯，具体参见后文“搭梯翻墙”；
-为提高搜索命中率，尽量用台湾术语（如，面向对象-物件导向）；
-务必输入繁体字（可在 ibus 输入法中设置），否则将会出现很多朝内搜索结果；
+* http://tw.search.yahoo.com 和 http://www.google.com.tw（及其搜索结果）均为墙外网站，要想正常访问必须搭梯，具体参见后文“搭梯翻墙”；
+* 为提高搜索命中率，尽量用台湾术语（如，面向对象-物件导向）；
+* 务必输入繁体字（可在 ibus 输入法中设置），否则将会出现很多朝内搜索结果；
+
 另外，但凡中译书籍，建议直接海购繁体中文版，前面说过台湾人翻译的质量远胜囧朝，再次悲哀 :-(。
+
 话外音，国外将冏朝中文叫作 simplified chinese，而将台湾中文叫作 traditional chinese，也就是说，在老外眼里，冏朝用的是删减后的中文，而台湾用的才是老祖宗传下来的纯正传统中文。
+
 添加搜索引擎。安装好 Add to Search Bar，在搜索引擎首页的输入框中右键，选择 add to search bar 即可，如下图所示：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/Add%20to%20Search%20Bar.png" alt=""/><br>
 （Add to Search Bar）
+</div>
+
 添加后，在浏览器的搜索引擎列表中查看所有搜索引擎：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E5%88%97%E8%A1%A8.png" alt=""/><br>
 （搜索引擎列表）
-搜索操作习惯。你可以在 firefox 右上角的搜索引擎列表中选择喜欢的引擎直接搜索，也可以在页面上（借助 quickdrag）直接拖拽要搜索的关键字启用当前引擎进行搜索；
-代理开关，Autoproxy。Autoproxy 本身不具备代理功能，它通过一个在线配置文件，实时分析用户发起的网站访问请求中，哪些必须走代理访问、哪些可以直接访问。具体请见“搭梯翻墙”章节，Autoproxy 辅助 GoAgnet 可实现完美翻墙。
-HTTP 抓包，Live HTTP Headers。作为一名伪 geek，深挖本质是必不可少的特质，有了它，任何网页请求都逃不过你的法眼。
-自定义客户端类型，User Agent Switcher。某些网站会限制客户端类型，比如，你公司的 OA 系统，必须是 win + IE 才能访问。服务端通过解析 HTTP 报文中的 User-Agent 字段进行判断是否满足要求。这时，你可以用 User Agent Switcher 插件欺骗服务端，达到随意指定客户端类型的目的，比如，指定为 win7 + IE10 可以伪装成一台办公网内的普通电脑，指定为 ios7 + Safari5 甚至可以伪装成一台 iphone 手机，访问 http://www.useragentstring.com/ 确认是否生效。可伪装类型的完整列表见 http://www.useragentstring.com/pages/useragentstring.php。
+</div>
 
-3.2 搭梯翻墙
+搜索操作习惯。你可以在 firefox 右上角的搜索引擎列表中选择喜欢的引擎直接搜索，也可以在页面上（借助 quickdrag）直接拖拽要搜索的关键字启用当前引擎进行搜索；
+
+**代理开关**，Autoproxy。Autoproxy 本身不具备代理功能，它通过一个在线配置文件，实时分析用户发起的网站访问请求中，哪些必须走代理访问、哪些可以直接访问。具体请见“搭梯翻墙”章节，Autoproxy 辅助 GoAgnet 可实现完美翻墙。
+
+**HTTP 抓包**，Live HTTP Headers。作为一名伪 geek，深挖本质是必不可少的特质，有了它，任何网页请求都逃不过你的法眼：
+<div align="center">
+<img src="" alt=""/><br />
+（HTTP 抓包）
+</div>
+
+**自定义客户端类型**，User Agent Switcher。某些网站会限制客户端类型，比如，你公司的 OA 系统，必须是 win + IE 才能访问。服务端通过解析 HTTP 报文中的 User-Agent 字段进行判断是否满足要求。这时，你可以用 User Agent Switcher 插件欺骗服务端，达到随意指定客户端类型的目的，比如，指定为 win7 + IE10 可以伪装成一台办公网内的普通电脑，指定为 ios7 + Safari5 甚至可以伪装成一台 iphone 手机，访问 http://www.useragentstring.com/ 确认是否生效。可伪装类型的完整列表见 http://www.useragentstring.com/pages/useragentstring.php 。未开启 User Agent Switcher 时，访问 http://www.useragentstring.com/ 侦测到我的系统为 Mozilla/5.0 (X11; Linux i686; rv:31.0) Gecko/20100101 Firefox/31.0，开启 User Agent Switcher 后，再次访问 http://www.useragentstring.com/ 侦测到的系统则变为我指定的 Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)，如如下图所示：
+<div align="center">
+<img src="" alt=""/><br />
+（自定义客户端类型）
+</div>
+
+###3.2 搭梯翻墙
 "Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers." —— <<Art. 19, Universal Declaration of Human Rights, 1948>>.
 google 重新定义了搜索引擎，苹果重新定义了手机，天朝重新定义了局域网。为让大家保有天朝优越感，+- 屏蔽了大量“非法”网站，有境内/境外的、有纯技术的、有爱情动作的、有轮子功的，反正 +- 不喜欢的通通借由 GFW 这堵墙屏蔽掉。当然，也有主动屏蔽囧朝访问请求的，比如，sourceforge.net 非常反感囧朝的封闭，你朝子民别来我这儿。裆从小就教育我们，哪里有压迫哪里就有反抗，话说屏蔽之前，天朝的宅男还可以下载几部码片看看打发时间，嘚，看吧，让你屏蔽，没事做了，那就研究下怎样翻墙吧。
 
-3.3.1 封锁原理
+####3.3.1 封锁原理
 +- 最常用的封锁手段有二：关键字过滤、DNS 劫持。
 关键字过滤。你也别谈“滤”色变，全国时时刻刻这么大的网络流量交换，GFW 不可能做到全量、实时过滤分析，一是它没这么强悍的处理能力、二是这一过程严重影响网速。GFW 过滤，只能全网随机抽查，或者，有针对地对指定区域、指定 IP 进行，如果哪天你觉得小区里就你网速慢，恭喜，随机到你家。GFW 对选中 IP 的网络数据包进行实时解析，一旦发现敏感关键字，则短暂封锁终端 IP，导致所有网络访问中断。显然，要过滤关键字，必须满足数据包以明文传输这一必要条件。如果我们的浏览器支持加密访问网页，那么 GFW 永远不可能解析出关键字。默认情况下，我们通过 http 协议进行网页访问，这是明文，而 https 协议，则是密文。换言之，如果哪个浏览器默认支持 https，则可完全突破“关键字过滤”这种封锁手段 —— firefox；
 DNS 劫持。当用户输入 http://www.google.com 希望电信运营商解析出服务器真实 IP，以便访问 google，运营商在 +- 作用下停止解析这个URL，导致用户访问失败，这就是 DNS 劫持。针对这种封锁手段有两种解决方式：方式一，不依赖运营商而靠自己获取解析域名及其对应真实 IP；方式二，借助境外运营商进行域名解析。
 方式一，自己解析域名及其 IP，可以借助 SmartHosts 实现。SmartHosts（http://smarthosts.googlecode.com/svn/trunk/hosts），由众网友共同维护的一个 hosts 文件，里面存放着大量被墙域名及其 IP，将其内容追加到本地 /etc/hosts 文件中，此后，hosts 中罗列出的所有 URL 你可以正常高速访问了。但是，存在两个问题：A）SmartHosts 中的每条记录（URL 与 IP）都是各热心网友一条条手工添加的，不可能覆盖完所有被墙网站，肯定会出现一些你需要访问但又不在此列表中的网站；B）SmartHosts 更新周期不定，有时 3 天、有时 30 天，所以你需要不时去关注，有更新是及时添加至本地 hosts 文件中（最近更新时间 2013-12-07 12:16）。这种方式效果有限，你应该把精力放在方式二上。
 方式二，借助境外运营商进行域名解析，这是非常具有弹性的解决方案，只有它才能实现完美翻墙。接下来我将介绍几种基于这一思路发展出来的翻墙方式，后一种均依赖前一种，你须依次了解，切勿跳越。
 
-3.3.2 跳出死循环
+####3.3.2 跳出死循环
 翻墙，你得借助专用工具、使用证书，遇到问题时还得搜索相关解决办法，而这一切信息都在墙外，也就是说，本来你想用这些工具实现翻墙，又不得不先翻墙才能获取这些工具，这就成了个死循环。所以，我得先介绍一种体验式的翻墙方式，这种翻墙方式不追求速度快、流量大、适用广、加密强等等特性，哪怕只能用 1 个小时，关键是在墙内要能直接能获取。
 从我的经验来看，国内的收费 VPN 代理最适合（先别纠结啥是 VPN）。一般来说，收费 VPN 服务商为招揽用户，通常会放出一些免费试用 VPN 帐号让用户买单前体验一把，虽然试用帐号存在限定流量、限定流速、禁止 P2P 下载等各种约束，但通过它我们能获取后续其他强大翻墙工具。在百毒（google.com 在墙外）中搜索“VPN 试用”会出来很多收费 VPN 服务提供商，比如，https://www.wojsq.com/，用 163.com 邮箱（gmail 在墙外）注册个试用帐号，成功后你会收到帐号和密码的邮件，该帐号每月有 1G 流量（更多免费 VPN 可访问 http://ilvpn.com/free-vpn/ 获取）。接下来，在 networking settings 界面中点击左侧的 + 按钮新建 VPN 配置，interface 选 VPN 后 create...，选 point-to-point tunneling protocol (PPTP) 后 create...，接着在新界面中，connection name 中设定本 VPN 的代理名（如，wojsq），在 VPN 选项卡 gateway 中设定代理服务器 IP （https://www.wojsq.com/server/query 最上两行为试用帐号可用的 IP），user name 和 password 中分别设定邮件中写明的 VPN 用户名和密码，在 advanced... 中，authentication 只选定 MSCHAP 和 MSCHAPv2，security and compression 中选定 MPPE 加密、BSD、deflate、TCP 三种压缩模式，最后保存即可。这时，你的 VPN 配置已完成，接下来，点击 gnome 桌面右上角的网络连接图标，你会看到 VPN connections 下罗列出刚才创建的 wojsq，选中它系统便开始进行 VPN 连接，如果你的网络连接图标上多出一把小锁，说明 VPN 连接成功，到 http://www.ip38.com/ 确认下是否网络访问出口 IP 是否成为国外 IP，若是则翻墙成功。
 这种流速低、流量少、稳定性差的翻墙方式虽然存在诸多不足，但成功为我们开启了进入自由世界的大门，为高级代理提供了基础环境，本章后续介绍的其他代理涉及到工具和证书都在墙外，请务必在开启本节的 VPN 让系统处于已翻墙环境，否则无法访问。
 
-3.3.3 google 服务器代理
+####3.3.3 google 服务器代理
 google 有一套 WEB 应用程序引擎 Google App Engine（GAE），这套引擎部署在 google 位于美国的服务器上，全球任何开发人员可以向 google 免费申请在该引擎上部署自己的应用。本来，这就一普通的开放服务而已，但是，在天朝这种网络环境下，思维发散的程序员发现：GAE 位于美国服务器上，程序员能在 GAE 上部署服务端程序，如果服务端能接收客户端发送过去的网页访问请求，那完全可以让服务端作为一个中转站，借助美国运营商进行域名解析（绕开朝内运营商），一旦获取网页数据后再传回给客户端。所以，goagent 诞生。
 goagent 让 google 成为你的代理，高速且稳定访问所有被墙网站绝不是问题。当然，goagent 使用前提是能正常访问 google，前面介绍的 SmartHosts 已解决该问题，下面重点讲解。
 在进行具体操作前，先定义几个对象。goagent 包括客户端程序和服务端程序两部分，客户端程序简称为 GCP（goagent-client-programme），服务端程序简称为 GSP（goagent-server-programme），浏览器简称为 FF（firefox），墙外目标网站简称为 dest。goagent 实现的代理逻辑大致如下：FF 发起墙外 dest 网页访问请求，为绕开国内电信运营商，FF 走代理模式，将请求发至 GCP（127.0.0.1:8087），GCP 将请求转至 GSP，GSP 按 GCP 指示访问网站 dest，由于 GSP 位于美国，所以 GSP 可以顺畅地获取 dest 网页，一旦 dest 网页被 GSP 获取完整，GSP 立即传回给 GCP，GCP 再传给 FF，最终在 FF 中显示出完整页面。具体操作步骤如下：
@@ -490,6 +519,9 @@ goagent 让 google 成为你的代理，高速且稳定访问所有被墙网站�
 hi,
 my mobile phone can not receive sms for verification code! plz send the code to yangyang.gnu@gmail.com. thx man~
 2 小时 8 分 16 秒后收到回复：
+<div align="center">
+<img src="" alt=""/><br>
+</div>
 （GAE 申请回复）
 昏，还验证个啥，工作人员直接就将 GAE 使用权分配给我了（太给力了，效率啊）；
 第三步，创建 APP。用 GAE 帐号登陆 http://appengine.google.com/，点击 create application 按钮创建 APP，APP 名按自己喜好设定（如，yangyangwithgnu0、yangyangwithgnu1），若要创建多个 APP，重复本步骤；
@@ -498,19 +530,37 @@ my mobile phone can not receive sms for verification code! plz send the code to 
 第六步，上传服务端程序至 GAE。上传前务必确保系统中并未运行 proxy.py，再在 goagent/server/ 下执行：
 python uploader.zip
 整个过程耗时 1 分钟左右，如下图所示：
+<div align="center">
+<img src="" alt=""/><br>
+</div>
 （上传 goagent 至 GAE）
 第七步，设置浏览器代理地址。google_appengine/goagent/local/proxy.ini 文件中配置的监听 IP 为 127.0.0.1、端口为 8087，该信息表明，要走 goagent 代理，应将浏览器 firefox 的所有网站访问请求发至 127.0.0.1:8087，那么，在 goagent 客户端程序 google_appengine/goagent/local/proxy.py 作用下，网页访问请求将通过 google 服务器代理访问。firefox 可通过 edit -> preferences -> advanced -> network -> connection -> settings 设置代理服务器地址为 127.0.0.1，端口为 8087，重启 firefox 即可生效。
 第八步，翻墙出城。至此，只要运行 goagent 的客户端程序 proxy.py，那么 firefox 的所有访问均通过 google 代理访问。goagent 有如下依赖，请逐一安装：python2、python-gevent、python-greenlet、python-vte、python-pyopenssl、python-pycrypto、mozilla-nss-tools。进入 proxy.py 所在目录，执行
 python google_appengine/goagent/local/proxy.py
 将出现如下输出：
+<div align="center">
+<img src="" alt=""/><br>
+</div>
 （执行 goagent 客户端程序）
 接着，尝试用 firefox 访问墙外的 youtube.com，你会看到代理程序努力从 google 服务器上获取代理数据，如下图所示：
+<div align="center">
+<img src="" alt=""/><br>
+</div>
 （从 google 服务器上获取代理数据）
 回头看看 firefox，咿～～，怎么会出现如下错误提示呢：
+<div align="center">
+<img src="" alt=""/><br>
+</div>
 （未导入证书）
 别担心，代理本身是成功的，这个错误是因未将 youtube.com 安全证书导入 firefox 所致。在 firefox 中，依次 进入 edit -> preferences -> advanced -> encryption -> view certificates -> authorities -> import，选择证书google_appengine/goagent/local/CA.crt，重启 firefox 后，再访问 youtube.com 看看，呵呵，久违的 youtube.com 是不是又回来啦：）
+<div align="center">
+<img src="" alt=""/><br>
+</div>
 （youtube）
 对了，你可能发现访问 google 子域名有异常，这是因为 goagent 让所有 google 及其子域名默认不走代理。前面说过，goagent 生效的前提是客户端能正常访问google 服务器，理论上，访问 google.com 及其所有子域名都用不着走代理，即便在代理模式下，访问呢 google 子域名时 goagent 也根本不介入。但是，如果我又想通过代理访问某个 google 子域名怎么办？比如，想买 nexus 4，即便你开了 goagent，访问 play.google.com 会得到如下提示“Sorry! Devices on Google Play is not available in your country yet...”。前面提过，goagent 客户端程序的配置文件 google_appengine/goagent/local/proxy.ini，该文件中有两个 withgae 字段，该字段就是用于圈定那些强制走代理模式的 google 子域名。换言之，该字段指定那些属于 google.com但又强制走代理的子域名。在 proxy.ini 中所有 withgae 字段尾部追加 play.google.com 子域名，用 | 分割，即，...|play.google.com，保存 proxy.ini 后，重新运行 goagent 即可访问 play.google.com，如下图所示：
+<div align="center">
+<img src="" alt=""/><br>
+</div>
 （Nexus 4 (16GB) - Google Play）
 第九步，代理快速启停。上一步说过，到此我们所有网站访问请求都通过了 google 代理，这对那些没有被墙的网站访问场景来说未免多余，如果有个工具能实现当访问墙内网站时直接访问、访问墙外网站时走代理，那这个世界将变得更美好。想起前面讲 firefox 插件时提到的 autoproxy 么？对，autoproxy 就具备这种自适应代理的能力，请先自行下载安装 autoproxy，装好后，autoproxy 将以一个“福”字出现在 firefox 右上角，该插件屏蔽 firefox 自身的代理设置界面。首先，进入配置界面 proxy rule -> add rule subscription，选择 gfwList (P.R.China)，该文件中存放了部分加密后的被 +- 屏蔽的网址，以后，凡是在这个列表中的走代理，不在的直接访问；接着，进入 proxy server -> edit proxy server -> add proxy server，添加代理 goagent、IP 为 127.0.0.1、端口为 8087、协议 HTTP，重启firefox；最后，进入 proxy server -> edit proxy server -> choose proxy server，default proxy 选择 goagent、subscription 选择 gfwList (P.R.China)、when no matching 选择 no proxy。
 autoproxy 有三种模式，自适应模式（红色图标）、强制代理模式（绿色图标）、无代理模式（灰色图标）。自适应模式，就是我刚才说的，位于 gfwList (P.R.China) 中的网址走代理，不在其中的直接访问；强制代理模式，不管墙内墙外，访问所有网站均通过代理；无代理模式，就是不走代理全直接访问。由于 gfwList (P.R.China) 中记录的被墙网站数量有限，如果用自适应模式，那么大量不在此列表中的被墙网站你实际上用的无代理模式，肯定无法访问，所以，一般而言，优选强制代理模式。
@@ -520,7 +570,7 @@ python proxy.py
 goagent 是 GAE 的上层产物，GAE 的某些属性我们应当有所了解。GAE 分收费版和免费版，我们使用的免费版，自然有些限制：一个 google 帐号对应一个 GAE 使用权，一个 GAE 用户可以创建最多 25 个 APP，流量方面，每个 APP 每天 1GB、每分钟 56MB，URL 请求方面，每个 APP 每天 657000 次、每分钟 3000 次。一旦的某个 APP 超过以上配额，该 APP 后续请求均将失败，直到太平洋时间 0 点（北京时间 15:00） GAE 自动重置后方可恢复。以上配额一般情况下是够用的，如果的确有更多访问需求（如，youtube 粉），可以创建多个 APP，每多创建一个 APP 则多获取一份配额，可在“第五步，修改配置信息”中用 | 将多个应用分割开，类似这样 yangyanggnu0|yangyanggnu1|yangyanggnu2|yangyanggnu3。
 至此，goagent 优雅地解决了浏览器翻墙的问题，但，这只达到我总预期的 70%。对于绝大部分人来说，这已足够了，我，的确很难归属到“绝大部分人”中。某些论坛，你得先注册后才能访问帖子内容，为防机器人，同个 IP 短时间内禁止重复注册，由于 goagent 的低使用门槛，我天朝用它翻墙的用户不少，所有用户的出口 IP 均为 GAE 集群的 IP，难免不同时间点都有人在开启 goagent 下访问同个网站注册，这时，其他人再去注册将被视为“同个 IP 短时间内禁止重复注册”；另外，+- 会隔三岔五干扰下，goagent 难免间歇性罢工，所以，我需要一种与 goagent 互备的代理。
 
-3.3.4 shadowsocks 代理
+####3.3.4 shadowsocks 代理
 前面介绍的 goagent 只支持 HTTP(S) 协议代理，并不支持 socket 协议，shadowsocks，支持 socks5 的代理工具。shadowsocks 用 python 编写开发，非常轻量级，你需要用 python 自己的安装管理工具 python-pip 进行安装，两个依赖库 python-M2Crypto 和 python-setuptools 直接从发行套件的仓库中安装，然后执行
 pip install shadowsocks
 完成 shadowsocks 的安装。
@@ -555,17 +605,23 @@ sslocal -c 1080.json
 怎么样，shadowsocks 代理还不错吧。shadowsocks 还有个特性，多路代理，你可以同时连接多个代理服务器。前面样例中我把本地中转地址的端口 local_port 设置为 1080，你完全可以在前面推荐的两个网站上申请多个代理服务器（如，一个美国的、德国、法国、香港），每个代理服务器对应一个 *.json 文件（如，1080_us.json、1081_de.json、1082_fr.json、1083_hk.json），文件中的本地中转地址的端口 local_port 分别设置为 1080、1081、1082、1083，然后再在 autoproxy 中设定四个本地中转，这样你就可以按需要使用不同的代理了。
 shadowsocks 与 goagent 互补，至此，达到我总预期的 80%。但它俩只能让我翻墙看看网页，仅此而已，无法让浏览器之外的软件翻墙。比如，Cygwin，一套用于将 linux 软件移至到 Windows 下的开发环境，在安装 Cygwin 时，它会自动联网下载环境中必须的头文件、编译器等等资源，而这些资源存放在墙外服务器上，Cygwin 又无法通过 HTTP 协议访问墙外资源，所以资源下载失败。换言之，shadowsocks 和 goagent 实现的翻墙并非全局性的。我需要支持整个系统的全局代理。
 
-3.3.5 VPN 代理
+####3.3.5 VPN 代理
 要实现整个系统的全局代理，你需要更生猛的翻墙利器 —— VPN。VPN（Virtual Private Network），初衷是为在外出差员工使用内网资源，虽然物理上是异构网络环境，但通过 VPN 虚拟成同一网络环境。为保障数据安全，VPN 服务端必须要有客户端发来的证书认证通过后才能进行数据交换，并且数据流全是加密传输，这一过程的副作用可以用于翻墙。
 VPN 协议有三种实现：PPTP、L2TP/IPsec、OpenVPN ，安全性最强（数字证书两端双向认证、256 位不可逆加密交换数据）、支持面最广（linux、BSD、OS X、WINDOWS、Android、iOS）、稳定性最高（完全无视防火墙的各类限制）当属  OpenVPN。可以在 http://openvpn.net/index.php/open-source/downloads.html （无法访问？用前面的 goagent 翻墙啊，多好的实践机会）下载最新版本 openVPN 源码（Android、iOS 版本请到各自 APP store 中搜索下载），源码安装、重启，系统中多出一个虚拟网卡设备，一旦运行 openvpn 程序，它会自动修改你系统的路由表，让所有网络数据请求优先走虚拟网卡，这就达到实现了全局代理的目的。现在，你需要找 VPN 服务提供商获取数字证书。嗨嗨嗨嗨，别走啊，免费的在这儿 www.vpngate.net/en，这里有全球各大非盈利机构开放给大家使用的免费 VPN 服务器，根据不同国家、不同带宽、不同性能你可以按需选用。VPN 的三种不同实现使用的证书不用，我们用的 openVPN 对应该网页上的 OpenVPN Config file 链接，进入后你将看到域名证书和 IP 证书两类证书，每类内部又分使用 UDP 和 TCP 两种子类，换言之，一个采用 openVPN 协议的 VPN 服务器共有四个证书，一般来说，你应选用 TCP 的 IP 证书。比如，我选用位于日本、IP 为 84.210.204.5 的机器，点击该行 OpenVPN Config file 链接进入证书下载页面，找到类似 OpenVPN Configuration File: 84.210.204.5 (TCP 995) 的链接点击即可下载得到 vpngate_84.210.204.5_tcp_995.ovpn 数字证书文件：
+<div align="center">
+<img src="" alt=""/><br>
+</div>
 （openVPN 证书类型）
 接着运行
 openvpn vpngate_84.210.204.5_tcp_995.ovpn
 进行 VPN 连接，出现 Initialization Sequence Completed 说明认证完成，OK，找个 IP 查询的网站（ip38.com）确认下访问 IP 是否变成日本的了。如果发现网站无法访问，或者网速太慢，可以换用其他 VPN 服务器试试。如下图所示：
+<div align="center">
+<img src="" alt=""/><br>
+</div>
 （openVPN 实现整个系统全局代理）
 openVPN 方式，加之前面的在线网页代理方式和 google 服务器代理方式，解决了我 95% 的问题。openVPN 解决了 goagent 无法实现系统全局代理的问题，但还是有几个问题：问题一，http://www.vpngate.net/en 上的公共免费 VPN 经常失效，需要我重新下载新的证书，挺麻烦；问题二，这些公共免费 VPN 任何人可能轻易获取，有些按区域进行版权保护的网站会主动屏蔽从这些公共 VPN 发起的请求（这事儿跟天朝的 GFW 没关系），比如 YouTube 上的 music 频道，只能特定地域的 IP 才能观赏，从这些公共 VPN 发起的视频访问请求均被忽略。针对问题一，没什么说的，失效了又去下载新的；针对问题二，说白了，就是 shadowsocks 和 google 服务器代理两类方式完全无法设定以某个指定国家或者地区的 IP 作为代理出口 IP，VPN 代理方式相对好一点，http://www.vpngate.net/en 多少有 20 多个国家可供选择，但仍然缺乏弹性，比如，无法选用台湾、马来西亚、瑞典的代理出口 IP。再举个例，百度音乐上的所有歌曲都是区域版权保护的（仅限大陆用户），留学国外的朋友想要听歌就悲摧了，必须得找个国内 IP，从墙外翻墙内，goagent 使用的是 google 在美国的服务器，用 goagent 肯定没戏，openVPN 可用的公共 VPN 又没有国内的。我需要可以随意指定出口 IP 的代理方式。
 
-3.3.6 地下网络代理
+####3.3.6 地下网络代理
 前面介绍的几种代理方式，都有个共同的特点：第三方先贡献出一台墙外服务器，然后允许你以该服务器作为出口，访问目标网页，出口服务器在获取完整目标网页后再传回给本地。goagent 的出口服务器是 google 的 GAE 引擎所在服务器、shadowsocks 和 openVPN 的出口服务器是各大机构免费开放的 VPN 服务器，由此可见，这些出口服务器是实现翻墙的关键。
 有报道称，接入互联网的 PC 数已达 13 亿，分布在全球各地，如果，我说如果，有某种机制，一旦建立相互信任关系后，位于墙外的 PC1 能允许墙内 PC2 将自己作为出口服务器进行目标网页访问，那也是可以实现翻墙，若是可行，13 亿台 PC，你只需选择希望的国家或地区的那台 PC 建立信任，随意指定出口 IP 的代理方案完全可以落地。tor 诞生。 
 顶级黑客为保证自身安全，对网络匿名访问有非常高的要求，通常：他们先在自己的 PC 上安装虚拟机，然后虚拟机中通过 VPN 代理进入 tor 的地下网络，最后从 tor 的出口中继节点发起网络访问。这样一层套一层的方式，实现绝对匿名访问。tor 项目初衷是为用户创建一套高度匿名网络访问的服务，任何国家、任何计算机设备均可加入将自己设置为一个中继节点，所有中继节点形成了一张巨大的地下网络，你的任何网络访问请求，均可通过这张地下网络多次中转，实现不可回溯的匿名访问，由于这个地下网络中的节点数目非常庞大，用户可以自由选用任何地区的 IP 进行网络访问。接入地下网络前，tor 会让你先连接上索引服务器，由于地下网络中的中继节点数量非常多，所以必须通过索引服务器查找应该连接哪些节点；一旦连接上索引服务器，它将为你分配三个中继节点，入口中继、中转中继、出口中继，这三个中继组成一条地下网络访问路径，你的网络访问请求路径变成客户端-入口中继-中转中继-出口中继-目标网站，回到我们引入地下网络代理的背景，如何指定任意国家的 IP 进行代理访问？这看似不可能实现的任务，在 tor 中易如反掌，只需手工指定路径中的出口中继节点指定为你需要的区域即可。下面我们看下具体操作。
@@ -587,6 +643,9 @@ StrictNodes 1
 # 不选用以下国家的中继节点
 ExcludeNodes {IR},{SY},{KP},{CN},{MO},{HK}
 第三步，设置浏览器让其通过地下路径进行网络访问。前面介绍 goagent 时我们已经设置过浏览器，让浏览器走 goagent 代理模式，这里的设置与前面差不多，点击插件 autoproxy，进入 preferences -> proxy server -> edit proxy server -> add proxy server，添加代理名 tor、IP 为 127.0.0.1、端口为 9050、协议 socks4，保存后重启 firefox，这时你在 autoproxy 中可以看到两个可选代理，见下图：
+<div align="center">
+<img src="" alt=""/><br>
+</div>
 （在 firefox 中增加 tor 代理模式）
 第四步，进入地下网络。tor 威力太大，近年被 GFW 彻底封杀，你用普通方式是无法接入索引服务器，你可以用网桥或者 VPN 接入。
 尝试通过网桥进入地下网络。何为网桥？地下网络中的普通中继节点是以公共形式存放在索引服务器上，网桥实际上是种私有中继节点，也就是说，你先用私有中继节点（即网桥）接入索引服务器，接着获取地下网络三个节点的网络路径，然后抛弃私有中继、采用地下网络路径进行访问。目前有两种获取网桥的方法。方法一，直接去官网获取 http://bridges.torproject.org/bridges，简单得很，输入验证码即可获取网桥，好吧，我承认，这是我见过最复杂的验证码，你可以把网页放大到最大程度，或许你可以看清；方法二，用你的 google 邮箱给 bridges@torproject.org 写封邮件，主题为 get bridges，内容为 bridges，邮件正文必须是纯文本，你的邮件签名应该先禁止掉，几分钟后将收到 tor 项目组自动反馈的邮件，内容正是你需要的网桥，类似：
@@ -599,15 +658,21 @@ Bridge 88.83.241.14:9001 e040f24bfdd1e4aab4fed15db47d8c22dfac454d
 这时，你可以先尝试下能否接入索引服务器，命令行执行：
 tor
 如果长时间停留在 Bootstrapped 5%: Connecting to directory server，那么说明你刚获取的网桥已经被 GFW 封锁，如下图所示：
+<div align="center">
+<img src="" alt=""/><br>
+</div>
 （网桥连接地下网络失败）
 本次尝试失败！你别惊讶，想想也正常，你能轻松获取网桥，GFW 的运维人员也能轻易获取，他们可是一群天天只干这事儿的人，新出一个网桥，他们就封锁一个。你更别妥协，我们用网桥的目的是为了接入索引服务器，通过前面几节的介绍，你已经具备 VPN 系统全局代理的能力，网桥不行咱就不用网桥，你完全可以在全局代理的环境下不用网桥接入代理服务器。
 尝试通过 VPN 进入地下网络。先把上一步添加的网桥信息全部注释掉，然后执行 openVPN 建立系统全局代理环境，最后执行 tor 进入地下网络。如下图所示：
+<div align="center">
+<img src="" alt=""/><br>
+</div>
 （VPN 连接地下网络成功）
 本次尝试成功！由入口、中转、出口三个节点组成地下网络访问路径就创建好了，为确保绝对安全，tor 周期性变更路径中的三个节点，也就是说，这个时段是 node1-node2-node3 组成的路径，下个时段则变成 node11-node22-node33，达到访问不可回溯的目的。
 经过以上四步设置，以后，你要想进入地下网络，先运行 VPN 创建系统全局代理环境，接着运行 tor 进入地下网络，最后设置 autoproxy 走 tor 地下网络路径，搞定！你可以访问 http://check.torproject.org 以确认是否通过地下网络访问。
 好了，翻墙部分就这样，说得多了些。就我而言，大部分时间只要浏览器能翻墙即可，虽然以上四种方式都可达到目的，但我优选 goagent，一是毕竟使用的是 google 的服务器，机器性能、网络带宽、在线时长都较好，二是 goagent 只影响浏览器，不会强制让我其他应用程序（如下载工具）走代理；当 goagent 被干扰（如，陆四期间）不可用时，换用 shadowsocks；需要全局代理时用 openVPN；需要指定地域的出口 IP 时用 openVPN + tor。
 
-4 系统管理 
+#4 系统管理 
 linux 系统管理是很大一个领域，有专门的一群从业者靠此养家糊口，我无法在此进行详细讲解，仅以几类常规操作抛砖引玉。
 
 4.1 数据备份
