@@ -10,9 +10,9 @@ yangyang.gnu@gmail.com
 
 <!--当前在线人数-->
 <script language="JavaScript"> 
-    var ref = (''+document.referrer+'');
-    var w_h = window.screen.width + " x " + window.screen.height;
-    document.write('<script src="http://freehostedscripts.net/ocounter.php?site=ID3995775&e1=Online User&e2=Online Users&r=' + ref + '&m=0&wh=' + w_h + '"><\/script>'); 
+var ref = (''+document.referrer+'');
+var w_h = window.screen.width + " x " + window.screen.height;
+document.write('<script src="http://freehostedscripts.net/ocounter.php?site=ID3995775&e1=Online User&e2=Online Users&r=' + ref + '&m=0&wh=' + w_h + '"><\/script>'); 
 </script>
 
 <!--访问人数-->
