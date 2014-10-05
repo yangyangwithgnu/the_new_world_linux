@@ -516,7 +516,7 @@ DNS 劫持。当用户输入 http://www.google.com 希望电信运营商解析�
 ####3.3.2 跳出死循环
 翻墙，你得借助专用工具、使用证书，遇到问题时还得搜索相关解决办法，而这一切信息都在墙外，也就是说，本来你想用这些工具实现翻墙，又不得不先翻墙才能获取这些工具，这就成了个死循环。所以，我得先介绍一种体验式的翻墙方式，这种翻墙方式不追求速度快、流量大、适用广、加密强等等特性，哪怕只能用 1 个小时，关键是在墙内要能直接能获取。
 
-从我的经验来看，国内的收费 VPN 代理最适合（先别纠结啥是 VPN）。一般来说，收费 VPN 服务商为招揽用户，通常会放出一些免费试用 VPN 帐号让用户买单前体验一把，虽然试用帐号存在限定流量、限定流速、禁止 P2P 下载等各种约束，但通过它我们能获取后续其他强大翻墙工具。在百毒（google.com 在墙外）中搜索“VPN 试用”会出来很多收费 VPN 服务提供商，比如，https://www.wojsq.com/，用 163.com 邮箱（gmail 在墙外）注册个试用帐号，成功后你会收到帐号和密码的邮件，该帐号每月有 1G 流量（更多免费 VPN 可访问 http://ilvpn.com/free-vpn/ 获取）。接下来，在 networking settings 界面中点击左侧的 + 按钮新建 VPN 配置，interface 选 VPN 后 create...，选 point-to-point tunneling protocol (PPTP) 后 create...，接着在新界面中，connection name 中设定本 VPN 的代理名（如，wojsq），在 VPN 选项卡 gateway 中设定代理服务器 IP （https://www.wojsq.com/server/query 最上两行为试用帐号可用的 IP），user name 和 password 中分别设定邮件中写明的 VPN 用户名和密码，在 advanced... 中，authentication 只选定 MSCHAP 和 MSCHAPv2，security and compression 中选定 MPPE 加密、BSD、deflate、TCP 三种压缩模式，最后保存即可。这时，你的 VPN 配置已完成，接下来，点击 gnome 桌面右上角的网络连接图标，你会看到 VPN connections 下罗列出刚才创建的 wojsq，选中它系统便开始进行 VPN 连接，如果你的网络连接图标上多出一把小锁，说明 VPN 连接成功，到 http://www.ip38.com/ 确认下是否网络访问出口 IP 是否成为国外 IP，若是则翻墙成功。
+从我的经验来看，国内的收费 VPN 代理最适合（先别纠结啥是 VPN）。一般来说，收费 VPN 服务商为招揽用户，通常会放出一些免费试用 VPN 帐号让用户买单前体验一把，虽然试用帐号存在限定流量、限定流速、禁止 P2P 下载等各种约束，但通过它我们能获取后续其他强大翻墙工具。在百毒（google.com 在墙外）中搜索“VPN 试用”会出来很多收费 VPN 服务提供商，比如，https://www.wojsq.com/ ，用 163.com 邮箱（gmail 在墙外）注册个试用帐号，成功后你会收到帐号和密码的邮件，该帐号每月有 1G 流量（更多免费 VPN 可访问 http://ilvpn.com/free-vpn/ 获取）。接下来，在 networking settings 界面中点击左侧的 + 按钮新建 VPN 配置，interface 选 VPN 后 create...，选 point-to-point tunneling protocol (PPTP) 后 create...，接着在新界面中，connection name 中设定本 VPN 的代理名（如，wojsq），在 VPN 选项卡 gateway 中设定代理服务器 IP （https://www.wojsq.com/server/query 最上两行为试用帐号可用的 IP），user name 和 password 中分别设定邮件中写明的 VPN 用户名和密码，在 advanced... 中，authentication 只选定 MSCHAP 和 MSCHAPv2，security and compression 中选定 MPPE 加密、BSD、deflate、TCP 三种压缩模式，最后保存即可。这时，你的 VPN 配置已完成，接下来，点击 gnome 桌面右上角的网络连接图标，你会看到 VPN connections 下罗列出刚才创建的 wojsq，选中它系统便开始进行 VPN 连接，如果你的网络连接图标上多出一把小锁，说明 VPN 连接成功，到 http://www.ip38.com/ 确认下是否网络访问出口 IP 是否成为国外 IP，若是则翻墙成功。
 
 这种流速低、流量少、稳定性差的翻墙方式虽然存在诸多不足，但成功为我们开启了进入自由世界的大门，为高级代理提供了基础环境，本章后续介绍的其他代理涉及到工具和证书都在墙外，请务必在开启本节的 VPN 让系统处于已翻墙环境，否则无法访问。
 
@@ -556,6 +556,7 @@ python uploader.zip
 （上传 goagent 至 GAE）
 </div>
 
+
 第七步，设置浏览器代理地址。google_appengine/goagent/local/proxy.ini 文件中配置的监听 IP 为 127.0.0.1、端口为 8087，该信息表明，要走 goagent 代理，应将浏览器 firefox 的所有网站访问请求发至 127.0.0.1:8087，那么，在 goagent 客户端程序 google_appengine/goagent/local/proxy.py 作用下，网页访问请求将通过 google 服务器代理访问。firefox 可通过 edit -> preferences -> advanced -> network -> connection -> settings 设置代理服务器地址为 127.0.0.1，端口为 8087，重启 firefox 即可生效。
 
 第八步，翻墙出城。至此，只要运行 goagent 的客户端程序 proxy.py，那么 firefox 的所有访问均通过 google 代理访问。goagent 有如下依赖，请逐一安装：python2、python-gevent、python-greenlet、python-vte、python-pyopenssl、python-pycrypto、mozilla-nss-tools。进入 proxy.py 所在目录，执行
@@ -579,7 +580,7 @@ python google_appengine/goagent/local/proxy.py
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%9C%AA%E5%AF%BC%E5%85%A5%E8%AF%81%E4%B9%A6.png" alt=""/><br>
 （未导入证书）
 </div>
-别担心，代理本身是成功的，这个错误是因未将 youtube.com 安全证书导入 firefox 所致。在 firefox 中，依次 进入 edit -> preferences -> advanced -> encryption -> view certificates -> authorities -> import，选择证书google_appengine/goagent/local/CA.crt，重启 firefox 后，再访问 youtube.com 看看，呵呵，久违的 youtube.com 是不是又回来啦：）
+别担心，代理本身是成功的，这个错误是因未将 youtube.com 安全证书导入 firefox 所致。在 firefox 中，依次 进入 edit -> preferences -> advanced -> encryption -> view certificates -> authorities -> import，选择证书 google_appengine/goagent/local/CA.crt，重启 firefox 后，再访问 youtube.com 看看，呵呵，久违的 youtube.com 是不是又回来啦：）
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/youtube.png" alt=""/><br>
 （youtube）
@@ -608,37 +609,57 @@ goagent 是 GAE 的上层产物，GAE 的某些属性我们应当有所了解。
 
 ####3.3.4 shadowsocks 代理
 前面介绍的 goagent 只支持 HTTP(S) 协议代理，并不支持 socket 协议，shadowsocks，支持 socks5 的代理工具。shadowsocks 用 python 编写开发，非常轻量级，你需要用 python 自己的安装管理工具 python-pip 进行安装，两个依赖库 python-M2Crypto 和 python-setuptools 直接从发行套件的仓库中安装，然后执行
+
+```
 pip install shadowsocks
+```
 完成 shadowsocks 的安装。
+
 安装完后，系统中多客户端 sslocal 和服务端 ssserver 两个程序，后者用于部署 shadowsocks 代理服务器对外提供代理服务，这里不关注。前面提过，代理，实际上需要一个代理服务器，同个它进行访问请求的中转，shadowsocks 也不例外，要成功连接代理服务器，必须传递如下信息至服务器：
-"server"，服务器名称
-"server_port"，服务端监听端口
-"local_address"，本地中转地址，通常为 127.0.0.1
-"local_port"，本地监听端口，通常为 1080
-"password"，接入服务端密码
-"timeout"，以秒为单位的连接超时时长
-"method"，加密方式，通常为 aes-256-cfb
-"fast_open"，是否开启 TCP_FASTOPEN 以减少延迟，通常为 false
-"workers"，工作线程数量，通常为 1 
-shadowsocks 免费代理服务器可从 https://www.shadowsocks.net/get 或 http://boafanx.tabboa.com/boafanx-ss/ 获取，将代理服务器相关信息保存至 *.json 文件中（如，1080.json），含前后大括弧：
+
+* "server"，服务器名称
+* "server_port"，服务端监听端口
+* "local_address"，本地中转地址，通常为 127.0.0.1
+* "local_port"，本地监听端口，通常为 1080
+* "password"，接入服务端密码
+* "timeout"，以秒为单位的连接超时时长
+* "method"，加密方式，通常为 aes-256-cfb
+* "fast_open"，是否开启 TCP_FASTOPEN 以减少延迟，通常为 false
+* "workers"，工作线程数量，通常为 1 
+
+shadowsocks 免费代理服务器可从 https://www.shadowsocks.net/get 或 http://boafanx.tabboa.com/boafanx-ss/ 获取，将代理服务器相关信息保存至 \*.json 文件中（如，1080.json），含前后大括弧：
+
+```
 { 
-"server": "31.220.50.8", 
-"server_port": 36580, 
-"local_address":"127.0.0.1",
-"local_port": 1080, 
-"password": "goagent", 
-"timeout": 512, 
-"method": "aes-256-cfb", 
-"fast_open": false, 
-"workers": 1 
+    "server": "31.220.50.8", 
+    "server_port": 36580, 
+    "local_address": "127.0.0.1",
+    "local_port": 1080, 
+    "password": "goagent", 
+    "timeout": 512, 
+    "method": "aes-256-cfb", 
+    "fast_open": false, 
+    "workers": 1 
 }
+```
 接下来，运行客户端程序
+
+```
 sslocal -c 1080.json
-将成功连接代理服务器。到这步，shadowsocks 还无法为你提供代理服务。前面介绍 goagent 时提过用 autoproxy 设置 firefox 浏览器本地中转地址及端口，同理，shadowsocks 也需要用 autoproxy 设置自己的本地中转地址及端口，通常本地中转地址为 127.0.0.1、端口为你 *.json 文件中 local_port 字段指定的值、协议类型为 socks5，如下图：
+```
+将成功连接代理服务器。到这步，shadowsocks 还无法为你提供代理服务。前面介绍 goagent 时提过用 autoproxy 设置 firefox 浏览器本地中转地址及端口，同理，shadowsocks 也需要用 autoproxy 设置自己的本地中转地址及端口，通常本地中转地址为 127.0.0.1、端口为你 \*.json 文件中 local_port 字段指定的值、协议类型为 socks5，如下图：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E8%AE%BE%E7%BD%AE%20shadowsocks%20%E6%9C%AC%E5%9C%B0%E4%B8%AD%E8%BD%AC%E5%9C%B0%E5%9D%80.png" alt=""/><br />
 （设置 shadowsocks 本地中转地址）
+</div>
 这时，在 autoproxy 中可使用 goagent 和 shadowsocks 两种代理：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E9%80%89%E7%94%A8%20shadowsocks%20%E4%BB%A3%E7%90%86.gif" alt=""/><br />
 （选用 shadowsocks 代理）
-怎么样，shadowsocks 代理还不错吧。shadowsocks 还有个特性，多路代理，你可以同时连接多个代理服务器。前面样例中我把本地中转地址的端口 local_port 设置为 1080，你完全可以在前面推荐的两个网站上申请多个代理服务器（如，一个美国的、德国、法国、香港），每个代理服务器对应一个 *.json 文件（如，1080_us.json、1081_de.json、1082_fr.json、1083_hk.json），文件中的本地中转地址的端口 local_port 分别设置为 1080、1081、1082、1083，然后再在 autoproxy 中设定四个本地中转，这样你就可以按需要使用不同的代理了。
+</div>
+
+怎么样，shadowsocks 代理还不错吧。shadowsocks 还有个特性，多路代理，你可以同时连接多个代理服务器。前面样例中我把本地中转地址的端口 local_port 设置为 1080，你完全可以在前面推荐的两个网站上申请多个代理服务器（如，一个美国的、德国、法国、香港），每个代理服务器对应一个 \*.json 文件（如，1080_us.json、1081_de.json、1082_fr.json、1083_hk.json），文件中的本地中转地址的端口 local_port 分别设置为 1080、1081、1082、1083，然后再在 autoproxy 中设定四个本地中转，这样你就可以按需要使用不同的代理了。
+
 shadowsocks 与 goagent 互补，至此，达到我总预期的 80%。但它俩只能让我翻墙看看网页，仅此而已，无法让浏览器之外的软件翻墙。比如，Cygwin，一套用于将 linux 软件移至到 Windows 下的开发环境，在安装 Cygwin 时，它会自动联网下载环境中必须的头文件、编译器等等资源，而这些资源存放在墙外服务器上，Cygwin 又无法通过 HTTP 协议访问墙外资源，所以资源下载失败。换言之，shadowsocks 和 goagent 实现的翻墙并非全局性的。我需要支持整个系统的全局代理。
 
 ####3.3.5 VPN 代理
