@@ -497,7 +497,7 @@ YouTube 上的视频，可由插件 1-Click YouTube Video Download 实现下载�
 </div>
 
 ###3.2 搭梯翻墙
-> "Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers."
+> _Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers._
 >
 > ---- \<\<Art. 19, Universal Declaration of Human Rights, 1948\>\>.
 
@@ -1104,64 +1104,112 @@ http://www.openbanks.info 是一个专注于探讨网银跨平台主题的网站
 
 或许是冏朝的 linux 用户量过少（linux 在全球桌面领域占有率仅为 2%，且主要分布在万恶的欧美等资本主义国家），国内软件开发商基本采用忽略态度，即便发布了 linux 版的程序，要么长年不更新（QQ for linux 从 2009 年 1 月发布后从未更新过，http://im.qq.com/qq/linux/download.shtml ）、要么不对外发布（aliwangwang for linux，仅用于淘宝公司内部测试，http://ge.tt/8sppgia ），在此呼吁各大开发商，请对 linux 予以正确的认识和重视，尊重我们选择操作系统的权利。（不得不承认，QQ 在囧朝不仅是 IM 工具，而是一种通讯渠道，如果你真离不开它，可以考虑web QQ（http://web.qq.com）
 
-#7 其他杂项
+##7 其他杂项
 前面介绍了各种常用软件，除此之外，还有些我个人经常用到但有不能归入前面分类中的软件，暂且放置于此。
 
-7.1 蓝牙收发
+###7.1 蓝牙收发
 电脑与手机通过蓝牙协议收发文件是最常见的蓝牙应用场景之一，下面将以笔记本电脑和手机收发图片为例进行介绍。
+
 openSUSE 默认已经安装好相关蓝牙管理程序（核心程序 gnome-bluetooth 和 bluez），请确认正确、完整安装。在开始之前，我们先要进行文件共享设置，以便笔记本接收手机发送的图片。运行 personal file sharing 程序，按参照下图选中所有勾选框：
+<div align="center">
+<img src="" alt=""/><br />
 （允许蓝牙接收文件）
-就蓝牙收发图片的一般流程而言，我们先配对好两个蓝牙设备，在源设备中选中图片，选择通过蓝牙发送给目的设备，目的设备接收文件。但，openSUSE 蓝牙程序的 bug，如果我们以待发送文件为操作对象进行发送操作，那么系统将提示失败，换言之，不论我是从笔记本发送到手机，还是从手机发送到笔记本，只要选择文件再通过（笔记本或手机）菜单“经蓝牙发送”均会失败，必须通过另一种变通方式来实现蓝牙收发文件——手机存储浏览。也就是说，不管笔记本或手机哪个是源、哪个是目的，我们都应该先通过蓝牙浏览手机存储（如，手机的 micro-sd 卡），然后像在笔记本自身移动图片一样，通过复制、粘贴方式在笔记本硬盘与手机存储卡之间移动图片，从而实现笔记本与手机间通过蓝牙相互收发文件。
-具体演示步骤如下。
+</div>
+
+就蓝牙收发图片的一般流程而言，我们先配对好两个蓝牙设备，在源设备中选中图片，选择通过蓝牙发送给目的设备，目的设备接收文件。但，openSUSE 蓝牙程序的 bug，如果我们以待发送文件为操作对象进行发送操作，那么系统将提示失败，换言之，不论我是从笔记本发送到手机，还是从手机发送到笔记本，只要选择文件再通过（笔记本或手机）菜单“经蓝牙发送”均会失败，必须通过另一种变通方式来实现蓝牙收发文件——手机存储浏览。也就是说，不管笔记本或手机哪个是源、哪个是目的，我们都应该先通过蓝牙浏览手机存储（如，手机的 micro-sd 卡），然后像在笔记本自身移动图片一样，通过复制、粘贴方式在笔记本硬盘与手机存储卡之间移动图片，从而实现笔记本与手机间通过蓝牙相互收发文件。具体演示步骤如下。
+
 首先，运行 bluetooth，出现如下界面：
+<div align="center">
+<img src="" alt=""/><br />
 （未添加配对蓝牙设备）
+</div>
 然后，点击“+”添加配对手机：
+<div align="center">
+<img src="" alt=""/><br />
 （添加手机“李大舅”：-）
+</div>
 接着，点击右下角 browse files... 浏览手机存储卡，下图为手机存储文件列表：
+<div align="center">
+<img src="" alt=""/><br />
 （手机存储卡文件列表）
+</div>
 最后，后续在笔记本和手机目录间剪切文件即可实现蓝牙文件传送。
+
 随便说下，为增强系统的安全性，平时不需要时最好将蓝牙关闭（笔记本和手机都关了），省电不说，至少其他人看不到你设备上的任何资料，个人隐私还是要注意滴～
 
-7.2 手机管理
+###7.2 手机管理
 不用羡慕 windows 下的各色 XX 手机助手，只要你是 android 手机，手机与 PC 在同个局域网内，那么可由 AirDroid 软件实现 android 手机的远程管理。为便于描述，我们将被管理的 android 手机称之为被管手机，将远程控制被管手机的终端称之为控制端。具体操作步骤如下：
+
 第一步，在被管端运行 AirDroid，程序将随机生成控制端访问该被管端的验证码，以及控制端访问的 IP（用于无互联网环境）和 URL（用于有互联网环境）地址。如下图所示：
+<div align="center">
+<img src="" alt=""/><br />
 （被管端生成验证码）
-第二步，在控制端用浏览器访问 http://web.airdroid.com，并输入上面的验证码：
+</div>
+
+第二步，在控制端用浏览器访问 http://web.airdroid.com ，并输入上面的验证码：
+<div align="center">
+<img src="" alt=""/><br />
 （控制端输入验证码）
+</div>
+
 第三步，在控制端随心控制被管端：
+<div align="center">
+<img src="" alt=""/><br />
 （控制被管端）
+</div>
+
 再发散思维两点：1）控制端类型不限（PC、手机、pad 等等），操作系统不限（linux、mac、windows 等等），你可以用 openSUSE 笔记本作为控制端、可以用windows phone 手机作为控制端、甚至可以用 iphone 作为控制端，只要能正常运行浏览器即可。换言之，由于苹果移动设备未开放蓝牙功能导致一直无法让老婆的 iphone 手机与你的 android 手机之间传输相片的问题将被 AirDroid 完美解决；2）控制端与被管端只需在同个局域网内，不一定非要访问互联网。
 
-7.3 英文翻译
+###7.3 英文翻译
 不管你英文有多好，难免会遇到几个生词，如果每次都复制粘贴到百度中搜索中文解释那多麻烦啊，英文翻译工具必不可少（当然也可以翻译其他语言，只要安装了对应词典文件）。
+
 软件名称：stardict
+
 界面截图：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/stardict.png" alt=""/><br />
 （stardict）
-设置调整：A）stardict 自带词典单词量不够，可以网上下载不同语种、不同领域的专业词典（由于字典版权问题，官网 www.stardict.cn 和项目主页 stardict.sourceforge.net 均无法下载，幸好有网友备份了http://abloz.com/huzheng/stardict-dic），下载后复制到 /usr/share/stardict/dic/ 目录，重启 stardict 即可生效；B）stardict 支持发音功能，但作适当调整。进入 dictionary -> sound，勾选 enable sound event 和 enable TTS program，并将 command for playing sound files: 设置为 aplay。
+</div>
+
+设置调整：
+
+* stardict 自带词典单词量不够，可以网上下载不同语种、不同领域的专业词典（由于字典版权问题，官网 http://www.stardict.cn 和项目主页 http://stardict.sourceforge.net 均无法下载，幸好有网友备份了 http://abloz.com/huzheng/stardict-dic ），下载后复制到 /usr/share/stardict/dic/ 目录，重启 stardict 即可生效；
+* stardict 支持发音功能，但作适当调整。进入 dictionary -> sound，勾选 enable sound event 和 enable TTS program，并将 command for playing sound files: 设置为 aplay。
+
 使用问题：stardict 的选词翻译是提升翻译效率的好功能，用鼠标选中某个单词或短语，stardict 自动提取选中内容并提交后台翻译引擎，再以浮窗显示翻译结果，但有时我们选中单词中有标点符号时，stardict 将无法识别。比如，选择内容为 green:，而 stardict 严格匹配 green，将无法翻译 green:。其实，优化下取词内容代码，对取词内容适当降噪应该不难，有时间我写个补丁。
 
-7.4 中文输入
+###7.4 中文输入
 个人认为，影响 linux 在朝内推广的最大阻碍要算输入法。linux 下常见输入法有 scim、fictx、ibus。scim 是老牌输入法，但项目几乎停滞，长年不见更新；fictx，俗称小企鹅输入法，有一定用户量；ibus，gnome 唯一官方集成的中文输入法，有模糊拼音、常用词汇、智能匹配、主动学习、快速输入英文单词（v）等特点，很好用。严格地说，ibus 是输入法框架，必须在此框架中选用拼音、五笔等输入法才能正常输入。刚装的操作系统是看不到 ibus 图标的，需要添加中文输入法，settings – region & language – input sources 中添加 chinese (pinyin)。如下图所示：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/ibus%20%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95.gif" alt=""/><br />
 （ibus 中文输入法）
+</div>
 
-7.5 软件开发
-这个时代，上规模的软件项目已不可能用简单的文本编辑器完成，IDE 是必然选择。linux 下 IDE 大致分为两类：品牌机和组装机。品牌机中有些（开源）产品还不错，比如：codeblocks、netbeans、eclipse、anjuta 等等，对于初涉 linux 开发的朋友而言是个不错的选择（我指的是 codeblocks），但对于老鸟来说总有这样那样的欠缺。听闻 linus torvalds 这类大牛用的是类 emacs 和一堆插件拼装而成的 IDE，为向大牛致敬，加之那颗“喜欢折腾”的心，组装机是我的选择。首要任务，选择编辑器。linux 上存在两种编辑器：神之编辑器 emacs，编辑器之神 vim。关于 emacs 与 vim 孰轻谁重之争已是世纪话题，我无意参与其中，在我眼里，二者都是创世纪的优秀编辑器，至少在这个领域作到了极致，它们让世人重新认识了编辑操作的本质——用命令而非键盘——去完成编辑任务。我是人类，选用 vim。（...此处省略64页半...），详见《所需即所获：像 IDE 一样使用 vim》（http://www.yangyangwithgnu.net/computer/article/use_vim_as_ide/use_vim_as_ide.htm），作者是帅鸽 ^_*。基于该文配置后，vim 可实现如下 IDE 效果：
+###7.5 软件开发
+这个时代，上规模的软件项目已不可能用简单的文本编辑器完成，IDE 是必然选择。linux 下 IDE 大致分为两类：品牌机和组装机。品牌机中有些（开源）产品还不错，比如：codeblocks、netbeans、eclipse、anjuta 等等，对于初涉 linux 开发的朋友而言是个不错的选择（我指的是 codeblocks），但对于老鸟来说总有这样那样的欠缺。听闻 linus torvalds 这类大牛用的是类 emacs 和一堆插件拼装而成的 IDE，为向大牛致敬，加之那颗“喜欢折腾”的心，组装机是我的选择。首要任务，选择编辑器。linux 上存在两种编辑器：神之编辑器 emacs，编辑器之神 vim。关于 emacs 与 vim 孰轻谁重之争已是世纪话题，我无意参与其中，在我眼里，二者都是创世纪的优秀编辑器，至少在这个领域作到了极致，它们让世人重新认识了编辑操作的本质——用命令而非键盘——去完成编辑任务。我是人类，选用 vim。（...此处省略64页半...），详见《所需即所获：像 IDE 一样使用 vim》（http://www.yangyangwithgnu.net/computer/article/use_vim_as_ide/use_vim_as_ide.htm ），作者是帅鸽 \^\_\*。基于该文配置后，vim 可实现如下 IDE 效果：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/vim%20IDE%E6%80%BB%E8%A7%88.png" alt=""/><br />
 （vim IDE总览）
+</div>
 
-7.6 虚拟终端
-命令行，是体现 linux 强大的主要渠道，是驾驭 linux 的缰绳。在服务器领域， 99% 的任务只能依靠命令行执行完成，即便在现代桌面领域中，至少也有 30% 的任务离不开命令行。gnome3 自带虚拟终端是我操纵命令行的唯一环境，支持复制粘贴、支持多tab、支持外观自定义等等功能已经满足我日常需要。另外，介绍几个有用的命令行快捷键，将在一定程度上将提高你的效率：ctrl-c，结束当前进程；ctrl-z，挂起当前进程；ctrl-d，结束输入；ctrl-shift-c，拷贝选中文本；ctrl-shift-v，粘贴文本；ctrl-w，删除光标左边的一个单词；ctrl-w，删除当前行；ctrl-a，光标移至行首；ctrl-e，光标移至行尾。
+###7.6 虚拟终端
+命令行，是体现 linux 强大的主要渠道，是驾驭 linux 的缰绳。在服务器领域， 99% 的任务只能依靠命令行执行完成，即便在现代桌面领域中，至少也有 30% 的任务离不开命令行。gnome3 自带虚拟终端是我操纵命令行的唯一环境，支持复制粘贴、支持多tab、支持外观自定义等等功能已经满足我日常需要。另外，介绍几个有用的命令行快捷键，将在一定程度上将提高你的效率：ctrl-c，结束当前进程；ctrl-z，挂起当前进程；ctrl-d，结束输入；ctrl-shift-c，拷贝选中文本；ctrl-shift-v，粘贴文本；ctrl-w，删除光标左边的一个单词；ctrl-u，删除光标当前至行首字符；ctrl-k，删除光标当前至行尾字符；ctrl-a，光标移至行首；ctrl-e，光标移至行尾。
 
-7.7 升级 BIOS
+###7.7 升级 BIOS
 为减少硬件故障率，定期升级 BIOS 是非常有必要的。一般而言，PC 厂商只发布 windows 版本和 dos 版本的 BIOS 升级程序，并无 linux 版本。linux 环境中倒是有个刷 BIOS 的开源工具叫 flashrom，但该工具支持的芯片有限，即便对于支持的芯片，风险也比在 windows 下高得多，对于刷 BIOS 这种高危操作，一旦失败将导致无法开机甚至机器报废，必须找一种安全保险的作法。
+
 换个思路，既然你 PC 官网提供了 windows 版本和 dos 版本的 BIOS 升级程序，说明只要我们能提供 win 或 dos 环境，那么升级程序就能运行。在只装有 linux 的机器上，有三种提供 win 环境的方式：
-方式一，前面介绍过 windows 虚拟机，但，BIOS 升级程序会先判断机器芯片是否匹配升级要求，由于运行在 virtualbox 中，所以升级程序只会读取到 virtualbox 伪装后的硬件信息，并非真实机器芯片信息，所以，通常来说，升级程序会提示你芯片不匹配后自动退出。该方式不可行，无法采纳；
-方式二，再装个 windows，与现有 linux 形成双系统，进入新装的 windows 中进行 BIOS 升级操作。该方式可行，但耽误时间、浪费空间、污染环境，不想采纳；
-方式三，我们知道，为让 windows 用户体验 linux，各大发行套件厂商有各自的 live-cd 或 live-usb，这就是让用户不用实际安装 linux 但又能使用 linux 的一种技术，同理，是否有所谓的 windows live-usb 呢？当然有，WinPE（Windows Preinstallation Environment），windows 预安装环境，朝内有人基于WinPE进行封装开发了一款名为“老毛桃U盘启动盘制作工具”的软件（http://www.laomaotao.net），通过该软件可提供 Windows 环境。该方式简单、方便，优先采纳。
+
+* 方式一，前面介绍过 windows 虚拟机，但，BIOS 升级程序会先判断机器芯片是否匹配升级要求，由于运行在 virtualbox 中，所以升级程序只会读取到 virtualbox 伪装后的硬件信息，并非真实机器芯片信息，所以，通常来说，升级程序会提示你芯片不匹配后自动退出。该方式不可行，无法采纳；
+* 方式二，再装个 windows，与现有 linux 形成双系统，进入新装的 windows 中进行 BIOS 升级操作。该方式可行，但耽误时间、浪费空间、污染环境，不想采纳；
+* 方式三，我们知道，为让 windows 用户体验 linux，各大发行套件厂商有各自的 live-cd 或 live-usb，这就是让用户不用实际安装 linux 但又能使用 linux 的一种技术，同理，是否有所谓的 windows live-usb 呢？当然有，WinPE（Windows Preinstallation Environment），windows 预安装环境，朝内有人基于WinPE进行封装开发了一款名为“老毛桃U盘启动盘制作工具”的软件（http://www.laomaotao.net ），通过该软件可提供 Windows 环境。该方式简单、方便，优先采纳。
+
 由于“老毛桃 U 盘启动盘制作工具”是个 windows 软件，先需要在 win 虚拟机中下载并安装，再插入 U 盘保证虚拟机中的 win 系统能正确识别（若有问题请见前面虚拟机中相关描述章节），然后在 win 中运行“老毛桃”将 U 盘制作成 windows live-usb，最后将 BIOS 升级程序拷贝至U盘中。重启机器，U 盘引导进 windows 预安装环境，运行升级程序即可完成 BIOS 升级操作。（另，如果是 dos 版的BIOS升级程序，方法类似，只是在 U 盘引导完成后的提示界面中，选择进入 dos 环境而非 WinPE 环境）。
 
-7.8 有待提升
+###7.8 有待提升
 讲了这么多，不是说 openSUSE 就很完美了，有些细节做得还不到位，有待提升。比如，显示器亮度调节问题，只有在纯命令行（非图形界面的模拟终端）下有效；又如，virtualbox 运行时无法休眠（可待机）；再如，多屏幕投影时，无法实现多个屏幕内容一致。如此等等，虽大方面不影响使用，但如果发行商能及时修正，在这个各大发行套件血拼的时代，谁重视用户体验，谁将会赢得人心。
 
-8 完结
+##8 完结
 一旦决定移居 linux，你得入乡随俗：查看自带手册熟悉软件操作、借助命令行弥补图形界面不足、多用键盘少用鼠标提升操作效率、了解并遵循不成文约定习惯、修改源码让软件满足你特殊需求、明白没有最好只有最适合的道理、取至社区并回馈社区、保持一颗热爱折腾的心。总之，thinking in linux。
+
 linux 下的惬意生活，美丽新世界！
