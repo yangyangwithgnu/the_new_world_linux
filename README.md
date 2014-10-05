@@ -1067,7 +1067,7 @@ dism /online /add-package /packagepath:C:\lp.cab
 * 内核管理。VB 对内核版本非常敏感，一旦有内核升级，必须对 VB 核心模块进行重新编译。别担心，不需要你具备程序员的能力，VB 会自动执行，你，负责为它准备相关编译工具：编译器 gcc、构建工具 make、内核头文件 kernel-dev，这三个工具均可通过软件仓库安装。一旦就绪，用 root 权限执行  
 ```
 /etc/init.d/vboxdrv setup
-```  
+```
 即可；
 
 * 显卡管理。要让 VB 中的 winTPC 支持 3D 显卡加速，必须安装内置增强包。增强包只有在 windows 的安全模式下才能完整安装，windows 虚拟机启动时按 F8 进入安全模式，选择 virtualbox 菜单 devices - install guest additions 进行内置增强包的安装；
