@@ -329,46 +329,56 @@ word、excel、powerpoint 等三个软件是 windows 中必装的办公文书软
 ##2 娱乐休闲
 linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同时，也可为你提供日常休闲娱乐。
 
-2.1 歌曲聆听
+###2.1 歌曲聆听
 常见的音频格式包括：mp3、ogg、aac、mp4、ape、wav、flac 等，windows 下知名的音频播放器 foobar2000 完美支持这些格式，linux 下的 deadbeef 从解码效果来看，有过之而无不及。
-软件名称：deadbeef
-界面截图：
-<div align="center">
-<img src="" alt=""/><br>
-</div>
-（deadbeef）
-设置调整：无；
-使用问题：
-一般来说，通过软件仓库安装某个软件，系统会自动关联安装依赖库，以保障软件正常运行，但，deadbeef 依赖的必要插件 deadbeef-restricted-plugins 并未自动关联，需手工自行添加，否则 deadbeef 无法加载歌曲；
-要让当前播放曲目显示在播放列表窗口中可以：ctrl-j 快捷键，或者，菜单中选择playback -> scroll follows playback；
 
-2.2 电影观赏
-我看电影有个习惯，喜欢把电影全屏铺满后再看，这样不至于在如今满是宽屏幕的环境中把人物压缩得又扁又胖。另外，针对视频文件名类似的多个文件要能连续播放（也就是连续自动播放连续剧）。linux 下找了一圈都没发现满意的，包括大名鼎鼎的 vcl 和mplayer，直到有天我遇到 umplayer。umplayer 是基于 mplayer 二次开发的软件，默认支持（即内置相关格式解码器） mkv、wmv、avi、mpg、3gp、mov、rm、mpeg、mp4 等视频格式。
-软件名称：umplayer
+软件名称：deadbeef
+
 界面截图：
 <div align="center">
-<img src="" alt=""/><br>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/deadbeef.png" alt=""/><br>
+（deadbeef）
 </div>
-（普通比例）
+
+使用问题：
+
+* 一般来说，通过软件仓库安装某个软件，系统会自动关联安装依赖库，以保障软件正常运行，但，deadbeef 依赖的必要插件 deadbeef-restricted-plugins 并未自动关联，需手工自行添加，否则 deadbeef 无法加载歌曲；
+* 要让当前播放曲目显示在播放列表窗口中可以：ctrl-j 快捷键，或者，菜单中选择 playback -> scroll follows playback；
+
+###2.2 电影观赏
+我看电影有个习惯，喜欢把电影全屏铺满后再看，这样不至于在如今满是宽屏幕的环境中把人物压缩得又扁又胖。另外，针对视频文件名类似的多个文件要能连续播放（也就是连续自动播放连续剧）。linux 下找了一圈都没发现满意的，包括大名鼎鼎的 vcl 和mplayer，直到有天我遇到 umplayer。umplayer 是基于 mplayer 二次开发的软件，默认支持（即内置相关格式解码器） mkv、wmv、avi、mpg、3gp、mov、rm、mpeg、mp4 等视频格式。
+
+软件名称：umplayer
+
+界面截图：
 <div align="center">
-<img src="" alt=""/><br>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%99%AE%E9%80%9A%E6%AF%94%E4%BE%8B.png" alt=""/><br>
+（普通比例）
 </div>
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E5%85%A8%E5%B1%8F%E9%93%BA%E6%BB%A1.png" alt=""/><br>
 （全屏铺满）
+</div>
+
 设置调整：全屏铺满设置：video -> aspect ratio -> disabled；
+
 使用问题：全屏纵向拉伸设置只能针对单部影片有效，无法保持为永久设置，播放其他影片需要重新设置；
+
 其他说明：推荐两个不错的电影下载网站：人人影视（http://www.yyets.com）和电影天堂（http://www.dy2018.com）
 
-2.3 音频编辑
-听到一首喜欢的歌曲，想把它设置为手机来电铃声，但整首歌曲又太长，最好能把高潮部分提取出来，一来电就进入高潮（-_-$，你想啥～）。
+###2.3 音频编辑
+听到一首喜欢的歌曲，想把它设置为手机来电铃声，但整首歌曲又太长，最好能把高潮部分提取出来，一来电就进入高潮（-\_-$，你想啥～）。
+
 软件名称：audacity；
+
 界面截图：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/Audacity.png" alt=""/><br>
 （audacity）
+</div>
 
-3 网上冲浪 
-问：宅男最怕失去啥？答：网络（谁说苍老师？@_@！）。网络在给我们带来无限乐趣的同时，也在不断地改变着人类生活方式。
+#3 网上冲浪 
+问：宅男最怕失去啥？答：网络（谁说苍老师？@\_@！）。网络在给我们带来无限乐趣的同时，也在不断地改变着人类生活方式。
 
 3.1 网页浏览
 浏览器是互联网入口，各大互联网公司必争之地。opera、chrome、firefox 三大浏览器，opera 功能上没有多少过人之处且不开源，丢之；chrome 虽有开源版本 chromium，但很多插件都仅支持 windows 平台而在 linux 下无法使用（包括google自己出品的 Chrome Toolbox），弃之；firefox，开源且以 linux 为第一阵营，凭借其高安全性和可扩充性赢得大量忠实用户。
