@@ -8,15 +8,15 @@ yangyang.gnu@gmail.com
 
 <!--**讨论**：任何意见建议移步 http://www.v2ex.com/t/123175  -->
 
-        <!--当前在线人数-->
-        <script language="JavaScript"> 
-            var ref = (''+document.referrer+'');
-            var w_h = window.screen.width + " x " + window.screen.height;
-            document.write('<script src="http://freehostedscripts.net/ocounter.php?site=ID3995775&e1=Online User&e2=Online Users&r=' + ref + '&m=0&wh=' + w_h + '"><\/script>'); 
-        </script>
-        
-        <!--访问人数-->
-        <script language="JavaScript" src="http://freehostedscripts.net/ocount.php?site=ID2487263&name=Visits"></script>
+<!--当前在线人数-->
+<script language="JavaScript"> 
+    var ref = (''+document.referrer+'');
+    var w_h = window.screen.width + " x " + window.screen.height;
+    document.write('<script src="http://freehostedscripts.net/ocounter.php?site=ID3995775&e1=Online User&e2=Online Users&r=' + ref + '&m=0&wh=' + w_h + '"><\/script>'); 
+</script>
+
+<!--访问人数-->
+<script language="JavaScript" src="http://freehostedscripts.net/ocount.php?site=ID2487263&name=Visits"></script>
 
 
 ==================
