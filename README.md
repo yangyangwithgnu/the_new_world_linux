@@ -453,8 +453,8 @@ YouTube 上的视频，可由插件 1-Click YouTube Video Download 实现下载�
 
 搜索引擎如何选择？根据搜索内容的不同，我会依次使用如下几个引擎进行查找：
 
-1. 英文资料，先 http://www.duckduckgo.com 后 http://www.google.com，前者剔重算法完胜后者，而且搜索过的关键字绝对不记入 cookie。（从大陆发起的访问自动被转向到香港服务器 http://www.google.com.hk，要访问美国服务器可用如下网址 http://www.google.com/ncr，其中，ncr 为 no country redirect，即不根据访问请求发起国家进行重定向）；
-2. 中文技术资料，先 http://tw.search.yahoo.com 后 http://www.google.com.tw（百毒？没听过 ^o^）；
+1. 英文资料，先 http://www.duckduckgo.com 后 http://www.google.com ，前者剔重算法完胜后者，而且搜索过的关键字绝对不记入 cookie。（从大陆发起的访问自动被转向到香港服务器 http://www.google.com.hk ，要访问美国服务器可用如下网址 http://www.google.com/ncr ，其中，ncr 为 no country redirect，即不根据访问请求发起国家进行重定向）；
+2. 中文技术资料，先 http://tw.search.yahoo.com 后 http://www.google.com.tw ； 
 
 啰嗦几句，台湾人的技术文章多以原创为主，不像冏朝清一色的转载，特别是，很多国外经典计算机书籍引入冏朝后，被所谓的大学教授翻译得比日文还难读（《thinking in c++》，多经典的一本书，翻译得老子想骂人），这时，可以考虑找对应台译版（台版《thinking in c++》由蔡明志先生翻译），虽说有些术语叫法不同，但基本体现了著作原意。
 
