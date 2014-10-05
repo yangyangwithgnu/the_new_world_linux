@@ -8,6 +8,15 @@ yangyang.gnu@gmail.com
 
 <!--**讨论**：任何意见建议移步 http://www.v2ex.com/t/123175  -->
 
+        <!--当前在线人数-->
+        <script language="JavaScript"> 
+            var ref = (''+document.referrer+'');
+            var w_h = window.screen.width + " x " + window.screen.height;
+            document.write('<script src="http://freehostedscripts.net/ocounter.php?site=ID3995775&e1=Online User&e2=Online Users&r=' + ref + '&m=0&wh=' + w_h + '"><\/script>'); 
+        </script>
+        
+        <!--访问人数-->
+        <script language="JavaScript" src="http://freehostedscripts.net/ocount.php?site=ID2487263&name=Visits"></script>
 
 
 ==================
@@ -346,7 +355,7 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 * 要让当前播放曲目显示在播放列表窗口中可以：ctrl-j 快捷键，或者，菜单中选择 playback -> scroll follows playback；
 
 ###2.2 电影观赏
-我看电影有个习惯，喜欢把电影全屏铺满后再看，这样不至于在如今满是宽屏幕的环境中把人物压缩得又扁又胖。另外，针对视频文件名类似的多个文件要能连续播放（也就是连续自动播放连续剧）。linux 下找了一圈都没发现满意的，包括大名鼎鼎的 vcl 和mplayer，直到有天我遇到 umplayer。umplayer 是基于 mplayer 二次开发的软件，默认支持（即内置相关格式解码器） mkv、wmv、avi、mpg、3gp、mov、rm、mpeg、mp4 等视频格式。
+我看电影有个习惯，喜欢把电影全屏铺满后再看，这样不至于在如今满是宽屏幕的环境中把人物压缩得又扁又胖。另外，针对视频文件名类似的多个文件要能连续播放（也就是连续自动播放连续剧）。linux 下找了一圈都没发现满意的，包括大名鼎鼎的 vcl 和 mplayer，直到有天我遇到 umplayer。umplayer 是基于 mplayer 二次开发的软件，默认支持（即内置相关格式解码器） mkv、wmv、avi、mpg、3gp、mov、rm、mpeg、mp4 等视频格式。
 
 软件名称：umplayer
 
@@ -364,7 +373,7 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 
 使用问题：全屏纵向拉伸设置只能针对单部影片有效，无法保持为永久设置，播放其他影片需要重新设置；
 
-其他说明：推荐两个不错的电影下载网站：人人影视（http://www.yyets.com）和电影天堂（http://www.dy2018.com）
+其他说明：推荐两个不错的电影下载网站：人人影视（http://www.yyets.com ）和电影天堂（http://www.dy2018.com ）
 
 ###2.3 音频编辑
 听到一首喜欢的歌曲，想把它设置为手机来电铃声，但整首歌曲又太长，最好能把高潮部分提取出来，一来电就进入高潮（-\_-$，你想啥～）。
@@ -373,7 +382,7 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 
 界面截图：
 <div align="center">
-<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/Audacity.png" alt=""/><br>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/Audacity.png" alt=""/><br />
 （audacity）
 </div>
 
