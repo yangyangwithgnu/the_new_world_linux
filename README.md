@@ -243,85 +243,88 @@ X-GNOME-Autostart-enabled=true
 ##1 日常办公
 现在的企事业单位几乎都需借助电脑办公，医生看病开处方、营业厅办理业务、会计帐务处理等等，电脑已成为各行各业办公的主要途径和手段。下面介绍几类常见的办公需求。
 
-1.1 办公文书
-word、excel、powerpoint 等三个软件是 windows 中必装的办公文书软件，以支撑我们文字处理、表格制作、汇报演示等工作需要。linux 中我们对应有writer、calc、impress 等软件，这三个软件（外加 draw、math、base）就是大名鼎鼎的 libreoffice 套件。libreoffice 完全兼容 ms-office 文档，甚至还可以直接转存为 pdf 格式文件，
+###1.1 办公文书
+word、excel、powerpoint 等三个软件是 windows 中必装的办公文书软件，以支撑我们文字处理、表格制作、汇报演示等工作需要。linux 中我们对应有 writer、calc、impress 等软件，这三个软件（外加 draw、math、base）就是大名鼎鼎的 libreoffice 套件。libreoffice 完全兼容 ms-office 文档，甚至还可以直接转存为 pdf 格式文件，
+
 软件名称：libreoffice
+
 界面截图：
-<p align="center">
-<img src="" alt=""/><br>
-</p>
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/Writer.png" alt=""/><br>
 （writer）
-<p align="center">
-<img src="" alt=""/><br>
-</p>
+</div>
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/Calc.png" alt=""/><br>
 （calc）
-<p align="center">
-<img src="" alt=""/><br>
-</p>
+</div>
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/Impress.png" alt=""/><br>
 （impress）
+</div>
+
 设置调整：tools -> options -> language settings -> writing aids，取消 options 中的所有选项，以禁止拼写检查。
 
-1.2 电邮收发
+###1.2 电邮收发
 很多人喜欢通过邮件服务提供商官网进行邮件收发，强烈建议改用邮件客户端，避免频繁登录邮箱，同时，还能离线查阅邮件内容。好的邮件客户端除了正常收发邮件外，还应具备地址簿管理、垃圾邮件过滤、多账户管理、日程安排、同步删除远程邮件，甚至为常见邮件提供商智能配置等等高级功能，thunderbird 算是不错的。
 软件名称：thunderbird
 界面截图：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （thunderbird）
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （写邮件）
 
-1.3 电子书阅读
+###1.3 电子书阅读
 电子书格式类型较多，包括 hlp、lit、wdl、ceb、abm、pdg、epub、pdf、chm 等等，但常见的还是最后两类。下面介绍下 pdf 和 chm 的阅读器。
 
-1.3.1 pdf 阅读
+####1.3.1 pdf 阅读
 世上有三件事你无法回避：死亡、税收、阅读 PDF 文档。
 软件名称：evince
 界面截图：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （evince）
 使用问题：你知道，正常情况下，被选中的文本段会反色高亮显示，估计是 evince 本地化问题（未用 unicode 编码 -_-??），某些中文 pdf 文档，反色显示的文字会成乱码，虽不影响真正复制到粘贴板中的内容（换言之，从 evince 中复制出来的文字仍正常），但一定程度上影响了我等喜欢选中一段看一段的用户阅读体验。如下图所示：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （未选前的文本）
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （选中后的文本）
 其他说明：推荐几个常用的软件开发相关电子书下载网站：http://it-ebooks.info、http://www.freetechbooks.com。
 另外，我对 pdf 修改也有使用需求。很遗憾，linux 下并无稳定、高质量的 pdf 修改开源工具，上古时代的 pdftk、flpsed、pdfedit 一众古董完全派不上场，pdf studio 算是唯一功能达标的，但又是闭源共享软件，不推荐。既然修改不了 pdf，添加注释总可以吧，xournal 就是满足这一需求的软件。
 软件名称：xournal
 界面截图：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （PDF修改）
 
-1.3.2 chm 阅读
+####1.3.2 chm 阅读
 虽然 chm 文档越来越少，但难免还是会遇到，有两个工具可阅读 chm：chmsee 和 kchmviewer。
 软件名称：chmsee；
 界面截图：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （chmsee）
 
-2 娱乐休闲
+##2 娱乐休闲
 linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同时，也可为你提供日常休闲娱乐。
 
 2.1 歌曲聆听
 常见的音频格式包括：mp3、ogg、aac、mp4、ape、wav、flac 等，windows 下知名的音频播放器 foobar2000 完美支持这些格式，linux 下的 deadbeef 从解码效果来看，有过之而无不及。
 软件名称：deadbeef
 界面截图：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （deadbeef）
 设置调整：无；
 使用问题：
@@ -332,13 +335,13 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 我看电影有个习惯，喜欢把电影全屏铺满后再看，这样不至于在如今满是宽屏幕的环境中把人物压缩得又扁又胖。另外，针对视频文件名类似的多个文件要能连续播放（也就是连续自动播放连续剧）。linux 下找了一圈都没发现满意的，包括大名鼎鼎的 vcl 和mplayer，直到有天我遇到 umplayer。umplayer 是基于 mplayer 二次开发的软件，默认支持（即内置相关格式解码器） mkv、wmv、avi、mpg、3gp、mov、rm、mpeg、mp4 等视频格式。
 软件名称：umplayer
 界面截图：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （普通比例）
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （全屏铺满）
 设置调整：全屏铺满设置：video -> aspect ratio -> disabled；
 使用问题：全屏纵向拉伸设置只能针对单部影片有效，无法保持为永久设置，播放其他影片需要重新设置；
@@ -348,9 +351,9 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 听到一首喜欢的歌曲，想把它设置为手机来电铃声，但整首歌曲又太长，最好能把高潮部分提取出来，一来电就进入高潮（-_-$，你想啥～）。
 软件名称：audacity；
 界面截图：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （audacity）
 
 3 网上冲浪 
@@ -360,51 +363,51 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 浏览器是互联网入口，各大互联网公司必争之地。opera、chrome、firefox 三大浏览器，opera 功能上没有多少过人之处且不开源，丢之；chrome 虽有开源版本 chromium，但很多插件都仅支持 windows 平台而在 linux 下无法使用（包括google自己出品的 Chrome Toolbox），弃之；firefox，开源且以 linux 为第一阵营，凭借其高安全性和可扩充性赢得大量忠实用户。
 软件名称：firefox；
 界面截图：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （firefox）
 你对 firefox 的任何需求，几乎都可以通过其丰富的插件资源得到满足（另一个有如此庞大插件资源的软件当数 vim 了，后面有介绍）。进入 tools -> add-ons 即可在线查找需要的插件，找到后点击在线安装即可，安装完成需重启浏览器以让新装插件生效。下面介绍几款我觉得非常有用的插件。
 下载管理，download status bar。完全替代 firefox 自带的下载管理器，它可以实时查看下载进度、可以直接打开下载完的文件、可以根据当前下载速度用不同颜色高亮提示等等。如下图，第一个文件已下载完毕，第二个正在下载，实时速度为 167.2K、下载进度为 19%、橙色背景表示速度在 200K 以下，若达到 600K 则会显示为绿色：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （download statusbar）
 对象拖拽，quickdrag。若拖拽链接则直接打开，若拖动文本则在当前搜索引擎中搜索。如下图所示：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （对象拖拽插件 quickdrag）
 另外，我不太喜欢立即激活新页面，本来 firefox 中有个选项（preferences -> tabs -> when I open a link in a new tab, switch to it immediately）可用于此设置，但长年无效，只能直接修改它的配置项：地址栏中输入 about:config，查找 browser.tabs.loadDivertedInBackground 配置项，双击使其为 true 即可。
 鼠标手势，all-in-one gestures。我常用的右键向左拖动表示退回、向右拖动表示前进。如下所示：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （鼠标手势插件 all-in-one gestures）
 双击关闭 tab，close tab by double click。无须多说，个人习惯；
 侧边显示，all-in-one sidebar。将收藏夹、下载管理、插件管理、访问历史等统一收纳到侧边条中，如下图所示：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （侧边显示插件 all-in-one sidebar）
 恢复关闭页面，Undo Closed Tabs Button。下载安装好后，先要通过 customize 将 undo 图标拖动到 firefox 工具栏中才能看到。如下图所示：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （恢复关闭页面插件 Undo Closed Tabs Button）
 flash 播放。目前几乎所有在线视频、在线文库等网站都通过 flash 实现（亲，我说的通过浏览器直接访问，我知道你 iphone 也可以观看在线视频，但那是通过安装本地APP 观看，与这儿说的事情没啥干系），常逛这类网站的朋友必须得装 flash 插件才能正常访问。adobe 不给力，导致很多浏览器加载 flash 文件时失败，提示 the adobe flash plugin has crashed：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （flash插件报错）
 到 adobe 官网 http://get.adobe.com/flashplayer/otherversions/ 下载最新版的 *.tar.gz，解压后提取 libflashplayer.so 至 /usr/lib/browser-plugins/libflashplayer.so，重启 firefox 即可正常显示 flash。
 另外，如果你用的是 chromium 则不太可能出现 flash 显示问题。这是因为 google 与 adobe 合作开发了一项称之为 pepper API 的新技术，google 自家的 chromium 肯定支持 pepper，这就使得 flash 可以以插件的形式运行在 chromium 浏览器中。包括 firefox 在内的其它浏览器则不支持这项技术，因此也就无法播放 flash。
 听闻 adobe 公告，从 11.2 以后不再支持 linux 平台，唉，乔帮主英明，adobe 要自掘坟墓咱也别拦他，全当在给 HTML5 腾位置吧。
 在线视频下载，1-Click YouTube Video Download。随着在线视频的繁荣，国外的 YouTube、国内的 PPTV 等一大批视频网站上沉淀了很多有价值的视频，考虑到天朝宽带排名全球 96 位的现状，为了不影响观影体验，我有很强的驱动力将在线视频下载到本地。
 YouTube 上的视频，可由插件 1-Click YouTube Video Download 实现下载。安装好该插件重启 firefox 后，进入某个具体视频页面，在视频左下角多了个 Download 按钮，点击该按钮你将看到不同分辨率的视频下载地址列表，见下图：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （YouTube 在线视频下载插件 1-Click YouTube Video Download）
 此外，国外 vimeo、metacafe、intv 甚至 facebook 等等网站上的视频，我推荐你使用在线工具 http://en.savefrom.net/ 解析视频地址；国内的 PPTV、优酷、土豆、奇艺等等视频网站，可以通过硕鼠 http://www.flvcd.com 解析。
 添加搜索引擎，Add to Search Bar。互联网是个巨大的知识库，你需要的任何知识都可以从中获取，前提是有个给力的搜索引擎。在我看来，好的搜索引擎应该：检索范围广泛、收录页面快速、检索结果无屏蔽、原创内容优先、智能分析相似关键字。
@@ -419,14 +422,14 @@ http://tw.search.yahoo.com 和 http://www.google.com.tw（及其搜索结果）�
 另外，但凡中译书籍，建议直接海购繁体中文版，前面说过台湾人翻译的质量远胜囧朝，再次悲哀 :-(。
 话外音，国外将冏朝中文叫作 simplified chinese，而将台湾中文叫作 traditional chinese，也就是说，在老外眼里，冏朝用的是删减后的中文，而台湾用的才是老祖宗传下来的纯正传统中文。
 添加搜索引擎。安装好 Add to Search Bar，在搜索引擎首页的输入框中右键，选择 add to search bar 即可，如下图所示：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （Add to Search Bar）
 添加后，在浏览器的搜索引擎列表中查看所有搜索引擎：
-<p align="center">
+<div align="center">
 <img src="" alt=""/><br>
-</p>
+</div>
 （搜索引擎列表）
 搜索操作习惯。你可以在 firefox 右上角的搜索引擎列表中选择喜欢的引擎直接搜索，也可以在页面上（借助 quickdrag）直接拖拽要搜索的关键字启用当前引擎进行搜索；
 代理开关，Autoproxy。Autoproxy 本身不具备代理功能，它通过一个在线配置文件，实时分析用户发起的网站访问请求中，哪些必须走代理访问、哪些可以直接访问。具体请见“搭梯翻墙”章节，Autoproxy 辅助 GoAgnet 可实现完美翻墙。
