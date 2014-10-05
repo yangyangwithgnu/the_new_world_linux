@@ -497,78 +497,111 @@ YouTube 上的视频，可由插件 1-Click YouTube Video Download 实现下载�
 </div>
 
 ###3.2 搭梯翻墙
-"Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers." —— <<Art. 19, Universal Declaration of Human Rights, 1948>>.
+> "Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers."
+>
+> ---- \<\<Art. 19, Universal Declaration of Human Rights, 1948\>\>.
+
 google 重新定义了搜索引擎，苹果重新定义了手机，天朝重新定义了局域网。为让大家保有天朝优越感，+- 屏蔽了大量“非法”网站，有境内/境外的、有纯技术的、有爱情动作的、有轮子功的，反正 +- 不喜欢的通通借由 GFW 这堵墙屏蔽掉。当然，也有主动屏蔽囧朝访问请求的，比如，sourceforge.net 非常反感囧朝的封闭，你朝子民别来我这儿。裆从小就教育我们，哪里有压迫哪里就有反抗，话说屏蔽之前，天朝的宅男还可以下载几部码片看看打发时间，嘚，看吧，让你屏蔽，没事做了，那就研究下怎样翻墙吧。
 
 ####3.3.1 封锁原理
 +- 最常用的封锁手段有二：关键字过滤、DNS 劫持。
+
 关键字过滤。你也别谈“滤”色变，全国时时刻刻这么大的网络流量交换，GFW 不可能做到全量、实时过滤分析，一是它没这么强悍的处理能力、二是这一过程严重影响网速。GFW 过滤，只能全网随机抽查，或者，有针对地对指定区域、指定 IP 进行，如果哪天你觉得小区里就你网速慢，恭喜，随机到你家。GFW 对选中 IP 的网络数据包进行实时解析，一旦发现敏感关键字，则短暂封锁终端 IP，导致所有网络访问中断。显然，要过滤关键字，必须满足数据包以明文传输这一必要条件。如果我们的浏览器支持加密访问网页，那么 GFW 永远不可能解析出关键字。默认情况下，我们通过 http 协议进行网页访问，这是明文，而 https 协议，则是密文。换言之，如果哪个浏览器默认支持 https，则可完全突破“关键字过滤”这种封锁手段 —— firefox；
+
 DNS 劫持。当用户输入 http://www.google.com 希望电信运营商解析出服务器真实 IP，以便访问 google，运营商在 +- 作用下停止解析这个URL，导致用户访问失败，这就是 DNS 劫持。针对这种封锁手段有两种解决方式：方式一，不依赖运营商而靠自己获取解析域名及其对应真实 IP；方式二，借助境外运营商进行域名解析。
-方式一，自己解析域名及其 IP，可以借助 SmartHosts 实现。SmartHosts（http://smarthosts.googlecode.com/svn/trunk/hosts），由众网友共同维护的一个 hosts 文件，里面存放着大量被墙域名及其 IP，将其内容追加到本地 /etc/hosts 文件中，此后，hosts 中罗列出的所有 URL 你可以正常高速访问了。但是，存在两个问题：A）SmartHosts 中的每条记录（URL 与 IP）都是各热心网友一条条手工添加的，不可能覆盖完所有被墙网站，肯定会出现一些你需要访问但又不在此列表中的网站；B）SmartHosts 更新周期不定，有时 3 天、有时 30 天，所以你需要不时去关注，有更新是及时添加至本地 hosts 文件中（最近更新时间 2013-12-07 12:16）。这种方式效果有限，你应该把精力放在方式二上。
-方式二，借助境外运营商进行域名解析，这是非常具有弹性的解决方案，只有它才能实现完美翻墙。接下来我将介绍几种基于这一思路发展出来的翻墙方式，后一种均依赖前一种，你须依次了解，切勿跳越。
+
+* 方式一，自己解析域名及其 IP，可以借助 SmartHosts 实现。SmartHosts（http://smarthosts.googlecode.com/svn/trunk/hosts），由众网友共同维护的一个 hosts 文件，里面存放着大量被墙域名及其 IP，将其内容追加到本地 /etc/hosts 文件中，此后，hosts 中罗列出的所有 URL 你可以正常高速访问了。但是，存在两个问题：A）SmartHosts 中的每条记录（URL 与 IP）都是各热心网友一条条手工添加的，不可能覆盖完所有被墙网站，肯定会出现一些你需要访问但又不在此列表中的网站；B）SmartHosts 更新周期不定，有时 3 天、有时 30 天，所以你需要不时去关注，有更新是及时添加至本地 hosts 文件中（最近更新时间 2013-12-07 12:16）。这种方式效果有限，你应该把精力放在方式二上。
+* 方式二，借助境外运营商进行域名解析，这是非常具有弹性的解决方案，只有它才能实现完美翻墙。接下来我将介绍几种基于这一思路发展出来的翻墙方式，后一种均依赖前一种，你须依次了解，切勿跳越。
 
 ####3.3.2 跳出死循环
 翻墙，你得借助专用工具、使用证书，遇到问题时还得搜索相关解决办法，而这一切信息都在墙外，也就是说，本来你想用这些工具实现翻墙，又不得不先翻墙才能获取这些工具，这就成了个死循环。所以，我得先介绍一种体验式的翻墙方式，这种翻墙方式不追求速度快、流量大、适用广、加密强等等特性，哪怕只能用 1 个小时，关键是在墙内要能直接能获取。
+
 从我的经验来看，国内的收费 VPN 代理最适合（先别纠结啥是 VPN）。一般来说，收费 VPN 服务商为招揽用户，通常会放出一些免费试用 VPN 帐号让用户买单前体验一把，虽然试用帐号存在限定流量、限定流速、禁止 P2P 下载等各种约束，但通过它我们能获取后续其他强大翻墙工具。在百毒（google.com 在墙外）中搜索“VPN 试用”会出来很多收费 VPN 服务提供商，比如，https://www.wojsq.com/，用 163.com 邮箱（gmail 在墙外）注册个试用帐号，成功后你会收到帐号和密码的邮件，该帐号每月有 1G 流量（更多免费 VPN 可访问 http://ilvpn.com/free-vpn/ 获取）。接下来，在 networking settings 界面中点击左侧的 + 按钮新建 VPN 配置，interface 选 VPN 后 create...，选 point-to-point tunneling protocol (PPTP) 后 create...，接着在新界面中，connection name 中设定本 VPN 的代理名（如，wojsq），在 VPN 选项卡 gateway 中设定代理服务器 IP （https://www.wojsq.com/server/query 最上两行为试用帐号可用的 IP），user name 和 password 中分别设定邮件中写明的 VPN 用户名和密码，在 advanced... 中，authentication 只选定 MSCHAP 和 MSCHAPv2，security and compression 中选定 MPPE 加密、BSD、deflate、TCP 三种压缩模式，最后保存即可。这时，你的 VPN 配置已完成，接下来，点击 gnome 桌面右上角的网络连接图标，你会看到 VPN connections 下罗列出刚才创建的 wojsq，选中它系统便开始进行 VPN 连接，如果你的网络连接图标上多出一把小锁，说明 VPN 连接成功，到 http://www.ip38.com/ 确认下是否网络访问出口 IP 是否成为国外 IP，若是则翻墙成功。
+
 这种流速低、流量少、稳定性差的翻墙方式虽然存在诸多不足，但成功为我们开启了进入自由世界的大门，为高级代理提供了基础环境，本章后续介绍的其他代理涉及到工具和证书都在墙外，请务必在开启本节的 VPN 让系统处于已翻墙环境，否则无法访问。
 
 ####3.3.3 google 服务器代理
 google 有一套 WEB 应用程序引擎 Google App Engine（GAE），这套引擎部署在 google 位于美国的服务器上，全球任何开发人员可以向 google 免费申请在该引擎上部署自己的应用。本来，这就一普通的开放服务而已，但是，在天朝这种网络环境下，思维发散的程序员发现：GAE 位于美国服务器上，程序员能在 GAE 上部署服务端程序，如果服务端能接收客户端发送过去的网页访问请求，那完全可以让服务端作为一个中转站，借助美国运营商进行域名解析（绕开朝内运营商），一旦获取网页数据后再传回给客户端。所以，goagent 诞生。
+
 goagent 让 google 成为你的代理，高速且稳定访问所有被墙网站绝不是问题。当然，goagent 使用前提是能正常访问 google，前面介绍的 SmartHosts 已解决该问题，下面重点讲解。
+
 在进行具体操作前，先定义几个对象。goagent 包括客户端程序和服务端程序两部分，客户端程序简称为 GCP（goagent-client-programme），服务端程序简称为 GSP（goagent-server-programme），浏览器简称为 FF（firefox），墙外目标网站简称为 dest。goagent 实现的代理逻辑大致如下：FF 发起墙外 dest 网页访问请求，为绕开国内电信运营商，FF 走代理模式，将请求发至 GCP（127.0.0.1:8087），GCP 将请求转至 GSP，GSP 按 GCP 指示访问网站 dest，由于 GSP 位于美国，所以 GSP 可以顺畅地获取 dest 网页，一旦 dest 网页被 GSP 获取完整，GSP 立即传回给 GCP，GCP 再传给 FF，最终在 FF 中显示出完整页面。具体操作步骤如下：
-第一步，申请 GAE 空间，部属 goagent 服务端程序。用 google 帐号登录 appengine.google.com，前面步骤按提示填写，直到填写短信验证码步骤，朝内三家运营商都屏蔽了 google 的短信，你只能通过向 google 提交在线表单，请工作人员将验证码通过邮件发给你，访问 http://appengine.google.com/waitlist/sms_issues，表单填写内容大致如下：
-hi,
-my mobile phone can not receive sms for verification code! plz send the code to yangyang.gnu@gmail.com. thx man~
+
+第一步，申请 GAE 空间，部属 goagent 服务端程序。用 google 帐号登录 appengine.google.com，前面步骤按提示填写，直到填写短信验证码步骤，朝内三家运营商都屏蔽了 google 的短信，你只能通过向 google 提交在线表单，请工作人员将验证码通过邮件发给你，访问 http://appengine.google.com/waitlist/sms_issues ，表单填写内容大致如下：
+>hi,  
+>my mobile phone can not receive sms for verification code! plz send the code to yangyang.gnu@gmail.com. thx man~
+
 2 小时 8 分 16 秒后收到回复：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/GAE%E7%94%B3%E8%AF%B7%E5%9B%9E%E5%A4%8D.png" alt=""/><br>
 （GAE 申请回复）
+</div>
 昏，还验证个啥，工作人员直接就将 GAE 使用权分配给我了（太给力了，效率啊）；
-第三步，创建 APP。用 GAE 帐号登陆 http://appengine.google.com/，点击 create application 按钮创建 APP，APP 名按自己喜好设定（如，yangyangwithgnu0、yangyangwithgnu1），若要创建多个 APP，重复本步骤；
-第四步，下载 goagent（http://code.google.com/p/goagent）。解压到 goagent/。goagent 包含 local 和 server 两部分，local 存放有平时运行本地代理转发的客户端代码，server 为需要用你 google 帐号上传至 GAE 的服务端代码。
+
+第三步，创建 APP。用 GAE 帐号登陆 http://appengine.google.com/ ，点击 create application 按钮创建 APP，APP 名按自己喜好设定（如，yangyangwithgnu0、yangyangwithgnu1），若要创建多个 APP，重复本步骤；
+
+第四步，下载 goagent（http://code.google.com/p/goagent ）。解压到 goagent/。goagent 包含 local 和 server 两部分，local 存放有平时运行本地代理转发的客户端代码，server 为需要用你 google 帐号上传至 GAE 的服务端代码。
+
 第五步，修改配置信息。既然是将 goagent 当作你自己开发的源码上传至 GAE，那么所有的 appid 都应替换成注册 GAE 时所写的应用程序名，例如，我注册时应用程序名设定的是 yangyanggnu，那么需要将 goagent/local/proxy.ini 文件中的 appid = 改写为 yangyangwithgnu0|yangyangwithgnu1；另外，设置 obfuscate = 1 开启流量混淆以正确解析出可用 GGC IP，设置 pagespeed = 1 以提升 GAE 的下行速度；
+
 第六步，上传服务端程序至 GAE。上传前务必确保系统中并未运行 proxy.py，再在 goagent/server/ 下执行：
+```
 python uploader.zip
+```
+
 整个过程耗时 1 分钟左右，如下图所示：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E4%B8%8A%E4%BC%A0GoAgent%E8%87%B3GAE.png" alt=""/><br>
 （上传 goagent 至 GAE）
+</div>
+
 第七步，设置浏览器代理地址。google_appengine/goagent/local/proxy.ini 文件中配置的监听 IP 为 127.0.0.1、端口为 8087，该信息表明，要走 goagent 代理，应将浏览器 firefox 的所有网站访问请求发至 127.0.0.1:8087，那么，在 goagent 客户端程序 google_appengine/goagent/local/proxy.py 作用下，网页访问请求将通过 google 服务器代理访问。firefox 可通过 edit -> preferences -> advanced -> network -> connection -> settings 设置代理服务器地址为 127.0.0.1，端口为 8087，重启 firefox 即可生效。
+
 第八步，翻墙出城。至此，只要运行 goagent 的客户端程序 proxy.py，那么 firefox 的所有访问均通过 google 代理访问。goagent 有如下依赖，请逐一安装：python2、python-gevent、python-greenlet、python-vte、python-pyopenssl、python-pycrypto、mozilla-nss-tools。进入 proxy.py 所在目录，执行
+
+```
 python google_appengine/goagent/local/proxy.py
+```
+
 将出现如下输出：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%89%A7%E8%A1%8Cgoagent%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%90%86%E7%A8%8B%E5%BA%8F.png" alt=""/><br>
 （执行 goagent 客户端程序）
+</div>
 接着，尝试用 firefox 访问墙外的 youtube.com，你会看到代理程序努力从 google 服务器上获取代理数据，如下图所示：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E4%BB%8Egoogle%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%90%86%E6%95%B0%E6%8D%AE.png" alt=""/><br>
 （从 google 服务器上获取代理数据）
+</div>
 回头看看 firefox，咿～～，怎么会出现如下错误提示呢：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%9C%AA%E5%AF%BC%E5%85%A5%E8%AF%81%E4%B9%A6.png" alt=""/><br>
 （未导入证书）
+</div>
 别担心，代理本身是成功的，这个错误是因未将 youtube.com 安全证书导入 firefox 所致。在 firefox 中，依次 进入 edit -> preferences -> advanced -> encryption -> view certificates -> authorities -> import，选择证书google_appengine/goagent/local/CA.crt，重启 firefox 后，再访问 youtube.com 看看，呵呵，久违的 youtube.com 是不是又回来啦：）
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/youtube.png" alt=""/><br>
 （youtube）
+</div>
+
 对了，你可能发现访问 google 子域名有异常，这是因为 goagent 让所有 google 及其子域名默认不走代理。前面说过，goagent 生效的前提是客户端能正常访问google 服务器，理论上，访问 google.com 及其所有子域名都用不着走代理，即便在代理模式下，访问呢 google 子域名时 goagent 也根本不介入。但是，如果我又想通过代理访问某个 google 子域名怎么办？比如，想买 nexus 4，即便你开了 goagent，访问 play.google.com 会得到如下提示“Sorry! Devices on Google Play is not available in your country yet...”。前面提过，goagent 客户端程序的配置文件 google_appengine/goagent/local/proxy.ini，该文件中有两个 withgae 字段，该字段就是用于圈定那些强制走代理模式的 google 子域名。换言之，该字段指定那些属于 google.com但又强制走代理的子域名。在 proxy.ini 中所有 withgae 字段尾部追加 play.google.com 子域名，用 | 分割，即，...|play.google.com，保存 proxy.ini 后，重新运行 goagent 即可访问 play.google.com，如下图所示：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/Nexus%204%20(16GB)%20-%20Google%20Play.png" alt=""/><br>
 （Nexus 4 (16GB) - Google Play）
+</div>
+
 第九步，代理快速启停。上一步说过，到此我们所有网站访问请求都通过了 google 代理，这对那些没有被墙的网站访问场景来说未免多余，如果有个工具能实现当访问墙内网站时直接访问、访问墙外网站时走代理，那这个世界将变得更美好。想起前面讲 firefox 插件时提到的 autoproxy 么？对，autoproxy 就具备这种自适应代理的能力，请先自行下载安装 autoproxy，装好后，autoproxy 将以一个“福”字出现在 firefox 右上角，该插件屏蔽 firefox 自身的代理设置界面。首先，进入配置界面 proxy rule -> add rule subscription，选择 gfwList (P.R.China)，该文件中存放了部分加密后的被 +- 屏蔽的网址，以后，凡是在这个列表中的走代理，不在的直接访问；接着，进入 proxy server -> edit proxy server -> add proxy server，添加代理 goagent、IP 为 127.0.0.1、端口为 8087、协议 HTTP，重启firefox；最后，进入 proxy server -> edit proxy server -> choose proxy server，default proxy 选择 goagent、subscription 选择 gfwList (P.R.China)、when no matching 选择 no proxy。
+
 autoproxy 有三种模式，自适应模式（红色图标）、强制代理模式（绿色图标）、无代理模式（灰色图标）。自适应模式，就是我刚才说的，位于 gfwList (P.R.China) 中的网址走代理，不在其中的直接访问；强制代理模式，不管墙内墙外，访问所有网站均通过代理；无代理模式，就是不走代理全直接访问。由于 gfwList (P.R.China) 中记录的被墙网站数量有限，如果用自适应模式，那么大量不在此列表中的被墙网站你实际上用的无代理模式，肯定无法访问，所以，一般而言，优选强制代理模式。
+
 小结下，第一次可能麻烦点，如果以上九步都成功，那么你需要的免费、高速、稳定的梯子就已经制作完成。平时，需要翻墙，只需到 goagent/local/ 目录下执行
+```
 python proxy.py
+```
 即可，或者直接将其加入自启动项（GNOME 的启动项可通过在 CLI 中执行 gnome-session-properties 进行设置）。甚至，除 local/ 外的其他目录都可删除，不影响使用。
+
 goagent 是 GAE 的上层产物，GAE 的某些属性我们应当有所了解。GAE 分收费版和免费版，我们使用的免费版，自然有些限制：一个 google 帐号对应一个 GAE 使用权，一个 GAE 用户可以创建最多 25 个 APP，流量方面，每个 APP 每天 1GB、每分钟 56MB，URL 请求方面，每个 APP 每天 657000 次、每分钟 3000 次。一旦的某个 APP 超过以上配额，该 APP 后续请求均将失败，直到太平洋时间 0 点（北京时间 15:00） GAE 自动重置后方可恢复。以上配额一般情况下是够用的，如果的确有更多访问需求（如，youtube 粉），可以创建多个 APP，每多创建一个 APP 则多获取一份配额，可在“第五步，修改配置信息”中用 | 将多个应用分割开，类似这样 yangyanggnu0|yangyanggnu1|yangyanggnu2|yangyanggnu3。
+
 至此，goagent 优雅地解决了浏览器翻墙的问题，但，这只达到我总预期的 70%。对于绝大部分人来说，这已足够了，我，的确很难归属到“绝大部分人”中。某些论坛，你得先注册后才能访问帖子内容，为防机器人，同个 IP 短时间内禁止重复注册，由于 goagent 的低使用门槛，我天朝用它翻墙的用户不少，所有用户的出口 IP 均为 GAE 集群的 IP，难免不同时间点都有人在开启 goagent 下访问同个网站注册，这时，其他人再去注册将被视为“同个 IP 短时间内禁止重复注册”；另外，+- 会隔三岔五干扰下，goagent 难免间歇性罢工，所以，我需要一种与 goagent 互备的代理。
 
 ####3.3.4 shadowsocks 代理
