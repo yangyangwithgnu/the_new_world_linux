@@ -656,7 +656,7 @@ sslocal -c 1080.json
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E9%80%89%E7%94%A8%20shadowsocks%20%E4%BB%A3%E7%90%86.gif" alt=""/><br />
 （选用 shadowsocks 代理）
-</div>
+</div>  
 
 怎么样，shadowsocks 代理还不错吧。shadowsocks 还有个特性，多路代理，你可以同时连接多个代理服务器。前面样例中我把本地中转地址的端口 local_port 设置为 1080，你完全可以在前面推荐的两个网站上申请多个代理服务器（如，一个美国的、德国、法国、香港），每个代理服务器对应一个 \*.json 文件（如，1080_us.json、1081_de.json、1082_fr.json、1083_hk.json），文件中的本地中转地址的端口 local_port 分别设置为 1080、1081、1082、1083，然后再在 autoproxy 中设定四个本地中转，这样你就可以按需要使用不同的代理了。
 
@@ -664,25 +664,34 @@ shadowsocks 与 goagent 互补，至此，达到我总预期的 80%。但它俩�
 
 ####3.3.5 VPN 代理
 要实现整个系统的全局代理，你需要更生猛的翻墙利器 —— VPN。VPN（Virtual Private Network），初衷是为在外出差员工使用内网资源，虽然物理上是异构网络环境，但通过 VPN 虚拟成同一网络环境。为保障数据安全，VPN 服务端必须要有客户端发来的证书认证通过后才能进行数据交换，并且数据流全是加密传输，这一过程的副作用可以用于翻墙。
-VPN 协议有三种实现：PPTP、L2TP/IPsec、OpenVPN ，安全性最强（数字证书两端双向认证、256 位不可逆加密交换数据）、支持面最广（linux、BSD、OS X、WINDOWS、Android、iOS）、稳定性最高（完全无视防火墙的各类限制）当属  OpenVPN。可以在 http://openvpn.net/index.php/open-source/downloads.html （无法访问？用前面的 goagent 翻墙啊，多好的实践机会）下载最新版本 openVPN 源码（Android、iOS 版本请到各自 APP store 中搜索下载），源码安装、重启，系统中多出一个虚拟网卡设备，一旦运行 openvpn 程序，它会自动修改你系统的路由表，让所有网络数据请求优先走虚拟网卡，这就达到实现了全局代理的目的。现在，你需要找 VPN 服务提供商获取数字证书。嗨嗨嗨嗨，别走啊，免费的在这儿 www.vpngate.net/en，这里有全球各大非盈利机构开放给大家使用的免费 VPN 服务器，根据不同国家、不同带宽、不同性能你可以按需选用。VPN 的三种不同实现使用的证书不用，我们用的 openVPN 对应该网页上的 OpenVPN Config file 链接，进入后你将看到域名证书和 IP 证书两类证书，每类内部又分使用 UDP 和 TCP 两种子类，换言之，一个采用 openVPN 协议的 VPN 服务器共有四个证书，一般来说，你应选用 TCP 的 IP 证书。比如，我选用位于日本、IP 为 84.210.204.5 的机器，点击该行 OpenVPN Config file 链接进入证书下载页面，找到类似 OpenVPN Configuration File: 84.210.204.5 (TCP 995) 的链接点击即可下载得到 vpngate_84.210.204.5_tcp_995.ovpn 数字证书文件：
+
+VPN 协议有三种实现：PPTP、L2TP/IPsec、OpenVPN ，安全性最强（数字证书两端双向认证、256 位不可逆加密交换数据）、支持面最广（linux、BSD、OS X、WINDOWS、Android、iOS）、稳定性最高（完全无视防火墙的各类限制）当属  OpenVPN。可以在 http://openvpn.net/index.php/open-source/downloads.html （无法访问？用前面的 goagent 翻墙啊，多好的实践机会）下载最新版本 openVPN 源码（Android、iOS 版本请到各自 APP store 中搜索下载），源码安装、重启，系统中多出一个虚拟网卡设备，一旦运行 openvpn 程序，它会自动修改你系统的路由表，让所有网络数据请求优先走虚拟网卡，这就达到实现了全局代理的目的。现在，你需要找 VPN 服务提供商获取数字证书。嗨嗨嗨嗨，别走啊，免费的在这儿 http://www.vpngate.net/en ，这里有全球各大非盈利机构开放给大家使用的免费 VPN 服务器，根据不同国家、不同带宽、不同性能你可以按需选用。VPN 的三种不同实现使用的证书不用，我们用的 openVPN 对应该网页上的 OpenVPN Config file 链接，进入后你将看到域名证书和 IP 证书两类证书，每类内部又分使用 UDP 和 TCP 两种子类，换言之，一个采用 openVPN 协议的 VPN 服务器共有四个证书，一般来说，你应选用 TCP 的 IP 证书。比如，我选用位于日本、IP 为 84.210.204.5 的机器，点击该行 OpenVPN Config file 链接进入证书下载页面，找到类似 OpenVPN Configuration File: 84.210.204.5 (TCP 995) 的链接点击即可下载得到 vpngate_84.210.204.5_tcp_995.ovpn 数字证书文件：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/openVPN%20%E8%AF%81%E4%B9%A6%E7%B1%BB%E5%9E%8B.png" alt=""/><br>
 （openVPN 证书类型）
+</div>
 接着运行
+
+```
 openvpn vpngate_84.210.204.5_tcp_995.ovpn
+```
 进行 VPN 连接，出现 Initialization Sequence Completed 说明认证完成，OK，找个 IP 查询的网站（ip38.com）确认下访问 IP 是否变成日本的了。如果发现网站无法访问，或者网速太慢，可以换用其他 VPN 服务器试试。如下图所示：
 <div align="center">
-<img src="" alt=""/><br>
-</div>
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/openVPN%20%E5%AE%9E%E7%8E%B0%E6%95%B4%E4%B8%AA%E7%B3%BB%E7%BB%9F%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86.gif" alt=""/><br>
 （openVPN 实现整个系统全局代理）
+</div>  
+
 openVPN 方式，加之前面的在线网页代理方式和 google 服务器代理方式，解决了我 95% 的问题。openVPN 解决了 goagent 无法实现系统全局代理的问题，但还是有几个问题：问题一，http://www.vpngate.net/en 上的公共免费 VPN 经常失效，需要我重新下载新的证书，挺麻烦；问题二，这些公共免费 VPN 任何人可能轻易获取，有些按区域进行版权保护的网站会主动屏蔽从这些公共 VPN 发起的请求（这事儿跟天朝的 GFW 没关系），比如 YouTube 上的 music 频道，只能特定地域的 IP 才能观赏，从这些公共 VPN 发起的视频访问请求均被忽略。针对问题一，没什么说的，失效了又去下载新的；针对问题二，说白了，就是 shadowsocks 和 google 服务器代理两类方式完全无法设定以某个指定国家或者地区的 IP 作为代理出口 IP，VPN 代理方式相对好一点，http://www.vpngate.net/en 多少有 20 多个国家可供选择，但仍然缺乏弹性，比如，无法选用台湾、马来西亚、瑞典的代理出口 IP。再举个例，百度音乐上的所有歌曲都是区域版权保护的（仅限大陆用户），留学国外的朋友想要听歌就悲摧了，必须得找个国内 IP，从墙外翻墙内，goagent 使用的是 google 在美国的服务器，用 goagent 肯定没戏，openVPN 可用的公共 VPN 又没有国内的。我需要可以随意指定出口 IP 的代理方式。
 
 ####3.3.6 地下网络代理
 前面介绍的几种代理方式，都有个共同的特点：第三方先贡献出一台墙外服务器，然后允许你以该服务器作为出口，访问目标网页，出口服务器在获取完整目标网页后再传回给本地。goagent 的出口服务器是 google 的 GAE 引擎所在服务器、shadowsocks 和 openVPN 的出口服务器是各大机构免费开放的 VPN 服务器，由此可见，这些出口服务器是实现翻墙的关键。
+
 有报道称，接入互联网的 PC 数已达 13 亿，分布在全球各地，如果，我说如果，有某种机制，一旦建立相互信任关系后，位于墙外的 PC1 能允许墙内 PC2 将自己作为出口服务器进行目标网页访问，那也是可以实现翻墙，若是可行，13 亿台 PC，你只需选择希望的国家或地区的那台 PC 建立信任，随意指定出口 IP 的代理方案完全可以落地。tor 诞生。 
+
 顶级黑客为保证自身安全，对网络匿名访问有非常高的要求，通常：他们先在自己的 PC 上安装虚拟机，然后虚拟机中通过 VPN 代理进入 tor 的地下网络，最后从 tor 的出口中继节点发起网络访问。这样一层套一层的方式，实现绝对匿名访问。tor 项目初衷是为用户创建一套高度匿名网络访问的服务，任何国家、任何计算机设备均可加入将自己设置为一个中继节点，所有中继节点形成了一张巨大的地下网络，你的任何网络访问请求，均可通过这张地下网络多次中转，实现不可回溯的匿名访问，由于这个地下网络中的节点数目非常庞大，用户可以自由选用任何地区的 IP 进行网络访问。接入地下网络前，tor 会让你先连接上索引服务器，由于地下网络中的中继节点数量非常多，所以必须通过索引服务器查找应该连接哪些节点；一旦连接上索引服务器，它将为你分配三个中继节点，入口中继、中转中继、出口中继，这三个中继组成一条地下网络访问路径，你的网络访问请求路径变成客户端-入口中继-中转中继-出口中继-目标网站，回到我们引入地下网络代理的背景，如何指定任意国家的 IP 进行代理访问？这看似不可能实现的任务，在 tor 中易如反掌，只需手工指定路径中的出口中继节点指定为你需要的区域即可。下面我们看下具体操作。
+
 第一步，下载并安装 tor、vidalia。tor 是命令行工具，那些被 windows 毒害的用户患有命令行恐惧症，为解救他们，开发人员在 tor 外开发了一套图形界面的壳 vidalia，通过 vidalia 可在图形界面下操纵 tor。你可以在 http://www.torproject.org/dist（墙外）找到最新版的 tor 和 vidalia 源码，下载后分别源码安装；
+
 第二步，指定出口中继节点。重点来了，我们引入 tor 地下网络的目的是想实现按自己意愿指定某个国家的 IP 作为访问代理，只要正确配置即可。tor 的配置文件，若是源码安装的，则为 /usr/local/etc/tor/torrc，若从预编译包中安装，则为 /etc/tor/torrc 或 /etc/torrc，vidalia 的配置文件为 /root/.vidalia/torrc。我们以 tor 为例，看看两种指定出口 IP 的方式。
 方式一，按国家代码进行指定，在 tor 配置文件中增加如下信息：
 # 按国家指定出口中继节点 
@@ -699,11 +708,12 @@ StrictNodes 1
 关于出口节点的选择，你一定要谨慎！不见得进入地下网络就一定安全。天朝虽无法绝对封锁 tor 的地下网络，但可以把自己隐藏到地下网络中，伪装成一个普通中继节点，这就是所谓的“蜜罐”。另外，除了天朝外还有些社会主义国家也有他们自己的 GFW，比如伊朗、叙利亚、朝鲜等等，如果，你把朝鲜选作出口节点，很好，费了九牛二虎之力翻到墙外，你会发现更多网站无法访问了，就好像你挖条地道越狱，好不容易挖通了，却发现是在隔壁监狱 @_@！因此，你需要告诉 tor 切勿选用这些国家的中继节点：
 # 不选用以下国家的中继节点
 ExcludeNodes {IR},{SY},{KP},{CN},{MO},{HK}
+
 第三步，设置浏览器让其通过地下路径进行网络访问。前面介绍 goagent 时我们已经设置过浏览器，让浏览器走 goagent 代理模式，这里的设置与前面差不多，点击插件 autoproxy，进入 preferences -> proxy server -> edit proxy server -> add proxy server，添加代理名 tor、IP 为 127.0.0.1、端口为 9050、协议 socks4，保存后重启 firefox，这时你在 autoproxy 中可以看到两个可选代理，见下图：
 <div align="center">
 <img src="" alt=""/><br>
-</div>
 （在 firefox 中增加 tor 代理模式）
+</div>
 第四步，进入地下网络。tor 威力太大，近年被 GFW 彻底封杀，你用普通方式是无法接入索引服务器，你可以用网桥或者 VPN 接入。
 尝试通过网桥进入地下网络。何为网桥？地下网络中的普通中继节点是以公共形式存放在索引服务器上，网桥实际上是种私有中继节点，也就是说，你先用私有中继节点（即网桥）接入索引服务器，接着获取地下网络三个节点的网络路径，然后抛弃私有中继、采用地下网络路径进行访问。目前有两种获取网桥的方法。方法一，直接去官网获取 http://bridges.torproject.org/bridges，简单得很，输入验证码即可获取网桥，好吧，我承认，这是我见过最复杂的验证码，你可以把网页放大到最大程度，或许你可以看清；方法二，用你的 google 邮箱给 bridges@torproject.org 写封邮件，主题为 get bridges，内容为 bridges，邮件正文必须是纯文本，你的邮件签名应该先禁止掉，几分钟后将收到 tor 项目组自动反馈的邮件，内容正是你需要的网桥，类似：
 88.83.241.14:9001 e040f24bfdd1e4aab4fed15db47d8c22dfac454d 
@@ -713,20 +723,25 @@ UseBridges 1
 # 设置网桥
 Bridge 88.83.241.14:9001 e040f24bfdd1e4aab4fed15db47d8c22dfac454d  
 这时，你可以先尝试下能否接入索引服务器，命令行执行：
+
+```
 tor
+```
 如果长时间停留在 Bootstrapped 5%: Connecting to directory server，那么说明你刚获取的网桥已经被 GFW 封锁，如下图所示：
 <div align="center">
 <img src="" alt=""/><br>
-</div>
 （网桥连接地下网络失败）
+</div>
 本次尝试失败！你别惊讶，想想也正常，你能轻松获取网桥，GFW 的运维人员也能轻易获取，他们可是一群天天只干这事儿的人，新出一个网桥，他们就封锁一个。你更别妥协，我们用网桥的目的是为了接入索引服务器，通过前面几节的介绍，你已经具备 VPN 系统全局代理的能力，网桥不行咱就不用网桥，你完全可以在全局代理的环境下不用网桥接入代理服务器。
 尝试通过 VPN 进入地下网络。先把上一步添加的网桥信息全部注释掉，然后执行 openVPN 建立系统全局代理环境，最后执行 tor 进入地下网络。如下图所示：
 <div align="center">
 <img src="" alt=""/><br>
-</div>
 （VPN 连接地下网络成功）
+</div>
 本次尝试成功！由入口、中转、出口三个节点组成地下网络访问路径就创建好了，为确保绝对安全，tor 周期性变更路径中的三个节点，也就是说，这个时段是 node1-node2-node3 组成的路径，下个时段则变成 node11-node22-node33，达到访问不可回溯的目的。
+
 经过以上四步设置，以后，你要想进入地下网络，先运行 VPN 创建系统全局代理环境，接着运行 tor 进入地下网络，最后设置 autoproxy 走 tor 地下网络路径，搞定！你可以访问 http://check.torproject.org 以确认是否通过地下网络访问。
+
 好了，翻墙部分就这样，说得多了些。就我而言，大部分时间只要浏览器能翻墙即可，虽然以上四种方式都可达到目的，但我优选 goagent，一是毕竟使用的是 google 的服务器，机器性能、网络带宽、在线时长都较好，二是 goagent 只影响浏览器，不会强制让我其他应用程序（如下载工具）走代理；当 goagent 被干扰（如，陆四期间）不可用时，换用 shadowsocks；需要全局代理时用 openVPN；需要指定地域的出口 IP 时用 openVPN + tor。
 
 #4 系统管理 
