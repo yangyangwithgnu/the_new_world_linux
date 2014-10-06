@@ -1239,7 +1239,7 @@ openSUSE 默认已经安装好相关蓝牙管理程序（核心程序 gnome-blue
 使用问题：stardict 的选词翻译是提升翻译效率的好功能，用鼠标选中某个单词或短语，stardict 自动提取选中内容并提交后台翻译引擎，再以浮窗显示翻译结果，但有时我们选中单词中有标点符号时，stardict 将无法识别。比如，选择内容为 green:，而 stardict 严格匹配 green，将无法翻译 green:。其实，优化下取词内容代码，对取词内容适当降噪应该不难，有时间我写个补丁。
 
 ###7.4 中文输入
-个人认为，影响 linux 在朝内推广的最大阻碍要算输入法。linux 下常见输入法有 scim、fictx、ibus。scim 是老牌输入法，但项目几乎停滞，长年不见更新；fictx，俗称小企鹅输入法，有一定用户量；ibus，gnome 唯一官方集成的中文输入法，有模糊拼音、常用词汇、智能匹配、主动学习、快速输入英文单词（v）等特点，很好用。严格地说，ibus 是输入法框架，必须在此框架中选用拼音、五笔等输入法才能正常输入。刚装的操作系统是看不到 ibus 图标的，需要添加中文输入法，settings – region & language – input sources 中添加 chinese (pinyin)。如下图所示：
+个人认为，影响 linux 在朝内推广的最大阻碍要算输入法。linux 下常见输入法有 scim、fcitx、ibus。scim 是老牌输入法，但项目几乎停滞，长年不见更新；fcitx，俗称小企鹅输入法，有一定用户量；ibus，gnome 唯一官方集成的中文输入法，有模糊拼音、常用词汇、智能匹配、主动学习、快速输入英文单词（v）等特点，很好用。严格地说，ibus 是输入法框架，必须在此框架中选用拼音、五笔等输入法才能正常输入。刚装的操作系统是看不到 ibus 图标的，需要添加中文输入法，settings – region & language – input sources 中添加 chinese (pinyin)。如下图所示：
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/ibus%20%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95.gif" alt=""/><br />
 （ibus 中文输入法）
