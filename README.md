@@ -301,7 +301,8 @@ X-GNOME-Autostart-enabled=true
 <h2 id="1">1 日常办公</h2>
 现在的企事业单位几乎都需借助电脑办公，医生看病开处方、营业厅办理业务、会计帐务处理等等，电脑已成为各行各业办公的主要途径和手段。下面介绍几类常见的办公需求。
 
-<h3>1.1 办公文书</h3>
+<!--<h3 id="1.1">1.1 办公文书</h3>-->
+###1.1 办公文书
 word、excel、powerpoint 等三个软件是 windows 中必装的办公文书软件，以支撑我们文字处理、表格制作、汇报演示等工作需要。linux 中我们对应有 writer、calc、impress 等软件，这三个软件（外加 draw、math、base）就是大名鼎鼎的 libreoffice 套件。libreoffice 完全兼容 ms-office 文档，甚至还可以直接转存为 pdf 格式文件，
 
 软件名称：libreoffice
