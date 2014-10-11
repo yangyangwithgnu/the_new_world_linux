@@ -1,83 +1,82 @@
 <h1 align="center">美丽新世界：linux 下的惬意生活</h1>
 yangyang.gnu@gmail.com  
-2014-10-5 23:30:17
+2014-10-11 15:13
 
 
 ##【公告】
 ----
-* **捐赠：如果觉得本文有用，可以考虑捐赠点碎银，支付宝 yangyang.gnu@gmail.com，不好意思 $\_$**
+* <font color="red"><b>**捐赠：如果觉得本文还不错，捐点碎银，支付宝 yangyang.gnu@gmail.com，给多了我跟你急 $\_$**</b></font>
 * **讨论**：任何意见建议移步 http://www.v2ex.com/t/137202
 
 
 ##【版本】
 ----
+* v0.1.1，2014-10-11。0）将目录制作成书签；1）翻墙部分相关图片更新，修正全文错别字，修正 kernel-desktop 的错误描述。
 * v0.1，2014-10-5。发布初始版本。
 
 
 ##【目录】
 ----
-~~~~
-0 发行套件 
-	0.1 发行套件的选择 
-	0.2 发行套件的安装 
-	0.3 发行套件的设置 
-		0.3.1 升级系统 
-		0.3.2 安装驱动 
-		0.3.3 美化桌面 
-		0.3.4 其他设置 
-1 日常办公 
-	1.1 办公文书 
-	1.2 电邮收发 
-	1.3 电子书阅读 
-		1.3.1 pdf 阅读 
-		1.3.2 chm 阅读 
-2 娱乐休闲 
-	2.1 歌曲聆听 
-	2.2 电影观赏 
-	2.3 音频编辑 
-3 网上冲浪 
-	3.1 网页浏览 
-	3.2 搭梯翻墙 
-		3.2.1 封锁原理 
-		3.2.2 跳出死循环 
-		3.2.3 google 服务器代理 
-		3.2.4 shadowsocks 代理 
-		3.2.5 VPN 代理 
-		3.2.6 地下网络代理 
-4 系统管理 
-	4.1 数据备份 
-	4.2 碎片整理 
-5 图形图像 
-	5.1 图片编辑 
-	5.2 色彩提取 
-	5.3 屏幕截图 
-	5.4 屏幕录像 
-6 windows 
-        6.1 版本选择 
-	6.2 资源下载 
-	6.3 网上购物 
-	6.4 即时通讯 
-7 其他杂项 
-	7.1 蓝牙收发 
-	7.2 手机管理 
-	7.3 英文翻译 
-	7.4 中文输入 
-	7.5 软件开发 
-	7.6 虚拟终端 
-	7.7 升级 BIOS 
-	7.8 有待提升 
-8 完结
-~~~~
+[0 发行套件](#0)  
+........[0.1 发行套件的选择](#0.1)  
+........[0.2 发行套件的安装](#0.2)  
+........[0.3 发行套件的设置](#0.3)  
+................[0.3.1 升级系统](#0.3.1)  
+................[0.3.2 安装驱动](#0.3.2)  
+................[0.3.3 美化桌面](#0.3.3)  
+................[0.3.4 其他设置](#0.3.4)  
+[1 日常办公](#1)  
+........[1.1 办公文书](#1.1)  
+........[1.2 电邮收发](#1.2)  
+........[1.3 电子书阅读](#1.3)  
+................[1.3.1 pdf 阅读](#1.3.1)  
+................[1.3.2 chm 阅读](#1.3.2)  
+[2 娱乐休闲](#2)  
+........[2.1 歌曲聆听](#2.1)  
+........[2.2 电影观赏](#2.2)  
+........[2.3 音频编辑](#2.3)  
+[3 网上冲浪](#3)  
+........[3.1 网页浏览](#3.1)  
+........[3.2 搭梯翻墙](#3.2)  
+................[3.2.1 封锁原理](#3.2.1)  
+................[3.2.2 跳出死循环](#3.2.2)  
+................[3.2.3 google 服务器代理](#3.2.3)  
+................[3.2.4 shadowsocks 代理](#3.2.4)  
+................[3.2.5 VPN 代理](#3.2.5)  
+................[3.2.6 地下网络代理](#3.2.6)  
+[4 系统管理](#4)  
+........[4.1 数据备份](#4.1)  
+........[4.2 碎片整理](#4.2)  
+[5 图形图像](#5)  
+........[5.1 图片编辑](#5.1)  
+........[5.2 色彩提取](#5.2)  
+........[5.3 屏幕截图](#5.3)  
+........[5.4 屏幕录像](#5.4)  
+[6 windows](#6)  
+........[6.1 版本选择](#6.1)  
+........[6.2 资源下载](#6.2)  
+........[6.3 网上购物](#6.3)  
+........[6.4 即时通讯](#6.4)  
+[7 其他杂项](#7)  
+........[7.1 蓝牙收发](#7.1)  
+........[7.2 手机管理](#7.2)  
+........[7.3 英文翻译](#7.3)  
+........[7.4 中文输入](#7.4)  
+........[7.5 软件开发](#7.5)  
+........[7.6 虚拟终端](#7.6)  
+........[7.7 升级 BIOS](#7.7)  
+........[7.8 有待提升](#7.8)  
+[8 完结](#8)  
 
 
 ##【正文】
 ----
 linux，从深海潜艇到高空侦察机、从房间大的工作站到手掌小的手机、从远至美国的 google 服务器到近在客厅的机顶盒，你都能见到它的身影。我无意说服你抛弃娴熟使用的操作系统转投 linux，假如你崇尚自由、渴求本质、热爱折腾，不妨一试！
 
-##0、发行套件
+<h2 id="0">0、发行套件</h2>
 linux 本身还算不上完整的操作系统，它仅是个内核（一方面管理协调下层的硬件资源，一方面为上层软件提供基础服务支撑），需搭配系统软件（shell、编译器、包管理器、桌面环境等等）、应用软件（办公软件、网页浏览器、音视播放器、图片编辑器等等）才能成为一套具备日常使用功能的操作系统，即，发行套件。
 
-###0.1 发行套件的选择
+<h3 id="0.1">0.1 发行套件的选择</h3>
 linux 的发行套件多达 140+，但本质上大同小异，选定 kernel、包管理器、桌面环境、shell 后在系统层面就基本定型了，再按不同用途选定对应应用软件那么应用层面也就有了，最后就形成了各类发行套件，比如，盲人的 vinux、教育培训的 ubermix、家庭影院的 OpenELEC、安全渗透的 kali、国人专供的 deepin。所以，基本上，你不要在发行套件的选择上消耗精力，目前的主流发行套件包括：slackware、debian、fedora、arch、gentoo、ubuntu、lfs、openSUSE 等，它们各具特色、追随者众，比如，slackware 是目前存活时间最长古董级的发行套件（经验丰富），fedora 是 redhat 进行新技术实验的发行套件（技术创新），ubuntu 号称零配置开箱即用的发行套件（简单易用）、LFS（linux from scratch）让你从无到有构建个人专属的发行套件（配置灵活）、经验丰富+技术创新+简单易用+配置灵活 = openSUSE！所以，我向你推荐它。
 
 openSUSE 最早是 slackware 在德国的本地化版本，后来因其加入了大量特色功能升格为单独的发行套件，其原名为 suse linux，10.2 版开始更名为 openSUSE。openSUSE 由 novell 公司赞助、社区推动的发行套件，它的相关源码和技术可由 novell 使用，作为 novell 企业版发行套件 SLES 的基础。openSUSE 旨在：a）推进 linux 在全球广泛使用；b）降低 linux 使用门槛，成为易于上手的发行套件；c）成为技术黑客和软件开发人员的首选平台。openSUSE 的 logo 是只可爱的变色龙，以此象征 openSUSE 灵活、敏捷的特性。当然，本文并不局限 openSUSE，适用于任何发行套件。
@@ -88,16 +87,16 @@ openSUSE 最早是 slackware 在德国的本地化版本，后来因其加入了
 
 另外，关于发行套件的版本更替，通常我会在最新正式版放出半年后再考虑，原因有二：一方面经过半年的大规模外部用户测试，大量 bug 已被发现并修正，一定程度上规避了使用系统的不稳定性；一方面各类应用软件开发人员有足够时间针对新版本的发行套件进行功能升级和兼容性优化，让我真真正正感受到新版本带来的各项提升。
 
-###0.2 发行套件的安装
+<h3 id="0.2">0.2 发行套件的安装</h3>
 既然是普通用户使用的发行套件，势必集成了某种桌面环境以便用户通过可视化界面操作计算机（底层由 x.org 提供图形图像服务，中间由桌面环境负责统一管理各应用软件发起的图形绘制请求并协调 x.org 予以响应）。基本上，各类发行套件都提供 gnome 和 kde 两种桌面环境供君选择（此外，还有 xfce、lxde、ede、rox 等等其他桌面环境可单独下载安装）。gnome 是隶属 GNU 项目群的子项目，全称为 the gnu network object model environment，采用 GTK（由 C 语言编写）作为底层开发库；KDE 全称 kool desktop environment，采用 QT（由 C++ 语言编写）作为底层开发库。gnome 和 kde 是 linux 中最为流行的桌面环境，从操作习惯和界面风格来看，我更喜欢 gnome。
 
 安装发行套件包括如下几步：  
 
 1. 第一步，下载镜像。选择桌面环境（gnome 或 kde）、系统构架（32 位或 64 位）；  
 2. 第二步，制作安装 U 盘。U 盘安装既节省光盘介质费用，又能大幅提升安装速度，逐渐成为你安装系统的首选。借由 imagewriter 制作启动盘；  
-3. 第三步，安装系统。整个过程一路 next，除了时区选用 UTC、分区大小两个关键点稍加留意外，基本零难度。建议依次创建如下分区：/、swap、/home、/data。几点说明：  
+3. 第三步，安装系统。整个过程一路 next，除分区稍加留意外，基本零难度。建议**依次**创建如下分区：/、swap、/home、/data。几点说明：
   * linux 的分区不同于 windows，分区后没有所谓的 C:、D: 盘，而是一个个文件系统，这些文件系统没有具体名称，必须先挂载到某个目录（称之为挂载点）下才能正常使用，分区与目录一一对应；  
-  * 操作系统为扩展物理内存容量通常设有“虚拟内存”机制，将不活波内存页（如，未关闭但长时间没使用的程序）从物理内存移至硬盘的虚拟内存，从而释放宝贵的物理内存空间，swap 分区就是所谓的虚拟内存，一般将其容量规划得等同于物理内存即可，但，只有在物理内存吃紧时（如，启用多个大型程序、运行了存在严重泄漏的程序）系统才会使用 swap，换言之，如果你机器物理内存较大（如，8G），也不一定非要将 swap 分区划为与物理内存一样大，给个 2G 让系统应个急即可。另外，由于不存在由用户直接发起的swap分区读写的场景，所以该分区不用挂载目录，由系统自行管理。如果想查看 swap 实时使用情况，可执行“vmstat 1”命令，输出信息中，si 表示 1 秒内写入 sawp 的内存页大小，so 从 swap 中读出的内存页大小，单位为 K；
+  * 操作系统为扩展物理内存容量通常设有“虚拟内存”机制，将不活泼内存页（如，未关闭但长时间没使用的程序）从物理内存移至硬盘的虚拟内存，从而释放宝贵的物理内存空间，swap 分区就是所谓的虚拟内存，一般将其容量规划得等同于物理内存即可，但，只有在物理内存吃紧时（如，启用多个大型程序、运行了存在严重泄漏的程序）系统才会使用 swap，换言之，如果你机器物理内存较大（如，8G），也不一定非要将 swap 分区划为与物理内存一样大，给个 2G 让系统应个急即可。另外，由于不存在由用户直接发起的swap分区读写的场景，所以该分区不用挂载目录，由系统自行管理。如果想查看 swap 实时使用情况，可执行“vmstat 1”命令，输出信息中，si 表示 1 秒内写入 sawp 的内存页大小，so 从 swap 中读出的内存页大小，单位为 K；
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%9F%A5%E7%9C%8Bswap%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5.png" alt=""/><br>
 （查看swap使用情况）
@@ -105,22 +104,21 @@ openSUSE 最早是 slackware 在德国的本地化版本，后来因其加入了
   * 用户相关信息（如，应用程序的配置文件）通常放在 /home 目录中，为避免重装系统导致各类配置文件丢失，需将 /home 放在独立分区上。应用程序配置文件通常位于如下路径：~/.[app_name]、~/.config/、~/.local/share/、~/.local/share/applications/、/etc/[app_name].conf，若发现程序运行异常，可先删除相关配置文件再试试；  
   * 所有非系统数据（如，歌曲、ebook、安装程序）都放在独立分区 /data 上，以便定期备份。
 
-###0.3 发行套件的设置
+<h3 id="0.3">0.3 发行套件的设置</h3>
 刚装好的操作系统都是默认设置，按个人习惯适当调整才贴心。
 
-####0.3.1 升级系统
+<h4 id="0.3.1">0.3.1 升级系统</h4>
 linux 上系统升级分两部分，一部分是内核升级，一部分是发行套件升级（即，除内核外的驱动程序、系统软件、应用软件等升级）。
 
-#####预编译内核选择
+<h5 id="0.3.1.1">预编译内核选择</h5>
 升级内核是为了享受新内核带来的安全增强、更多设备支持、以及各类新特性，有两种可选方式：方式一，如果熟悉内核编译选项，那么你完全可以针对自己的设备编译出最大程度发挥设备性能的定制版内核，另文详讲；方式二，如果不具备这些知识，也别急，openSUSE提供了几种常见场景的预编译内核，在软件仓库中选择中意的版本，安装、重启即可。常见的预编译内核包括：
 
-* kernel-default 是系统默认版内核，这是保守选择，能保证在所有设备上成功启用操作系统；
-* kernel-pae 在 kernel-default 基础上增加了“物理地址扩增”功能，支持识别大于3G的物理内存设备（最多支持至 64G）；
-* kernel-desktop 在 kernel-pae 基础上针对桌面进行优化，并屏蔽了只有服务器上才会使用的内核功能；
+* kernel-default 是系统默认版内核，这是保守选择，能保证在不论是桌面还是服务器上都能成功启用操作系统；
+* kernel-desktop 在 kernel-pae 基础上针对桌面进行优化，并屏蔽了只有服务器上才会使用的内核功能，提升启动速度和响应速度；
 * kernel-syms 含有内核源码符号，如变量名、函数名、结构名，便于内核跟踪调试；
-* kernel-vanilla 是纯净版内核，清除了发行套件自行添加的补丁。
+* kernel-vanilla 是 kernel.org 发布的纯净版内核，清除了发行套件自行添加的补丁。
 
-默认安装的是 kernel-default，无法使用大于 2G 的内存、未进行桌面优化，通常来说，你应改用 kernel-desktop。
+默认安装的是 kernel-default，无法使用大于 3G 的内存、未进行桌面优化，通常来说，你应改用 kernel-desktop。
 
 安装新内核，执行  
 
@@ -180,14 +178,14 @@ less /proc/meminfo
 ```  
 可查看系统识别的物理内存（输出第一行 MemTotal 字段中显示）。
 
-#####发行套件升级
+<h5 id="0.3.1.2">发行套件升级</h5>
 在进行发行套件升级前，先说说软件仓库。前面说过，发行套件是集成内核、驱动程序、系统软件、应用程序等一整套可支撑普通用户日常工作、生活需求的操作系统，可见，发行套件充当了软件筛选、软件打包、软件依赖库测试、软件兼容性测试等多个角色，为确保发行套件的健壮性，发行套件厂商（或社区）将它筛选、打包、测试过的软件放在官方软件仓库中，这样，不论哪个厂商开发的应用程序，用户只需到软件仓库中查找、下载、安装即可，不用（像 windows）再到各个软件官网逐一下载，当然，软件仓库中没有的，你仍可到软件官网单独下载，但要注意依赖库是否正确。软件仓库一般放在发行套件官方服务器上，用户通过更新源访问软件仓库。因此，更新源就是软件仓库的路牌。好了，了解了软件仓库、更新源等概念后，我们可以按如下步骤升级发行套件啦。
 
-第一步，添加更新源。更新源的选择一定要严谨，尽量选择针对你使用的特定发行套件（甚至版本）且经过严格兼容性测试的源，这些更新源中收录的软件可能不是最新的但一定是最稳定的。基于这一思想，除了开启发行套件自带的几个默认官网更新源外，我增加了社区制作的各类更新源。这是大而全的更新源合辑，你需要的 99% 软件均可在此找到，其中，包括了两个重要源，一是 nvidia 显卡驱动源、一是 packman 第三方源（收录了大量经过严格测试的新软件）。具体操作，选择 community repositories，勾选所有源后保存即可。此外，社区源之外还有个 M17N 源，它大量收录了软件国际化、本地化等相关库文件，在让你品尝新功能以及满足本地化需求的同时，可能会引入系统稳定性和软件兼容性问题，请谨慎添加，http://download.openSUSE.org/repositories/M17N/openSUSE_13.1
+第一步，添加更新源。更新源的选择一定要严谨，尽量选择针对你使用的特定发行套件（甚至版本）且经过严格兼容性测试的源，这些更新源中收录的软件可能不是最新的但一定是最稳定的。基于这一思想，除了开启发行套件自带的几个默认官网更新源外，我增加了社区制作的各类更新源。这是大而全的更新源合辑，你需要的 99% 软件均可在此找到，其中，包括了两个重要源，一是 nvidia 显卡驱动源、一是 packman 第三方源（收录了大量经过严格测试的新软件）。具体操作，选择 community repositories，勾选所有源后保存即可。此外，社区源之外还有个 M17N 源，它大量收录了软件国际化、本地化等相关库文件，在让你品尝新功能以及满足本地化需求的同时，可能会引入系统稳定性和软件兼容性问题，请谨慎添加，http://download.openSUSE.org/repositories/M17N/openSUSE_13.1 。
 
 添加完更新源后，我们还应注意几点：一、软件安装完成后自动删除安装程序，以节约存储空间，在 software repositories 中取消每个更新源的 keep downloaded packages；二、不同更新源中难免有重复的软件，这时，必须有个机制指示系统选用哪个源中版本——更新源优先级，优先级从 1 到 200，数字越小优先级越高，系统优选优先级高的更新源中的软件，通常来说，收录的软件测试周期越长、测试越严格的更新源应第一优先，即，http://download.openSUSE.org/update/13.1/ 的优先级应置为 1。
 
-另外，如果你的网络环境无法流畅访问境外官网软件仓库，可以转为访问其在朝内镜像。国内还有几家上规模又有良心的 IT 企业，通过企业自身带宽优势，准实时地从发行套件官网同步软件仓库到国内服务器上，冏朝用户可调整更新源，实现从这些企业的服务器上高速访问软件仓库。目前，为各大发行套件建立国内软件仓库镜像的企业有搜狐、东软，高校有北京交大、中国科大、中央音乐学院（歌唱艺术家也玩 linux），开源社区有 LUPA 等，以上机构均为 openSUSE.org 官方注册镜像，具体镜像地址参见 http://mirrors.openSUSE.org；
+另外，如果你的网络环境无法流畅访问境外官网软件仓库，可以转为访问其在朝内镜像。国内还有几家上规模又有良心的 IT 企业，通过企业自身带宽优势，准实时地从发行套件官网同步软件仓库到国内服务器上，冏朝用户可调整更新源，实现从这些企业的服务器上高速访问软件仓库。目前，为各大发行套件建立国内软件仓库镜像的企业有搜狐、东软，高校有北京交大、中国科大、中央音乐学院（歌唱艺术家也玩 linux），开源社区有 LUPA 等，以上机构均为 openSUSE.org 官方注册镜像，具体镜像地址参见 http://mirrors.openSUSE.org ；
 
 第二步，删除无用软件。系统默认安装的软件不见得都是你需要的（如，gnome 自带小游戏、某些软件自带的非中文和英文的帮助文档），进 install/remove software，取消待删除软件前的勾选框，apply 即可。
 
@@ -199,7 +197,7 @@ less /proc/meminfo
 
 总之，以上三个命令差异巨大，就日常而言，建议：用 zypper patch 为系统打补丁，用 zypper update 升级系统，用 zypper install program_version_num 升级 zypper update 无法升级的软件；
 
-####0.3.2 安装驱动
+<h4 id="0.3.2">0.3.2 安装驱动</h4>
 windows 下新增硬件外设，通常需要到硬件官网下载驱动，安装重启后系统才能识别新增硬件设备，linux 对驱动的管理，你可以（片面地）理解为全都打包进内核中了，只要是内核版本足够新（这正是前面升级内核的目的之一），99% 的硬件完全可以识别，换言之，你不用针对主板、芯片、网卡、显卡、声卡单独下载安装驱动，因为内核已经集成了它们的驱动，当然，我指的是集成驱动能很好地管理对应硬件设备，如果管理得不是那么好呢？那也可以单独安装，比如，显卡驱动。
 
 我用的 N 卡，以此为例。openSUSE 预置了 N 卡驱动程序的开源版 nouveau，nouveau 由第三方开发，并未得到 nvidia 官方支持，是开发人员对 N 卡官方驱动逆向分析后的重新编码，实现难度巨大，虽效果不尽人意但也值得你尊重。作为普通用户，肯定希望最大程度发挥显卡特性，可以考虑安装 N 卡针对 openSUSE 发布的（闭源）官方显卡驱动吧。先增加 N 卡官方更新源 ftp://download.nvidia.com/openSUSE/13.1 ，再执行前面讲的升级命令即可。
@@ -211,7 +209,7 @@ CLUTTER_PAINT=disable-clipped-redraws:disable-culling
 CLUTTER_VBLANK=True
 ```  
 
-####0.3.3 美化桌面
+<h4 id="0.3.3">0.3.3 美化桌面</h4>
 前面提过，我选装的是 gnome 桌面环境。gnome3 相较先前版本，不论从界面外观还是操作习惯都有非常大的差异，比如，窗口右上角只有关闭按钮，不再有最大化、最小化的概念；比如，托盘从任务栏中剥离出来，默认情况下为隐藏状态；比如，要选择桌面上的某个窗口，先得调出所有窗口的列表，在点击选择需要的那个；比如，不再有桌面图标，等等。如此这些，让很多人无法适应、被人诟病。也许是心态问题，我倒是挺适应这种操作模式的，使用 gnome3 也有几年时间了，虽谈不上驾轻就熟，但也不存在任何使用障碍，非要让我提一点意见的话，嗯～嗯～，好吧，真心希望 gnome 开发团队将横向布局的任务栏改为纵向布局，至于原因，你知道，如今的显示器几乎都是宽屏的，这就意味着屏幕的水平空间充裕而垂直空间紧张，现在又将任务栏水平放置在最顶部，进一步缩小了可用垂直空间，所以，强烈建议将任务栏垂直放置在屏幕左侧（效果类似 ubuntu 的 unity），希望下一版本能有所改善。另外，个人认为，对于一项新生事物（我说的是 gnome3），不妨以“拥抱变化、迎接未来”的心态去尝试，或许，你会发现，原来它才是你的最爱。
 
 扯远了，接着说 gnome 的美化。桌面美化，无非就是选一套符合你审美观的主题，具体包括窗口主题、图标主题、光标主题、图形环境登录界面、系统声音等等，下载、安装、启用即可。
@@ -222,9 +220,9 @@ CLUTTER_VBLANK=True
 * 主题引擎：murrine、unico、adwaita、canvas、pixbuf 等几类主题引擎必须安装。若安装主题后仍存在滚动条粗大、按钮错位等情况，再把 gtk2-engine-*、gtk3-engine-* 安装上；
 * 安装路径。一般而言，主题文件和图标分别放至全局目录 /usr/share/themes/ 和 /usr/share/icons/，或者分别放至账号目录 ~/.themes 和 ~/.icons 均可。建议优选全局目录，账号目录有一定几率导致主题失效；
 
-第二步，下载主题。推荐两个 gnome3 相关的主题网站：http://gnome-look.org 与 http://linux-lounge.deviantart.com ，慢慢选，喜欢哪个下哪个。个人非常喜欢那种扁、平、薄的风格，GTK 主题选用 Numix-Solarized（https://github.com/HuiJun/Numix-Solarized ），搭配 faenza 图标主题（http://tiheum.deviantart.com/art/Faenza-Icons-173323228 ）效果非常不错。
+第二步，下载主题。推荐两个 gnome3 相关的主题网站：http://gnome-look.org 与 http://linux-lounge.deviantart.com，慢慢选，喜欢哪个下哪个。个人非常喜欢那种扁、平、薄的风格，GTK 主题选用 Numix-Solarized（http://bitterologist.deviantart.com/art/Numix-Solarized-417575928），搭配 faenza 图标主题（http://tiheum.deviantart.com/art/Faenza-Icons-173323228）效果非常不错 (!!GFW!! or the website down ?)。
 
-第三步，安装主题。将相关主题拷贝至 /usr/share/themes/ 和 /usr/share/icons/ 目录即可。具体而言，GTK 主题 Numix 解压后的 Numix/、Numix - GTK3.4/ 目录拷贝至 /usr/share/themes/，faenza 图标主题解压后得到压缩文件 Faenza.tar.gz、Faenza-Dark.tar.gz、Faenza-Darker.tar.gz、Faenza-Darkest.tar.gz 分别再解压后得到 Faenza、Faenza-Dark、Faenza-Darker、Faenza-Darkest 等四个目录拷贝至 /usr/share/icons/ 目录。注意，a）如果无法选择对应主题，请确认是否多套了一层目录；b）/usr/share/themes/ 和 /usr/share/icons/ 目录中系统自带主题和图标切勿删除，否则将导致无法登录图像界面；
+第三步，安装主题。将相关主题拷贝至 /usr/share/themes/ 和 /usr/share/icons/ 目录即可。具体而言，GTK 主题 Numix Solarized 解压后的 Numix Solarized/ 目录拷贝至 /usr/share/themes/，faenza 图标主题解压后得到的 Faenza/ 拷贝至 /usr/share/icons/。注意，a）如果无法选择对应主题，请确认是否多套了一层目录；b）/usr/share/themes/ 和 /usr/share/icons/ 目录中系统自带主题和图标切勿删除，否则将导致无法登录图像界面；
 
 第四步，选择主题。运行 tweak tool，参照下图选择窗口和图标主题：
 <div align="center">
@@ -234,8 +232,8 @@ CLUTTER_VBLANK=True
 
 第五步，启用主题。键入 alt+f2，输入 r 回车，看到没，刚才选择的主题已经生效。最终效果如下：
 <div align="center">
-<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/GNOME3-HOLO.png" alt=""/><br>
-（gnome3-holo）
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/Numix%20Solarized%20%E4%B8%BB%E9%A2%98.png" alt=""/><br>
+（Numix Solarized 主题）
 </div>
 
 第六步，字体美化。openSUSE 中文显示默认采用文泉驿字体，相比之下，更喜欢微软雅黑那种方方正正的饱满字体，但微软雅黑中的英文字体又不咋地，有人发布了一款增强了英文字体的微软雅黑——yahei consolas hybrid 字体，可以下来试试，效果非常不错（本文全文采用的就是这种字体）。双击字体按提示安装，安装完后进入 advanced settings，按如下设置即可：
@@ -290,7 +288,7 @@ X-GNOME-Autostart-enabled=true
 
 如果你需要的软件在添加的各类软件仓库中都无法找到，可依次尝试如下两个专用搜索引擎：http://software.openSUSE.org/search 和 http://www.rpmfind.net ，若还是无法找到，只有借助通用搜索引擎找到该软件官网，再下载安装。
 
-####0.3.4 其他设置
+<h4 id="0.3.4">0.3.4 其他设置</h4>
 某些软件在界面上未提供用于设置的 preferences 菜单项（如 gedit、 nautilus），这时只有请出 dconf-editor。windows 的很多底层设置可以在注册表中进行，linux 对应可以在 DBUS 中设置，dconf-editor 就是 DBUS 的图形界面编辑器。dconf-editor 管理的设置很多，大家可以自己琢磨玩玩，如下几类我建议你考虑：
 
 * gedit 取消自动备份： org - gnome - gedit - preferences - editor，取消 create-backup-copy ；
@@ -300,10 +298,10 @@ X-GNOME-Autostart-enabled=true
 * 文件列表以小图标且显示 ：org - gnome - nautilus - list_view，default-zoom-level 设置为 smallest；
 * 文件列表以树形目录显示 ：org - gnome - nautilus - list_view，勾选 use-tree-view。
 
-##1 日常办公
+<h2 id="1">1 日常办公</h2>
 现在的企事业单位几乎都需借助电脑办公，医生看病开处方、营业厅办理业务、会计帐务处理等等，电脑已成为各行各业办公的主要途径和手段。下面介绍几类常见的办公需求。
 
-###1.1 办公文书
+<h3 id="1.1">1.1 办公文书</h3>
 word、excel、powerpoint 等三个软件是 windows 中必装的办公文书软件，以支撑我们文字处理、表格制作、汇报演示等工作需要。linux 中我们对应有 writer、calc、impress 等软件，这三个软件（外加 draw、math、base）就是大名鼎鼎的 libreoffice 套件。libreoffice 完全兼容 ms-office 文档，甚至还可以直接转存为 pdf 格式文件，
 
 软件名称：libreoffice
@@ -324,7 +322,7 @@ word、excel、powerpoint 等三个软件是 windows 中必装的办公文书软
 
 设置调整：tools -> options -> language settings -> writing aids，取消 options 中的所有选项，以禁止拼写检查。
 
-###1.2 电邮收发
+<h3 id="1.2">1.2 电邮收发</h3>
 很多人喜欢通过邮件服务提供商官网进行邮件收发，强烈建议改用邮件客户端，避免频繁登录邮箱，同时，还能离线查阅邮件内容。好的邮件客户端除了正常收发邮件外，还应具备地址簿管理、垃圾邮件过滤、多账户管理、日程安排、同步删除远程邮件，甚至为常见邮件提供商智能配置等等高级功能，thunderbird 算是不错的。
 
 软件名称：thunderbird
@@ -339,10 +337,10 @@ word、excel、powerpoint 等三个软件是 windows 中必装的办公文书软
 （写邮件）
 </div>
 
-###1.3 电子书阅读
+<h3 id="1.3">1.3 电子书阅读</h3>
 电子书格式类型较多，包括 hlp、lit、wdl、ceb、abm、pdg、epub、pdf、chm 等等，但常见的还是最后两类。下面介绍下 pdf 和 chm 的阅读器。
 
-####1.3.1 pdf 阅读
+<h4 id="1.3.1">1.3.1 pdf 阅读</h4>
 世上有三件事你无法回避：死亡、税收、阅读 PDF 文档。
 
 软件名称：evince
@@ -375,7 +373,7 @@ word、excel、powerpoint 等三个软件是 windows 中必装的办公文书软
 （PDF修改）
 </div>
 
-####1.3.2 chm 阅读
+<h4 id="1.3.2">1.3.2 chm 阅读</h4>
 虽然 chm 文档越来越少，但难免还是会遇到，有两个工具可阅读 chm：chmsee 和 kchmviewer。
 
 软件名称：chmsee；
@@ -386,10 +384,10 @@ word、excel、powerpoint 等三个软件是 windows 中必装的办公文书软
 （chmsee）
 </div>
 
-##2 娱乐休闲
+<h2 id="2">2 娱乐休闲</h2>
 linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同时，也可为你提供日常休闲娱乐。
 
-###2.1 歌曲聆听
+<h3 id="2.1">2.1 歌曲聆听</h3>
 常见的音频格式包括：mp3、ogg、aac、mp4、ape、wav、flac 等，windows 下知名的音频播放器 foobar2000 完美支持这些格式，linux 下的 deadbeef 从解码效果来看，有过之而无不及。
 
 软件名称：deadbeef
@@ -405,7 +403,7 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 * 一般来说，通过软件仓库安装某个软件，系统会自动关联安装依赖库，以保障软件正常运行，但，deadbeef 依赖的必要插件 deadbeef-restricted-plugins 并未自动关联，需手工自行添加，否则 deadbeef 无法加载歌曲；
 * 要让当前播放曲目显示在播放列表窗口中可以：ctrl-j 快捷键，或者，菜单中选择 playback -> scroll follows playback；
 
-###2.2 电影观赏
+<h3 id="2.2">2.2 电影观赏</h3>
 我看电影有个习惯，喜欢把电影全屏铺满后再看，这样不至于在如今满是宽屏幕的环境中把人物压缩得又扁又胖。另外，针对视频文件名类似的多个文件要能连续播放（也就是连续自动播放连续剧）。linux 下找了一圈都没发现满意的，包括大名鼎鼎的 vcl 和 mplayer，直到有天我遇到 umplayer。umplayer 是基于 mplayer 二次开发的软件，默认支持（即内置相关格式解码器） mkv、wmv、avi、mpg、3gp、mov、rm、mpeg、mp4 等视频格式。
 
 软件名称：umplayer
@@ -426,7 +424,7 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 
 其他说明：推荐两个不错的电影下载网站：人人影视（http://www.yyets.com ）和电影天堂（http://www.dy2018.com ）
 
-###2.3 音频编辑
+<h3 id="2.3">2.3 音频编辑</h3>
 听到一首喜欢的歌曲，想把它设置为手机来电铃声，但整首歌曲又太长，最好能把高潮部分提取出来，一来电就进入高潮（-\_-$，你想啥～）。
 
 软件名称：audacity；
@@ -437,10 +435,10 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 （audacity）
 </div>
 
-##3 网上冲浪 
+<h2 id="3">3 网上冲浪 </h2>
 问：宅男最怕失去啥？答：网络（谁说苍老师？@\_@！）。网络在给我们带来无限乐趣的同时，也在不断地改变着人类生活方式。
 
-###3.1 网页浏览
+<h3 id="3.1">3.1 网页浏览</h3>
 浏览器是互联网入口，各大互联网公司必争之地。opera、chrome、firefox 三大浏览器，opera 功能上没有多少过人之处且不开源，丢之；chrome 虽有开源版本 chromium，但很多插件都仅支持 windows 平台而在 linux 下无法使用（包括google自己出品的 Chrome Toolbox），弃之；firefox，开源且以 linux 为第一阵营，凭借其高安全性和可扩充性赢得大量忠实用户。
 
 软件名称：firefox；
@@ -556,14 +554,16 @@ YouTube 上的视频，可由插件 1-Click YouTube Video Download 实现下载�
 （自定义客户端类型）
 </div>
 
-###3.2 搭梯翻墙
+此外，你发现没，默认 firefox 地址栏是不显示 URL 协议名 http:// 或 https:// 的，优点是清晰简洁，但缺点也很明显，当你从地址栏中复制某个 URL 的一部分时，复制到粘贴板中的字符串没有协议名，这会导致诸如 OpenOffice 这里办公文书软件无法将其识别为一个 URL 链接。所以，我会让 firefox 常态显示 URL 协议：在 firefox 地址栏中输入 about:config 进入其底层管理界面，搜索 browser.urlbar.trimURLs，双击 true 使其变为 false。
+
+<h3 id="3.2">3.2 搭梯翻墙</h3>
 > _Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers._
 >
 > ---- \<\<Art. 19, Universal Declaration of Human Rights, 1948\>\>.
 
 google 重新定义了搜索引擎，苹果重新定义了手机，天朝重新定义了局域网。为让大家保有天朝优越感，+- 屏蔽了大量“非法”网站，有境内/境外的、有纯技术的、有爱情动作的、有轮子功的，反正 +- 不喜欢的通通借由 GFW 这堵墙屏蔽掉。当然，也有主动屏蔽囧朝访问请求的，比如，sourceforge.net 非常反感囧朝的封闭，你朝子民别来我这儿。裆从小就教育我们，哪里有压迫哪里就有反抗，话说屏蔽之前，天朝的宅男还可以下载几部码片看看打发时间，嘚，看吧，让你屏蔽，没事做了，那就研究下怎样翻墙吧。
 
-####3.3.1 封锁原理
+<h4 id="3.3.1">3.3.1 封锁原理</h4>
 +- 最常用的封锁手段有二：关键字过滤、DNS 劫持。
 
 关键字过滤。你也别谈“滤”色变，全国时时刻刻这么大的网络流量交换，GFW 不可能做到全量、实时过滤分析，一是它没这么强悍的处理能力、二是这一过程严重影响网速。GFW 过滤，只能全网随机抽查，或者，有针对地对指定区域、指定 IP 进行，如果哪天你觉得小区里就你网速慢，恭喜，随机到你家。GFW 对选中 IP 的网络数据包进行实时解析，一旦发现敏感关键字，则短暂封锁终端 IP，导致所有网络访问中断。显然，要过滤关键字，必须满足数据包以明文传输这一必要条件。如果我们的浏览器支持加密访问网页，那么 GFW 永远不可能解析出关键字。默认情况下，我们通过 http 协议进行网页访问，这是明文，而 https 协议，则是密文。换言之，如果哪个浏览器默认支持 https，则可完全突破“关键字过滤”这种封锁手段 —— firefox；
@@ -573,21 +573,21 @@ DNS 劫持。当用户输入 http://www.google.com 希望电信运营商解析�
 * 方式一，自己解析域名及其 IP，可以借助 SmartHosts 实现。SmartHosts（http://smarthosts.googlecode.com/svn/trunk/hosts ），由众网友共同维护的一个 hosts 文件，里面存放着大量被墙域名及其 IP，将其内容追加到本地 /etc/hosts 文件中，此后，hosts 中罗列出的所有 URL 你可以正常高速访问了。但是，存在两个问题：A）SmartHosts 中的每条记录（URL 与 IP）都是各热心网友一条条手工添加的，不可能覆盖完所有被墙网站，肯定会出现一些你需要访问但又不在此列表中的网站；B）SmartHosts 更新周期不定，有时 3 天、有时 30 天，所以你需要不时去关注，有更新是及时添加至本地 hosts 文件中（最近更新时间 2013-12-07 12:16）。这种方式效果有限，你应该把精力放在方式二上。
 * 方式二，借助境外运营商进行域名解析，这是非常具有弹性的解决方案，只有它才能实现完美翻墙。接下来我将介绍几种基于这一思路发展出来的翻墙方式，后一种均依赖前一种，你须依次了解，切勿跳越。
 
-####3.3.2 跳出死循环
+<h4 id="3.3.2">3.3.2 跳出死循环</h4>
 翻墙，你得借助专用工具、使用证书，遇到问题时还得搜索相关解决办法，而这一切信息都在墙外，也就是说，本来你想用这些工具实现翻墙，又不得不先翻墙才能获取这些工具，这就成了个死循环。所以，我得先介绍一种体验式的翻墙方式，这种翻墙方式不追求速度快、流量大、适用广、加密强等等特性，哪怕只能用 1 个小时，关键是在墙内要能直接能获取。
 
 从我的经验来看，国内的收费 VPN 代理最适合（先别纠结啥是 VPN）。一般来说，收费 VPN 服务商为招揽用户，通常会放出一些免费试用 VPN 帐号让用户买单前体验一把，虽然试用帐号存在限定流量、限定流速、禁止 P2P 下载等各种约束，但通过它我们能获取后续其他强大翻墙工具。在百毒（google.com 在墙外）中搜索“VPN 试用”会出来很多收费 VPN 服务提供商，比如，https://www.wojsq.com/ ，用 163.com 邮箱（gmail 在墙外）注册个试用帐号，成功后你会收到帐号和密码的邮件，该帐号每月有 1G 流量（更多免费 VPN 可访问 http://ilvpn.com/free-vpn/ 获取）。接下来，在 networking settings 界面中点击左侧的 + 按钮新建 VPN 配置，interface 选 VPN 后 create...，选 point-to-point tunneling protocol (PPTP) 后 create...，接着在新界面中，connection name 中设定本 VPN 的代理名（如，wojsq），在 VPN 选项卡 gateway 中设定代理服务器 IP （https://www.wojsq.com/server/query 最上两行为试用帐号可用的 IP），user name 和 password 中分别设定邮件中写明的 VPN 用户名和密码，在 advanced... 中，authentication 只选定 MSCHAP 和 MSCHAPv2，security and compression 中选定 MPPE 加密、BSD、deflate、TCP 三种压缩模式，最后保存即可。这时，你的 VPN 配置已完成，接下来，点击 gnome 桌面右上角的网络连接图标，你会看到 VPN connections 下罗列出刚才创建的 wojsq，选中它系统便开始进行 VPN 连接，如果你的网络连接图标上多出一把小锁，说明 VPN 连接成功，到 http://www.ip38.com/ 确认下是否网络访问出口 IP 是否成为国外 IP，若是则翻墙成功。
 
-这种流速低、流量少、稳定性差的翻墙方式虽然存在诸多不足，但成功为我们开启了进入自由世界的大门，为高级代理提供了基础环境，本章后续介绍的其他代理涉及到工具和证书都在墙外，请务必在开启本节的 VPN 让系统处于已翻墙环境，否则无法访问。
+这种流速低、流量少、稳定性差的翻墙方式虽然存在诸多不足，但成功为我们开启了进入自由世界的大门，为高级代理提供了基础环境，**本章后续介绍的其他代理涉及到工具和证书都在墙外，请务必在开启本节的 VPN 让系统处于已翻墙环境**，否则无法访问。
 
-####3.3.3 google 服务器代理
+<h4 id="3.3.3">3.3.3 google 服务器代理</h4>
 google 有一套 WEB 应用程序引擎 Google App Engine（GAE），这套引擎部署在 google 位于美国的服务器上，全球任何开发人员可以向 google 免费申请在该引擎上部署自己的应用。本来，这就一普通的开放服务而已，但是，在天朝这种网络环境下，思维发散的程序员发现：GAE 位于美国服务器上，程序员能在 GAE 上部署服务端程序，如果服务端能接收客户端发送过去的网页访问请求，那完全可以让服务端作为一个中转站，借助美国运营商进行域名解析（绕开朝内运营商），一旦获取网页数据后再传回给客户端。所以，goagent 诞生。
 
 goagent 让 google 成为你的代理，高速且稳定访问所有被墙网站绝不是问题。当然，goagent 使用前提是能正常访问 google，前面介绍的 SmartHosts 已解决该问题，下面重点讲解。
 
 在进行具体操作前，先定义几个对象。goagent 包括客户端程序和服务端程序两部分，客户端程序简称为 GCP（goagent-client-programme），服务端程序简称为 GSP（goagent-server-programme），浏览器简称为 FF（firefox），墙外目标网站简称为 dest。goagent 实现的代理逻辑大致如下：FF 发起墙外 dest 网页访问请求，为绕开国内电信运营商，FF 走代理模式，将请求发至 GCP（127.0.0.1:8087），GCP 将请求转至 GSP，GSP 按 GCP 指示访问网站 dest，由于 GSP 位于美国，所以 GSP 可以顺畅地获取 dest 网页，一旦 dest 网页被 GSP 获取完整，GSP 立即传回给 GCP，GCP 再传给 FF，最终在 FF 中显示出完整页面。具体操作步骤如下：
 
-第一步，申请 GAE 空间，部属 goagent 服务端程序。用 google 帐号登录 appengine.google.com，前面步骤按提示填写，直到填写短信验证码步骤，朝内三家运营商都屏蔽了 google 的短信，你只能通过向 google 提交在线表单，请工作人员将验证码通过邮件发给你，访问 http://appengine.google.com/waitlist/sms_issues ，表单填写内容大致如下：
+第一步，申请 GAE 空间，部属 goagent 服务端程序。用 google 帐号登录 http://appengine.google.com，前面步骤按提示填写，直到填写短信验证码步骤，朝内三家运营商都屏蔽了 google 的短信，你只能通过向 google 提交在线表单，请工作人员将验证码通过邮件发给你，访问 http://appengine.google.com/waitlist/sms_issues ，表单填写内容大致如下：
 >hi,  
 >my mobile phone can not receive sms for verification code! plz send the code to yangyang.gnu@gmail.com. thx man~
 
@@ -598,26 +598,31 @@ goagent 让 google 成为你的代理，高速且稳定访问所有被墙网站�
 </div>
 昏，还验证个啥，工作人员直接就将 GAE 使用权分配给我了（太给力了，效率啊）；
 
-第三步，创建 APP。用 GAE 帐号登陆 http://appengine.google.com/ ，点击 create application 按钮创建 APP，APP 名按自己喜好设定（如，yangyangwithgnu0、yangyangwithgnu1），若要创建多个 APP，重复本步骤；
+第三步，创建 APP。用 GAE 帐号登陆 http://appengine.google.com/，点击 create application 按钮创建 APP，APP 名按自己喜好设定（如，yangyanggnu0、yangyanggnu1），若要创建多个 APP（最多 25 个），重复本步骤；
 
-第四步，下载 goagent（http://code.google.com/p/goagent ）。解压到 goagent/。goagent 包含 local 和 server 两部分，local 存放有平时运行本地代理转发的客户端代码，server 为需要用你 google 帐号上传至 GAE 的服务端代码。
+第四步，下载 goagent（https://github.com/goagent/goagent）。解压到 goagent/。goagent 包含 local 和 server 两部分，local 存放有平时运行本地代理转发的客户端代码，server 为需要用你 google 帐号上传至 GAE 的服务端代码。
 
-第五步，修改配置信息。既然是将 goagent 当作你自己开发的源码上传至 GAE，那么所有的 appid 都应替换成注册 GAE 时所写的应用程序名，例如，我注册时应用程序名设定的是 yangyanggnu，那么需要将 goagent/local/proxy.ini 文件中的 appid = 改写为 yangyangwithgnu0|yangyangwithgnu1；另外，设置 obfuscate = 1 开启流量混淆以正确解析出可用 GGC IP，设置 pagespeed = 1 以提升 GAE 的下行速度；
-
-第六步，上传服务端程序至 GAE。上传前务必确保系统中并未运行 proxy.py，再在 goagent/server/ 下执行：
+第五步，上传服务端程序至 GAE。由于 goagent 被广泛用于翻墙，GFW 加强了对其干扰，手段之一就是阻碍 goagent 的服务端程序上传，所以，要么你在 VPN 全局翻墙的环境下上传，要么在 goagent 客户端程序的护航下上传。前者清晰易懂，后者你需要在上传前确保客户端持续运行，执行
 
 ```
-python uploader.zip
+python goagent/local/proxy.py
+```
+
+然后新开一个虚拟终端执行：
+
+```
+python goagent/server/uploader.py
 ```
 
 整个过程耗时 1 分钟左右，如下图所示：
 <div align="center">
-<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E4%B8%8A%E4%BC%A0GoAgent%E8%87%B3GAE.png" alt=""/><br>
-（上传 goagent 至 GAE）
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E4%B8%8A%E4%BC%A0%20goagent%20%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%A8%8B%E5%BA%8F%E8%87%B3%20GAE.gif" alt=""/><br>
+（上传 goagent 服务端程序至 GAE）
 </div>
 
+第六步，修改配置信息。既然是将 goagent 当作你自己开发的源码上传至 GAE，那么所有的 appid 都应替换成注册 GAE 时所写的应用程序名，例如，我注册时应用程序名设定的是 yangyanggnu0 和 yangyanggnu1，那么需要将 goagent/local/proxy.ini 文件中的 appid = 改写为 yangyanggnu0|yangyanggnu1；另外，设置 obfuscate = 1 开启流量混淆以正确解析出可用 GGC IP，设置 pagespeed = 1 以提升 GAE 的下行速度；
 
-第七步，设置浏览器代理地址。google_appengine/goagent/local/proxy.ini 文件中配置的监听 IP 为 127.0.0.1、端口为 8087，该信息表明，要走 goagent 代理，应将浏览器 firefox 的所有网站访问请求发至 127.0.0.1:8087，那么，在 goagent 客户端程序 google_appengine/goagent/local/proxy.py 作用下，网页访问请求将通过 google 服务器代理访问。firefox 可通过 edit -> preferences -> advanced -> network -> connection -> settings 设置代理服务器地址为 127.0.0.1，端口为 8087，重启 firefox 即可生效。
+第七步，设置浏览器代理地址。goagent/local/proxy.ini 文件中配置的监听 IP 为 127.0.0.1、端口为 8087，该信息表明，要走 goagent 代理，应将浏览器 firefox 的所有网站访问请求发至 127.0.0.1:8087，那么，在 goagent 客户端程序 goagent/local/proxy.py 作用下，网页访问请求将通过 google 服务器代理访问。firefox 可通过 edit -> preferences -> advanced -> network -> connection -> settings 设置代理服务器地址为 127.0.0.1，端口为 8087，重启 firefox 即可生效。
 
 第八步，翻墙出城。至此，只要运行 goagent 的客户端程序 proxy.py，那么 firefox 的所有访问均通过 google 代理访问。goagent 有如下依赖，请逐一安装：python2、python-gevent、python-greenlet、python-vte、python-pyopenssl、python-pycrypto、mozilla-nss-tools。进入 proxy.py 所在目录，执行
 
@@ -640,13 +645,13 @@ python google_appengine/goagent/local/proxy.py
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%9C%AA%E5%AF%BC%E5%85%A5%E8%AF%81%E4%B9%A6.png" alt=""/><br>
 （未导入证书）
 </div>
-别担心，代理本身是成功的，这个错误是因未将 youtube.com 安全证书导入 firefox 所致。在 firefox 中，依次 进入 edit -> preferences -> advanced -> encryption -> view certificates -> authorities -> import，选择证书 google_appengine/goagent/local/CA.crt，重启 firefox 后，再访问 youtube.com 看看，呵呵，久违的 youtube.com 是不是又回来啦：）
+别担心，代理本身是成功的，这个错误是因未将 youtube.com 安全证书导入 firefox 所致。在 firefox 中，依次 进入 edit -> preferences -> advanced -> encryption -> view certificates -> authorities -> import，选择证书 goagent/local/CA.crt，在确认对话框中勾选 websites、email users、software developers 等三类信任，重启 firefox 后，再访问 youtube.com 看看，呵呵，久违的 youtube.com 是不是又回来啦：）
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/youtube.png" alt=""/><br>
 （youtube）
 </div>
 
-对了，你可能发现访问 google 子域名有异常，这是因为 goagent 让所有 google 及其子域名默认不走代理。前面说过，goagent 生效的前提是客户端能正常访问google 服务器，理论上，访问 google.com 及其所有子域名都用不着走代理，即便在代理模式下，访问呢 google 子域名时 goagent 也根本不介入。但是，如果我又想通过代理访问某个 google 子域名怎么办？比如，想买 nexus 4，即便你开了 goagent，访问 play.google.com 会得到如下提示“Sorry! Devices on Google Play is not available in your country yet...”。前面提过，goagent 客户端程序的配置文件 google_appengine/goagent/local/proxy.ini，该文件中有两个 withgae 字段，该字段就是用于圈定那些强制走代理模式的 google 子域名。换言之，该字段指定那些属于 google.com但又强制走代理的子域名。在 proxy.ini 中所有 withgae 字段尾部追加 play.google.com 子域名，用 | 分割，即，...|play.google.com，保存 proxy.ini 后，重新运行 goagent 即可访问 play.google.com，如下图所示：
+对了，你可能发现访问 google 子域名有异常，这是因为 goagent 让所有 google 及其子域名默认不走代理。前面说过，goagent 生效的前提是客户端能正常访问google 服务器，理论上，访问 google.com 及其所有子域名都用不着走代理，即便在代理模式下，访问呢 google 子域名时 goagent 也根本不介入。但是，如果我又想通过代理访问某个 google 子域名怎么办？比如，想买 nexus 4，即便你开了 goagent，访问 play.google.com 会得到如下提示“Sorry! Devices on Google Play is not available in your country yet...”。前面提过，goagent 客户端程序的配置文件 goagent/local/proxy.ini，该文件中有两个 withgae 字段，该字段就是用于圈定那些强制走代理模式的 google 子域名。换言之，该字段指定那些属于 google.com但又强制走代理的子域名。在 proxy.ini 中所有 withgae 字段尾部追加 play.google.com 子域名，用 | 分割，即，...|play.google.com，保存 proxy.ini 后，重新运行 goagent 即可访问 play.google.com，如下图所示：
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/Nexus%204%20(16GB)%20-%20Google%20Play.png" alt=""/><br>
 （Nexus 4 (16GB) - Google Play）
@@ -663,12 +668,12 @@ python proxy.py
 ```
 即可，或者直接将其加入自启动项（GNOME 的启动项可通过在 CLI 中执行 gnome-session-properties 进行设置）。甚至，除 local/ 外的其他目录都可删除，不影响使用。
 
-goagent 是 GAE 的上层产物，GAE 的某些属性我们应当有所了解。GAE 分收费版和免费版，我们使用的免费版，自然有些限制：一个 google 帐号对应一个 GAE 使用权，一个 GAE 用户可以创建最多 25 个 APP，流量方面，每个 APP 每天 1GB、每分钟 56MB，URL 请求方面，每个 APP 每天 657000 次、每分钟 3000 次。一旦的某个 APP 超过以上配额，该 APP 后续请求均将失败，直到太平洋时间 0 点（北京时间 15:00） GAE 自动重置后方可恢复。以上配额一般情况下是够用的，如果的确有更多访问需求（如，youtube 粉），可以创建多个 APP，每多创建一个 APP 则多获取一份配额，可在“第五步，修改配置信息”中用 | 将多个应用分割开，类似这样 yangyanggnu0|yangyanggnu1|yangyanggnu2|yangyanggnu3。
+goagent 是 GAE 的上层产物，为更好地使用 goagent，所以 GAE 的某些属性我们应当有所了解。GAE 分收费版和免费版，我们使用的免费版，自然有些限制：一个 google 帐号对应一个 GAE 使用权，一个 GAE 使用权可以创建最多 25 个 APP；流量方面，每个 APP 每天 1GB、每分钟 56MB；URL 请求方面，每个 APP 每天 657000 次、每分钟 3000 次。一旦的某个 APP 超过以上配额，该 APP 后续请求均将失败，直到当日太平洋时间 0 点（北京时间 15:00） GAE 自动重置后方可恢复。以上配额一般情况下是够用的，如果的确有更多访问需求（如，youtube 粉），可以创建多个 APP，每多创建一个 APP 则多获取一份配额，同时，你需要重新执行第五步将 goagent 服务端程序上传至新增 APP 中，然后执行第六步将新增 APP 名添加精 proxy.ini 中，用 | 将多个应用分割开，类似这样 yangyanggnu0|yangyanggnu1|yangyanggnu2|yangyanggnu3。
 
-至此，goagent 优雅地解决了浏览器翻墙的问题，但，这只达到我总预期的 70%。对于绝大部分人来说，这已足够了，我，的确很难归属到“绝大部分人”中。某些论坛，你得先注册后才能访问帖子内容，为防机器人，同个 IP 短时间内禁止重复注册，由于 goagent 的低使用门槛，我天朝用它翻墙的用户不少，所有用户的出口 IP 均为 GAE 集群的 IP，难免不同时间点都有人在开启 goagent 下访问同个网站注册，这时，其他人再去注册将被视为“同个 IP 短时间内禁止重复注册”；另外，+- 会隔三岔五干扰下，goagent 难免间歇性罢工，所以，我需要一种与 goagent 互备的代理。
+至此，goagent 优雅地解决了浏览器翻墙的问题，但，这只达到我总预期的 70%。对于绝大部分人来说，这已足够了，我，的确很难归属到“绝大部分人”中。某些论坛，你得先注册后才能访问帖子内容，为防机器人，同个 IP 短时间内禁止重复注册，由于 goagent 的低使用门槛，我天朝用它翻墙的用户不少，所有用户的出口 IP 均为 GAE 集群的 IP，难免短时间内多个用户通过 goagent 在同个论坛中进行注册，这时，其他 goagent 用户再去注册将被视为“同个 IP 短时间内禁止重复注册”；另外，+- 会隔三岔五干扰下，goagent 难免间歇性罢工，所以，我需要一种与 goagent 互备的代理。
 
-####3.3.4 shadowsocks 代理
-前面介绍的 goagent 只支持 HTTP(S) 协议代理，并不支持 socket 协议，shadowsocks，支持 socks5 的代理工具。shadowsocks 用 python 编写开发，非常轻量级，你需要用 python 自己的安装管理工具 python-pip 进行安装，两个依赖库 python-M2Crypto 和 python-setuptools 直接从发行套件的仓库中安装，然后执行
+<h4 id="3.3.4">3.3.4 shadowsocks 代理</h4>
+前面介绍的 goagent 只支持 HTTP(S) 协议代理，并不支持 socket 协议，shadowsocks，支持 socks5 的代理工具。shadowsocks 用 python 编写开发，非常轻量级，仅依赖库 python-M2Crypto 和 python-setuptools 两个库。你需要用 python 自己的包管理工具 python-pip 来安装 shadowsocks，执行
 
 ```
 pip install shadowsocks
@@ -687,7 +692,7 @@ pip install shadowsocks
 * "fast_open"，是否开启 TCP_FASTOPEN 以减少延迟，通常为 false
 * "workers"，工作线程数量，通常为 1 
 
-shadowsocks 免费代理服务器可从 https://www.shadowsocks.net/get 或 http://boafanx.tabboa.com/boafanx-ss/ 获取，将代理服务器相关信息保存至 \*.json 文件中（如，1080.json），含前后大括弧：
+以上信息保存至 \*.json 证书文件中。shadowsocks 免费证书可从 http://boafanx.tabboa.com/boafanx-ss/、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （需注册）、https://www.shadowsocks.net/get 等网站获取。为免费资源被滥用，网站会定期更改证书中 server_port 和 password 信息，所以，一旦你发现先前正常的 SS 代理突然失效，基本上，你该更新证书了。如下是一 \*.json 证书文件示例（含前后大括弧），取名 1080.json：
 
 ```
 { 
@@ -722,7 +727,7 @@ sslocal -c 1080.json
 
 shadowsocks 与 goagent 互补，至此，达到我总预期的 80%。但它俩只能让我翻墙看看网页，仅此而已，无法让浏览器之外的软件翻墙。比如，Cygwin，一套用于将 linux 软件移至到 Windows 下的开发环境，在安装 Cygwin 时，它会自动联网下载环境中必须的头文件、编译器等等资源，而这些资源存放在墙外服务器上，Cygwin 又无法通过 HTTP 协议访问墙外资源，所以资源下载失败。换言之，shadowsocks 和 goagent 实现的翻墙并非全局性的。我需要支持整个系统的全局代理。
 
-####3.3.5 VPN 代理
+<h4 id="3.3.5">3.3.5 VPN 代理</h4>
 要实现整个系统的全局代理，你需要更生猛的翻墙利器 —— VPN。VPN（Virtual Private Network），初衷是为在外出差员工使用内网资源，虽然物理上是异构网络环境，但通过 VPN 虚拟成同一网络环境。为保障数据安全，VPN 服务端必须要有客户端发来的证书认证通过后才能进行数据交换，并且数据流全是加密传输，这一过程的副作用可以用于翻墙。
 
 VPN 协议有三种实现：PPTP、L2TP/IPsec、OpenVPN ，安全性最强（数字证书两端双向认证、256 位不可逆加密交换数据）、支持面最广（linux、BSD、OS X、WINDOWS、Android、iOS）、稳定性最高（完全无视防火墙的各类限制）当属  OpenVPN。可以在 http://openvpn.net/index.php/open-source/downloads.html （无法访问？用前面的 goagent 翻墙啊，多好的实践机会）下载最新版本 openVPN 源码（Android、iOS 版本请到各自 APP store 中搜索下载），源码安装、重启，系统中多出一个虚拟网卡设备，一旦运行 openvpn 程序，它会自动修改你系统的路由表，让所有网络数据请求优先走虚拟网卡，这就达到实现了全局代理的目的。现在，你需要找 VPN 服务提供商获取数字证书。嗨嗨嗨嗨，别走啊，免费的在这儿 http://www.vpngate.net/en ，这里有全球各大非盈利机构开放给大家使用的免费 VPN 服务器，根据不同国家、不同带宽、不同性能你可以按需选用。VPN 的三种不同实现使用的证书不用，我们用的 openVPN 对应该网页上的 OpenVPN Config file 链接，进入后你将看到域名证书和 IP 证书两类证书，每类内部又分使用 UDP 和 TCP 两种子类，换言之，一个采用 openVPN 协议的 VPN 服务器共有四个证书，一般来说，你应选用 TCP 的 IP 证书。比如，我选用位于日本、IP 为 84.210.204.5 的机器，点击该行 OpenVPN Config file 链接进入证书下载页面，找到类似 OpenVPN Configuration File: 84.210.204.5 (TCP 995) 的链接点击即可下载得到 vpngate_84.210.204.5_tcp_995.ovpn 数字证书文件：
@@ -743,7 +748,7 @@ openvpn vpngate_84.210.204.5_tcp_995.ovpn
 
 openVPN 方式，加之前面的 google 服务器代理方式 和 shadowsocks 代理，解决了我 95% 的问题。openVPN 解决了 goagent 无法实现系统全局代理的问题，但还是有几个问题：问题一，http://www.vpngate.net/en 上的公共免费 VPN 经常失效，需要我重新下载新的证书，挺麻烦；问题二，这些公共免费 VPN 任何人可能轻易获取，有些按区域进行版权保护的网站会主动屏蔽从这些公共 VPN 发起的请求（这事儿跟天朝的 GFW 没关系），比如 YouTube 上的 music 频道，只能特定地域的 IP 才能观赏，从这些公共 VPN 发起的视频访问请求均被忽略。针对问题一，没什么说的，失效了又去下载新的；针对问题二，说白了，就是 shadowsocks 和 google 服务器代理两类方式完全无法设定以某个指定国家或者地区的 IP 作为代理出口 IP，VPN 代理方式相对好一点，http://www.vpngate.net/en 多少有 20 多个国家可供选择，但仍然缺乏弹性，比如，无法选用台湾、马来西亚、瑞典的代理出口 IP。再举个例，百度音乐上的所有歌曲都是区域版权保护的（仅限大陆用户），留学国外的朋友想要听歌就悲摧了，必须得找个国内 IP，从墙外翻墙内，goagent 使用的是 google 在美国的服务器，用 goagent 肯定没戏，openVPN 可用的公共 VPN 又没有国内的。我需要可以随意指定出口 IP 的代理方式。
 
-####3.3.6 地下网络代理
+<h4 id="3.3.6">3.3.6 地下网络代理</h4>
 前面介绍的几种代理方式，都有个共同的特点：第三方先贡献出一台墙外服务器，然后允许你以该服务器作为出口，访问目标网页，出口服务器在获取完整目标网页后再传回给本地。goagent 的出口服务器是 google 的 GAE 引擎所在服务器、shadowsocks 和 openVPN 的出口服务器是各大机构免费开放的 VPN 服务器，由此可见，这些出口服务器是实现翻墙的关键。
 
 有报道称，接入互联网的 PC 数已达 13 亿，分布在全球各地，如果，我说如果，有某种机制，一旦建立相互信任关系后，位于墙外的 PC1 能允许墙内 PC2 将自己作为出口服务器进行目标网页访问，那也是可以实现翻墙，若是可行，13 亿台 PC，你只需选择希望的国家或地区的那台 PC 建立信任，随意指定出口 IP 的代理方案完全可以落地。tor 诞生。 
@@ -777,7 +782,7 @@ StrictNodes 1
 关于出口节点的选择，你一定要谨慎！不见得进入地下网络就一定安全。天朝虽无法绝对封锁 tor 的地下网络，但可以把自己隐藏到地下网络中，伪装成一个普通中继节点，这就是所谓的“蜜罐”。另外，除了天朝外还有些社会主义国家也有他们自己的 GFW，比如伊朗、叙利亚、朝鲜等等，如果，你把朝鲜选作出口节点，很好，费了九牛二虎之力翻到墙外，你会发现更多网站无法访问了，就好像你挖条地道越狱，好不容易挖通了，却发现是在隔壁监狱 @\_@！因此，你需要告诉 tor 切勿选用这些国家的中继节点：
 
 ```
-# 不选用以下国家的中继节点
+# 禁用以下国家的中继节点
 ExcludeNodes {IR},{SY},{KP},{CN},{MO},{HK}
 ```
 
@@ -825,10 +830,10 @@ tor
 
 好了，翻墙部分就这样，说得多了些。就我而言，大部分时间只要浏览器能翻墙即可，虽然以上四种方式都可达到目的，但我优选 goagent，一是毕竟使用的是 google 的服务器，机器性能、网络带宽、在线时长都较好，二是 goagent 只影响浏览器，不会强制让我其他应用程序（如下载工具）走代理；当 goagent 被干扰（如，陆四期间）不可用时，换用 shadowsocks；需要全局代理时用 openVPN；需要指定地域的出口 IP 时用 openVPN + tor。
 
-##4 系统管理 
+<h2 id="4">4 系统管理 </h2>
 linux 系统管理是很大一个领域，有专门的一群从业者靠此养家糊口，我无法在此进行详细讲解，仅以几类常规操作抛砖引玉。
 
-###4.1 数据备份
+<h3 id="4.1">4.1 数据备份</h3>
 随着对电脑的依赖，我们多多少少积累了些重要资料，可以说这些资料是形成我们“个人能力”的主要来源，一旦丢失，多年的工作经验、生活点滴均将化为烟云，这是我们一笔无形的财富。硬盘老化、操作系统异常、电脑遗失等等都会导致资料丢失，为避免损失，应该养成定期备份数据的习惯。
 
 就我个人经验来看，数据备份要注意以下几点：
@@ -930,8 +935,7 @@ du -sb src/ && du -sb des/
 
 备份，介绍完毕。
 
-###4.2 碎片整理
-
+<h3 id="4.2">4.2 碎片整理</h3>
 要理解碎片，必须先了解硬盘基本结构和硬盘读写机制两个概念。之后，再看看不同操作系统写文件的策略，你自然会明白碎片在 linux 下是啥东东。
 
 硬盘基本结构。硬盘内部是由多张磁片和一个机械臂组成，磁片上最小单位是扇区，一旦硬盘停止工作后（如，关机），机械臂将复位到第一个扇区处。对于扇区而言，不论写入数据有多小，一旦占用了某个扇区后，其他数据就不能再写入通过扇区，即便该扇区还有空余空间（这就是为什么我们说一个大文件要比拆分为多个小文件的合计要小一些的原因）。每次读或写操作之前，机械臂先移动寻找到要访问的扇区，这个过程称之为“寻址”，由于机械臂移动是个物理动作，如果读写操作老是在不同扇区间不停移来移去，势必会增长读写操作耗时。
@@ -956,10 +960,10 @@ linux 采用的文件布局策略——所有文件分散布局，相邻文件�
 
 如果你是偏执狂，非要消除那不足 20% 文件产生的碎片，可以这样，先将该文件系统上所有文件剪切至其他文件系统，再剪切回来，可在一定程度上消除碎片。
 
-##5 图形图像
+<h2 id="5">5 图形图像</h2>
 我们活在五彩斑斓的世界，色彩组成了世间万物。计算机是真实世界的数字扩展，当然也应该多彩绚丽。
 
-###5.1 图片编辑
+<h3 id="5.1">5.1 图片编辑</h3>
 玩单反的朋友用 photoshop，玩单反又玩 linux 的朋友用 gimp。gimp 是 linux 下著名的图形处理工具（同时，由它衍生出来了一种功能强大、设计灵活的通用图形库gtk，gtk 被 gnome 选作基础库，成为 gnome 环境中图形应用程序的开发标准），功能与 photoshop 不分上下。
 
 软件名称：gimp
@@ -970,7 +974,7 @@ linux 采用的文件布局策略——所有文件分散布局，相邻文件�
 （gimp）
 </div>
 
-###5.2 色彩提取
+<h3 id="5.2">5.2 色彩提取</h3>
 有时看到很好的配色方案想要把色彩记录下来，这时就需要一款提取色彩值的工具。
 
 软件名称：gpick
@@ -981,7 +985,7 @@ linux 采用的文件布局策略——所有文件分散布局，相邻文件�
 （gpick）
 </div>
 
-###5.3 屏幕截图
+<h3 id="5.3">5.3 屏幕截图</h3>
 截图是很常用到的一种工具，我认为一个好的截图工具至少应具备能截取视频图片、能放大像素以让用户精确截图、预置常用的截图模式（即，除截取鼠标选中区域外，能针对窗口、菜单、提示气泡等直接截取）等功能点。shutter 号称 linux 下最强截图工具，支持我提的几点要求，值得推荐。
 
 软件名称：shutter；
@@ -992,9 +996,9 @@ linux 采用的文件布局策略——所有文件分散布局，相邻文件�
 （shutter）
 </div>
 
-其他说明：shutter 有个小 BUG，在该软件中设置了快捷键无法生效，会报错 WARNING: DBus connection to org.freedesktop.compiz failed --> setting keyboard shortcuts may not work when using compiz。要解决该问题，可设置系统的全局快捷键，通过全局快捷键从命令行启动 shutter 完成不同模式截图操作：进入系统快捷键设置界面 system settings -> keyboard -> shortcuts -> custom shortcuts -> +，在 name 中输入快捷键名（如 screenshot win），command 中输入具体命令（如，shutter --window --min_at_startup），保存，点击 new accelerator，接着你点击需要设置的快捷键（如敲击 F4，不是输入 F、4 两个字符），这样即可完成 F4 调用 shutter 实现截取整个窗口的功能，同理，shutter --select --min_at_startup 截取指定区域、shutter --full --min_at_startup 截取整个屏幕、shutter --web=http://www.csdn.net --min_at_startup 截取完整网页。另外，选择快捷键时注意不要与系统常见默认快捷键冲突。
+其他说明：shutter 有个小 BUG，在该软件中设置了快捷键无法生效，会报错 WARNING: DBus connection to org.freedesktop.compiz failed --> setting keyboard shortcuts may not work when using compiz。要解决该问题，可设置系统的全局快捷键，通过全局快捷键从命令行启动 shutter 完成不同模式截图操作：进入系统快捷键设置界面 system settings -> keyboard -> shortcuts -> custom shortcuts -> +，在 name 中输入快捷键名（如 screenshot win），command 中输入具体命令（如，shutter --window --min_at_startup），保存，点击 new accelerator，接着你点击需要设置的快捷键（如 F4），这样即可完成 F4 调用 shutter 实现截取整个窗口的功能，同理，shutter --select --min_at_startup 截取指定区域、shutter --full --min_at_startup 截取整个屏幕、shutter --web=http://www.csdn.net --min_at_startup 截取完整网页。另外，选择快捷键时注意不要与系统常见默认快捷键冲突。
 
-###5.4 屏幕录像
+<h3 id="5.4">5.4 屏幕录像</h3>
 说了屏幕截图肯定要说屏幕录像，如果是一副图抵得上 100 个字，那么一段视频就是100 副图。录屏工具生成的视频格式非常重要，最高压缩比的视频文件体积都不小，能表达连续动作又能比视频文件体积小的文件格式是什么？gif 格式。byzanz 可以将录屏内容直接输出到 gif 文件中。byzanz 是个命令行工具，但操作不难。
 
 ```
@@ -1087,7 +1091,7 @@ echo "you get $OUTPUT"
 
 以后，要对窗口录屏可运行 ./byzanz-record-window.sh 脚本，要对选择区域录屏可运行 ./byzanz-record-region.sh，输出结果位于当前工作目录中。
 
-##6 windows 应用
+<h2 id="6">6 windows 应用</h2>
 无论如何，在当前环境下完全摒弃 windows 是不现实的，主要原因之一，某些市场占有率极高的软件并无对应 linux 版本，就我而言，至少三类应用：在线购物、即时通讯、离线下载。
 
 有些 linuxer 认为引入 windows 程序会玷污 linux 的纯洁性，宁愿放弃某些应用，也不愿和 windows 沾边。个人认为，任何事情不要走极端，我们玩 linux，是为了享受它带来的开放、自由、创新，但同时，也不要人为丢弃 windows 提供的特有服务，毕竟，我们使用电脑是为了解决实际问题，而不是向谁证明“我是一名纯正的 linuxer”。当然，如果有功能类似的软件，肯定会优先选用 linux 版本，这点无须质疑。我们需要借助 windows，这倒不是 linux 系统本身不够完善，而是某些应用软件开发商只发布了 windows 版本，且那些软件又掌握着其所在领域的垄断权，以至于第三方即便有心也无力在 linux 下开发类似软件。
@@ -1105,7 +1109,7 @@ virtualbox，著名的开源虚拟机（别管它的东家：）。VB 将客系�
 </div>
 请从 VB 官网下载你发行套件对应的安装程序，切勿从软件仓库中安装，仓库中的版本无法识别 USB 设备。
 
-###6.1 版本选择
+<h3 id="6.1">6.1 版本选择</h3>
 在我的使用场景中，windows 系统的用途变得非常单一，仅为我提供在线购物、即时通讯、离线下载三类服务，所以，在 windows 版本选择上，我希望越精简越好，以达到尽可能少占用计算和存储资源的目的。winXP，体积倒是小，2001 年的系统，太古老，缺失很多现代功能，再加上微软从 2014 年 4 月 8 日停止对其更新，稳定性较差，不想用；winPE，windows 预安装环境，一种不用安装、直接插入 U 盘就可使用的 windows 版本，通常用于系统恢复，缺失很多核心功能，不可用；新雨林木风版 win7，著名的第三方精简 windows，系统内核都被动过手脚，谁知道有没有后门木马，我可是要在线购物啊，风险太大，不敢用。微软于 2011 年初发布了一款在 win7 基础上简化而来的瘦身版 windows 操作系统，winTPC（Windows Thin PC，http://www.microsoft.com/wintpc ），用于在老旧设备上享受 win7 的基础功能，相较 win7，winTPC 装完后的裸系统，硬盘空间从 8.7G 减至 2.7G，内存使用率从 621M 减至 505M，安全性、功能性、轻便性都达标，就它了，非常适合我的使用场景。
 
 winTPC 下载地址 http://download.microsoft.com/download/C/D/7/CD789C98-6C1A-43D6-87E9-F7FDE3806950/ThinPC_110415_EVAL_x86fre.iso ，下载后在 VB 中安装 winTPC。默认情况，winTPC 只能免费使用 180 天，到期后，每次登录系统将提示激活，桌面背景也会变为纯黑且无法调整，甚至连 office 套件都将无法使用。别急，微软这次还算大方，公布了一种延长免费使用期限的方法：默认免费使用 180 天，到期后，执行
@@ -1124,7 +1128,7 @@ dism /online /add-package /packagepath:C:\lp.cab
 
 要像使用原生 windows 那样使用装在 VB 中的 winTPC，你还得注意以下几方面。
 
-内核管理。VB 对内核版本非常敏感，一旦有内核升级，必须对 VB 核心模块进行重新编译。别担心，不需要你具备程序员的能力，VB 会自动执行，你，负责为它准备相关编译工具：编译器 gcc、构建工具 make、内核头文件 kernel-dev，这三个工具均可通过软件仓库安装。一旦就绪，用 root 权限执行
+内核管理。VB 对内核版本非常敏感，一旦有内核升级，必须对 VB 核心模块进行重新编译。别担心，不需要你具备程序员的能力，VB 会自动执行，你，负责为它准备相关编译工具：编译器 gcc、构建工具 make、内核头文件 kernel-devel，这三个工具均可通过软件仓库安装。一旦就绪，用 root 权限执行
 
 ```
 /etc/init.d/vboxdrv setup
@@ -1145,29 +1149,29 @@ chmod a=rw usbname1 usbname2
 ```
 重启 VB 即可。
 
-###6.2 资源下载
+<h3 id="6.2">6.2 资源下载</h3>
 在我看来，优秀的下载工具至少应具备如下功能：支持主流公有下载协议（bt、ed2k、ftp）、支持不同协议从多个来源下载同个文件（如，你通过 ftp 协议下载文件 big_file.iso，下载工具智能分析找出其他协议在不同渠道中是否有同个 big_file.iso 文件，实现从原地址下载的同时也从所有其他尽可能多的地址下载同个 big_file.iso）、支持断线续传，所以，老牌下载工具 wget 已无法满足需求，推荐三个下载利器推荐：aria2、MLDonkey、uGet，优选 aria2，非常强大的下载利器，不过是命令行程序，以后考虑为它写个 GUI 前端，喜欢 GUI 的选用 uGet。
 
 如果你是在国外网络环境中，有这几个工具之一也就足够了，但在冏朝就没那么单纯了，下载一定需要离线。目前有两款离线下载工具迅雷和 QQ 旋风。你知道，迅雷被 +- 和谐了，基本无法下载爱情动作片，所以仍然用迅雷的骚年，戒爱吧。我最近开始用 QQ 旋风，发现其优势有四：一是即便同样被视为违规资源但完全不影响下载速度，二是 QQ 旋风有个网页版支持跨平台（所以 linux 下诞生了 xfdown），三是资源消耗奇低，四是完全兼容迅雷私有协议 thunder:// 的下载地址。
 
 前一节介绍的 VB 虚拟机 winTPC，直接安装 QQ 旋风即可。
 
-###6.3 网上购物
+<h3 id="6.3">6.3 网上购物</h3>
 网上购物涉及两类操作，网银支付和在线交流，前者就是各大银行的在线支付程序，后者指的是淘宝旺旺软件，典型的两类 windows 原生应用，请参考上例在 windows 虚拟机中安装对应软件即可。唯一需要注意的 U 盾的识别，插入 U 盾后，先到 VB 中 setting - usb，勾选 enable usb controller，再到 windows 虚拟机中 devices - usb devices 列表中选中对应 U 盾，这样，windows 就能正确识别 U 盾了。其他 USB 设备的识别与之类似；
 
 啰嗦两句网银支付。目前看来，朝内绝大部分银行仅支持 windows + IE 平台在线支付，完全忽视非 windows 用户的存在，强烈谴责“为保障您的资金安全，我行建议您在 windows 系统中完成交易”，举着安全大旗招摇过市（windows 安全？你银行服务器莫非装的高大上 windows server 2K8），相反，国外各大银行遵循标准化，支持在各类操作系统、浏览器上进行网上交易，如，美国花旗、汇丰，更有甚者（德国的银行业），银行对外开放 API，允许用户自行开发交易程序，怎么没见这些银行发生安全事故！当然，不是所有朝内银行都是“如此重视安全”，浦发银行是少数几家支持跨平台交易的银行，大家风范，值得推荐（不过营业网点较少，二三线城市几乎没有）。
 
 http://www.openbanks.info 是一个专注于探讨网银跨平台主题的网站，有兴趣可以逛逛。
 
-###6.4 即时通讯
+<h3 id="6.4">6.4 即时通讯</h3>
 常见的 IM 工具包括飞信、QQ、旺旺，这三个 IM 都有对应的 linux 版本，但，不论是官方发布的还是第三方通过逆向工程实现的，从功能完整性、运行稳定性、界面友好性来看，均与 windows 原生版本存在巨大差距，实际使用效果并不理想。如果的确要用，建议参照上例，在 windows 虚拟机中安装运行。
 
 或许是冏朝的 linux 用户量过少（linux 在全球桌面领域占有率仅为 2%，且主要分布在万恶的欧美等资本主义国家），国内软件开发商基本采用忽略态度，即便发布了 linux 版的程序，要么长年不更新（QQ for linux 从 2009 年 1 月发布后从未更新过，http://im.qq.com/qq/linux/download.shtml ）、要么不对外发布（aliwangwang for linux，仅用于淘宝公司内部测试，http://ge.tt/8sppgia ），在此呼吁各大开发商，请对 linux 予以正确的认识和重视，尊重我们选择操作系统的权利。（不得不承认，QQ 在囧朝不仅是 IM 工具，而是一种通讯渠道，如果你真离不开它，可以考虑web QQ（http://web.qq.com）
 
-##7 其他杂项
+<h2 id="7">7 其他杂项</h2>
 前面介绍了各种常用软件，除此之外，还有些我个人经常用到但有不能归入前面分类中的软件，暂且放置于此。
 
-###7.1 蓝牙收发
+<h3 id="7.1">7.1 蓝牙收发</h3>
 电脑与手机通过蓝牙协议收发文件是最常见的蓝牙应用场景之一，下面将以笔记本电脑和手机收发图片为例进行介绍。
 
 openSUSE 默认已经安装好相关蓝牙管理程序（核心程序 gnome-bluetooth 和 bluez），请确认正确、完整安装。在开始之前，我们先要进行文件共享设置，以便笔记本接收手机发送的图片。运行 personal file sharing 程序，按参照下图选中所有勾选框：
@@ -1197,7 +1201,7 @@ openSUSE 默认已经安装好相关蓝牙管理程序（核心程序 gnome-blue
 
 随便说下，为增强系统的安全性，平时不需要时最好将蓝牙关闭（笔记本和手机都关了），省电不说，至少其他人看不到你设备上的任何资料，个人隐私还是要注意滴～
 
-###7.2 手机管理
+<h3 id="7.2">7.2 手机管理</h3>
 不用羡慕 windows 下的各色 XX 手机助手，只要你是 android 手机，手机与 PC 在同个局域网内，那么可由 AirDroid 软件实现 android 手机的远程管理。为便于描述，我们将被管理的 android 手机称之为被管手机，将远程控制被管手机的终端称之为控制端。具体操作步骤如下：
 
 第一步，在被管端运行 AirDroid，程序将随机生成控制端访问该被管端的验证码，以及控制端访问的 IP（用于无互联网环境）和 URL（用于有互联网环境）地址。如下图所示：
@@ -1220,8 +1224,8 @@ openSUSE 默认已经安装好相关蓝牙管理程序（核心程序 gnome-blue
 
 再发散思维两点：1）控制端类型不限（PC、手机、pad 等等），操作系统不限（linux、mac、windows 等等），你可以用 openSUSE 笔记本作为控制端、可以用windows phone 手机作为控制端、甚至可以用 iphone 作为控制端，只要能正常运行浏览器即可。换言之，由于苹果移动设备未开放蓝牙功能导致一直无法让老婆的 iphone 手机与你的 android 手机之间传输相片的问题将被 AirDroid 完美解决；2）控制端与被管端只需在同个局域网内，不一定非要访问互联网。
 
-###7.3 英文翻译
-不管你英文有多好，难免会遇到几个生词，如果每次都复制粘贴到百度中搜索中文解释那多麻烦啊，英文翻译工具必不可少（当然也可以翻译其他语言，只要安装了对应词典文件）。
+<h3 id="7.3">7.3 英文翻译</h3>
+不管你英文有多好，难免会遇到几个生词，英文翻译工具必不可少（当然也可以翻译其他语言，只要安装了对应词典文件）。
 
 软件名称：stardict
 
@@ -1238,24 +1242,24 @@ openSUSE 默认已经安装好相关蓝牙管理程序（核心程序 gnome-blue
 
 使用问题：stardict 的选词翻译是提升翻译效率的好功能，用鼠标选中某个单词或短语，stardict 自动提取选中内容并提交后台翻译引擎，再以浮窗显示翻译结果，但有时我们选中单词中有标点符号时，stardict 将无法识别。比如，选择内容为 green:，而 stardict 严格匹配 green，将无法翻译 green:。其实，优化下取词内容代码，对取词内容适当降噪应该不难，有时间我写个补丁。
 
-###7.4 中文输入
+<h3 id="7.4">7.4 中文输入</h3>
 个人认为，影响 linux 在朝内推广的最大阻碍要算输入法。linux 下常见输入法有 scim、fcitx、ibus。scim 是老牌输入法，但项目几乎停滞，长年不见更新；fcitx，俗称小企鹅输入法，有一定用户量；ibus，gnome 唯一官方集成的中文输入法，有模糊拼音、常用词汇、智能匹配、主动学习、快速输入英文单词（v）等特点，很好用。严格地说，ibus 是输入法框架，必须在此框架中选用拼音、五笔等输入法才能正常输入。刚装的操作系统是看不到 ibus 图标的，需要添加中文输入法，settings – region & language – input sources 中添加 chinese (pinyin)。如下图所示：
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/ibus%20%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95.gif" alt=""/><br />
 （ibus 中文输入法）
 </div>
 
-###7.5 软件开发
+<h3 id="7.5">7.5 软件开发</h3>
 这个时代，上规模的软件项目已不可能用简单的文本编辑器完成，IDE 是必然选择。linux 下 IDE 大致分为两类：品牌机和组装机。品牌机中有些（开源）产品还不错，比如：codeblocks、netbeans、eclipse、anjuta 等等，对于初涉 linux 开发的朋友而言是个不错的选择（我指的是 codeblocks），但对于老鸟来说总有这样那样的欠缺。听闻 linus torvalds 这类大牛用的是类 emacs 和一堆插件拼装而成的 IDE，为向大牛致敬，加之那颗“喜欢折腾”的心，组装机是我的选择。首要任务，选择编辑器。linux 上存在两种编辑器：神之编辑器 emacs，编辑器之神 vim。关于 emacs 与 vim 孰轻谁重之争已是世纪话题，我无意参与其中，在我眼里，二者都是创世纪的优秀编辑器，至少在这个领域作到了极致，它们让世人重新认识了编辑操作的本质——用命令而非键盘——去完成编辑任务。我是人类，选用 vim。（...此处省略64页半...），详见《所需即所获：像 IDE 一样使用 vim》（http://www.yangyangwithgnu.net/computer/article/use_vim_as_ide/use_vim_as_ide.htm ），作者是帅鸽 \^\_\*。基于该文配置后，vim 可实现如下 IDE 效果：
 <div align="center">
-<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/vim%20IDE%E6%80%BB%E8%A7%88.png" alt=""/><br />
-（vim IDE总览）
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E5%9B%BE%E5%BD%A2%E7%8E%AF%E5%A2%83%E4%B8%8B%20IDE%20%E6%80%BB%E6%8F%BD.png" alt=""/><br />
+（图形环境下 IDE 总揽）
 </div>
 
-###7.6 虚拟终端
+<h3 id="7.6">7.6 虚拟终端</h3>
 命令行，是体现 linux 强大的主要渠道，是驾驭 linux 的缰绳。在服务器领域， 99% 的任务只能依靠命令行执行完成，即便在现代桌面领域中，至少也有 30% 的任务离不开命令行。gnome3 自带虚拟终端是我操纵命令行的唯一环境，支持复制粘贴、支持多tab、支持外观自定义等等功能已经满足我日常需要。另外，介绍几个有用的命令行快捷键，将在一定程度上将提高你的效率：ctrl-c，结束当前进程；ctrl-z，挂起当前进程；ctrl-d，结束输入；ctrl-shift-c，拷贝选中文本；ctrl-shift-v，粘贴文本；ctrl-w，删除光标左边的一个单词；ctrl-u，删除光标当前至行首字符；ctrl-k，删除光标当前至行尾字符；ctrl-a，光标移至行首；ctrl-e，光标移至行尾。
 
-###7.7 升级 BIOS
+<h3 id="7.7">7.7 升级 BIOS</h3>
 为减少硬件故障率，定期升级 BIOS 是非常有必要的。一般而言，PC 厂商只发布 windows 版本和 dos 版本的 BIOS 升级程序，并无 linux 版本。linux 环境中倒是有个刷 BIOS 的开源工具叫 flashrom，但该工具支持的芯片有限，即便对于支持的芯片，风险也比在 windows 下高得多，对于刷 BIOS 这种高危操作，一旦失败将导致无法开机甚至机器报废，必须找一种安全保险的作法。
 
 换个思路，既然你 PC 官网提供了 windows 版本和 dos 版本的 BIOS 升级程序，说明只要我们能提供 win 或 dos 环境，那么升级程序就能运行。在只装有 linux 的机器上，有三种提供 win 环境的方式：
@@ -1266,10 +1270,10 @@ openSUSE 默认已经安装好相关蓝牙管理程序（核心程序 gnome-blue
 
 由于“老毛桃 U 盘启动盘制作工具”是个 windows 软件，先需要在 win 虚拟机中下载并安装，再插入 U 盘保证虚拟机中的 win 系统能正确识别（若有问题请见前面虚拟机中相关描述章节），然后在 win 中运行“老毛桃”将 U 盘制作成 windows live-usb，最后将 BIOS 升级程序拷贝至U盘中。重启机器，U 盘引导进 windows 预安装环境，运行升级程序即可完成 BIOS 升级操作。（另，如果是 dos 版的BIOS升级程序，方法类似，只是在 U 盘引导完成后的提示界面中，选择进入 dos 环境而非 WinPE 环境）。
 
-###7.8 有待提升
+<h3 id="7.8">7.8 有待提升</h3>
 讲了这么多，不是说 openSUSE 就很完美了，有些细节做得还不到位，有待提升。比如，显示器亮度调节问题，只有在纯命令行（非图形界面的模拟终端）下有效；又如，virtualbox 运行时无法休眠（可待机）；再如，多屏幕投影时，无法实现多个屏幕内容一致。如此等等，虽大方面不影响使用，但如果发行商能及时修正，在这个各大发行套件血拼的时代，谁重视用户体验，谁将会赢得人心。
 
-##8 完结
+<h2 id="8">8 完结</h2>
 一旦决定移居 linux，你得入乡随俗：查看自带手册熟悉软件操作、借助命令行弥补图形界面不足、多用键盘少用鼠标提升操作效率、了解并遵循不成文约定习惯、修改源码让软件满足你特殊需求、明白没有最好只有最适合的道理、取至社区并回馈社区、保持一颗热爱折腾的心。总之，thinking in linux。
 
 linux 下的惬意生活，美丽新世界！
