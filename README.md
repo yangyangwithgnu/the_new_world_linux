@@ -692,7 +692,7 @@ pip install shadowsocks
 * "fast_open"，是否开启 TCP_FASTOPEN 以减少延迟，通常为 false
 * "workers"，工作线程数量，通常为 1 
 
-以上信息保存至 \*.json 证书文件中。shadowsocks 免费证书可从 http://boafanx.tabboa.com/boafanx-ss/、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （需注册）、https://www.shadowsocks.net/get 等网站获取。为免费资源被滥用，网站会定期更改证书中 server_port 和 password 信息，所以，一旦你发现先前正常的 SS 代理突然失效，基本上，你该更新证书了。如下是一 \*.json 证书文件示例（含前后大括弧），取名 1080.json：
+以上信息保存至 \*.json 证书文件中。shadowsocks 免费证书可从 http://boafanx.tabboa.com/boafanx-ss/ 、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （需注册）、https://www.shadowsocks.net/get 等网站获取。为免费资源被滥用，网站会定期更改证书中 server_port 和 password 信息，所以，一旦你发现先前正常的 SS 代理突然失效，基本上，你该更新证书了。如下是一 \*.json 证书文件示例（含前后大括弧），取名 1080.json：
 
 ```
 { 
@@ -1250,7 +1250,7 @@ openSUSE 默认已经安装好相关蓝牙管理程序（核心程序 gnome-blue
 </div>
 
 <h3 name="7.5">7.5 软件开发</h3>
-这个时代，上规模的软件项目已不可能用简单的文本编辑器完成，IDE 是必然选择。linux 下 IDE 大致分为两类：品牌机和组装机。品牌机中有些（开源）产品还不错，比如：codeblocks、netbeans、eclipse、anjuta 等等，对于初涉 linux 开发的朋友而言是个不错的选择（我指的是 codeblocks），但对于老鸟来说总有这样那样的欠缺。听闻 linus torvalds 这类大牛用的是类 emacs 和一堆插件拼装而成的 IDE，为向大牛致敬，加之那颗“喜欢折腾”的心，组装机是我的选择。首要任务，选择编辑器。linux 上存在两种编辑器：神之编辑器 emacs，编辑器之神 vim。关于 emacs 与 vim 孰轻谁重之争已是世纪话题，我无意参与其中，在我眼里，二者都是创世纪的优秀编辑器，至少在这个领域作到了极致，它们让世人重新认识了编辑操作的本质——用命令而非键盘——去完成编辑任务。我是人类，选用 vim。（...此处省略64页半...），详见《所需即所获：像 IDE 一样使用 vim》（http://www.yangyangwithgnu.net/computer/article/use_vim_as_ide/use_vim_as_ide.htm ），作者是帅鸽 \^\_\*。基于该文配置后，vim 可实现如下 IDE 效果：
+这个时代，上规模的软件项目已不可能用简单的文本编辑器完成，IDE 是必然选择。linux 下 IDE 大致分为两类：品牌机和组装机。品牌机中有些（开源）产品还不错，比如：codeblocks、netbeans、eclipse、anjuta 等等，对于初涉 linux 开发的朋友而言是个不错的选择（我指的是 codeblocks），但对于老鸟来说总有这样那样的欠缺。听闻 linus torvalds 这类大牛用的是类 emacs 和一堆插件拼装而成的 IDE，为向大牛致敬，加之那颗“喜欢折腾”的心，组装机是我的选择。首要任务，选择编辑器。linux 上存在两种编辑器：神之编辑器 emacs，编辑器之神 vim。关于 emacs 与 vim 孰轻谁重之争已是世纪话题，我无意参与其中，在我眼里，二者都是创世纪的优秀编辑器，至少在这个领域作到了极致，它们让世人重新认识了编辑操作的本质——用命令而非键盘——去完成编辑任务。我是人类，选用 vim。（...此处省略64页半...），详见《所需即所获：像 IDE 一样使用 vim》（https://github.com/yangyangwithgnu/use_vim_as_ide ），作者是帅鸽 \^\_\*。基于该文配置后，vim 可实现如下 IDE 效果：
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E5%9B%BE%E5%BD%A2%E7%8E%AF%E5%A2%83%E4%B8%8B%20IDE%20%E6%80%BB%E6%8F%BD.png" alt=""/><br />
 （图形环境下 IDE 总揽）
