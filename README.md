@@ -1,18 +1,20 @@
 <h1 align="center">美丽新世界：linux 下的惬意生活</h1>
 yangyang.gnu@gmail.com  
-2014-10-11 15:17:41
+http://yangyangwithgnu.github.io/
+2014-10-21 13:06:43
 
 
 ##【公告】
 ----
-* <font color="red"><b>**捐赠：如果觉得本文还不错，捐点碎银，支付宝 yangyang.gnu@gmail.com，给多了我跟你急 $\_$**</b></font>
+* <font color="red">**捐赠：如果觉得本文还不错，捐点碎银，支付宝 yangyang.gnu@gmail.com，给多了我跟你急 $\_$**</font>
 * **讨论**：任何意见建议移步 http://www.v2ex.com/t/137202
 
 
 ##【版本】
 ----
-* v0.1.1，2014-10-11。0）将目录制作成书签；1）翻墙部分相关图片更新，修正全文错别字，修正 kernel-desktop 的错误描述。
-* v0.1，2014-10-5。发布初始版本。
+* v0.1.2，2014-10-21：0）增加免费 VPN 帐号、SS 帐号获取网站；1）修正部分错别字；2）修正部分 URL 与相邻字符串合并成超链接的错误。
+* v0.1.1，2014-10-11：0）将目录制作成书签；1）翻墙部分相关图片更新，修正全文错别字，修正 kernel-desktop 的错误描述。
+* v0.1.0，2014-10-05：发布初始版本。
 
 
 ##【目录】
@@ -220,7 +222,7 @@ CLUTTER_VBLANK=True
 * 主题引擎：murrine、unico、adwaita、canvas、pixbuf 等几类主题引擎必须安装。若安装主题后仍存在滚动条粗大、按钮错位等情况，再把 gtk2-engine-*、gtk3-engine-* 安装上；
 * 安装路径。一般而言，主题文件和图标分别放至全局目录 /usr/share/themes/ 和 /usr/share/icons/，或者分别放至账号目录 ~/.themes 和 ~/.icons 均可。建议优选全局目录，账号目录有一定几率导致主题失效；
 
-第二步，下载主题。推荐两个 gnome3 相关的主题网站：http://gnome-look.org 与 http://linux-lounge.deviantart.com，慢慢选，喜欢哪个下哪个。个人非常喜欢那种扁、平、薄的风格，GTK 主题选用 Numix-Solarized（http://bitterologist.deviantart.com/art/Numix-Solarized-417575928），搭配 faenza 图标主题（http://tiheum.deviantart.com/art/Faenza-Icons-173323228）效果非常不错 (!!GFW!! or the website down ?)。
+第二步，下载主题。推荐两个 gnome3 相关的主题网站：http://gnome-look.org 与 http://linux-lounge.deviantart.com （墙外，参见后文“搭梯翻墙”），慢慢选，喜欢哪个下哪个。个人非常喜欢那种扁、平、薄的风格，GTK 主题选用 Numix-Solarized（http://bitterologist.deviantart.com/art/Numix-Solarized-417575928 ），搭配 faenza 图标主题（http://tiheum.deviantart.com/art/Faenza-Icons-173323228 ）效果非常不错。
 
 第三步，安装主题。将相关主题拷贝至 /usr/share/themes/ 和 /usr/share/icons/ 目录即可。具体而言，GTK 主题 Numix Solarized 解压后的 Numix Solarized/ 目录拷贝至 /usr/share/themes/，faenza 图标主题解压后得到的 Faenza/ 拷贝至 /usr/share/icons/。注意，a）如果无法选择对应主题，请确认是否多套了一层目录；b）/usr/share/themes/ 和 /usr/share/icons/ 目录中系统自带主题和图标切勿删除，否则将导致无法登录图像界面；
 
@@ -692,7 +694,7 @@ pip install shadowsocks
 * "fast_open"，是否开启 TCP_FASTOPEN 以减少延迟，通常为 false
 * "workers"，工作线程数量，通常为 1 
 
-以上信息保存至 \*.json 证书文件中。shadowsocks 免费证书可从 http://boafanx.tabboa.com/boafanx-ss/ 、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （需注册）、https://www.shadowsocks.net/get 等网站获取。为免费资源被滥用，网站会定期更改证书中 server_port 和 password 信息，所以，一旦你发现先前正常的 SS 代理突然失效，基本上，你该更新证书了。如下是一 \*.json 证书文件示例（含前后大括弧），取名 1080.json：
+以上信息保存至 \*.json 证书文件中。shadowsocks 免费证书可从 http://boafanx.tabboa.com/boafanx-ss/ 、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （需注册）、http://water.dbops.org/?page_id=15、https://www.shadowsocks.net/get 等网站获取。为免费资源被滥用，网站会定期更改证书中 server_port 和 password 信息，所以，一旦你发现先前正常的 SS 代理突然失效，基本上，你该更新证书了。如下是一 \*.json 证书文件示例（含前后大括弧），取名 1080.json：
 
 ```
 { 
