@@ -1,6 +1,6 @@
 <h1 align="center">美丽新世界：linux 下的惬意生活</h1>
 yangyang.gnu@gmail.com  
-http://yangyangwithgnu.github.io/
+http://yangyangwithgnu.github.io/  
 2014-10-21 13:06:43
 
 
@@ -694,7 +694,7 @@ pip install shadowsocks
 * "fast_open"，是否开启 TCP_FASTOPEN 以减少延迟，通常为 false
 * "workers"，工作线程数量，通常为 1 
 
-以上信息保存至 \*.json 证书文件中。shadowsocks 免费证书可从 http://boafanx.tabboa.com/boafanx-ss/ 、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （需注册）、http://water.dbops.org/?page_id=15、https://www.shadowsocks.net/get 等网站获取。为免费资源被滥用，网站会定期更改证书中 server_port 和 password 信息，所以，一旦你发现先前正常的 SS 代理突然失效，基本上，你该更新证书了。如下是一 \*.json 证书文件示例（含前后大括弧），取名 1080.json：
+以上信息保存至 \*.json 证书文件中。shadowsocks 免费证书可从 http://boafanx.tabboa.com/boafanx-ss/ 、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （需注册）、http://water.dbops.org/?page_id=15 、https://www.shadowsocks.net/get 等网站获取。为免费资源被滥用，网站会定期更改证书中 server_port 和 password 信息，所以，一旦你发现先前正常的 SS 代理突然失效，基本上，你该更新证书了。如下是一 \*.json 证书文件示例（含前后大括弧），取名 1080.json：
 
 ```
 { 
