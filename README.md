@@ -589,7 +589,7 @@ goagent 让 google 成为你的代理，高速且稳定访问所有被墙网站�
 
 在进行具体操作前，先定义几个对象。goagent 包括客户端程序和服务端程序两部分，客户端程序简称为 GCP（goagent-client-programme），服务端程序简称为 GSP（goagent-server-programme），浏览器简称为 FF（firefox），墙外目标网站简称为 dest。goagent 实现的代理逻辑大致如下：FF 发起墙外 dest 网页访问请求，为绕开国内电信运营商，FF 走代理模式，将请求发至 GCP（127.0.0.1:8087），GCP 将请求转至 GSP，GSP 按 GCP 指示访问网站 dest，由于 GSP 位于美国，所以 GSP 可以顺畅地获取 dest 网页，一旦 dest 网页被 GSP 获取完整，GSP 立即传回给 GCP，GCP 再传给 FF，最终在 FF 中显示出完整页面。具体操作步骤如下：
 
-第一步，申请 GAE 空间，部属 goagent 服务端程序。用 google 帐号登录 http://appengine.google.com，前面步骤按提示填写，直到填写短信验证码步骤，朝内三家运营商都屏蔽了 google 的短信，你只能通过向 google 提交在线表单，请工作人员将验证码通过邮件发给你，访问 http://appengine.google.com/waitlist/sms_issues ，表单填写内容大致如下：
+第一步，申请 GAE 空间，部属 goagent 服务端程序。用 google 帐号登录 http://appengine.google.com ，前面步骤按提示填写，直到填写短信验证码步骤，朝内三家运营商都屏蔽了 google 的短信，你只能通过向 google 提交在线表单，请工作人员将验证码通过邮件发给你，访问 http://appengine.google.com/waitlist/sms_issues ，表单填写内容大致如下：
 >hi,  
 >my mobile phone can not receive sms for verification code! plz send the code to yangyang.gnu@gmail.com. thx man~
 
@@ -602,7 +602,7 @@ goagent 让 google 成为你的代理，高速且稳定访问所有被墙网站�
 
 第三步，创建 APP。用 GAE 帐号登陆 http://appengine.google.com/，点击 create application 按钮创建 APP，APP 名按自己喜好设定（如，yangyanggnu0、yangyanggnu1），若要创建多个 APP（最多 25 个），重复本步骤；
 
-第四步，下载 goagent（https://github.com/goagent/goagent）。解压到 goagent/。goagent 包含 local 和 server 两部分，local 存放有平时运行本地代理转发的客户端代码，server 为需要用你 google 帐号上传至 GAE 的服务端代码。
+第四步，下载 goagent（https://github.com/goagent/goagent ）。解压到 goagent/。goagent 包含 local 和 server 两部分，local 存放有平时运行本地代理转发的客户端代码，server 为需要用你 google 帐号上传至 GAE 的服务端代码。
 
 第五步，上传服务端程序至 GAE。由于 goagent 被广泛用于翻墙，GFW 加强了对其干扰，手段之一就是阻碍 goagent 的服务端程序上传，所以，要么你在 VPN 全局翻墙的环境下上传，要么在 goagent 客户端程序的护航下上传。前者清晰易懂，后者你需要在上传前确保客户端持续运行，执行
 
@@ -1168,7 +1168,7 @@ http://www.openbanks.info 是一个专注于探讨网银跨平台主题的网站
 <h3 name="6.4">6.4 即时通讯</h3>
 常见的 IM 工具包括飞信、QQ、旺旺，这三个 IM 都有对应的 linux 版本，但，不论是官方发布的还是第三方通过逆向工程实现的，从功能完整性、运行稳定性、界面友好性来看，均与 windows 原生版本存在巨大差距，实际使用效果并不理想。如果的确要用，建议参照上例，在 windows 虚拟机中安装运行。
 
-或许是冏朝的 linux 用户量过少（linux 在全球桌面领域占有率仅为 2%，且主要分布在万恶的欧美等资本主义国家），国内软件开发商基本采用忽略态度，即便发布了 linux 版的程序，要么长年不更新（QQ for linux 从 2009 年 1 月发布后从未更新过，http://im.qq.com/qq/linux/download.shtml ）、要么不对外发布（aliwangwang for linux，仅用于淘宝公司内部测试，http://ge.tt/8sppgia ），在此呼吁各大开发商，请对 linux 予以正确的认识和重视，尊重我们选择操作系统的权利。（不得不承认，QQ 在囧朝不仅是 IM 工具，而是一种通讯渠道，如果你真离不开它，可以考虑web QQ（http://web.qq.com）
+或许是冏朝的 linux 用户量过少（linux 在全球桌面领域占有率仅为 2%，且主要分布在万恶的欧美等资本主义国家），国内软件开发商基本采用忽略态度，即便发布了 linux 版的程序，要么长年不更新（QQ for linux 从 2009 年 1 月发布后从未更新过，http://im.qq.com/qq/linux/download.shtml ）、要么不对外发布（aliwangwang for linux，仅用于淘宝公司内部测试，http://ge.tt/8sppgia ），在此呼吁各大开发商，请对 linux 予以正确的认识和重视，尊重我们选择操作系统的权利。（不得不承认，QQ 在囧朝不仅是 IM 工具，而是一种通讯渠道，如果你真离不开它，可以考虑web QQ（http://web.qq.com ）
 
 <h2 name="7">7 其他杂项</h2>
 前面介绍了各种常用软件，除此之外，还有些我个人经常用到但有不能归入前面分类中的软件，暂且放置于此。
