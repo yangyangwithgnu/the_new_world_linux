@@ -600,7 +600,7 @@ goagent 让 google 成为你的代理，高速且稳定访问所有被墙网站�
 </div>
 昏，还验证个啥，工作人员直接就将 GAE 使用权分配给我了（太给力了，效率啊）；
 
-第三步，创建 APP。用 GAE 帐号登陆 http://appengine.google.com/，点击 create application 按钮创建 APP，APP 名按自己喜好设定（如，yangyanggnu0、yangyanggnu1），若要创建多个 APP（最多 25 个），重复本步骤；
+第三步，创建 APP。用 GAE 帐号登陆 http://appengine.google.com/ ，点击 create application 按钮创建 APP，APP 名按自己喜好设定（如，yangyanggnu0、yangyanggnu1），若要创建多个 APP（最多 25 个），重复本步骤；
 
 第四步，下载 goagent（https://github.com/goagent/goagent ）。解压到 goagent/。goagent 包含 local 和 server 两部分，local 存放有平时运行本地代理转发的客户端代码，server 为需要用你 google 帐号上传至 GAE 的服务端代码。
 
