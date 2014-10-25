@@ -602,7 +602,7 @@ goagent 让 google 成为你的代理，高速且稳定访问所有被墙网站�
 
 第三步，创建 APP。用 GAE 帐号登陆 http://appengine.google.com/ ，点击 create application 按钮创建 APP，APP 名按自己喜好设定（如，yangyanggnu0、yangyanggnu1），若要创建多个 APP（最多 25 个），重复本步骤；
 
-第四步，下载 goagent（https://github.com/goagent/goagent ）。解压到 goagent/。goagent/ 包含 local/ 和 server/ 两部分，local/ 存放有平时运行本地代理转发的客户端代码，server/ 为需要用你 google 帐号上传至 GAE 的服务端代码。
+第四步，下载 goagent（https://github.com/goagent/goagent ）。解压到 goagent/。goagent/ 包含 local/ 和 server/ 两个子目录，local/ 存放有平时运行本地代理转发的客户端代码，server/ 为需要用你 google 帐号上传至 GAE 的服务端代码。
 
 第五步，上传服务端程序至 GAE。由于 goagent 被广泛用于翻墙，GFW 加强了对其干扰，手段之一就是阻碍 goagent 的服务端程序上传，所以，要么你在 VPN 全局翻墙的环境下上传，要么在 goagent 客户端程序的护航下上传。前者清晰易懂，后者你需要在上传前确保客户端持续运行，执行
 
