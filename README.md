@@ -6,7 +6,10 @@ http://yangyangwithgnu.github.io/
 
 ##【公告】
 ----
-* **捐赠：支付宝 yangyang.gnu@gmail.com (页面 https://shenghuo.alipay.com/send/payment/fill.htm?optEmail=yangyang.gnu@gmail.com 或者二维码 https://raw.githubusercontent.com/yangyangwithgnu/yangyangwithgnu.github.io/master/pics/donate_qr.png ) $_$**
+* **捐赠：支付宝 yangyang.gnu@gmail.com 。支付宝链接 https://shenghuo.alipay.com/send/payment/fill.htm?optEmail=yangyang.gnu@gmail.com ，支付宝二维码 $_$**
+<div align="center">
+<img src="https://raw.githubusercontent.com/yangyangwithgnu/yangyangwithgnu.github.io/master/pics/donate_qr.png" alt=""/><br>
+</div>
 * **讨论**：任何意见建议移步 http://www.v2ex.com/t/137202
 
 
