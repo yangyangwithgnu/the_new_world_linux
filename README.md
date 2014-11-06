@@ -764,7 +764,7 @@ $ autoshadower --mode s --path ~/downloads
 （autoshadower 自动获取 SS 帐号）
 </div>  
 
-怎么样，shadowsocks 代理还不错吧。shadowsocks 还有个特性，多路代理，你可以同时连接多个代理服务器。前面样例中我把本地中转地址的端口 local_port 设置为 1080，你完全可以在前面推荐的两个网站上申请多个代理服务器（如，一个美国的、德国、法国、香港），每个代理服务器对应一个 \*.json 文件（如，1080_us.json、1081_de.json、1082_fr.json、1083_hk.json），文件中的本地中转地址的端口 local_port 分别设置为 1080、1081、1082、1083，然后再在 autoproxy 中设定四个本地中转，这样你就可以按需要使用不同的代理了。
+怎么样，shadowsocks 代理还不错吧。shadowsocks 还有个特性，多路代理，你可以同时连接多个代理服务器。前面样例中我把本地中转地址的端口 local\_port 设置为 1080，你完全可以用 autoshadower 生成的多个 SS 帐号（如，一个美国的、德国、法国、香港），每个帐号对应一个 \*.json 文件（如，1080_us.json、1081_de.json、1082_fr.json、1083_hk.json），文件中的本地中转地址的端口 local_port 分别设置为 1080、1081、1082、1083，然后再在 autoproxy 中设定四个本地中转，这样你就可以按需要使用不同的代理了。
 
 shadowsocks 与 goagent 互补，至此，达到我总预期的 80%。但它俩只能让我翻墙看看网页，仅此而已，无法让浏览器之外的软件翻墙。比如，Cygwin，一套用于将 linux 软件移至到 Windows 下的开发环境，在安装 Cygwin 时，它会自动联网下载环境中必须的头文件、编译器等等资源，而这些资源存放在墙外服务器上，Cygwin 又无法通过 HTTP 协议访问墙外资源，所以资源下载失败。换言之，shadowsocks 和 goagent 实现的翻墙并非全局性的。我需要支持整个系统的全局代理。
 
