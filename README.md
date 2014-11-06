@@ -15,9 +15,10 @@ http://yangyangwithgnu.github.io/
 
 ##【版本】
 ----
-* v0.1.2，2014-10-21：0）增加免费 VPN 帐号、SS 帐号获取网站；1）修正部分错别字；2）修正部分 URL 与相邻字符串合并成超链接的错误。
-* v0.1.1，2014-10-11：0）将目录制作成书签；1）翻墙部分相关图片更新，修正全文错别字，修正 kernel-desktop 的错误描述。
-* v0.1.0，2014-10-05：发布初始版本。
+* v0.4.0，新增，2014-11-6：0）增加免费 SS 帐号获取网站；1）增加自动获取 SS 帐号的工具 autoshadower；2）增加零配置的开箱即用 goagent 下载。
+* v0.3.0，新增/修正，2014-10-21：0）增加免费 VPN 帐号、SS 帐号获取网站；1）修正部分错别字；2）修正部分 URL 与相邻字符串合并成超链接的错误。
+* v0.2.0，新增/修正，2014-10-11：0）将目录制作成书签；1）翻墙部分相关图片更新，修正全文错别字，修正 kernel-desktop 的错误描述。
+* v0.1.0，新增，2014-10-05：发布初始版本。
 
 
 ##【目录】
@@ -592,6 +593,8 @@ goagent 让 google 成为你的代理，高速且稳定访问所有被墙网站�
 
 在进行具体操作前，先定义几个对象。goagent 包括客户端程序和服务端程序两部分，客户端程序简称为 GCP（goagent-client-programme），服务端程序简称为 GSP（goagent-server-programme），浏览器简称为 FF（firefox），墙外目标网站简称为 dest。goagent 实现的代理逻辑大致如下：FF 发起墙外 dest 网页访问请求，为绕开国内电信运营商，FF 走代理模式，将请求发至 GCP（127.0.0.1:8087），GCP 将请求转至 GSP，GSP 按 GCP 指示访问网站 dest，由于 GSP 位于美国，所以 GSP 可以顺畅地获取 dest 网页，一旦 dest 网页被 GSP 获取完整，GSP 立即传回给 GCP，GCP 再传给 FF，最终在 FF 中显示出完整页面。具体操作步骤如下：
 
+完整过程需要九步，如果你觉得麻烦，好吧，作为牙医界的男性服务人员，我为动手能力相对较弱的朋友准备了一份开箱即用的 goagent，前往 https://github.com/yangyangwithgnu/goagent_out_of_box_yang 下载即可，用它你可以跳至第七步，真的不用谢，“关怀小白，随处是爱”。只要时间允许，我会尽可能把这份开箱即用的 goagent 同步至最新原版。如果你想自己动手，具体操作步骤如下（提醒你，务必在前面实现的已翻墙环境中进行）：
+
 第一步，申请 GAE 空间，部属 goagent 服务端程序。用 google 帐号登录 http://appengine.google.com ，前面步骤按提示填写，直到填写短信验证码步骤，朝内三家运营商都屏蔽了 google 的短信，你只能通过向 google 提交在线表单，请工作人员将验证码通过邮件发给你，访问 http://appengine.google.com/waitlist/sms_issues ，表单填写内容大致如下：
 >hi,  
 >my mobile phone can not receive sms for verification code! plz send the code to yangyang.gnu@gmail.com. thx man~
@@ -697,7 +700,7 @@ pip install shadowsocks
 * "fast_open"，是否开启 TCP_FASTOPEN 以减少延迟，通常为 false
 * "workers"，工作线程数量，通常为 1 
 
-以上信息保存至 \*.json 证书文件中。shadowsocks 免费证书可从 http://boafanx.tabboa.com/boafanx-ss/ 、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （需注册）、http://water.dbops.org/?page_id=15 、https://www.shadowsocks.net/get 等网站获取。为避免免费资源被滥用，网站会定期更改证书中 server_port 和 password 信息，所以，一旦你发现先前正常的 SS 代理突然失效，基本上，你该更新证书了。如下是一 \*.json 证书文件示例（含前后大括弧），取名 1080.json：
+以上信息保存至 \*.json 证书文件中。shadowsocks 免费证书可从 http://boafanx.tabboa.com/boafanx-ss/ 、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （需注册）、http://water.dbops.org/?page_id=15 、http://www.jslink.org/about 、http://it-player.com/ 、https://www.shadowsocks.net/get 等网站获取。为避免免费资源被滥用，网站会定期更改证书中 server_port 和 password 信息，所以，一旦你发现先前正常的 SS 代理突然失效，基本上，你该更新证书了。如下是一 \*.json 证书文件示例（含前后大括弧），取名 1080.json：
 
 ```
 { 
@@ -727,6 +730,42 @@ sslocal -c 1080.json
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E9%80%89%E7%94%A8%20shadowsocks%20%E4%BB%A3%E7%90%86.gif" alt=""/><br />
 （选用 shadowsocks 代理）
 </div>  
+
+现在，你肯定关注如何获取 shadowsocks 免费证书。我为你准备了几个网站：可从 http://boafanx.tabboa.com/boafanx-ss/、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm（需注册）、http://water.dbops.org/?page_id=15、http://www.jslink.org/about、http://it-player.com/、https://www.shadowsocks.net/get，感想他们。一方面为留住访问量，一方面避免流量滥用，通常，这些公益网站会定期更新免费帐号的 server_port 和 password 信息，导致我在用的 SS 帐号时不时失效，我又不得不登录这些网站重新获取新帐号，真是麻烦。好吧，我，作为一个发育成熟的成年男性懒人，不能再这样过下去了，所以，基本上，我需要一个自动化工具，它得帮我做几件事：0）从各网站搜集 SS 帐号并测试帐号的可用性、代理出口所在区域、代理网速；1）将可用帐号转换成 sslocal 的命令行选项并输出至屏幕，让我复制后可直接运行；2）将可用帐号转保存成 sslocal 的 *.json 证书文件。所以，我写了个程序 autoshadower，你可以从 https://github.com/yangyangwithgnu/autoshadower 获取。你可以不带任何命令行选项直接运行：
+
+```
+$ autoshadower
+```
+autoshadower 为你测试它能获取的帐号是否可用，若可用它会在屏幕上输出 sslocal 的命令行选项，你直接复制运行即可，类似
+
+>
+    \(^o^)/. this SS certificate available. now you can issue SS proxy as follow:
+    sslocal -s "la11.wfg.pw" -p 47265 -k "efmoe.panny" -b "127.0.0.1" -l 1080 -m "AES-128-CFB" -t 512
+>
+
+你将第二行复制粘贴至命令行中运行即可：
+
+```
+$ sslocal -s "la11.wfg.pw" -p 47265 -k "efmoe.panny" -b "127.0.0.1" -l 1080 -m "AES-128-CFB" -t 512
+```
+或者，采用 autoshadower 为你生成的证书文件：
+
+```
+$ sslocal -c ~/1080.json
+```
+同理，要想测试帐号的速度，--mode 指定为 s 即可。简单得很。
+
+```
+$ autoshadower --mode s --path ~/downloads
+```
+如下图所示：
+</div>
+这时，在 autoproxy 中可使用 goagent 和 shadowsocks 两种代理：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/autoshadower%20%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%20SS%20%E5%B8%90%E5%8F%B7.gif" alt=""/><br />
+（autoshadower 自动获取 SS 帐号）
+</div>  
+
 
 怎么样，shadowsocks 代理还不错吧。shadowsocks 还有个特性，多路代理，你可以同时连接多个代理服务器。前面样例中我把本地中转地址的端口 local_port 设置为 1080，你完全可以在前面推荐的两个网站上申请多个代理服务器（如，一个美国的、德国、法国、香港），每个代理服务器对应一个 \*.json 文件（如，1080_us.json、1081_de.json、1082_fr.json、1083_hk.json），文件中的本地中转地址的端口 local_port 分别设置为 1080、1081、1082、1083，然后再在 autoproxy 中设定四个本地中转，这样你就可以按需要使用不同的代理了。
 
