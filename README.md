@@ -759,8 +759,6 @@ $ sslocal -c ~/1080.json
 $ autoshadower --mode s --path ~/downloads
 ```
 如下图所示：
-</div>
-这时，在 autoproxy 中可使用 goagent 和 shadowsocks 两种代理：
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/autoshadower%20%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%20SS%20%E5%B8%90%E5%8F%B7.gif" alt=""/><br />
 （autoshadower 自动获取 SS 帐号）
