@@ -700,7 +700,7 @@ pip install shadowsocks
 * "fast_open"，是否开启 TCP_FASTOPEN 以减少延迟，通常为 false
 * "workers"，工作线程数量，通常为 1 
 
-以上信息保存至 \*.json 证书文件中。shadowsocks 免费证书可从 http://boafanx.tabboa.com/boafanx-ss/ 、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （需注册）、http://water.dbops.org/?page_id=15 、http://www.jslink.org/about 、http://it-player.com/ 、https://www.shadowsocks.net/get 等网站获取。为避免免费资源被滥用，网站会定期更改证书中 server_port 和 password 信息，所以，一旦你发现先前正常的 SS 代理突然失效，基本上，你该更新证书了。如下是一 \*.json 证书文件示例（含前后大括弧），取名 1080.json：
+以上信息保存至 \*.json 证书文件中。如下是一 \*.json 证书文件示例（含前后大括弧），取名 1080.json：
 
 ```
 { 
@@ -765,7 +765,6 @@ $ autoshadower --mode s --path ~/downloads
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/autoshadower%20%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%20SS%20%E5%B8%90%E5%8F%B7.gif" alt=""/><br />
 （autoshadower 自动获取 SS 帐号）
 </div>  
-
 
 怎么样，shadowsocks 代理还不错吧。shadowsocks 还有个特性，多路代理，你可以同时连接多个代理服务器。前面样例中我把本地中转地址的端口 local_port 设置为 1080，你完全可以在前面推荐的两个网站上申请多个代理服务器（如，一个美国的、德国、法国、香港），每个代理服务器对应一个 \*.json 文件（如，1080_us.json、1081_de.json、1082_fr.json、1083_hk.json），文件中的本地中转地址的端口 local_port 分别设置为 1080、1081、1082、1083，然后再在 autoproxy 中设定四个本地中转，这样你就可以按需要使用不同的代理了。
 
