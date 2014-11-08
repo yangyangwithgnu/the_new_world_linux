@@ -731,7 +731,7 @@ sslocal -c 1080.json
 （选用 shadowsocks 代理）
 </div>  
 
-现在，你肯定关注如何获取 shadowsocks 免费证书。我为你准备了几个网站：可从 http://boafanx.tabboa.com/boafanx-ss/、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm（需注册）、http://water.dbops.org/?page_id=15、http://www.jslink.org/about、http://it-player.com/、https://www.shadowsocks.net/get，感想他们。一方面为留住访问量，一方面避免流量滥用，通常，这些公益网站会定期更新免费帐号的 server_port 和 password 信息，导致我在用的 SS 帐号时不时失效，我又不得不登录这些网站重新获取新帐号，真是麻烦。好吧，我，作为一个发育成熟的成年男性懒人，不能再这样过下去了，所以，基本上，我需要一个自动化工具，它得帮我做几件事：0）从各网站搜集 SS 帐号并测试帐号的可用性、代理出口所在区域、代理网速；1）将可用帐号转换成 sslocal 的命令行选项并输出至屏幕，让我复制后可直接运行；2）将可用帐号转保存成 sslocal 的 *.json 证书文件。所以，我写了个程序 autoshadower，你可以从 https://github.com/yangyangwithgnu/autoshadower 获取。你可以不带任何命令行选项直接运行：
+现在，你肯定关注如何获取 shadowsocks 免费证书。我为你准备了几个网站：可从 http://boafanx.tabboa.com/boafanx-ss/ 、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （需注册）、http://water.dbops.org/?page_id=15 、http://www.jslink.org/about 、http://it-player.com/ 、https://www.shadowsocks.net/get ，感想他们。一方面为留住访问量，一方面避免流量滥用，通常，这些公益网站会定期更新免费帐号的 server_port 和 password 信息，导致我在用的 SS 帐号时不时失效，我又不得不登录这些网站重新获取新帐号，真是麻烦。好吧，我，作为一个发育成熟的成年男性懒人，不能再这样过下去了，所以，基本上，我需要一个自动化工具，它得帮我做几件事：0）从各网站搜集 SS 帐号并测试帐号的可用性、代理出口所在区域、代理网速；1）将可用帐号转换成 sslocal 的命令行选项并输出至屏幕，让我复制后可直接运行；2）将可用帐号转保存成 sslocal 的 *.json 证书文件。所以，我写了个程序 autoshadower，你可以从 https://github.com/yangyangwithgnu/autoshadower 获取。你可以不带任何命令行选项直接运行：
 
 ```
 $ autoshadower
