@@ -1,7 +1,7 @@
 <h1 align="center">美丽新世界：linux 下的惬意生活</h1>
 yangyang.gnu@gmail.com  
 http://yangyangwithgnu.github.io/  
-2014-10-21 13:06:43
+2014-12-4 15:09:19
 
 
 ##【公告】
@@ -15,9 +15,10 @@ http://yangyangwithgnu.github.io/
 
 ##【版本】
 ----
-* v0.4.0，新增，2014-11-6：0）增加免费 SS 帐号获取网站；1）增加自动获取 SS 帐号的工具 autoshadower；2）增加零配置的开箱即用 goagent 下载。
-* v0.3.0，新增/修正，2014-10-21：0）增加免费 VPN 帐号、SS 帐号获取网站；1）修正部分错别字；2）修正部分 URL 与相邻字符串合并成超链接的错误。
-* v0.2.0，新增/修正，2014-10-11：0）将目录制作成书签；1）翻墙部分相关图片更新，修正全文错别字，修正 kernel-desktop 的错误描述。
+* v0.1.4，新增/修正，2014-12-4：0）更新 goagent 的 proxy.ini，GAE 不再支持 pagespeed，删除 proxy.ini 中的 pagespeed 选项；另外，PAC 存在漏洞，假定某运行 goagent 的客户端 IP 为 123.4.5.6，那么可以通过 http://123.4.5.6:8086/%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f/ 访问该客户端上任意文件，禁用 PAC 以封堵该漏洞；1）更新免费 SS 帐号获取网站；
+* v0.1.3，新增，2014-11-6：0）增加免费 SS 帐号获取网站；1）增加自动获取 SS 帐号的工具 autoshadower；2）增加零配置的开箱即用 goagent 下载。
+* v0.1.2，新增/修正，2014-10-21：0）增加免费 VPN 帐号、SS 帐号获取网站；1）修正部分错别字；2）修正部分 URL 与相邻字符串合并成超链接的错误。
+* v0.1.1，新增/修正，2014-10-11：0）将目录制作成书签；1）翻墙部分相关图片更新，修正全文错别字，修正 kernel-desktop 的错误描述。
 * v0.1.0，新增，2014-10-05：发布初始版本。
 
 
@@ -628,7 +629,7 @@ python goagent/server/uploader.py
 （上传 goagent 服务端程序至 GAE）
 </div>
 
-第六步，修改配置信息。既然是将 goagent 当作你自己开发的源码上传至 GAE，那么所有的 appid 都应替换成注册 GAE 时所写的应用程序名，例如，我注册时应用程序名设定的是 yangyanggnu0 和 yangyanggnu1，那么需要将 goagent/local/proxy.ini 文件中的 appid = 改写为 yangyanggnu0|yangyanggnu1；另外，设置 obfuscate = 1 开启流量混淆以正确解析出可用 GGC IP，设置 pagespeed = 1 以提升 GAE 的下行速度；
+第六步，修改配置信息。既然是将 goagent 当作你自己开发的源码上传至 GAE，那么所有的 appid 都应替换成注册 GAE 时所写的应用程序名，例如，我注册时应用程序名设定的是 yangyanggnu0 和 yangyanggnu1，那么需要将 goagent/local/proxy.ini 文件中的 appid = 改写为 yangyanggnu0|yangyanggnu1；另外，设置 obfuscate = 1 开启流量混淆以正确解析出可用 GGC IP；PAC 存在漏洞，把 [pac] 下的 enable = 0 禁止 PAC 以封堵该漏洞；
 
 第七步，设置浏览器代理地址。goagent/local/proxy.ini 文件中配置的监听 IP 为 127.0.0.1、端口为 8087，该信息表明，要走 goagent 代理，应将浏览器 firefox 的所有网站访问请求发至 127.0.0.1:8087，那么，在 goagent 客户端程序 goagent/local/proxy.py 作用下，网页访问请求将通过 google 服务器代理访问。firefox 可通过 edit -> preferences -> advanced -> network -> connection -> settings 设置代理服务器地址为 127.0.0.1，端口为 8087，重启 firefox 即可生效。
 
@@ -731,7 +732,7 @@ sslocal -c 1080.json
 （选用 shadowsocks 代理）
 </div>  
 
-现在，你肯定关注如何获取 shadowsocks 免费证书。我为你准备了几个网站：可从 http://boafanx.tabboa.com/boafanx-ss/ 、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （需注册）、http://water.dbops.org/?page_id=15 、http://www.jslink.org/about 、http://it-player.com/ 、https://www.shadowsocks.net/get ，感想他们。一方面为留住访问量，一方面避免流量滥用，通常，这些公益网站会定期更新免费帐号的 server_port 和 password 信息，导致我在用的 SS 帐号时不时失效，我又不得不登录这些网站重新获取新帐号，真是麻烦。好吧，我，作为一个发育成熟的成年男性懒人，不能再这样过下去了，所以，基本上，我需要一个自动化工具，它得帮我做几件事：0）从各网站搜集 SS 帐号并测试帐号的可用性、代理出口所在区域、代理网速；1）将可用帐号转换成 sslocal 的命令行选项并输出至屏幕，让我复制后可直接运行；2）将可用帐号转保存成 sslocal 的 *.json 证书文件。所以，我写了个程序 autoshadower，你可以从 https://github.com/yangyangwithgnu/autoshadower 获取。你可以不带任何命令行选项直接运行：
+现在，你肯定关注如何获取 shadowsocks 免费证书。我为你准备了几个网站： http://boafanx.tabboa.com/boafanx-ss/ 、http://water.dbops.org/?page_id=15 、http://www.jslink.org/about 、http://it-player.com/ 、https://cattt.com/index.php （需邀请码）、https://xcafe.in （需邀请码）、http://bbs.v7club.com/forum-2-1.html （需要积分）、https://www.shadowsocks.net/get （暂停服务，后期恢复）、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （暂停服务，后期恢复），感想他们。一方面为留住访问量，一方面避免流量滥用，通常，这些公益网站会定期更新免费帐号的 server_port 和 password 信息，导致我在用的 SS 帐号时不时失效，我又不得不登录这些网站重新获取新帐号，真是麻烦。好吧，我，作为一个发育成熟的成年男性懒人，不能再这样过下去了，所以，基本上，我需要一个自动化工具，它得帮我做几件事：0）从各网站搜集 SS 帐号并测试帐号的可用性、代理出口所在区域、代理网速；1）将可用帐号转换成 sslocal 的命令行选项并输出至屏幕，让我复制后可直接运行；2）将可用帐号转保存成 sslocal 的 *.json 证书文件。所以，我写了个程序 autoshadower，你可以从 https://github.com/yangyangwithgnu/autoshadower 获取。你可以不带任何命令行选项直接运行：
 
 ```
 $ autoshadower
