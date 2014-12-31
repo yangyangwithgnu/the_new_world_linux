@@ -1182,7 +1182,7 @@ virtualbox，著名的开源虚拟机（别管它的东家：）。VB 将客系�
 
 winTPC 下载地址 http://download.microsoft.com/download/C/D/7/CD789C98-6C1A-43D6-87E9-F7FDE3806950/ThinPC_110415_EVAL_x86fre.iso ，下载后在 VB 中安装 winTPC。
 
-默认情况，winTPC 只能试用 90 天，到期后，每次登录系统将提示激活，桌面背景也会变为纯黑且无法调整，甚至连 office 套件都将无法使用。激活，装完系统应该做的第一件事。先下载证书 https://bitbucket.org/Leask/windows-thin-pc-active/downloads （墙外），然后将 pkeyconfig-embedded.xrm-ms、Security-SPP-Component-SKU-Embedded-VLBA-ul.xrm-ms、Security-SPP-Component-SKU-Embedded-VLBA-ul-oob.xrm-ms 三个证书文件拷贝至 C:\，最后以 admin 权限（computer - manage - local user and group - users，双击 administrator 后，取消 account is disable）执行
+默认情况，winTPC 只能试用 90 天，到期后，每次登录系统将提示激活，桌面背景也会变为纯黑且无法调整，甚至连 office 套件都将无法使用。激活，装完系统应该做的第一件事。先下载证书 https://bitbucket.org/Leask/windows-thin-pc-active/downloads （墙外），然后将 pkeyconfig-embedded.xrm-ms、Security-SPP-Component-SKU-Embedded-VLBA-ul.xrm-ms、Security-SPP-Component-SKU-Embedded-VLBA-ul-oob.xrm-ms 三个证书文件拷贝至 C:\，最后以 admin 权限（computer - manage - local user and group - users，双击 administrator 后，取消 account is disable）执行（无法找到命令行程序？随便打开一个目录，在窗口的地址栏中输入 cmd 回车）：
 
 ```
 slmgr.vbs /ilc c:\pkeyconfig-embedded.xrm-ms
