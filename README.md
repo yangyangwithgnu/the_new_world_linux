@@ -1,7 +1,7 @@
 <h1 align="center">美丽新世界：linux 下的惬意生活</h1>
 yangyangwithgnu@yeah.net  
 http://yangyangwithgnu.github.io/  
-2014-12-4 15:09:19
+2015-01-01 00:31:53
 
 
 ##【公告】
@@ -15,7 +15,8 @@ http://yangyangwithgnu.github.io/
 
 ##【版本】
 ----
-* v0.1.4，新增/修正，2014-12-4：0）更新 goagent 的 proxy.ini，GAE 不再支持 pagespeed，删除 proxy.ini 中的 pagespeed 选项；另外，PAC 存在漏洞，假定某运行 goagent 的客户端 IP 为 123.4.5.6，那么可以通过 http://123.4.5.6:8086/%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f/ 访问该客户端上任意文件，禁用 PAC 以封堵该漏洞；1）更新免费 SS 帐号获取网站；
+* v0.1.5，新增/修正，2015-01-01：0）为提升系统性能，建议增配 SSD，相应调整分区建议；1）在文件管理器 nautilus 的文件列表采用目录优先；2）给出 goagent 的“install root certificate failed, Please run as administrator/root/sudo”警告提示的解决办法；3）由于 openSUSE 13.2 不再使用 gnome-session-properties，所以改用 ~/.bashrc 管理 goagent 启动项；4）给出 VB 虚拟机性能损耗的弥补措施；5）更新 winTPC 永久激活方法。
+* v0.1.4，新增/修正，2014-12-4：0）更新 goagent 的 proxy.ini，GAE 不再支持 pagespeed，删除 proxy.ini 中的 pagespeed 选项；另外，PAC 存在漏洞，假定某运行 goagent 的客户端 IP 为 123.4.5.6，那么可以通过 http://123.4.5.6:8086/%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f/ 访问该客户端上任意文件，禁用 PAC 以封堵该漏洞；1）更新免费 SS 帐号获取网站。
 * v0.1.3，新增，2014-11-6：0）增加免费 SS 帐号获取网站；1）增加自动获取 SS 帐号的工具 autoshadower；2）增加零配置的开箱即用 goagent 下载。
 * v0.1.2，新增/修正，2014-10-21：0）增加免费 VPN 帐号、SS 帐号获取网站；1）修正部分错别字；2）修正部分 URL 与相邻字符串合并成超链接的错误。
 * v0.1.1，新增/修正，2014-10-11：0）将目录制作成书签；1）翻墙部分相关图片更新，修正全文错别字，修正 kernel-desktop 的错误描述。
@@ -101,15 +102,22 @@ openSUSE 最早是 slackware 在德国的本地化版本，后来因其加入了
 
 1. 第一步，下载镜像。选择桌面环境（gnome 或 kde）、系统构架（32 位或 64 位）；  
 2. 第二步，制作安装 U 盘。U 盘安装既节省光盘介质费用，又能大幅提升安装速度，逐渐成为你安装系统的首选。借由 imagewriter 制作启动盘；  
-3. 第三步，安装系统。整个过程一路 next，除分区稍加留意外，基本零难度。建议**依次**创建如下分区：/、swap、/home、/data。几点说明：
-  * linux 的分区不同于 windows，分区后没有所谓的 C:、D: 盘，而是一个个文件系统，这些文件系统没有具体名称，必须先挂载到某个目录（称之为挂载点）下才能正常使用，分区与目录一一对应；  
-  * 操作系统为扩展物理内存容量通常设有“虚拟内存”机制，将不活泼内存页（如，未关闭但长时间没使用的程序）从物理内存移至硬盘的虚拟内存，从而释放宝贵的物理内存空间，swap 分区就是所谓的虚拟内存，一般将其容量规划得等同于物理内存即可，但，只有在物理内存吃紧时（如，启用多个大型程序、运行了存在严重泄漏的程序）系统才会使用 swap，换言之，如果你机器物理内存较大（如，8G），也不一定非要将 swap 分区划为与物理内存一样大，给个 2G 让系统应个急即可。另外，由于不存在由用户直接发起的swap分区读写的场景，所以该分区不用挂载目录，由系统自行管理。如果想查看 swap 实时使用情况，可执行“vmstat 1”命令，输出信息中，si 表示 1 秒内写入 sawp 的内存页大小，so 从 swap 中读出的内存页大小，单位为 K；
+3. 第三步，安装系统。整个过程一路 next，除分区稍加留意外，基本零难度。
+
+我建议你增配一块SSD，对提升系统整体性能非常有帮助，因此，我的分区建议，在 SSD 上创建 18G 的 /、2G 的 swap、18G 的 /winTPC/、26G 的 /share/ 等分区，在 HD 上创建 300G 的 /data/ 分区。就我的系统而言，64G 的 SSD，300G 的 HD，以此为例说明：
+  * linux 的分区不同于 windows，分区后没有所谓的 C:、D: 盘，而是一个个文件系统，这些文件系统没有具体名称，必须先挂载到某个目录（称之为挂载点）下才能正常使用，分区与目录一一对应；
+  * 根目录 / 是安装 linux 操作系统的目录，大小 18G，将其置于 SSD 中有助于提升开关机速度；
+  * 操作系统为扩展物理内存容量通常设有“虚拟内存”机制，将不活泼内存页（如，未关闭但长时间没使用的程序）从物理内存移至硬盘的虚拟内存，从而释放宝贵的物理内存空间，swap 分区就是所谓的虚拟内存，一般将其容量规划得等同于物理内存即可，但，只有在物理内存吃紧时（如，启用多个大型程序、运行了存在严重泄漏的程序）系统才会使用 swap，换言之，如果你机器物理内存较大（如，8G），也不一定非要将 swap 分区划为与物理内存一样大，给个 2G 让系统应个急即可。置于 SSD 中有利用提升系统性能。另外，由于不存在由用户直接发起的swap分区读写的场景，所以该分区不用挂载目录，由系统自行管理。如果想查看 swap 实时使用情况，可执行
+vmstat 1
+命令，输出信息中，si 表示 1 秒内写入 sawp 的内存页大小，so 从 swap 中读出的内存页大小，单位为 K；
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%9F%A5%E7%9C%8Bswap%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5.png" alt=""/><br>
 （查看swap使用情况）
 </div>
-  * 用户相关信息（如，应用程序的配置文件）通常放在 /home 目录中，为避免重装系统导致各类配置文件丢失，需将 /home 放在独立分区上。应用程序配置文件通常位于如下路径：~/.[app_name]、~/.config/、~/.local/share/、~/.local/share/applications/、/etc/[app_name].conf，若发现程序运行异常，可先删除相关配置文件再试试；  
-  * 所有非系统数据（如，歌曲、ebook、安装程序）都放在独立分区 /data 上，以便定期备份。
+  * 在线购物、离线下载、即时通讯三种应用需要用到 windows 环境，在 linux 的虚拟机中安装 windows 是一种简便实现方式（详见后文“6 windows”章节）。既然是虚拟机，那么性能肯定大打折扣，把 win 虚拟机使用的所有存储均划至 SSD 是弥补性能损耗的措施之一。/winTPC/ 和 /share/ 就是 win 虚拟机会用到的两个分区，前者为虚拟机中的系统盘（即 C:），大小为 18G，后者为 linux 主系统与虚拟机 windows 客系统交换或共享数据的分区，SSD 剩余的所有空间均划拨至此；
+  * 所有非系统数据（如，歌曲、ebook、电影文件）相对静态，可放在 HD 上，所以我将整个 HD 划定单个分区 /data/，用于存放非系统数据，以便定期备份；
+  * 系统和应用程序的配置文件通常位于如下路径：~/.[app_name]、~/.config/、~/.local/share/、~/.local/share/applications/、/etc/[app_name].conf，若发现程序运行异常，可先删除相关配置文件再试试。
+  
 
 <h3 name="0.3">0.3 发行套件的设置</h3>
 刚装好的操作系统都是默认设置，按个人习惯适当调整才贴心。
@@ -303,6 +311,7 @@ X-GNOME-Autostart-enabled=true
 * 文件管理器顶部显示当前路径：org - gnome - nautilus - preferences，勾选 always use location entry；
 * 文件管理器 nautilus 以详情列表模式罗列文件列表：org - gnome - nautilus - preferences，default-floder-viewer 选择 list-view；
 * 文件列表以小图标且显示 ：org - gnome - nautilus - list_view，default-zoom-level 设置为 smallest；
+* 文件列表采用目录优先：org - gnome - nautilus – preferences，勾选 sort-directories-first；
 * 文件列表以树形目录显示 ：org - gnome - nautilus - list_view，勾选 use-tree-view。
 
 <h2 name="1">1 日常办公</h2>
@@ -660,6 +669,16 @@ python google_appengine/goagent/local/proxy.py
 （youtube）
 </div>
 
+goagent 对证书安装成功与否的识别有小 bug，已安装成功却识别为失败，所以，在你启动 goagent 时会提示“install root certificate failed, Please run as administrator/root/sudo”，你可以安全忽略该警告信息，不影响使用。如果有洁癖，可以手工如下安装：
+
+```
+rm -rf ~/.pki
+mkdir -p ~/.pki/nssdb
+# 安装时提示输入两次密码，直接两次回车，无需设置密码
+certutil -d ~/.pki/nssdb -N
+```
+重启 goagent 后该警告消失。
+
 对了，你可能发现访问 google 子域名有异常，这是因为 goagent 让所有 google 及其子域名默认不走代理。前面说过，goagent 生效的前提是客户端能正常访问google 服务器，理论上，访问 google.com 及其所有子域名都用不着走代理，即便在代理模式下，访问呢 google 子域名时 goagent 也根本不介入。但是，如果我又想通过代理访问某个 google 子域名怎么办？比如，想买 nexus 4，即便你开了 goagent，访问 play.google.com 会得到如下提示“Sorry! Devices on Google Play is not available in your country yet...”。前面提过，goagent 客户端程序的配置文件 goagent/local/proxy.ini，该文件中有两个 withgae 字段，该字段就是用于圈定那些强制走代理模式的 google 子域名。换言之，该字段指定那些属于 google.com但又强制走代理的子域名。在 proxy.ini 中所有 withgae 字段尾部追加 play.google.com 子域名，用 | 分割，即，...|play.google.com，保存 proxy.ini 后，重新运行 goagent 即可访问 play.google.com，如下图所示：
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/Nexus%204%20(16GB)%20-%20Google%20Play.png" alt=""/><br>
@@ -670,12 +689,18 @@ python google_appengine/goagent/local/proxy.py
 
 autoproxy 有三种模式，自适应模式（红色图标）、强制代理模式（绿色图标）、无代理模式（灰色图标）。自适应模式，就是我刚才说的，位于 gfwList (P.R.China) 中的网址走代理，不在其中的直接访问；强制代理模式，不管墙内墙外，访问所有网站均通过代理；无代理模式，就是不走代理全直接访问。由于 gfwList (P.R.China) 中记录的被墙网站数量有限，如果用自适应模式，那么大量不在此列表中的被墙网站你实际上用的无代理模式，肯定无法访问，所以，一般而言，优选强制代理模式。
 
-小结下，第一次可能麻烦点，如果以上九步都成功，那么你需要的免费、高速、稳定的梯子就已经制作完成。平时，需要翻墙，只需到 goagent/local/ 目录下执行
+小结下，第一次可能麻烦点，如果以上九步都成功，那么你需要的免费、高速、稳定的梯子就已经制作完成。你只需保留 goagent 的 local/ 目录，其他可安全删除，平时，需要翻墙，只需到 goagent/local/ 目录下执行
 
 ```
 python proxy.py
 ```
-即可，或者直接将其加入自启动项（GNOME 的启动项可通过在 CLI 中执行 gnome-session-properties 进行设置）。甚至，除 local/ 外的其他目录都可删除，不影响使用。
+即可，或者直接将其加入自启动项（路径视你情况调整）：
+
+```
+vim ~/.bashrc
+python /data/misc/software/app/goagent/local/proxy.py&
+```
+其中，最后的 & 很重要，让该命令后台执行，如果不加上，很可能导致你无法登录图像环境。
 
 goagent 是 GAE 的上层产物，为更好地使用 goagent，所以 GAE 的某些属性我们应当有所了解。GAE 分收费版和免费版，我们使用的免费版，自然有些限制：一个 google 帐号对应一个 GAE 使用权，一个 GAE 使用权可以创建最多 25 个 APP；流量方面，每个 APP 每天 1GB、每分钟 56MB；URL 请求方面，每个 APP 每天 657000 次、每分钟 3000 次。一旦的某个 APP 超过以上配额，该 APP 后续请求均将失败，直到当日太平洋时间 0 点（北京时间 15:00） GAE 自动重置后方可恢复。以上配额一般情况下是够用的，如果的确有更多访问需求（如，youtube 粉），可以创建多个 APP，每多创建一个 APP 则多获取一份配额，同时，你需要重新执行第五步将 goagent 服务端程序上传至新增 APP 中，然后执行第六步将新增 APP 名添加精 proxy.ini 中，用 | 将多个应用分割开，类似这样 yangyanggnu0|yangyanggnu1|yangyanggnu2|yangyanggnu3。
 
@@ -1144,29 +1169,41 @@ linux 和 windows 两种操作系统有各自的可执行文件格式（前者�
 
 第二类解决方式是安装虚拟机，在虚拟机中安装一个 windows 操作系统，这就像和你直接安装的 windows 一样，这样就有了一整套完整的 windows API，所有应用程序均可正常运行。如果在 linux 中出现 windows 应用让你胃口不佳、疲软乏力、夜不能寐，你得自我开导，你可以把它想成 java 应用要运行在 JVM 中，所以 windows 应用运行在 windows 虚拟机中，windows 就是你 linux 中的一个运行环境，与 OpenOffice、thunderbird、firefox 等等软件一样，这下是不是轻松许多 ：D。
 
-virtualbox，著名的开源虚拟机（别管它的东家：）。VB 将客系统（虚拟机内的操作系统）的所有硬件请求直接透传至底层硬件平台，而非通过主系统（运行虚拟机的操作系统）中转，一定程度上提升了客系统的性能。
-<div align="center">
-<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/virtualbox%E4%B8%AD%E8%BF%90%E8%A1%8C%E8%BF%85%E9%9B%B7.png" alt=""/><br />
-（virtualbox 中运行迅雷）
-</div>
-请从 VB 官网下载你发行套件对应的安装程序，切勿从软件仓库中安装，仓库中的版本无法识别 USB 设备。
+virtualbox，著名的开源虚拟机（别管它的东家：）。VB 将客系统（虚拟机内的操作系统）的所有硬件请求直接透传至底层硬件平台，而非通过主系统（运行虚拟机的操作系统）中转，一定程度上提升了客系统的性能。但是，虚拟机毕竟不是物理机，性能肯定有损耗，所以，你应该从以下几方面弥补：
+* VB 有多种存储空间使用模式，固定大小和动态调整两种最常用。比如，划拨 32G 空间给 VB，VB 内客系统数据量有 2G，那么，如果是固定大小模式，这 32G 的空间主系统已无法再使用，即便 VB 内客系统只用了 2G，而动态调整模式，主系统仍然可以用余下的 30G 空间。显然，在存储资源利用率上，后者更优。但是，另一方面，动态调整模式需要客系统每次写数据时有些附加计算，所以，从运行效率上来看，你应优选前者；
+* 使用 SSD 提升 I/O 性能。在 SSD 上划拨 18G 的空间给 /winTPC/ 分区，用于虚拟机中 winTPC 的系统盘（即 C:），再在 SSD 上划拨 26G 的空间给 /share/ 分区，用于为 linux 主系统与 winTPC 客系统交换或共享数据；
+* VB 支持 Intel VT-x 和 AMD-V 两种虚拟化技术，你应启用它们。首先，你得进入 BIOS 从硬件层面开启虚拟化特性，然后，再在 VB 中设置，settings – system – acceleration，勾选 enable vt-x/amd-v 和 enable nested paging；
+* 使用主系统的 I/O 缓存。settings - storage - controller SATA - use host I/O cache；
+* 将虚拟硬盘视为固态盘。settings - storage - controller SATA - \[your_hd\].vdi - solid-state drive。
+
 
 <h3 name="6.1">6.1 版本选择</h3>
 在我的使用场景中，windows 系统的用途变得非常单一，仅为我提供在线购物、即时通讯、离线下载三类服务，所以，在 windows 版本选择上，我希望越精简越好，以达到尽可能少占用计算和存储资源的目的。winXP，体积倒是小，2001 年的系统，太古老，缺失很多现代功能，再加上微软从 2014 年 4 月 8 日停止对其更新，稳定性较差，不想用；winPE，windows 预安装环境，一种不用安装、直接插入 U 盘就可使用的 windows 版本，通常用于系统恢复，缺失很多核心功能，不可用；新雨林木风版 win7，著名的第三方精简 windows，系统内核都被动过手脚，谁知道有没有后门木马，我可是要在线购物啊，风险太大，不敢用。微软于 2011 年初发布了一款在 win7 基础上简化而来的瘦身版 windows 操作系统，winTPC（Windows Thin PC，http://www.microsoft.com/wintpc ），用于在老旧设备上享受 win7 的基础功能，相较 win7，winTPC 装完后的裸系统，硬盘空间从 8.7G 减至 2.7G，内存使用率从 621M 减至 505M，安全性、功能性、轻便性都达标，就它了，非常适合我的使用场景。
 
-winTPC 下载地址 http://download.microsoft.com/download/C/D/7/CD789C98-6C1A-43D6-87E9-F7FDE3806950/ThinPC_110415_EVAL_x86fre.iso ，下载后在 VB 中安装 winTPC。默认情况，winTPC 只能免费使用 180 天，到期后，每次登录系统将提示激活，桌面背景也会变为纯黑且无法调整，甚至连 office 套件都将无法使用。别急，微软这次还算大方，公布了一种延长免费使用期限的方法：默认免费使用 180 天，到期后，执行
+winTPC 下载地址 http://download.microsoft.com/download/C/D/7/CD789C98-6C1A-43D6-87E9-F7FDE3806950/ThinPC_110415_EVAL_x86fre.iso ，下载后在 VB 中安装 winTPC。
+
+默认情况，winTPC 只能试用 90 天，到期后，每次登录系统将提示激活，桌面背景也会变为纯黑且无法调整，甚至连 office 套件都将无法使用。激活，装完系统应该做的第一件事。先下载证书 https://bitbucket.org/Leask/windows-thin-pc-active/downloads （墙外），然后将 pkeyconfig-embedded.xrm-ms、Security-SPP-Component-SKU-Embedded-VLBA-ul.xrm-ms、Security-SPP-Component-SKU-Embedded-VLBA-ul-oob.xrm-ms 三个证书文件拷贝至 C:\，最后以 admin 权限（computer - manage - local user and group - users，双击 administrator 后，取消 account is disable）执行
 
 ```
-slmgr.vbs -rearm
+slmgr.vbs /ilc c:\pkeyconfig-embedded.xrm-ms
+slmgr.vbs /ilc c:\Security-SPP-Component-SKU-Embedded-VLBA-ul.xrm-ms
+slmgr.vbs /ilc c:\Security-SPP-Component-SKU-Embedded-VLBA-ul-oob.xrm-ms
+slmgr.vbs /ipk XGY72-BRBBT-FF8MH-2GG8H-W7KCW
+slmgr.vbs /xpr
 ```
-可延长 180 天，微软允许你这样重复 5 次，再次到期后，将注册表项 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform\"SkipRearm" 的值改为 1，又可重复 8 次，换言之，从初次安装到完全过期，可以用 7 年时间（(1 + 5 + 8) * 180 天）。7 年，差不多你也该重装系统了。
-
-winTPC 裁剪了大量非必要的服务和功能，其中包括中文语言包，若缺失将导致中文乱码，所以，必须自行安装中文包。先下载中文包 http://forums.mydigitallife.info/threads/27977-Windows-Embedded-Standard-7-Windows-Thin-PC-language-packs （墙外），接着确保以 admin 登录系统（参考 http://jingyan.baidu.com/article/ab69b270ff426e2ca6189f54.html ），然后将中文语言包 chinese_language_package.cab 拷贝至 C:\，最后执行
+重启后即可永久激活 winTPC。
+   winTPC 裁剪了大量非必要的服务和功能，其中包括中文语言包，若缺失将导致中文乱码，所以，必须自行安装中文包。先下载中文包 http://forums.mydigitallife.info/threads/27977-Windows-Embedded-Standard-7-Windows-Thin-PC-language-packs （墙外），然后将中文语言包 chinese_language_package.cab 拷贝至 C:\，最后 admin 权限执行
 
 ```
-dism /online /add-package /packagepath:C:\lp.cab 
+dism /online /add-package /packagepath:C:\chinese_language_package.cab 
 ```
 后重启生效。
+
+VB 中安装 windows 虚拟机的效果如下：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/virtualbox%E4%B8%AD%E8%BF%90%E8%A1%8C%E8%BF%85%E9%9B%B7.png" alt=""/><br />
+（virtualbox 中运行迅雷）
+</div>
 
 要像使用原生 windows 那样使用装在 VB 中的 winTPC，你还得注意以下几方面。
 
