@@ -1179,7 +1179,7 @@ virtualbox，著名的开源虚拟机（别管它的东家：）。VB 将客系�
 
 <h3 name="6.1">6.1 版本选择</h3>
 在我的使用场景中，windows 系统的用途变得非常单一，仅为我提供在线购物、即时通讯、离线下载三类服务，所以，在 windows 版本选择上，我希望越精简越好，以达到尽可能少占用计算和存储资源的目的。winXP，体积倒是小，2001 年的系统，太古老，缺失很多现代功能，再加上微软从 2014 年 4 月 8 日停止对其更新，稳定性较差，不想用；winPE，windows 预安装环境，一种不用安装、直接插入 U 盘就可使用的 windows 版本，通常用于系统恢复，缺失很多核心功能，不可用；新雨林木风版 win7，著名的第三方精简 windows，系统内核都被动过手脚，谁知道有没有后门木马，我可是要在线购物啊，风险太大，不敢用。微软于 2011 年初发布了一款在 win7 基础上简化而来的瘦身版 windows 操作系统，winTPC（Windows Thin PC，http://www.microsoft.com/wintpc ），用于在老旧设备上享受 win7 的基础功能，相较 win7，winTPC 装完后的裸系统，硬盘空间从 8.7G 减至 2.7G，内存使用率从 621M 减至 505M，安全性、功能性、轻便性都达标，就它了，非常适合我的使用场景。
-
+ 
 winTPC 下载地址 http://download.microsoft.com/download/C/D/7/CD789C98-6C1A-43D6-87E9-F7FDE3806950/ThinPC_110415_EVAL_x86fre.iso ，下载后在 VB 中安装 winTPC。
 
 默认情况，winTPC 只能试用 90 天，到期后，每次登录系统将提示激活，桌面背景也会变为纯黑且无法调整，甚至连 office 套件都将无法使用。激活，装完系统应该做的第一件事。先下载证书 https://bitbucket.org/Leask/windows-thin-pc-active/downloads （墙外），然后将 pkeyconfig-embedded.xrm-ms、Security-SPP-Component-SKU-Embedded-VLBA-ul.xrm-ms、Security-SPP-Component-SKU-Embedded-VLBA-ul-oob.xrm-ms 三个证书文件拷贝至 C:\，最后以 admin 权限（computer - manage - local user and group - users，双击 administrator 后，取消 account is disable）执行（无法找到命令行程序？随便打开一个目录，在窗口的地址栏中输入 cmd 回车）：
