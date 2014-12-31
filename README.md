@@ -1192,7 +1192,8 @@ slmgr.vbs /ipk XGY72-BRBBT-FF8MH-2GG8H-W7KCW
 slmgr.vbs /xpr
 ```
 重启后即可永久激活 winTPC。
-   winTPC 裁剪了大量非必要的服务和功能，其中包括中文语言包，若缺失将导致中文乱码，所以，必须自行安装中文包。先下载中文包 http://forums.mydigitallife.info/threads/27977-Windows-Embedded-Standard-7-Windows-Thin-PC-language-packs （墙外），然后将中文语言包 chinese_language_package.cab 拷贝至 C:\，最后 admin 权限执行
+
+winTPC 裁剪了大量非必要的服务和功能，其中包括中文语言包，若缺失将导致中文乱码，所以，必须自行安装中文包。先下载中文包 http://forums.mydigitallife.info/threads/27977-Windows-Embedded-Standard-7-Windows-Thin-PC-language-packs （墙外），然后将中文语言包 chinese_language_package.cab 拷贝至 C:\，最后 admin 权限执行
 
 ```
 dism /online /add-package /packagepath:C:\chinese_language_package.cab 
