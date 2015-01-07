@@ -942,9 +942,11 @@ $__password__ = '123456';
 [gae]
 enable = 1
 appid = yangyanggnu0|yangyanggnu1 ; 替换成你的 appid
+
 ; 封堵可访问任意文件的漏洞
 [pac]
 enable = 0
+
 ; 同时支持 non-GAE 代理
 [php]
 enable = 1
