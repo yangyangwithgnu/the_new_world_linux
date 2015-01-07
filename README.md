@@ -1,7 +1,7 @@
 <h1 align="center">美丽新世界：linux 下的惬意生活</h1>
 yangyangwithgnu@yeah.net  
 http://yangyangwithgnu.github.io/  
-2015-01-01 00:31:53
+2015-01-07 20:59:21
 
 
 ##【公告】
@@ -15,6 +15,7 @@ http://yangyangwithgnu.github.io/
 
 ##【版本】
 ----
+* v0.1.6，新增，2015-01-07：0）新增免费 shadowsocks 帐号获取源；1）借由 goagent 在免费 VPS 空间搭建专属代理服务器；2）新增系统垃圾清理工具 bleachbit。
 * v0.1.5，新增/修正，2015-01-01：0）为提升系统性能，建议增配 SSD，相应调整分区建议；1）在文件管理器 nautilus 的文件列表采用目录优先；2）给出 goagent 的“install root certificate failed, Please run as administrator/root/sudo”警告提示的解决办法；3）由于 openSUSE 13.2 不再使用 gnome-session-properties，所以改用 ~/.bashrc 管理 goagent 启动项；4）给出 VB 虚拟机性能损耗的弥补措施；5）更新 winTPC 永久激活方法。
 * v0.1.4，新增/修正，2014-12-4：0）更新 goagent 的 proxy.ini，GAE 不再支持 pagespeed，删除 proxy.ini 中的 pagespeed 选项；另外，PAC 存在漏洞，假定某运行 goagent 的客户端 IP 为 123.4.5.6，那么可以通过 http://123.4.5.6:8086/%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f/ 访问该客户端上任意文件，禁用 PAC 以封堵该漏洞；1）更新免费 SS 帐号获取网站。
 * v0.1.3，新增，2014-11-6：0）增加免费 SS 帐号获取网站；1）增加自动获取 SS 帐号的工具 autoshadower；2）增加零配置的开箱即用 goagent 下载。
@@ -52,9 +53,11 @@ http://yangyangwithgnu.github.io/
 ................[3.2.4 shadowsocks 代理](#3.2.4)  
 ................[3.2.5 VPN 代理](#3.2.5)  
 ................[3.2.6 地下网络代理](#3.2.6)  
+................[3.2.7 个人专属代理](#3.2.7)  
 [4 系统管理](#4)  
 ........[4.1 数据备份](#4.1)  
 ........[4.2 碎片整理](#4.2)  
+........[4.3 垃圾清理](#4.3)  
 [5 图形图像](#5)  
 ........[5.1 图片编辑](#5.1)  
 ........[5.2 色彩提取](#5.2)  
@@ -757,7 +760,7 @@ sslocal -c 1080.json
 （选用 shadowsocks 代理）
 </div>  
 
-现在，你肯定关注如何获取 shadowsocks 免费证书。我为你准备了几个网站： http://boafanx.tabboa.com/boafanx-ss/ 、http://water.dbops.org/?page_id=15 、http://www.jslink.org/about 、http://it-player.com/ 、https://cattt.com/index.php （需邀请码）、https://xcafe.in （需邀请码）、http://bbs.v7club.com/forum-2-1.html （需要积分）、https://www.shadowsocks.net/get （暂停服务，后期恢复）、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （暂停服务，后期恢复），感想他们。一方面为留住访问量，一方面避免流量滥用，通常，这些公益网站会定期更新免费帐号的 server_port 和 password 信息，导致我在用的 SS 帐号时不时失效，我又不得不登录这些网站重新获取新帐号，真是麻烦。好吧，我，作为一个发育成熟的成年男性懒人，不能再这样过下去了，所以，基本上，我需要一个自动化工具，它得帮我做几件事：0）从各网站搜集 SS 帐号并测试帐号的可用性、代理出口所在区域、代理网速；1）将可用帐号转换成 sslocal 的命令行选项并输出至屏幕，让我复制后可直接运行；2）将可用帐号转保存成 sslocal 的 *.json 证书文件。所以，我写了个程序 autoshadower，你可以从 https://github.com/yangyangwithgnu/autoshadower 获取。你可以不带任何命令行选项直接运行：
+现在，你肯定关注如何获取 shadowsocks 免费证书。我为你准备了几个网站： http://boafanx.tabboa.com/boafanx-ss/ 、http://water.dbops.org/?page_id=15 、http://www.jslink.org/about 、http://www.v2ex.com/go/shadowsocks 、http://it-player.com/ 、https://cattt.com/index.php （需邀请码）、https://heidong.in/ （需邀请码）、http://bbs.v7club.com/forum-2-1.html （需要积分）、https://www.shadowsocks.net/get （暂停服务，后期恢复）、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （暂停服务，后期恢复），感想他们。一方面为留住访问量，一方面避免流量滥用，通常，这些公益网站会定期更新免费帐号的 server_port 和 password 信息，导致我在用的 SS 帐号时不时失效，我又不得不登录这些网站重新获取新帐号，真是麻烦。好吧，我，作为一个发育成熟的成年男性懒人，不能再这样过下去了，所以，基本上，我需要一个自动化工具，它得帮我做几件事：0）从各网站搜集 SS 帐号并测试帐号的可用性、代理出口所在区域、代理网速；1）将可用帐号转换成 sslocal 的命令行选项并输出至屏幕，让我复制后可直接运行；2）将可用帐号转保存成 sslocal 的 *.json 证书文件。所以，我写了个程序 autoshadower，你可以从 https://github.com/yangyangwithgnu/autoshadower 获取。你可以不带任何命令行选项直接运行：
 
 ```
 $ autoshadower
@@ -895,7 +898,68 @@ tor
 
 经过以上四步设置，以后，你要想进入地下网络，先运行 VPN 创建系统全局代理环境，接着运行 tor 进入地下网络，最后设置 autoproxy 走 tor 地下网络路径，搞定！你可以访问 http://check.torproject.org 以确认是否通过地下网络访问。
 
-好了，翻墙部分就这样，说得多了些。就我而言，大部分时间只要浏览器能翻墙即可，虽然以上四种方式都可达到目的，但我优选 goagent，一是毕竟使用的是 google 的服务器，机器性能、网络带宽、在线时长都较好，二是 goagent 只影响浏览器，不会强制让我其他应用程序（如下载工具）走代理；当 goagent 被干扰（如，陆四期间）不可用时，换用 shadowsocks；需要全局代理时用 openVPN；需要指定地域的出口 IP 时用 openVPN + tor。
+<h4 name="3.2.7">3.2.7 个人专属代理</h4>
+前面介绍的各类代理有个通病，你需要和其他人共用，比如，goagent，你和其他人共用 GAE 提供的代理；openVPN，共用 vpngate.net 的代理；shadowsocks，共用那些免费 SS 提供商给出的代理；tor，相对好些，你可以按不同区域选择代理。总的来说，我需要只为我一个人提供代理的机制。这个需求，goagent 和 shadowsocks 都可实现，shadowsocks 对环境要求苛刻些，所以，以 goagent 为例讲解。
+
+回忆下前面介绍 goagent 章节，goagent 分为 local/ 和 server/ 两部分，当时我们把 server/ 上传至 GAE，通过 local/ 与 server/ 数据交互让 GAE 成为代理机实现翻墙。由此可见，goagent 能翻墙成功的关键是朝内暂时还可以访问 GAE，如果那天 GFW 把访问 GAE 的网络封锁了，那 goagent 将失效。
+
+逻辑上来说，server/ 可以上传至任何服务器，只有那台服务器未被墙且具备 server/ 运行环境，那么，在 goagent 作用下，该非 GAE 服务器也可以成为我提供的代理服务，这就是所谓的 non-GAE 模式。为此，在 GFW 这堵墙越建越高的未来，goagent 作者建议，non-GAE 模式是 goagent 的使用趋势。
+
+首要任务，申请合适的免费空间。空间必须满足两个条件，一是提供 PHP 以支持 goagent 的 server 正常运行，一是未被 GFW 封锁以实现数据交互。推荐 http://www.ecvps.com 、http://nazuka.net 、http://binhoster.com 、http://www.1freehosting.com 、http://www.dhmart.info 几个，优选 ecvps.com。ecvps.com 有如下承诺：
+>20GB Diskspace
+>Unlimited Bandwidth
+>Support PHP, MYSQL
+>Zend Optimizer
+>Torrents, Proxy, Adult allowed!
+>Kansas City Datacenter ( USA Located )
+>No ADS
+>1000Mbps Internet Connection
+>Directadmin ( control panel )
+>Instant Activation
+>Remove Account if no bandwidth using for 7 days
+简直是霸气侧漏，不限带宽、提供 PHP 和 mysql、允许代理、绝无广告、立即激活。唯一限制是连续 7 天无流量将删帐号。无需代理直接访问 http://www.ecvps.com/freehosting/ ，点击 order now 后在 Use a subdomain from EcVps 中填写二级域名（如，yangyangwithgnu），点击 click to continue 后填写用户注册信息，点击 complete order 完成空间申请。按理说，填完申请也就应该顺利分配空间了，但 ecvps.com 为防止恶意注册启用了反欺诈检测，如果你的信息存在虚假，将会申请失败，告知如下：
+>MaxMind has deemed your order to be potentially high risk and therefore it has been held for manual review.
+>If you feel you have received this message in error, then please accept our apologies and submit a support ticket to our Customer Service Team. Thank you.
+按它提示，必须发一张申诉单请后台人员人工分配空间，申请地址 http://www.ecvps.com/client/submitticket.php?step=2&deptid=12 ，内容
+>hi admin,
+>I'm a student who learning webdesign, so I hope to get a free hosting, ecvps.com is so good by word of mouth. But always "MaxMind has deemed your order to be potentially high risk" there, help me, thx.
+注意，一定要在工作时间内（周一到周五的 09:00 – 17:00）提交，否则，你的申请单将石沉大海。ecvps.com 承诺 20 分钟内邮件反馈，告知你后台管理地址为 https://server.ecvps.net:2222/ ， 登录用户名和默认密码，FTP 的 hostname 为 yangyangwithgnu.ecvps.net，二级域名 http://yangyangwithgnu.ecvps.net ，如果你要绑定一级域名还会用到的 Nameserver，还有 email 的 pop3 和 smtp 信息。
+
+接着，部署 goagent 的 server 到免费空间。下载最新版 goagent（https://github.com/goagent/goagent ），在 goagent/server/php/ 下有 index.js、index.php、index.py、relay.php 等四个文件，为防止其他人盗用流量，前三个文件中均有一行设置密码的代码
+
+```
+$__password__ = '123456';
+```
+将其更改（如，abcdefgh）。登录后台管理地址 https://server.ecvps.net:2222/ （切勿用代理访问），点击 files 菜单可查看文件列表，在 public_html/ 下创建 goagent/ 子目录，进入该子目录后将 index.js、index.php、index.py、relay.php 四个文件上传至此。
+
+然后，设置本地配置文件。到 goagent/local/ 将 proxy.ini 的部分默认设置如下，其他部分保持默认设置不变（英文逗号表示注释）：
+
+```
+; 同时支持 GAE 代理
+[gae]
+enable = 1
+appid = yangyanggnu0|yangyanggnu1 ; 替换成你的 appid
+; 封堵可访问任意文件的漏洞
+[pac]
+enable = 0
+; 同时支持 non-GAE 代理
+[php]
+enable = 1
+password = abcdefgh ; 同 index.php 中的密码一致
+fetchserver = http://yangyangwithgnu.ecvps.net/goagent/index.php ; 你 index.php文件的路径
+```
+其中，注释已经很清晰了，唯一提醒的，这份 proxy.ini 可以同时支持 GAE 和 non-GAE 两种模式的代理。
+
+最后，设置浏览器本地中转代理。参照“3.2.3 google 服务器代理”章节对浏览器的设置，唯一区别是，先前的 GAE 模式监听端口为 8087，这里的 non-GAE 模式监听端口为 8088，如下图所示：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/goagent%20%E7%9A%84%20non-GAE%20%E6%A8%A1%E5%BC%8F%E4%BB%A3%E7%90%86.png" alt=""/><br />
+（goagent 的 non-GAE 模式代理）
+</div>  
+
+后续，运行 proxy.py 时，根据浏览器选择的不同代理，本地的单个 goagent 可以在 GAE 和 non-GAE 见随意切换。这样，你个人专属的代理就搭建完成了。
+
+好了，翻墙部分就这样，说得多了些。就我而言，大部分时间只要浏览器能翻墙即可，虽然以上四种方式都可达到目的，但我优选 goagent，一是毕竟使用的是 google 的服务器，机器性能、网络带宽、在线时长都较好，二是 goagent 只影响浏览器，不会强制让我其他应用程序（如下载工具）走代理；当 goagent 被干扰（如，陆四期间）不可用时，换用 shadowsocks；需要全局代理时用 openVPN；需要指定地域的出口 IP 时用 openVPN + tor；需要个人专属的代理就用 non-GAE 模式的 goagent。
+
 
 <h2 name="4">4 系统管理 </h2>
 linux 系统管理是很大一个领域，有专门的一群从业者靠此养家糊口，我无法在此进行详细讲解，仅以几类常规操作抛砖引玉。
@@ -1026,6 +1090,24 @@ linux 采用的文件布局策略——所有文件分散布局，相邻文件�
 有童鞋问，如果文件增大扇区数大于该文件后空闲扇区数时会是啥情况？good news，linux 有一套智能算法，让文件分散布局得足够合理，只要文件系统使用率不超过80%，该算法基本能保证每个文件后有足够空闲扇区可用，实现零碎片；bad news，一旦使用率超过 80%，碎片仍会出现，这时，虽然少量碎片对性能有一定影响，但至少剩余的空闲磁盘资源仍然被合理利用起来了。访问缓慢、浪费空间，两害，取其轻。
 
 如果你是偏执狂，非要消除那不足 20% 文件产生的碎片，可以这样，先将该文件系统上所有文件剪切至其他文件系统，再剪切回来，可在一定程度上消除碎片。
+
+<h3 name="4.3">4.3 垃圾清理</h3>
+
+再先进的系统永久了都会各类垃圾，既有临时文件、备份文件、访问历史这类系统运行过程中自己产生的，也有崩溃日志、cookies、会话文件这类各应用程序生成的，这些垃圾文件，不仅占用了存储空间而且影响系统性能，定期清理很有必要。bleachbit 来了。
+
+bleachbit 可按系统和各个应用软件分类清理垃圾，纳入 bleachbit 管理的软件上千种，常见的 bash、firefox、flash、GIMP、GNOME、java、libreoffice、X11 等等都在其中。通常，我会全选所有清理项，除了如下三项：firefox - passwords、thunderbird - passwords、system - free disk space。前两项是密码文件，不能清理，最后一项的名字不太准确，不是说释放磁盘空间，而是用 0 复写那些已被删除的文件所在的扇区，此操作非常耗时，对于自用的电脑来说没什么必要。
+
+在 bleachbit 清理垃圾前，建议你关闭涉及清理的应用程序，避免因资源征用导致清理不彻底。另外，bleachbit 很朴实，不像 360 那样好大喜功，实施完后不会显示为你清理了多少空间，如果你想实时查看空间释放情况，可以同时运行
+
+```
+watch -n 1 df -h
+```
+效果如下：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/bleachbit%20%E6%B8%85%E7%90%86%E7%B3%BB%E7%BB%9F%E5%9E%83%E5%9C%BE.png" alt=""/><br />
+（bleachbit 清理系统垃圾）
+</div>
+
 
 <h2 name="5">5 图形图像</h2>
 我们活在五彩斑斓的世界，色彩组成了世间万物。计算机是真实世界的数字扩展，当然也应该多彩绚丽。
