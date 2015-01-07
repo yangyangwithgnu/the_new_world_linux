@@ -906,6 +906,7 @@ tor
 逻辑上来说，server/ 可以上传至任何服务器，只有那台服务器未被墙且具备 server/ 运行环境，那么，在 goagent 作用下，该非 GAE 服务器也可以成为我提供的代理服务，这就是所谓的 non-GAE 模式。为此，在 GFW 这堵墙越建越高的未来，goagent 作者建议，non-GAE 模式是 goagent 的使用趋势。
 
 首要任务，申请合适的免费空间。空间必须满足两个条件，一是提供 PHP 以支持 goagent 的 server 正常运行，一是未被 GFW 封锁以实现数据交互。推荐 http://www.ecvps.com 、http://nazuka.net 、http://binhoster.com 、http://www.1freehosting.com 、http://www.dhmart.info 几个，优选 ecvps.com。ecvps.com 有如下承诺：
+
 >20GB Diskspace
 >Unlimited Bandwidth
 >Support PHP, MYSQL
