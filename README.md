@@ -15,7 +15,7 @@ http://yangyangwithgnu.github.io/
 
 ##【版本】
 ----
-* v0.1.6，新增，2015-01-07：0）新增免费 shadowsocks 帐号获取源；1）借由 goagent 在免费 VPS 空间搭建专属代理服务器；2）新增系统垃圾清理工具 bleachbit。
+* v0.1.6，新增，2015-01-07：0）新增免费 shadowsocks 帐号获取源；1）借由 goagent 在免费 VPS 空间搭建专属代理服务器；2）新增系统垃圾清理工具 bleachbit；3）给出 umplayer 外挂中文字幕显示乱码的解决思路。
 * v0.1.5，新增/修正，2015-01-01：0）为提升系统性能，建议增配 SSD，相应调整分区建议；1）在文件管理器 nautilus 的文件列表采用目录优先；2）给出 goagent 的“install root certificate failed, Please run as administrator/root/sudo”警告提示的解决办法；3）由于 openSUSE 13.2 不再使用 gnome-session-properties，所以改用 ~/.bashrc 管理 goagent 启动项；4）给出 VB 虚拟机性能损耗的弥补措施；5）更新 winTPC 永久激活方法。
 * v0.1.4，新增/修正，2014-12-4：0）更新 goagent 的 proxy.ini，GAE 不再支持 pagespeed，删除 proxy.ini 中的 pagespeed 选项；另外，PAC 存在漏洞，假定某运行 goagent 的客户端 IP 为 123.4.5.6，那么可以通过 http://123.4.5.6:8086/%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f/ 访问该客户端上任意文件，禁用 PAC 以封堵该漏洞；1）更新免费 SS 帐号获取网站。
 * v0.1.3，新增，2014-11-6：0）增加免费 SS 帐号获取网站；1）增加自动获取 SS 帐号的工具 autoshadower；2）增加零配置的开箱即用 goagent 下载。
@@ -439,9 +439,7 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 
 设置调整：全屏铺满设置：video -> aspect ratio -> disabled；
 
-使用问题：全屏纵向拉伸设置只能针对单部影片有效，无法保持为永久设置，播放其他影片需要重新设置；
-
-其他说明：推荐两个不错的电影下载网站：人人影视（http://www.yyets.com ）和电影天堂（http://www.dy2018.com ）
+使用问题：全屏纵向拉伸设置只能针对单部影片有效，无法保持为永久设置，播放其他影片需要重新设置；默认设置下外挂中文字幕乱码显示，你需要在 options - preferences - subtitles 的 subtitles 中勾选 try to autodetect for this language: chinese (zh)，并且在 font and colors 中选择 enable ssa/ass subtitles。
 
 <h3 name="2.3">2.3 音频编辑</h3>
 听到一首喜欢的歌曲，想把它设置为手机来电铃声，但整首歌曲又太长，最好能把高潮部分提取出来，一来电就进入高潮（-\_-$，你想啥～）。
@@ -951,7 +949,7 @@ enable = 0
 [php]
 enable = 1
 password = abcdefgh ; 同 index.php 中的密码一致
-fetchserver = http://yangyangwithgnu.ecvps.net/goagent/index.php ; 你 index.php文件的路径
+fetchserver = http://yangyangwithgnu.ecvps.net/goagent/index.php ; 你 index.php 文件的路径
 ```
 其中，注释已经很清晰了，唯一提醒的，这份 proxy.ini 可以同时支持 GAE 和 non-GAE 两种模式的代理。
 
