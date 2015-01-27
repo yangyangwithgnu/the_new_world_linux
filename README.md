@@ -943,7 +943,7 @@ tor
 
 逻辑上来说，server/ 可以上传至任何服务器，只有那台服务器未被墙且具备 server/ 运行环境，那么，在 goagent 作用下，该非 GAE 服务器也可以成为我提供的代理服务，这就是所谓的 non-GAE 模式。为此，在 GFW 这堵墙越建越高的未来，goagent 作者建议，non-GAE 模式是 goagent 的使用趋势。
 
-首要任务，申请合适的免费空间。空间必须满足两个条件，一是提供 PHP 以支持 goagent 的 server 正常运行，一是未被 GFW 封锁以实现数据交互。推荐 http://www.ecvps.com 、http://nazuka.net 、http://binhoster.com 、http://www.1freehosting.com 、http://www.dhmart.info 几个，优选 ecvps.com。ecvps.com 有如下承诺：
+首要任务，申请合适的免费空间。空间必须满足两个条件，一是提供 PHP 以支持 goagent 的 server 正常运行，一是未被 GFW 封锁以实现数据交互。推荐 http://www.ecvps.com 、http://www.hostinger.com.hk 、http://nazuka.net 、http://binhoster.com 、http://www.1freehosting.com 、http://www.dhmart.info 几个，优选 ecvps.com。ecvps.com 有如下承诺：
 >20GB Diskspace  
 >Unlimited Bandwidth  
 >Support PHP, MYSQL  
@@ -1138,7 +1138,7 @@ linux 采用的文件布局策略——所有文件分散布局，相邻文件�
 
 再先进的系统永久了都会各类垃圾，既有临时文件、备份文件、访问历史这类系统运行过程中自己产生的，也有崩溃日志、cookies、会话文件这类各应用程序生成的，这些垃圾文件，不仅占用了存储空间而且影响系统性能，定期清理很有必要。bleachbit 来了。
 
-bleachbit 可按系统和各个应用软件分类清理垃圾，纳入 bleachbit 管理的软件上千种，常见的 bash、firefox、flash、GIMP、GNOME、java、libreoffice、X11 等等都在其中。通常，我会全选所有清理项，除了如下三项：firefox - passwords、thunderbird - passwords、system - free disk space。前两项是密码文件，不能清理，最后一项的名字不太准确，不是说释放磁盘空间，而是用 0 复写那些已被删除的文件所在的扇区，此操作非常耗时，对于自用的电脑来说没什么必要。
+bleachbit 可按系统和各个应用软件分类清理垃圾，纳入 bleachbit 管理的软件上千种，常见的 bash、firefox、flash、GIMP、GNOME、java、libreoffice、X11 等等都在其中。除了如下几项：bash - history、firefox - cookies、firefox - passwords、firefox - session restore、firefox - site preferences、firefox - url history、thunderbird - passwords、system - free disk space。前两项是密码文件，不能清理，最后一项的名字不太准确，不是说释放磁盘空间，而是用 0 复写那些已被删除的文件所在的扇区，此操作非常耗时，对于自用的电脑来说没什么必要。
 
 在 bleachbit 清理垃圾前，建议你关闭涉及清理的应用程序，避免因资源征用导致清理不彻底。另外，bleachbit 很朴实，不像 360 那样好大喜功，实施完后不会显示为你清理了多少空间，如果你想实时查看空间释放情况，可以同时运行
 
