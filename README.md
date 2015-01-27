@@ -745,7 +745,7 @@ python /data/misc/software/app/goagent/local/proxy.py&
 ```
 其中，最后的 & 很重要，让该命令后台执行，如果不加上，很可能导致你无法登录图像环境。
 
-goagent 是 GAE 的上层产物，为更好地使用 goagent，所以 GAE 的某些属性我们应当有所了解。GAE 分收费版和免费版，我们使用的免费版，自然有些限制：一个 google 帐号对应一个 GAE 使用权，一个 GAE 使用权可以创建最多 25 个 APP；流量方面，每个 APP 每天 1GB、每分钟 56MB；URL 请求方面，每个 APP 每天 657000 次、每分钟 3000 次。一旦的某个 APP 超过以上配额，该 APP 后续请求均将失败，直到当日太平洋时间 0 点（北京时间 15:00） GAE 自动重置后方可恢复。以上配额一般情况下是够用的，如果的确有更多访问需求（如，youtube 粉），可以创建多个 APP，每多创建一个 APP 则多获取一份配额，同时，你需要重新执行第五步将 goagent 服务端程序上传至新增 APP 中，然后执行第六步将新增 APP 名添加精 proxy.ini 中，用 | 将多个应用分割开，类似这样 yangyanggnu0|yangyanggnu1|yangyanggnu2|yangyanggnu3。
+goagent 是 GAE 的上层产物，为更好地使用 goagent，所以 GAE 的某些属性我们应当有所了解。GAE 分收费版和免费版，我们使用的免费版，自然有些限制：一个 google 帐号对应一个 GAE 使用权，一个 GAE 使用权可以创建最多 25 个 APP；流量方面，每个 APP 每天 1GB、每分钟 56MB；URL 请求方面，每个 APP 每天 657000 次、每分钟 3000 次。一旦的某个 APP 超过以上配额，该 APP 后续请求均将失败，直到当日太平洋时间 0 点（北京时间 15:00） GAE 自动重置后方可恢复。以上配额一般情况下是够用的，如果的确有更多访问需求（如，youtube 粉），可以创建多个 APP，每多创建一个 APP 则多获取一份配额，同时，你需要重新执行第五步将 goagent 服务端程序上传至新增 APP 中，然后执行第六步将新增 APP 名添加进 proxy.ini 中，用 | 将多个应用分割开，类似这样 yangyanggnu0|yangyanggnu1|yangyanggnu2|yangyanggnu3。你可以登录 https://appengine.google.com 查看各 APP 流量使用详细情况。
 
 至此，goagent 优雅地解决了浏览器翻墙的问题，但，这只达到我总预期的 70%。对于绝大部分人来说，这已足够了，我，的确很难归属到“绝大部分人”中。某些论坛，你得先注册后才能访问帖子内容，为防机器人，同个 IP 短时间内禁止重复注册，由于 goagent 的低使用门槛，我天朝用它翻墙的用户不少，所有用户的出口 IP 均为 GAE 集群的 IP，难免短时间内多个用户通过 goagent 在同个论坛中进行注册，这时，其他 goagent 用户再去注册将被视为“同个 IP 短时间内禁止重复注册”；另外，+- 会隔三岔五干扰下，goagent 难免间歇性罢工，所以，我需要一种与 goagent 互备的代理。
 
@@ -800,13 +800,11 @@ sslocal -c 1080.json
 （选用 shadowsocks 代理）
 </div>  
 
-现在，你肯定关注如何获取 shadowsocks 免费证书。我为你准备了几个网站： http://boafanx.tabboa.com/boafanx-ss/ 、http://water.dbops.org/?page_id=15 、http://www.jslink.org/about 、http://www.v2ex.com/go/shadowsocks 、http://it-player.com/ 、https://cattt.com/index.php （需邀请码）、https://heidong.in/ （需邀请码）、http://bbs.v7club.com/forum-2-1.html （需要积分）、https://www.shadowsocks.net/get （暂停服务，后期恢复）、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （暂停服务，后期恢复），感想他们。一方面为留住访问量，一方面避免流量滥用，通常，这些公益网站会定期更新免费帐号的 server_port 和 password 信息，导致我在用的 SS 帐号时不时失效，我又不得不登录这些网站重新获取新帐号，真是麻烦。好吧，我，作为一个发育成熟的成年男性懒人，不能再这样过下去了，所以，基本上，我需要一个自动化工具，它得帮我做几件事：0）从各网站搜集 SS 帐号并测试帐号的可用性、代理出口所在区域、代理网速；1）将可用帐号转换成 sslocal 的命令行选项并输出至屏幕，让我复制后可直接运行；2）将可用帐号转保存成 sslocal 的 *.json 证书文件。所以，我写了个程序 autoshadower，你可以从 https://github.com/yangyangwithgnu/autoshadower 获取。你可以不带任何命令行选项直接运行：
-
+现在，你肯定关注如何获取 shadowsocks 免费证书。我为你准备了几个网站：http://www.v2ex.com/go/shadowsocks 、http://www.fyhqy.com/356/ 、http://water.dbops.org/?page_id=15 、http://it-player.com/ 、http://www.jslink.org/about 、https://cattt.com/index.php （需邀请码）、https://heidong.in/ （需邀请码）、http://boafanx.tabboa.com/boafanx-ss/ （暂停服务，后期恢复）、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （暂停服务，后期恢复），感谢他们。一方面为留住访问量，一方面避免流量滥用，通常，这些公益网站会定期更新免费帐号的 server_port 和 password 信息，导致我在用的 SS 帐号时不时失效，我又不得不登录这些网站重新获取新帐号，真是麻烦。好吧，我，作为一个发育成熟的成年男性懒人，不能再这样过下去了，所以，基本上，我需要一个自动化工具，它得帮我做几件事：0）从各网站搜集 SS 帐号并测试帐号的可用性、代理出口所在区域、代理网速；1）将可用帐号转换成 sslocal 的命令行选项并输出至屏幕，让我复制后可直接运行；2）将可用帐号转保存成 sslocal 的 \*.json 证书文件。所以，我写了个程序 autoshadower，你可以从 https://github.com/yangyangwithgnu/autoshadower 获取。你可以不带任何命令行选项直接运行：  
 ```
 $ autoshadower
 ```
-autoshadower 为你测试它能获取的帐号是否可用，若可用它会在屏幕上输出 sslocal 的命令行选项，你直接复制运行即可，类似
-
+autoshadower 为你测试它能获取的帐号是否可用，若可用它会在屏幕上输出 sslocal 的命令行选项，你直接复制运行即可，类似  
 >
     \(^o^)/. this SS certificate available. now you can issue SS proxy as follow:
     sslocal -s "la11.wfg.pw" -p 47265 -k "efmoe.panny" -b "127.0.0.1" -l 1080 -m "AES-128-CFB" -t 512
