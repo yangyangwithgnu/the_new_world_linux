@@ -607,7 +607,7 @@ URL 相关：
 - [space]，页面下翻一页（FF 快捷键）
 - [shift-space]，页面上翻一页（FF 快捷键）
 
-全键盘操作真是太自然了。下面的示例，先进入 https://github.com/yangyangwithgnu/ ，然后在新建 tab 中打开 the_new_world_linux 的链接，接着查看该链接的页面内容，最后关闭该 tab 后再恢复：
+全键盘操作真是太自然了。下面的示例，访问 https://github.com/yangyangwithgnu/ ，在新建 tab 中打开 the_new_world_linux 的链接，接着查看该链接的页面内容：
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E5%83%8F%20vim%20%E4%B8%80%E6%A0%B7%E4%BD%BF%E7%94%A8%20FF.gif" alt=""/><br />
 （像 vim 一样使用 FF）
