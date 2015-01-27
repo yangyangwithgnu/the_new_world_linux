@@ -586,16 +586,16 @@ YouTube 上的视频，可由插件 1-Click YouTube Video Download 实现下载�
 - N，焦点移至上个关键字匹配项
 - o，光标定位至地址栏
 - ctrl-k，光标定位至搜索栏（FF 快捷键）
-- R，刷新当前页面含 js、css、img 在内的所有元素
+- R，刷新当前页面含 js、css、img 在内的所有元素  
 tab 页相关：
 - t，新建 tab 页
 - x，关闭当前 tab 页
 - u，恢复最近一次关闭的 tab 页（修改 vimFx 默认配置）
 - ctrl-pgup，切换至前个 tab 页（FF 快捷键）
-- ctrl-pgdn，切换至后个 tab 页（FF 快捷键）
+- ctrl-pgdn，切换至后个 tab 页（FF 快捷键）  
 URL 相关：
 - l，用字母标注当前页面上所有 URL，键入对应字母后在当前 tab 中打开对应 URL（修改 vimFx 默认配置）
-- L，用字母标注当前页面上所有 URL，键入对应字母后在新建 tab 中打开对应 URL（修改 vimFx 默认配置）
+- L，用字母标注当前页面上所有 URL，键入对应字母后在新建 tab 中打开对应 URL（修改 vimFx 默认配置）  
 页面滚动相关：
 - gg，滚动至页首
 - b，滚动至页尾。默认的 G 无效，不得不重新设定（修改 vimFx 默认配置）
