@@ -1,7 +1,7 @@
 <h1 align="center">美丽新世界：linux 下的惬意生活</h1>
 yangyangwithgnu@yeah.net  
 http://yangyangwithgnu.github.io/  
-2015-01-07 20:59:21
+2015-01-27 21:56:07
 
 
 ##【公告】
@@ -15,6 +15,7 @@ http://yangyangwithgnu.github.io/
 
 ##【版本】
 ----
+* v0.1.7，新增，2015-01-27：0）推荐新的用于搭建 goagent 代理的免费空间；1）更新免费 SS 帐号获取源；2）bleachbit 不应清除 bash 历史在内的多个条目；3）像 vim 一样使用 FF。
 * v0.1.6，新增，2015-01-07：0）新增免费 shadowsocks 帐号获取源；1）借由 goagent 在免费 VPS 空间搭建专属代理服务器；2）新增系统垃圾清理工具 bleachbit；3）给出 umplayer 外挂中文字幕显示乱码的解决思路。
 * v0.1.5，新增/修正，2015-01-01：0）为提升系统性能，建议增配 SSD，相应调整分区建议；1）在文件管理器 nautilus 的文件列表采用目录优先；2）给出 goagent 的“install root certificate failed, Please run as administrator/root/sudo”警告提示的解决办法；3）由于 openSUSE 13.2 不再使用 gnome-session-properties，所以改用 ~/.bashrc 管理 goagent 启动项；4）给出 VB 虚拟机性能损耗的弥补措施；5）更新 winTPC 永久激活方法。
 * v0.1.4，新增/修正，2014-12-4：0）更新 goagent 的 proxy.ini，GAE 不再支持 pagespeed，删除 proxy.ini 中的 pagespeed 选项；另外，PAC 存在漏洞，假定某运行 goagent 的客户端 IP 为 123.4.5.6，那么可以通过 http://123.4.5.6:8086/%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f/ 访问该客户端上任意文件，禁用 PAC 以封堵该漏洞；1）更新免费 SS 帐号获取网站。
@@ -571,6 +572,44 @@ YouTube 上的视频，可由插件 1-Click YouTube Video Download 实现下载�
 （自定义客户端类型）
 </div>
 
+
+**像 vim 一样使用 FF**，vimFx。作为一个信仰无鼠标论的 vim 重度用户，我希望 vim 常用的基本操作能在 FF 中同样适用，vimFx 让我梦想成真。同质的插件不少，之所以选用 vimFx，原因有三：
+1. vimFx 不会破坏 FF 自身的任何快捷操作，你随时可以用 FF 自身快捷键进行操作，比如，FF 用 ctrl-k 快速定位光标到搜索栏；
+2. vimFx 支持可视化的方式进行快捷键配置；
+3. vimFx 支持快速移动。vim 用户肯定用过 easymotion 插件，vimFx 就是 FF 的 easymotion，可以把页面上任何你能点击的元素都用不同字母标识出来，随后键入对应字母即可实现元素点击事件，完全摆脱移动鼠标、点击鼠标的麻烦，太性感了。
+
+我常用的快捷操作如下。FF 自身相关：
+- ?，显示 vimFx 界面
+- esc，恢复默认状态
+- /，查找关键字
+- n，焦点移至下个关键字匹配项
+- N，焦点移至上个关键字匹配项
+- o，光标定位至地址栏
+- ctrl-k，光标定位至搜索栏（FF 快捷键）
+- R，刷新当前页面含 js、css、img 在内的所有元素
+tab 页相关：
+- t，新建 tab 页
+- x，关闭当前 tab 页
+- u，恢复最近一次关闭的 tab 页（修改 vimFx 默认配置）
+- ctrl-pgup，切换至前个 tab 页（FF 快捷键）
+- ctrl-pgdn，切换至后个 tab 页（FF 快捷键）
+URL 相关：
+- l，用字母标注当前页面上所有 URL，键入对应字母后在当前 tab 中打开对应 URL（修改 vimFx 默认配置）
+- L，用字母标注当前页面上所有 URL，键入对应字母后在新建 tab 中打开对应 URL（修改 vimFx 默认配置）
+页面滚动相关：
+- gg，滚动至页首
+- b，滚动至页尾。默认的 G 无效，不得不重新设定（修改 vimFx 默认配置）
+- j，页面下移
+- k，页面上移
+- [space]，页面下翻一页（FF 快捷键）
+- [shift-space]，页面上翻一页（FF 快捷键）
+
+全键盘操作真是太自然了。下面的示例，先进入 https://github.com/yangyangwithgnu/ ，然后在新建 tab 中打开 the_new_world_linux 的链接，接着查看该链接的页面内容，最后关闭该 tab 后再恢复：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E5%83%8F%20vim%20%E4%B8%80%E6%A0%B7%E4%BD%BF%E7%94%A8%20FF.gif" alt=""/><br />
+（像 vim 一样使用 FF）
+</div>
+
 此外，你发现没，默认 firefox 地址栏是不显示 URL 协议名 http:// 或 https:// 的，优点是清晰简洁，但缺点也很明显，当你从地址栏中复制某个 URL 的一部分时，复制到粘贴板中的字符串没有协议名，这会导致诸如 OpenOffice 这里办公文书软件无法将其识别为一个 URL 链接。所以，我会让 firefox 常态显示 URL 协议：在 firefox 地址栏中输入 about:config 进入其底层管理界面，搜索 browser.urlbar.trimURLs，双击 true 使其变为 false。
 
 <h3 name="3.2">3.2 搭梯翻墙</h3>
@@ -920,11 +959,11 @@ tor
 >MaxMind has deemed your order to be potentially high risk and therefore it has been held for manual review.  
 >If you feel you have received this message in error, then please accept our apologies and submit a support ticket to our Customer Service Team. Thank you.  
 
-按它提示，必须发一张申诉单请后台人员人工分配空间，申请地址 http://www.ecvps.com/client/submitticket.php?step=2&deptid=12 ，内容
+按它提示，必须发一张申诉单请后台人员人工分配空间，申请地址 http://www.ecvps.com/client/submitticket.php?step=2&deptid=12 ，内容要尽量诚恳，比如，
 >hi admin,  
 >I'm a student who learning webdesign, so I hope to get a free hosting, ecvps.com is so good by word of mouth. But always "MaxMind has deemed your order to be potentially high risk" there, help me, thx.  
 
-注意，一定要在工作时间内（周一到周五的 09:00 – 17:00）提交，否则，你的申请单将石沉大海。ecvps.com 承诺 20 分钟内邮件反馈，告知你后台管理地址为 https://server.ecvps.net:2222/ ， 登录用户名和默认密码，FTP 的 hostname 为 yangyangwithgnu.ecvps.net，二级域名 http://yangyangwithgnu.ecvps.net ，如果你要绑定一级域名还会用到的 Nameserver，还有 email 的 pop3 和 smtp 信息。
+申诉单的紧急程度选高些，priority 选为 high。另外，一定要在工作时间内（周一到周五的 09:00 – 17:00）提交，否则，你的申请单将石沉大海。ecvps.com 承诺 20 分钟内邮件反馈，告知你后台管理地址为 https://server.ecvps.net:2222/ ， 登录用户名和默认密码，FTP 的 hostname 为 yangyangwithgnu.ecvps.net，二级域名 http://yangyangwithgnu.ecvps.net ，如果你要绑定一级域名还会用到的 Nameserver，还有 email 的 pop3 和 smtp 信息。
 
 接着，部署 goagent 的 server 到免费空间。下载最新版 goagent（https://github.com/goagent/goagent ），在 goagent/server/php/ 下有 index.js、index.php、index.py、relay.php 等四个文件，为防止其他人盗用流量，前三个文件中均有一行设置密码的代码
 
