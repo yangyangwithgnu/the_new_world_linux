@@ -629,7 +629,7 @@ URL 相关：
 
 然后，访问 https://greasyfork.org/en/scripts/3953-baidu-music-download 点击 install this script 按钮进行用户脚本按照，该脚本可实现无损歌曲下载；
 
-接着，访问待下载歌曲页面 http://music.baidu.com/song/122674119，在关闭 greasemonkey 状态下，默认、正常的该页面上只有一个下载按钮，点击后提示你登录 VIP 付费帐号方可下载无损品质，在开启 greasemonkey 状态下，你将看到多出一个下载按钮，点击其后将会罗列出不同品质的下载选项，选择无损即可直接下载，如下所示：
+接着，访问待下载歌曲页面 http://music.baidu.com/song/122674119 ，在关闭 greasemonkey 状态下，默认、正常的该页面上只有一个下载按钮，点击后提示你登录 VIP 付费帐号方可下载无损品质，在开启 greasemonkey 状态下，你将看到多出一个下载按钮，点击其后将会罗列出不同品质的下载选项，选择无损即可直接下载，如下所示：
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E9%9A%8F%E6%84%8F%E6%8E%A7%E5%88%B6%E4%BB%BB%E6%84%8F%E7%BD%91%E7%AB%99%E5%AE%9E%E7%8E%B0%E5%85%8D%E8%B4%B9%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E6%AD%8C%E6%9B%B2.gif" alt=""/><br />
 （随意控制任意网站实现免费下载百度歌曲）
