@@ -1,7 +1,7 @@
 <h1 align="center">美丽新世界：linux 下的惬意生活</h1>
 yangyangwithgnu@yeah.net  
 http://yangyangwithgnu.github.io/  
-2015-02-02 09:34:16
+2015-02-04 13:42:00
 
 
 ##谢谢
@@ -22,6 +22,7 @@ http://yangyangwithgnu.github.io/
 
 ##【版本】
 ----
+* v0.1.8，新增，2015-02-04：借助插件 greasemonkey 在 FF 中随心所欲地控制任意页面，并配以实例：免登录、未付费环境下，直接下载百度音乐无损音乐。
 * v0.1.7，新增，2015-01-27：0）推荐新的用于搭建 goagent 代理的免费空间；1）更新免费 SS 帐号获取源；2）bleachbit 不应清除 bash 历史在内的多个条目；3）像 vim 一样使用 FF。
 * v0.1.6，新增，2015-01-07：0）新增免费 shadowsocks 帐号获取源；1）借由 goagent 在免费 VPS 空间搭建专属代理服务器；2）新增系统垃圾清理工具 bleachbit；3）给出 umplayer 外挂中文字幕显示乱码的解决思路。
 * v0.1.5，新增/修正，2015-01-01：0）为提升系统性能，建议增配 SSD，相应调整分区建议；1）在文件管理器 nautilus 的文件列表采用目录优先；2）给出 goagent 的“install root certificate failed, Please run as administrator/root/sudo”警告提示的解决办法；3）由于 openSUSE 13.2 不再使用 gnome-session-properties，所以改用 ~/.bashrc 管理 goagent 启动项；4）给出 VB 虚拟机性能损耗的弥补措施；5）更新 winTPC 永久激活方法。
@@ -580,7 +581,7 @@ YouTube 上的视频，可由插件 1-Click YouTube Video Download 实现下载�
 </div>
 
 
-**像 vim 一样使用 FF**，vimFx。作为一个信仰无鼠标论的 vim 重度用户，我希望 vim 常用的基本操作能在 FF 中同样适用，vimFx 让我梦想成真。同质的插件不少，之所以选用 vimFx，原因有三：  
+**像 vim 一样使用 FF**，vimFx。作为一个无鼠论的 vim 重度用户，我希望 vim 常用的基本操作能在 FF 中同样适用，vimFx 让我梦想成真。同质的插件不少，之所以选用 vimFx，原因有三：  
 0）vimFx 不会破坏 FF 自身的任何快捷操作，你随时可以用 FF 自身快捷键进行操作，比如，FF 用 ctrl-k 快速定位光标到搜索栏；  
 1）vimFx 支持可视化的方式进行快捷键配置；  
 2）vimFx 支持快速移动。vim 用户肯定用过 easymotion 插件，vimFx 就是 FF 的 easymotion，可以把页面上任何你能点击的元素都用不同字母标识出来，随后键入对应字母即可实现元素点击事件，完全摆脱移动鼠标、点击鼠标的麻烦，太性感了。 
@@ -603,8 +604,8 @@ tab 页相关：
 - ctrl-pgdn，切换至后个 tab 页（FF 快捷键）  
 
 URL 相关：
-- l，用字母标注当前页面上所有 URL，键入对应字母后在当前 tab 中打开对应 URL（修改 vimFx 默认配置）
-- ctrl-l，用字母标注当前页面上所有 URL，键入对应字母后在新建 tab 中打开对应 URL（修改 vimFx 默认配置）  
+- ctrl-l，把当前页面上所有能获取焦点的元素均用字母进行标识，键入对应字母后在当前 tab 中打开对应 URL（修改 vimFx 默认配置）
+- l，把当前页面上所有能获取焦点的元素均用字母进行标识，键入对应字母后在新建 tab 中打开对应 URL（修改 vimFx 默认配置）  
 
 页面滚动相关：
 - gg，滚动至页首
@@ -620,7 +621,21 @@ URL 相关：
 （像 vim 一样使用 FF）
 </div>
 
-此外，你发现没，默认 firefox 地址栏是不显示 URL 协议名 http:// 或 https:// 的，优点是清晰简洁，但缺点也很明显，当你从地址栏中复制某个 URL 的一部分时，复制到粘贴板中的字符串没有协议名，这会导致诸如 OpenOffice 这里办公文书软件无法将其识别为一个 URL 链接。所以，我会让 firefox 常态显示 URL 协议：在 firefox 地址栏中输入 about:config 进入其底层管理界面，搜索 browser.urlbar.trimURLs，双击 true 使其变为 false。
+随意控制任意网站，greasemonkey。如果说各色插件给予了 FF 无限扩充的能力，那么 greasemonkey 则赋予了你随意操控指定网页的力量。说得玄幻、实则靠谱。FF 为你呈现的每个页面，先从服务器上获取了该页面的代码（HTML、CSS、JS 等等），再在本地进行解析（以及渲染），如果在解析前，有某种机制告诉 FF 说，“稍等片刻，把我这儿的第三方 JS 加入到你刚获取的页面代码中，一并解析”，那么，借助第三方 JS，基本上，你就可以随意控制该页面在 FF 中展示的效果。这里“稍等片刻”和“一并解析”的机制，证实由 greasemonkey 所提供的。我们通常把这里说的第三方 JS 称为“用户脚本”（user scripts），你可以自行编写符合 greasemonkey 规范的用户脚本，当然也可以直接使用其他人写好的，比如，https://greasyfork.org/ 、https://userstyles.org/ 、https://openuserjs.org/ 、https://monkeyguts.com/ ，这几个网站中托管了大量用于不同场景的用户脚本。
+
+这里以百度音乐下载为例，向你展示 greasemonkey 的强大。你知道，百度音乐上的每首歌曲均有标准、超高、无损等三种品质，要想下载无损品质必须是收费用户（如，歌曲 http://music.baidu.com/song/122674119 ），现在，greasemonkey 配合适合的用户脚本，你可以在不付费、不登录的情况下，直接下载到无损歌曲。
+
+首先，访问 https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/ 在线安装 greasemonkey，安装后重启 FF，你会在 FF 右上角附近看到一个猴子图标（若是灰色则应点击将其开启）；
+
+然后，访问 https://greasyfork.org/en/scripts/3953-baidu-music-download 点击 install this script 按钮进行用户脚本按照，该脚本可实现无损歌曲下载；
+
+接着，访问待下载歌曲页面 http://music.baidu.com/song/122674119，在关闭 greasemonkey 状态下，默认、正常的该页面上只有一个下载按钮，点击后提示你登录 VIP 付费帐号方可下载无损品质，在开启 greasemonkey 状态下，你将看到多出一个下载按钮，点击其后将会罗列出不同品质的下载选项，选择无损即可直接下载，如下所示：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E9%9A%8F%E6%84%8F%E6%8E%A7%E5%88%B6%E4%BB%BB%E6%84%8F%E7%BD%91%E7%AB%99%E5%AE%9E%E7%8E%B0%E5%85%8D%E8%B4%B9%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E6%AD%8C%E6%9B%B2.gif" alt=""/><br />
+（随意控制任意网站实现免费下载百度歌曲）
+</div>
+
+好了，插件就这些了。此外，你发现没，默认 firefox 地址栏是不显示 URL 协议名 http:// 或 https:// 的，优点是清晰简洁，但缺点也很明显，当你从地址栏中复制某个 URL 的一部分时，复制到粘贴板中的字符串没有协议名，这会导致诸如 OpenOffice 这里办公文书软件无法将其识别为一个 URL 链接。所以，我会让 firefox 常态显示 URL 协议：在 firefox 地址栏中输入 about:config 进入其底层管理界面，搜索 browser.urlbar.trimURLs，双击 true 使其变为 false。
 
 <h3 name="3.2">3.2 搭梯翻墙</h3>
 > _Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers._
