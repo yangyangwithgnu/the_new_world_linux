@@ -621,7 +621,7 @@ URL 相关：
 （像 vim 一样使用 FF）
 </div>
 
-随意控制任意网站，greasemonkey。如果说各色插件给予了 FF 无限扩充的能力，那么 greasemonkey 则赋予了你随意操控指定网页的力量。说得玄幻、实则靠谱。FF 为你呈现的每个页面，先从服务器上获取了该页面的代码（HTML、CSS、JS 等等），再在本地进行解析（以及渲染），如果在解析前，有某种机制告诉 FF 说，“稍等片刻，把我这儿的第三方 JS 加入到你刚获取的页面代码中，一并解析”，那么，借助第三方 JS，基本上，你就可以随意控制该页面在 FF 中展示的效果。这里“稍等片刻”和“一并解析”的机制，证实由 greasemonkey 所提供的。我们通常把这里说的第三方 JS 称为“用户脚本”（user scripts），你可以自行编写符合 greasemonkey 规范的用户脚本，当然也可以直接使用其他人写好的，比如，https://greasyfork.org/ 、https://userstyles.org/ 、https://openuserjs.org/ 、https://monkeyguts.com/ ，这几个网站中托管了大量用于不同场景的用户脚本。
+**随意控制任意网站**，greasemonkey。如果说各色插件给予了 FF 无限扩充的能力，那么 greasemonkey 则赋予了你随意操控指定网页的力量。说得玄幻、实则靠谱。FF 为你呈现的每个页面，先从服务器上获取了该页面的代码（HTML、CSS、JS 等等），再在本地进行解析（以及渲染），如果在解析前，有某种机制告诉 FF 说，“稍等片刻，把我这儿的第三方 JS 加入到你刚获取的页面代码中，一并解析”，那么，借助第三方 JS，基本上，你就可以随意控制该页面在 FF 中展示的效果。这里“稍等片刻”和“一并解析”的机制，证实由 greasemonkey 所提供的。我们通常把这里说的第三方 JS 称为“用户脚本”（user scripts），你可以自行编写符合 greasemonkey 规范的用户脚本，当然也可以直接使用其他人写好的，比如，https://greasyfork.org/ 、https://userstyles.org/ 、https://openuserjs.org/ 、https://monkeyguts.com/ ，这几个网站中托管了大量用于不同场景的用户脚本。
 
 这里以百度音乐下载为例，向你展示 greasemonkey 的强大。你知道，百度音乐上的每首歌曲均有标准、超高、无损等三种品质，要想下载无损品质必须是收费用户（如，歌曲 http://music.baidu.com/song/122674119 ），现在，greasemonkey 配合适合的用户脚本，你可以在不付费、不登录的情况下，直接下载到无损歌曲。
 
