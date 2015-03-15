@@ -511,7 +511,7 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 （恢复关闭页面插件 Undo Closed Tabs Button）
 </div>
 
-**flash 播放**。目前几乎所有在线视频、在线文库等网站都通过 flash 实现（亲，我说的通过浏览器直接访问，我知道你 iphone 也可以观看在线视频，但那是通过安装本地APP 观看，与这儿说的事情没啥干系），常逛这类网站的朋友必须得装 flash 插件才能正常访问。adobe 不给力，导致很多浏览器加载 flash 文件时失败，提示 the adobe flash plugin has crashed：
+**flash 播放**。目前仍然有大多数的在线视频、在线文库等网站都通过 flash 实现（亲，我说的是大多数，你的iPhone也可以看网页视频是人家用了html5的缘故），常逛这类网站的朋友必须得装 flash 插件才能正常访问。adobe 不给力，导致很多浏览器加载 flash 文件时失败，提示 the adobe flash plugin has crashed：
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/flash%E6%8F%92%E4%BB%B6%E6%8A%A5%E9%94%99.png" alt=""/><br>
 （flash插件报错）
