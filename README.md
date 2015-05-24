@@ -1,7 +1,7 @@
 <h1 align="center">美丽新世界：linux 下的惬意生活</h1>
 yangyangwithgnu@yeah.net  
 http://yangyangwithgnu.github.io/  
-2015-02-04 13:42:00
+2015-05-24 13:12:10
 
 
 ##谢谢
@@ -22,6 +22,7 @@ http://yangyangwithgnu.github.io/
 
 ##【版本】
 ----
+* v0.1.9，新增/修正，2015-05-24：0）批量解析百度歌曲下载地址工具 yosong 的介绍；1）多种方式接入 tor 地下网络介绍；2）virtualbox 性能提升的可靠措施介绍。
 * v0.1.8，新增，2015-02-04：借助插件 greasemonkey 在 FF 中随心所欲地控制任意页面，并配以实例：免登录、未付费环境下，直接下载百度音乐无损音乐。
 * v0.1.7，新增，2015-01-27：0）推荐新的用于搭建 goagent 代理的免费空间；1）更新免费 SS 帐号获取源；2）bleachbit 不应清除 bash 历史在内的多个条目；3）像 vim 一样使用 FF。
 * v0.1.6，新增，2015-01-07：0）新增免费 shadowsocks 帐号获取源；1）借由 goagent 在免费 VPS 空间搭建专属代理服务器；2）新增系统垃圾清理工具 bleachbit；3）给出 umplayer 外挂中文字幕显示乱码的解决思路。
@@ -214,7 +215,7 @@ less /proc/meminfo
 
 另外，如果你的网络环境无法流畅访问境外官网软件仓库，可以转为访问其在朝内镜像。国内还有几家上规模又有良心的 IT 企业，通过企业自身带宽优势，准实时地从发行套件官网同步软件仓库到国内服务器上，冏朝用户可调整更新源，实现从这些企业的服务器上高速访问软件仓库。目前，为各大发行套件建立国内软件仓库镜像的企业有搜狐、东软，高校有北京交大、中国科大、中央音乐学院（歌唱艺术家也玩 linux），开源社区有 LUPA 等，以上机构均为 openSUSE.org 官方注册镜像，具体镜像地址参见 http://mirrors.openSUSE.org ；
 
-第二步，删除无用软件。系统默认安装的软件不见得都是你需要的（如，gnome 自带小游戏、某些软件自带的非中文和英文的帮助文档），进 install/remove software，取消待删除软件前的勾选框，apply 即可。
+第二步，删除无用软件。系统默认安装的软件不见得都是你需要的（如，gnome 自带小游戏、某些软件自带的非中文和英文的帮助文档、调试信息），进 install/remove software，取消待删除软件前的勾选框，apply 即可。
 
 第三步，升级系统。一旦指示系统启动升级，系统先在软件仓库（加载的所有更新源）中寻找是否有升级的可能。具体而言，存在三类升级方式：
 
@@ -316,14 +317,14 @@ X-GNOME-Autostart-enabled=true
 如果你需要的软件在添加的各类软件仓库中都无法找到，可依次尝试如下两个专用搜索引擎：http://software.openSUSE.org/search 和 http://www.rpmfind.net ，若还是无法找到，只有借助通用搜索引擎找到该软件官网，再下载安装。
 
 <h4 name="0.3.4">0.3.4 其他设置</h4>
-某些软件在界面上未提供用于设置的 preferences 菜单项（如 gedit、 nautilus），这时只有请出 dconf-editor。windows 的很多底层设置可以在注册表中进行，linux 对应可以在 DBUS 中设置，dconf-editor 就是 DBUS 的图形界面编辑器。dconf-editor 管理的设置很多，大家可以自己琢磨玩玩，如下几类我建议你考虑：
+某些软件在界面上未提供用于设置的 preferences 菜单项（如 gedit、 nautilus），这时只有请出 dconf-editor。windows 的很多底层设置可以在注册表中进行，linux 对应可以在 DBUS 中设置，dconf-editor 就是 DBUS 的图形界面编辑器。dconf-editor 管理的设置很多，大家可以自己琢磨玩玩，如下几类我建议你考虑（部分设置重启生效）：
 
 * gedit 取消自动备份： org - gnome - gedit - preferences - editor，取消 create-backup-copy ；
 * 清空回收站时无须再次确认：org - gnome - nautilus - preferences，取消 confirm-trash；
 * 文件管理器顶部显示当前路径：org - gnome - nautilus - preferences，勾选 always use location entry；
 * 文件管理器 nautilus 以详情列表模式罗列文件列表：org - gnome - nautilus - preferences，default-floder-viewer 选择 list-view；
+* 文件列表采用目录优先：org - gnome - nautilus - preferences，勾选 sort-directories-first；
 * 文件列表以小图标且显示 ：org - gnome - nautilus - list_view，default-zoom-level 设置为 smallest；
-* 文件列表采用目录优先：org - gnome - nautilus – preferences，勾选 sort-directories-first；
 * 文件列表以树形目录显示 ：org - gnome - nautilus - list_view，勾选 use-tree-view。
 
 <h2 name="1">1 日常办公</h2>
@@ -430,6 +431,18 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 
 * 一般来说，通过软件仓库安装某个软件，系统会自动关联安装依赖库，以保障软件正常运行，但，deadbeef 依赖的必要插件 deadbeef-restricted-plugins 并未自动关联，需手工自行添加，否则 deadbeef 无法加载歌曲；
 * 要让当前播放曲目显示在播放列表窗口中可以：ctrl-j 快捷键，或者，菜单中选择 playback -> scroll follows playback；
+
+另外，关于歌曲的获取，yosong（https://github.com/yangyangwithgnu/yosong）是个不错的选择。百度音乐上面有很多优质歌曲，但没有白金 VIP 帐号，这些高品质的歌曲都无法下载，yosong 可以帮我绕开百度的各种限制，解析出高品质歌曲的最终下载地址。基本上，现在的 yosong 具备了以下能力：   
+0）绕开白金收费会员才能下载无损品质歌曲的限制；   
+1）绕开百毒自身版权问题歌曲而无法下载的限制；   
+2）绕开非大陆之外区域无法下载的限制；   
+3）一键式全站歌曲下载；   
+4）绕开高频访问出现验证码的限制。   
+如下图所示：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/yosong%20%E6%AD%8C%E6%9B%B2%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90.gif" alt=""/><br />
+（yosong 歌曲地址解析）
+</div>
 
 <h3 name="2.2">2.2 电影观赏</h3>
 我看电影有个习惯，喜欢把电影全屏铺满后再看，这样不至于在如今满是宽屏幕的环境中把人物压缩得又扁又胖。另外，针对视频文件名类似的多个文件要能连续播放（也就是连续自动播放连续剧）。linux 下找了一圈都没发现满意的，包括大名鼎鼎的 vcl 和 mplayer，直到有天我遇到 umplayer。umplayer 是基于 mplayer 二次开发的软件，默认支持（即内置相关格式解码器） mkv、wmv、avi、mpg、3gp、mov、rm、mpeg、mp4 等视频格式。
@@ -587,7 +600,7 @@ YouTube 上的视频，可由插件 1-Click YouTube Video Download 实现下载�
 2）vimFx 支持快速移动。vim 用户肯定用过 easymotion 插件，vimFx 就是 FF 的 easymotion，可以把页面上任何你能点击的元素都用不同字母标识出来，随后键入对应字母即可实现元素点击事件，完全摆脱移动鼠标、点击鼠标的麻烦，太性感了。 
 
 我常用的快捷操作如下。FF 自身相关：
-- ?，显示 vimFx 界面
+- ctrl-?，显示 vimFx 界面
 - esc，恢复默认状态
 - /，查找关键字
 - n，焦点移至下个关键字匹配项
@@ -627,22 +640,22 @@ URL 相关：
 
 首先，访问 https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/ 在线安装 greasemonkey，安装后重启 FF，你会在 FF 右上角附近看到一个猴子图标（若是灰色则应点击将其开启）；
 
-然后，访问 https://greasyfork.org/en/scripts/3953-baidu-music-download 点击 install this script 按钮进行用户脚本按照，该脚本可实现无损歌曲下载；
+然后，访问 https://greasyfork.org/en/scripts/3953-baidu-music-download 点击 install this script 按钮安装用户脚本，该脚本可实现无损歌曲下载；
 
-接着，访问待下载歌曲页面 http://music.baidu.com/song/122674119 ，在关闭 greasemonkey 状态下，默认、正常的该页面上只有一个下载按钮，点击后提示你登录 VIP 付费帐号方可下载无损品质，在开启 greasemonkey 状态下，你将看到多出一个下载按钮，点击其后将会罗列出不同品质的下载选项，选择无损即可直接下载，如下所示：
+接着，访问待下载歌曲页面 http://music.baidu.com/song/122674119 ，在关闭 greasemonkey 状态下，默认、正常的该页面上只有一个下载按钮，点击后提示你登录 VIP 付费帐号方可下载无损品质，在开启 greasemonkey 状态下，你将看到多出一个下载按钮，用普通帐号登录后，点击其后将会罗列出不同品质的下载选项，选择无损即可直接下载，如下所示：
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E9%9A%8F%E6%84%8F%E6%8E%A7%E5%88%B6%E4%BB%BB%E6%84%8F%E7%BD%91%E7%AB%99%E5%AE%9E%E7%8E%B0%E5%85%8D%E8%B4%B9%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E6%AD%8C%E6%9B%B2.gif" alt=""/><br />
 （随意控制任意网站实现免费下载百度歌曲）
 </div>
+如果你希望下载某个歌手的所有专辑的说所有歌曲，那么只得找 yosong（https://github.com/yangyangwithgnu/yosong ）帮忙咯。
 
-好了，插件就这些了。此外，你发现没，默认 firefox 地址栏是不显示 URL 协议名 http:// 或 https:// 的，优点是清晰简洁，但缺点也很明显，当你从地址栏中复制某个 URL 的一部分时，复制到粘贴板中的字符串没有协议名，这会导致诸如 OpenOffice 这里办公文书软件无法将其识别为一个 URL 链接。所以，我会让 firefox 常态显示 URL 协议：在 firefox 地址栏中输入 about:config 进入其底层管理界面，搜索 browser.urlbar.trimURLs，双击 true 使其变为 false。
 
 <h3 name="3.2">3.2 搭梯翻墙</h3>
 > _Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers._
 >
 > ---- \<\<Art. 19, Universal Declaration of Human Rights, 1948\>\>.
 
-google 重新定义了搜索引擎，苹果重新定义了手机，天朝重新定义了局域网。为让大家保有天朝优越感，+- 屏蔽了大量“非法”网站，有境内/境外的、有纯技术的、有爱情动作的、有轮子功的，反正 +- 不喜欢的通通借由 GFW 这堵墙屏蔽掉。当然，也有主动屏蔽囧朝访问请求的，比如，sourceforge.net 非常反感囧朝的封闭，你朝子民别来我这儿。裆从小就教育我们，哪里有压迫哪里就有反抗，话说屏蔽之前，天朝的宅男还可以下载几部码片看看打发时间，嘚，看吧，让你屏蔽，没事做了，那就研究下怎样翻墙吧。
+为让大家保有天朝优越感，+- 屏蔽了大量“非法”网站，有境内/境外的、有纯技术的、有爱情动作的、有轮子功的，反正 +- 不喜欢的通通借由 GFW 这堵墙屏蔽掉。当然，也有主动屏蔽囧朝访问请求的，比如，sourceforge.net 非常反感囧朝的封闭，你朝子民别来我这儿。裆从小就教育我们，哪里有压迫哪里就有反抗，话说屏蔽之前，天朝的宅男还可以下载几部码片看看打发时间，嘚，看吧，让你屏蔽，没事做了，那就研究下怎样翻墙吧。
 
 <h4 name="3.2.1">3.2.1 封锁原理</h4>
 +- 最常用的封锁手段有二：关键字过滤、DNS 劫持。
@@ -759,10 +772,9 @@ autoproxy 有三种模式，自适应模式（红色图标）、强制代理模�
 ```
 python proxy.py
 ```
-即可，或者直接将其加入自启动项（路径视你情况调整）：
+即可，或者直接将其加入自启动项 /etc/rc.d/after.local 中：
 
 ```
-vim ~/.bashrc
 python /data/misc/software/app/goagent/local/proxy.py&
 ```
 其中，最后的 & 很重要，让该命令后台执行，如果不加上，很可能导致你无法登录图像环境。
@@ -822,7 +834,7 @@ sslocal -c 1080.json
 （选用 shadowsocks 代理）
 </div>  
 
-现在，你肯定关注如何获取 shadowsocks 免费证书。我为你准备了几个网站：http://www.v2ex.com/go/shadowsocks 、http://www.fyhqy.com/356/ 、http://water.dbops.org/?page_id=15 、http://it-player.com/ 、http://www.jslink.org/about 、https://cattt.com/index.php （需邀请码）、https://heidong.in/ （需邀请码）、http://boafanx.tabboa.com/boafanx-ss/ （暂停服务，后期恢复）、https://service.efmoe.us/thread-index-fid-1-tid-3-page-1.htm （暂停服务，后期恢复），感谢他们。一方面为留住访问量，一方面避免流量滥用，通常，这些公益网站会定期更新免费帐号的 server_port 和 password 信息，导致我在用的 SS 帐号时不时失效，我又不得不登录这些网站重新获取新帐号，真是麻烦。好吧，我，作为一个发育成熟的成年男性懒人，不能再这样过下去了，所以，基本上，我需要一个自动化工具，它得帮我做几件事：0）从各网站搜集 SS 帐号并测试帐号的可用性、代理出口所在区域、代理网速；1）将可用帐号转换成 sslocal 的命令行选项并输出至屏幕，让我复制后可直接运行；2）将可用帐号转保存成 sslocal 的 \*.json 证书文件。所以，我写了个程序 autoshadower，你可以从 https://github.com/yangyangwithgnu/autoshadower 获取。你可以不带任何命令行选项直接运行：  
+现在，你肯定关注如何获取 shadowsocks 免费证书。我为你准备了几个网站：http://www.v2ex.com/go/shadowsocks 、http://www.fyhqy.com/356/ 、http://www.ssh91.com/freessh.html 、http://ssnode.com （需邀请码）、http://ss.cevin.me （需邀请码）、http://user.ss-vpn.com （需邀请码）、 https://cattt.com/index.php （需邀请码）、https://heidong.in/ （需邀请码）、http://boafanx.tabboa.com/boafanx-ss/ ，感谢他们。一方面为留住访问量，一方面避免流量滥用，通常，这些公益网站会定期更新免费帐号的 server_port 和 password 信息，导致我在用的 SS 帐号时不时失效，我又不得不登录这些网站重新获取新帐号，真是麻烦。好吧，我，作为一个发育成熟的成年男性懒人，不能再这样过下去了，所以，基本上，我需要一个自动化工具，它得帮我做几件事：0）从各网站搜集 SS 帐号并测试帐号的可用性、代理出口所在区域、代理网速；1）将可用帐号转换成 sslocal 的命令行选项并输出至屏幕，让我复制后可直接运行；2）将可用帐号转保存成 sslocal 的 \*.json 证书文件。所以，我写了个程序 autoshadower，你可以从 https://github.com/yangyangwithgnu/autoshadower 获取。你可以不带任何命令行选项直接运行：  
 ```
 $ autoshadower
 ```
@@ -922,9 +934,9 @@ ExcludeNodes {IR},{SY},{KP},{CN},{MO},{HK}
 （在 firefox 中增加 tor 代理模式）
 </div>
 
-第四步，进入地下网络。tor 威力太大，近年被 GFW 彻底封杀，你用普通方式是无法接入索引服务器，你可以用网桥或者 VPN 接入。
+第四步，进入地下网络。tor 威力太大，近年被 GFW 彻底封杀，你用普通方式是无法接入索引服务器，，必须借助所谓的前置代理。顾名思义，前置代理，指你系统中先得有某种可用的代理，以此代理作为前置跳板，绕开 GFW 再连接至 tor 的索引服务器。只有 socket 或者真正的 HTTPS 代理才能作为前置代理，所以，前面介绍的 goagent 是不满足的（它是 HTTP 代理），而 shadowsocks、VPN 以及 tor 的网桥是满足的（她们都是 socket 类型代理）。接下来，我们从后往前依次验证哪种方式最适合成为 tor 的前置代理。 。
 
-**尝试通过网桥进入地下网络**。何为网桥？地下网络中的普通中继节点是以公共形式存放在索引服务器上，网桥实际上是种私有中继节点，也就是说，你先用私有中继节点（即网桥）接入索引服务器，接着获取地下网络三个节点的网络路径，然后抛弃私有中继、采用地下网络路径进行访问。目前有两种获取网桥的方法。方法一，直接去官网获取 http://bridges.torproject.org/bridges ，简单得很，输入验证码即可获取网桥，好吧，我承认，这是我见过最复杂的验证码，你可以把网页放大到最大程度，或许你可以看清；方法二，用你的 google 邮箱给 bridges@torproject.org 写封邮件，主题和正文都为 get bridges，且正文必须是纯文本（你的邮件签名应该禁止掉），几分钟后将收到 tor 项目组自动反馈的邮件，内容正是你需要的网桥，类似：
+**首先，尝试通过网桥进入地下网络**。何为网桥？按普通逻辑，第一步，客户端先接入 tor 的节点索引服务器，第二步，节点索引服务器按客户端配置选择三个满足要求的节点，第三步，客户端通过由这三个节点组成的地下网络路径进行匿名代理访问；现在由于 GFW 的干扰，第一步失败，这时，自然会有种思路，先别管我客户端配置说要求哪种类型的三个节点了，你先随便给我个能用的节点，好让我借助该节点连接进索引服务器再说后面的事儿，这个节点，就是网桥。地下网络中的普通中继节点是以公共形式存放在索引服务器上，网桥实际上是种私有中继节点，也就是说，你先用私有中继节点（即网桥）接入索引服务器，接着获取地下网络三个节点的网络路径，然后抛弃私有中继、采用地下网络路径进行访问。目前有两种获取网桥的方法。方法一，直接去官网获取 http://bridges.torproject.org/bridges ，简单得很，输入验证码即可获取网桥，好吧，我承认，这是我见过最复杂的验证码，你可以把网页放大到最大程度，或许你可以看清；方法二，用你的 google 邮箱给 bridges@torproject.org 写封邮件，主题和正文都为 get bridges，且正文必须是纯文本（你的邮件签名应该禁止掉），几分钟后将收到 tor 项目组自动反馈的邮件，内容正是你需要的网桥，类似：
 
 ```
 88.83.241.14:9001 e040f24bfdd1e4aab4fed15db47d8c22dfac454d 
@@ -949,17 +961,32 @@ tor
 </div>
 本次尝试失败！你别惊讶，想想也正常，你能轻松获取网桥，GFW 的运维人员也能轻易获取，他们可是一群天天只干这事儿的人，新出一个网桥，他们就封锁一个。你更别妥协，我们用网桥的目的是为了接入索引服务器，通过前面几节的介绍，你已经具备 VPN 系统全局代理的能力，网桥不行咱就不用网桥，你完全可以在全局代理的环境下不用网桥接入代理服务器。
 
-**尝试通过 VPN 进入地下网络**。先把上一步添加的网桥信息全部注释掉，然后执行 openVPN 建立系统全局代理环境，最后执行 tor 进入地下网络。如下图所示：
+**接着，尝试通过 VPN 进入地下网络**。先把上一步添加的网桥信息全部注释掉，然后执行 openVPN 建立系统全局代理环境，最后执行 tor 进入地下网络。如下图所示：
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/VPN%20%E8%BF%9E%E6%8E%A5%E5%9C%B0%E4%B8%8B%E7%BD%91%E7%BB%9C%E6%88%90%E5%8A%9F.gif" alt=""/><br>
 （VPN 连接地下网络成功）
 </div>
 本次尝试成功！由入口、中转、出口三个节点组成地下网络访问路径就创建好了，为确保绝对安全，tor 周期性变更路径中的三个节点，也就是说，这个时段是 node1-node2-node3 组成的路径，下个时段则变成 node11-node22-node33，达到访问不可回溯的目的。
 
-经过以上四步设置，以后，你要想进入地下网络，先运行 VPN 创建系统全局代理环境，接着运行 tor 进入地下网络，最后设置 autoproxy 走 tor 地下网络路径，搞定！你可以访问 http://check.torproject.org 以确认是否通过地下网络访问。
+**最后，尝试通过 shadowsocks 进入地下网络**。假定你的 SS 本地中转地址为 127.0.0.1:1080，在 tor 的配置文件 /etc/tor/torrc 中增加：
+
+```
+# SS 作为前置代理
+Socks5Proxy 127.0.0.1:1080
+```
+这样，SS 便成为了 tor 的前置代理，先运行 SS 再运行 tor，如下图所示：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/SS%20%E4%BD%9C%20tor%20%E5%89%8D%E7%BD%AE%E4%BB%A3%E7%90%86.gif" alt=""/><br>
+（SS 作 tor 前置代理）
+</div>
+本次尝试成功！注意，SS 前置代理应持续保持连接，否在 tor 将中断。
+
+综上，网桥方式完全行不通；近期 GFW 对 VPN 封锁加剧，找到免费可用的 VPN 非常困难；SS 方式速度快、免费资源多，优先选用。
+
+经过以上四步设置，以后，你要想进入地下网络，先运行 SS 创建 socket 代理环境，再以 SS 为前置代理运行 tor 进入地下网络，最后设置 autoproxy 走 tor 地下网络路径，搞定！你可以访问 http://check.torproject.org 以确认是否通过地下网络访问。
 
 <h4 name="3.2.7">3.2.7 个人专属代理</h4>
-前面介绍的各类代理有个通病，你需要和其他人共用，比如，goagent，你和其他人共用 GAE 提供的代理；openVPN，共用 vpngate.net 的代理；shadowsocks，共用那些免费 SS 提供商给出的代理；tor，相对好些，你可以按不同区域选择代理。总的来说，我需要只为我一个人提供代理的机制。这个需求，goagent 和 shadowsocks 都可实现，shadowsocks 对环境要求苛刻些，所以，以 goagent 为例讲解。
+前面介绍的各类代理有个通病，代理出口带宽是你和其他人共用的，比如，goagent，你和其他人共用 GAE 提供的代理；openVPN，共用 vpngate.net 的代理；shadowsocks，共用那些免费 SS 提供商给出的代理；tor，相对好些，你可以按不同区域选择代理。总的来说，我需要只为我一个人提供代理的机制。这个需求，goagent 和 shadowsocks 都可实现，shadowsocks 对环境要求苛刻些，所以，以 goagent 为例讲解。
 
 回忆下前面介绍 goagent 章节，goagent 分为 local/ 和 server/ 两部分，当时我们把 server/ 上传至 GAE，通过 local/ 与 server/ 数据交互让 GAE 成为代理机实现翻墙。由此可见，goagent 能翻墙成功的关键是朝内暂时还可以访问 GAE，如果那天 GFW 把访问 GAE 的网络封锁了，那 goagent 将失效。
 
@@ -1158,9 +1185,9 @@ linux 采用的文件布局策略——所有文件分散布局，相邻文件�
 
 <h3 name="4.3">4.3 垃圾清理</h3>
 
-再先进的系统永久了都会各类垃圾，既有临时文件、备份文件、访问历史这类系统运行过程中自己产生的，也有崩溃日志、cookies、会话文件这类各应用程序生成的，这些垃圾文件，不仅占用了存储空间而且影响系统性能，定期清理很有必要。bleachbit 来了。
+再先进的系统用久了也会产生各类垃圾，既有临时文件、备份文件、访问历史这类系统运行过程中自己产生的，也有崩溃日志、cookies、会话文件这类各应用程序生成的，这些垃圾文件，不仅占用了存储空间而且影响系统性能，定期清理很有必要。bleachbit 来了。
 
-bleachbit 可按系统和各个应用软件分类清理垃圾，纳入 bleachbit 管理的软件上千种，常见的 bash、firefox、flash、GIMP、GNOME、java、libreoffice、X11 等等都在其中。除了如下几项：bash - history、firefox - cookies、firefox - passwords、firefox - session restore、firefox - site preferences、firefox - url history、thunderbird - passwords、system - free disk space。前两项是密码文件，不能清理，最后一项的名字不太准确，不是说释放磁盘空间，而是用 0 复写那些已被删除的文件所在的扇区，此操作非常耗时，对于自用的电脑来说没什么必要。
+bleachbit 可按系统和各个应用软件分类清理垃圾，纳入 bleachbit 管理的软件上千种，常见的 bash、firefox、flash、GIMP、GNOME、java、libreoffice、X11 等等都在其中。除了如下几项：bash - history、firefox - cookies、firefox - passwords、firefox - session restore、firefox - site preferences、firefox - url history、thunderbird - passwords、system - memory、system - free disk space，最后一项的名字不太准确，不是说释放磁盘空间，而是 0 写那些已被删除的文件所在的扇区，此操作非常耗时，对于自用的电脑来说没什么必要。
 
 在 bleachbit 清理垃圾前，建议你关闭涉及清理的应用程序，避免因资源征用导致清理不彻底。另外，bleachbit 很朴实，不像 360 那样好大喜功，实施完后不会显示为你清理了多少空间，如果你想实时查看空间释放情况，可以同时运行
 
@@ -1316,16 +1343,17 @@ linux 和 windows 两种操作系统有各自的可执行文件格式（前者�
 
 第二类解决方式是安装虚拟机，在虚拟机中安装一个 windows 操作系统，这就像和你直接安装的 windows 一样，这样就有了一整套完整的 windows API，所有应用程序均可正常运行。如果在 linux 中出现 windows 应用让你胃口不佳、疲软乏力、夜不能寐，你得自我开导，你可以把它想成 java 应用要运行在 JVM 中，所以 windows 应用运行在 windows 虚拟机中，windows 就是你 linux 中的一个运行环境，与 OpenOffice、thunderbird、firefox 等等软件一样，这下是不是轻松许多 ：D。
 
-virtualbox，著名的开源虚拟机（别管它的东家：）。VB 将客系统（虚拟机内的操作系统）的所有硬件请求直接透传至底层硬件平台，而非通过主系统（运行虚拟机的操作系统）中转，一定程度上提升了客系统的性能。但是，虚拟机毕竟不是物理机，性能肯定有损耗，所以，你应该从以下几方面弥补：
-* VB 有多种存储空间使用模式，固定大小和动态调整两种最常用。比如，划拨 32G 空间给 VB，VB 内客系统数据量有 2G，那么，如果是固定大小模式，这 32G 的空间主系统已无法再使用，即便 VB 内客系统只用了 2G，而动态调整模式，主系统仍然可以用余下的 30G 空间。显然，在存储资源利用率上，后者更优。但是，另一方面，动态调整模式需要客系统每次写数据时有些附加计算，所以，从运行效率上来看，你应优选前者；
-* 使用 SSD 提升 I/O 性能。在 SSD 上划拨 18G 的空间给 /winTPC/ 分区，用于虚拟机中 winTPC 的系统盘（即 C:），再在 SSD 上划拨 26G 的空间给 /share/ 分区，用于为 linux 主系统与 winTPC 客系统交换或共享数据；
-* VB 支持 Intel VT-x 和 AMD-V 两种虚拟化技术，你应启用它们。首先，你得进入 BIOS 从硬件层面开启虚拟化特性，然后，再在 VB 中设置，settings – system – acceleration，勾选 enable vt-x/amd-v 和 enable nested paging；
+virtualbox，著名的开源虚拟机（别管它的东家：）。VB 将客系统（虚拟机内的操作系统，我们这里就是 winTPC，一种 win7 官方精简版本）的所有硬件请求直接透传至底层硬件平台，而非通过主系统（运行虚拟机的操作系统，我们这里是 openSUSE）中转，这样，在 VB 中你就有一套完整的 win 环境了。但是，虚拟机毕竟不是物理机，性能肯定有损耗，所以，你应该从以下几方面弥补：
+* VB 有多种存储空间使用模式，固定大小和动态调整两种最常用。比如，划拨 32G 空间给 VB，VB 内客系统数据量有 2G，那么，如果是固定大小模式，这 32G 的空间主系统已无法再使用，即便 VB 内客系统只用了 2G；而动态调整模式，主系统仍然可以用余下的 30G 空间。显然，在存储资源利用率上，后者更优。但是，另一方面，动态调整模式需要客系统每次写数据时有些附加计算，所以，从运行效率上来看，你应优选前者，当出现存储资源不够时再在 VB 管理界面中手工设置；
+* 客系统 winTPC 能访问的分区应位于 SSD。在 SSD 上划拨 18G 的空间给 /winTPC/ 分区，用于虚拟机中 winTPC 的系统盘（即 C:），再在 SSD 上划拨 26G 的空间给 /share/ 分区，用于为 linux 主系统与 winTPC 客系统交换或共享数据；
+* /winTPC/ 和 /share/ 这两个分区，在主系统中选用 NTFS 格式；
 * 使用主系统的 I/O 缓存。settings - storage - controller SATA - use host I/O cache；
-* 将虚拟硬盘视为固态盘。settings - storage - controller SATA - \[your_hd\].vdi - solid-state drive。
+* VB 支持 Intel VT-x 和 AMD-V 两种虚拟化技术，你应启用它们。首先，你得进入主系统 BIOS 从硬件层面开启虚拟化特性，然后，再在 VB 中设置，settings – system - acceleration，勾选 enable vt-x/amd-v 和 enable nested paging；
+* 将虚拟硬盘视为固态盘。settings - storage - controller SATA - [your_hd].vdi - solid-state drive。
 
 
 <h3 name="6.1">6.1 版本选择</h3>
-在我的使用场景中，windows 系统的用途变得非常单一，仅为我提供在线购物、即时通讯、离线下载三类服务，所以，在 windows 版本选择上，我希望越精简越好，以达到尽可能少占用计算和存储资源的目的。winXP，体积倒是小，2001 年的系统，太古老，缺失很多现代功能，再加上微软从 2014 年 4 月 8 日停止对其更新，稳定性较差，不想用；winPE，windows 预安装环境，一种不用安装、直接插入 U 盘就可使用的 windows 版本，通常用于系统恢复，缺失很多核心功能，不可用；新雨林木风版 win7，著名的第三方精简 windows，系统内核都被动过手脚，谁知道有没有后门木马，我可是要在线购物啊，风险太大，不敢用。微软于 2011 年初发布了一款在 win7 基础上简化而来的瘦身版 windows 操作系统，winTPC（Windows Thin PC，http://www.microsoft.com/wintpc ），用于在老旧设备上享受 win7 的基础功能，相较 win7，winTPC 装完后的裸系统，硬盘空间从 8.7G 减至 2.7G，内存使用率从 621M 减至 505M，安全性、功能性、轻便性都达标，就它了，非常适合我的使用场景。
+在我的使用场景中，windows 系统的用途变得非常单一，仅为我提供在线购物、即时通讯、离线下载三类服务，所以，在 windows 版本选择上，我希望越精简越好，以达到尽可能少占用计算和存储资源的目的。那么，现在有几种选择：winXP，体积倒是小，2001 年的系统，太古老，缺失很多现代功能，再加上微软从 2014 年 4 月 8 日停止对其更新，稳定性较差，不想用；winPE，windows 预安装环境，一种不用安装、直接插入 U 盘就可使用的 windows 版本，通常用于系统恢复，缺失很多核心功能，不可用；新雨林木风版 win7，著名的第三方精简 windows，系统内核都被动过手脚，谁知道有没有后门木马，我可是要在线购物啊，风险太大，不敢用。微软于 2011 年初发布了一款在 win7 基础上简化而来的瘦身版 windows 操作系统，winTPC（Windows Thin PC，http://www.microsoft.com/wintpc ），用于在老旧设备上享受 win7 的基础功能，相较 win7，winTPC 装完后的裸系统，硬盘空间从 8.7G 减至 2.7G，内存使用率从 621M 减至 505M，安全性、功能性、轻便性都达标，就它了，非常适合我的使用场景。
 
 winTPC 下载地址 http://download.microsoft.com/download/C/D/7/CD789C98-6C1A-43D6-87E9-F7FDE3806950/ThinPC_110415_EVAL_x86fre.iso ，下载后在 VB 中安装 winTPC。
 
