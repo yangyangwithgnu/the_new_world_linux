@@ -1,7 +1,7 @@
 <h1 align="center">美丽新世界：linux 下的惬意生活</h1>
 yangyangwithgnu@yeah.net  
 http://yangyangwithgnu.github.io/  
-2015-06-12 00:29:18
+2015-06-12 00:41:18
 
 
 ##谢谢
@@ -1658,7 +1658,7 @@ zypper in fcitx-cloudpinyin
 ```  
 云拼音实际就是在线拼音输入法，目前支持百度在线拼音和谷歌在线拼音，默认选用的是墙外的谷歌，你得手工改选为百度：configure - addon - cloud pinyin - cloud pinyin source - baidu。重启 fcitx 即可。
 
-云拼音输入法与本地输入法是融合呈现候选词组而不是互斥的，云拼音会把第一候选词组放倒本地输入法候选词组列表中，以蓝色高丽表示：
+云拼音输入法与本地输入法是融合呈现候选词组而不是互斥的，云拼音只会把第一候选词组放倒本地输入法候选词组列表中，以蓝色高丽表示：
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E9%9B%86%E6%88%90%E7%99%BE%E5%BA%A6%E4%BA%91%E8%BE%93%E5%85%A5%E6%B3%95.gif" alt=""/><br />
 （集成百度云输入法）
