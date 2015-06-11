@@ -1603,7 +1603,7 @@ zypper in fcitx fcitx-pinyin fcitx-pinyin-tools # fcitx-pinyin-tools 是词库�
 <h4 name="7.4.1">7.4.1 导入搜狗细胞词库</h4>
 很多专用词组无法匹配，比如，词组“春秋窃曲纹绣”，你用默认词库试试，输入 cqqqwx，得到的第一候选词组是“从全球趣味性”，这是由于，fcitx 自带拼音输入法只含有基本词汇，你得逐字选择后形成自定义词组，fcitx 通过自学习可以识别，下次输入时会将其作为首选项。这么多专用词组都得从头创建有够麻烦，哪儿有现成可以让我直接导入就好了。
 
-搜狗拼音基于大数据收录了大量词组，取之于民用之于民，它的所有细胞词库可供大家自由下载 http://pinyin.sogou.com/dict/。这下来劲了，搜狗拼音的词库太有诱惑了，想法导入 fcitx。前例中的“春秋窃曲纹绣”明显是刺绣工艺词库（http://pinyin.sogou.com/dict/detail/index/6924）中的词组，以此为例，讲解如何让 fcitx 识别。
+搜狗拼音基于大数据收录了大量词组，取之于民用之于民，它的所有细胞词库可供大家自由下载 http://pinyin.sogou.com/dict/ 。这下来劲了，搜狗拼音的词库太有诱惑了，想法导入 fcitx。前例中的“春秋窃曲纹绣”明显是刺绣工艺词库（http://pinyin.sogou.com/dict/detail/index/6924 ）中的词组，以此为例，讲解如何让 fcitx 识别。
 
 第一步，下载钟意的细胞词库：  
 ```  
