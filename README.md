@@ -1,7 +1,7 @@
 <h1 align="center">美丽新世界：linux 下的惬意生活</h1>
 yangyangwithgnu@yeah.net  
 http://yangyangwithgnu.github.io/  
-2015-05-24 13:12:10
+2015-06-12 00:29:18
 
 
 ##谢谢
@@ -22,6 +22,7 @@ http://yangyangwithgnu.github.io/
 
 ##【版本】
 ----
+* v0.1.10，新增/修正，2015-06-12：0）增加透明代理介绍；1）重写翻译工具章节；2）重新中文输入法章节。
 * v0.1.9，新增/修正，2015-05-24：0）批量解析百度歌曲下载地址工具 yosong 的介绍；1）多种方式接入 tor 地下网络介绍；2）virtualbox 性能提升的可靠措施介绍。
 * v0.1.8，新增，2015-02-04：借助插件 greasemonkey 在 FF 中随心所欲地控制任意页面，并配以实例：免登录、未付费环境下，直接下载百度音乐无损音乐。
 * v0.1.7，新增，2015-01-27：0）推荐新的用于搭建 goagent 代理的免费空间；1）更新免费 SS 帐号获取源；2）bleachbit 不应清除 bash 历史在内的多个条目；3）像 vim 一样使用 FF。
@@ -64,6 +65,7 @@ http://yangyangwithgnu.github.io/
 ................[3.2.5 VPN 代理](#3.2.5)  
 ................[3.2.6 地下网络代理](#3.2.6)  
 ................[3.2.7 个人专属代理](#3.2.7)  
+................[3.2.8 透明代理](#3.2.8)  
 [4 系统管理](#4)  
 ........[4.1 数据备份](#4.1)  
 ........[4.2 碎片整理](#4.2)  
@@ -82,7 +84,11 @@ http://yangyangwithgnu.github.io/
 ........[7.1 蓝牙收发](#7.1)  
 ........[7.2 手机管理](#7.2)  
 ........[7.3 英文翻译](#7.3)  
+................[7.3.1 源码安装](#7.3.1)  
+................[7.3.2 词典选择](#7.3.2)  
 ........[7.4 中文输入](#7.4)  
+................[7.4.1 导入搜狗细胞词库](#7.4.1)  
+................[7.4.2 安装云拼音](#7.4.2)  
 ........[7.5 软件开发](#7.5)  
 ........[7.6 虚拟终端](#7.6)  
 ........[7.7 升级 BIOS](#7.7)  
@@ -202,20 +208,28 @@ uname -r
 可查看当前使用的内核版本，执行
 
 ```  
-less /proc/meminfo
+less /proc/meminfo | grep MemTotal
 ```  
 可查看系统识别的物理内存（输出第一行 MemTotal 字段中显示）。
 
 <h5 name="0.3.1.2">发行套件升级</h5>
 在进行发行套件升级前，先说说软件仓库。前面说过，发行套件是集成内核、驱动程序、系统软件、应用程序等一整套可支撑普通用户日常工作、生活需求的操作系统，可见，发行套件充当了软件筛选、软件打包、软件依赖库测试、软件兼容性测试等多个角色，为确保发行套件的健壮性，发行套件厂商（或社区）将它筛选、打包、测试过的软件放在官方软件仓库中，这样，不论哪个厂商开发的应用程序，用户只需到软件仓库中查找、下载、安装即可，不用（像 windows）再到各个软件官网逐一下载，当然，软件仓库中没有的，你仍可到软件官网单独下载，但要注意依赖库是否正确。软件仓库一般放在发行套件官方服务器上，用户通过更新源访问软件仓库。因此，更新源就是软件仓库的路牌。好了，了解了软件仓库、更新源等概念后，我们可以按如下步骤升级发行套件啦。
 
-第一步，添加更新源。更新源的选择一定要严谨，尽量选择针对你使用的特定发行套件（甚至版本）且经过严格兼容性测试的源，这些更新源中收录的软件可能不是最新的但一定是最稳定的。基于这一思想，除了开启发行套件自带的几个默认官网更新源外，我增加了社区制作的各类更新源。这是大而全的更新源合辑，你需要的 99% 软件均可在此找到，其中，包括了两个重要源，一是 nvidia 显卡驱动源、一是 packman 第三方源（收录了大量经过严格测试的新软件）。具体操作，选择 community repositories，勾选所有源后保存即可。此外，社区源之外还有个 M17N 源，它大量收录了软件国际化、本地化等相关库文件，在让你品尝新功能以及满足本地化需求的同时，可能会引入系统稳定性和软件兼容性问题，请谨慎添加，http://download.openSUSE.org/repositories/M17N/openSUSE_13.1 。
+第一步，添加更新源。更新源的选择一定要严谨，尽量选择针对你使用的特定发行套件（甚至版本）且经过严格兼容性测试的源，这些更新源中收录的软件可能不是最新的但一定是最稳定的。基于这一思想，除了开启发行套件自带的几个默认官网更新源外，我增加了社区制作的各类更新源。这是大而全的更新源合辑，你需要的 99% 软件均可在此找到，其中，包括了两个重要源，一是 nvidia 显卡驱动源、一是 packman 第三方源（收录了大量经过严格测试的新软件）。具体操作，选择 community repositories，勾选所有源后保存即可。此外，社区源之外还有个 M17N 源，它大量收录了软件国际化、本地化等相关库文件，在让你品尝新功能以及满足本地化需求的同时，可能会引入系统稳定性和软件兼容性问题，请谨慎添加，http://download.openSUSE.org/repositories/M17N/openSUSE_13.2 。
 
-添加完更新源后，我们还应注意几点：一、软件安装完成后自动删除安装程序，以节约存储空间，在 software repositories 中取消每个更新源的 keep downloaded packages；二、不同更新源中难免有重复的软件，这时，必须有个机制指示系统选用哪个源中版本——更新源优先级，优先级从 1 到 200，数字越小优先级越高，系统优选优先级高的更新源中的软件，通常来说，收录的软件测试周期越长、测试越严格的更新源应第一优先，即，http://download.openSUSE.org/update/13.1/ 的优先级应置为 1。
+添加完更新源后，我们还应注意几点：一、软件安装完成后自动删除安装程序，以节约存储空间，在 software repositories 中取消每个更新源的 keep downloaded packages；二、不同更新源中难免有重复的软件，这时，必须有个机制指示系统选用哪个源中版本——更新源优先级，优先级从 1 到 200，数字越小优先级越高，系统优选优先级高的更新源中的软件，通常来说，收录的软件测试周期越长、测试越严格的更新源应第一优先，即，http://download.openSUSE.org/update/13.2/ 的优先级应置为 1。
 
 另外，如果你的网络环境无法流畅访问境外官网软件仓库，可以转为访问其在朝内镜像。国内还有几家上规模又有良心的 IT 企业，通过企业自身带宽优势，准实时地从发行套件官网同步软件仓库到国内服务器上，冏朝用户可调整更新源，实现从这些企业的服务器上高速访问软件仓库。目前，为各大发行套件建立国内软件仓库镜像的企业有搜狐、东软，高校有北京交大、中国科大、中央音乐学院（歌唱艺术家也玩 linux），开源社区有 LUPA 等，以上机构均为 openSUSE.org 官方注册镜像，具体镜像地址参见 http://mirrors.openSUSE.org ；
 
-第二步，删除无用软件。系统默认安装的软件不见得都是你需要的（如，gnome 自带小游戏、某些软件自带的非中文和英文的帮助文档、调试信息），进 install/remove software，取消待删除软件前的勾选框，apply 即可。
+第二步，删除无用资源。第一类，系统默认安装的无用软件，比如，gnome 自带小游戏，我是完全不可能碰的，又如，自带的 email 客户端 evolution，而我喜欢更优的 thunderbird，这些软件可以卸载了：  
+```  
+zypper --no-refresh rm aisleriot cheese empathy evolution gnucash inkscape gnome-mahjongg polari transmission-gtk quadrapassel ibus
+```  
+第二类，应用程序的调试信息，只要你不对它们进行二次开发，也可以卸载了  
+```  
+zypper --no-refresh rm \*-debugsource* \*-debuginfo*
+```  
+当然，这两类无用资源最好在所有应用程序安装完毕之后再删除，不然删了可能又会出现。
 
 第三步，升级系统。一旦指示系统启动升级，系统先在软件仓库（加载的所有更新源）中寻找是否有升级的可能。具体而言，存在三类升级方式：
 
@@ -228,7 +242,7 @@ less /proc/meminfo
 <h4 name="0.3.2">0.3.2 安装驱动</h4>
 windows 下新增硬件外设，通常需要到硬件官网下载驱动，安装重启后系统才能识别新增硬件设备，linux 对驱动的管理，你可以（片面地）理解为全都打包进内核中了，只要是内核版本足够新（这正是前面升级内核的目的之一），99% 的硬件完全可以识别，换言之，你不用针对主板、芯片、网卡、显卡、声卡单独下载安装驱动，因为内核已经集成了它们的驱动，当然，我指的是集成驱动能很好地管理对应硬件设备，如果管理得不是那么好呢？那也可以单独安装，比如，显卡驱动。
 
-我用的 N 卡，以此为例。openSUSE 预置了 N 卡驱动程序的开源版 nouveau，nouveau 由第三方开发，并未得到 nvidia 官方支持，是开发人员对 N 卡官方驱动逆向分析后的重新编码，实现难度巨大，虽效果不尽人意但也值得你尊重。作为普通用户，肯定希望最大程度发挥显卡特性，可以考虑安装 N 卡针对 openSUSE 发布的（闭源）官方显卡驱动吧。先增加 N 卡官方更新源 ftp://download.nvidia.com/openSUSE/13.1 ，再执行前面讲的升级命令即可。
+我用的 N 卡，以此为例。openSUSE 预置了 N 卡驱动程序的开源版 nouveau，nouveau 由第三方开发，并未得到 nvidia 官方支持，是开发人员对 N 卡官方驱动逆向分析后的重新编码，实现难度巨大，虽效果不尽人意但也值得你尊重。作为普通用户，肯定希望最大程度发挥显卡特性，可以考虑安装 N 卡针对 openSUSE 发布的（闭源）官方显卡驱动吧。先增加 N 卡官方更新源 ftp://download.nvidia.com/openSUSE/13.2 ，再执行前面讲的升级命令即可。
 
 最新的 nvidia 驱动（v340）存在严重 bug，会出现屏幕闪烁、撕裂现象，在官方修正前，你可以禁用 clipped-redraws 和  culling 两个显卡特性来临时解决，具体可在 /etc/environment 配置文件中添加
 
@@ -245,7 +259,7 @@ CLUTTER_VBLANK=True
 第一步，预准备。主题安装不像想的那么容易，为确保不同发行套件下均能安装成功，请提前作好如下准备：
 * 安装时机：主题应尽量在安装完所有软件后再安装，否则可能出现部分软件与当前主题无法适配的情况；
 * 各版本 GTK 库：GTK、GTK2、GTK3 等三个版本等基础库必须事前安装；
-* 主题引擎：murrine、unico、adwaita、canvas、pixbuf 等几类主题引擎必须安装。若安装主题后仍存在滚动条粗大、按钮错位等情况，再把 gtk2-engine-*、gtk3-engine-* 安装上；
+* 主题引擎：murrine、unico、adwaita、canvas、pixbuf 等几类主题引擎必须安装。若安装主题后仍存在滚动条粗大、按钮错位等情况，再把 gtk2-engine-\*、gtk3-engine-\* 都安装上；
 * 安装路径。一般而言，主题文件和图标分别放至全局目录 /usr/share/themes/ 和 /usr/share/icons/，或者分别放至账号目录 ~/.themes 和 ~/.icons 均可。建议优选全局目录，账号目录有一定几率导致主题失效；
 
 第二步，下载主题。推荐两个 gnome3 相关的主题网站：http://gnome-look.org 与 http://linux-lounge.deviantart.com （墙外，参见后文“搭梯翻墙”），慢慢选，喜欢哪个下哪个。个人非常喜欢那种扁、平、薄的风格，GTK 主题选用 Numix-Solarized（http://bitterologist.deviantart.com/art/Numix-Solarized-417575928 ），搭配 faenza 图标主题（http://tiheum.deviantart.com/art/Faenza-Icons-173323228 ）效果非常不错。
@@ -264,10 +278,15 @@ CLUTTER_VBLANK=True
 （Numix Solarized 主题）
 </div>
 
-第六步，字体美化。openSUSE 中文显示默认采用文泉驿字体，相比之下，更喜欢微软雅黑那种方方正正的饱满字体，但微软雅黑中的英文字体又不咋地，有人发布了一款增强了英文字体的微软雅黑——yahei consolas hybrid 字体，可以下来试试，效果非常不错（本文全文采用的就是这种字体）。双击字体按提示安装，安装完后进入 advanced settings，按如下设置即可：
+第六步，字体美化。openSUSE 中文显示默认采用文泉驿字体，相比之下，更喜欢微软雅黑那种方方正正的饱满字体，但微软雅黑中的英文字体又不咋地，有人发布了一款增强了英文字体的微软雅黑——yahei consolas hybrid 字体，可以下来试试，效果非常不错。双击字体按提示安装，安装完后进入 advanced settings，按如下设置即可：
 <div align="center">
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE.png" alt=""/><br>
 （字体设置）
+</div>
+另外，采用 QT 开发的程序必须借助 QT4 settings 管理程序单独设置：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/QT%20%E7%A8%8B%E5%BA%8F%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE.png" alt=""/><br>
+（QT 程序字体设置）
 </div>
 
 第七步，动态壁纸。GNOME3改变了很多传统用户习惯，淡化桌面概念就算之一，默认不再有桌面图标、无法将窗口最小化到任务栏、没有返回桌面按钮，99% 时间你看到的是某个应用程序的全屏窗口，体现了“内容至上”的理念，正因为此，GNOME3 中不再有动态壁纸功能，用户只有 1% 的时间可能看到桌面墙纸，动态壁纸功能理当下线——GNOME3 设计人员托梦告诉我滴 ~\_~。如果你仍然迷恋动态壁纸，可以通过如下方式实现：
@@ -319,12 +338,14 @@ X-GNOME-Autostart-enabled=true
 <h4 name="0.3.4">0.3.4 其他设置</h4>
 某些软件在界面上未提供用于设置的 preferences 菜单项（如 gedit、 nautilus），这时只有请出 dconf-editor。windows 的很多底层设置可以在注册表中进行，linux 对应可以在 DBUS 中设置，dconf-editor 就是 DBUS 的图形界面编辑器。dconf-editor 管理的设置很多，大家可以自己琢磨玩玩，如下几类我建议你考虑（部分设置重启生效）：
 
-* gedit 取消自动备份： org - gnome - gedit - preferences - editor，取消 create-backup-copy ；
+* gedit 取消自动备份： org - gnome - gedit - preferences - editor，取消 create-backup-copy；
+* gedit 显示行号：org - gnome - gedit - preferences - editor，勾选  display-line-numbers；
+* gedit 高亮当前行：org - gnome - gedit - preferences - editor，勾选 highlight-current-line；
 * 清空回收站时无须再次确认：org - gnome - nautilus - preferences，取消 confirm-trash；
 * 文件管理器顶部显示当前路径：org - gnome - nautilus - preferences，勾选 always use location entry；
 * 文件管理器 nautilus 以详情列表模式罗列文件列表：org - gnome - nautilus - preferences，default-floder-viewer 选择 list-view；
 * 文件列表采用目录优先：org - gnome - nautilus - preferences，勾选 sort-directories-first；
-* 文件列表以小图标且显示 ：org - gnome - nautilus - list_view，default-zoom-level 设置为 smallest；
+* 文件列表以小图标且显示 ：org - gnome - nautilus - list_view，default-zoom-level 设置为 smaller；
 * 文件列表以树形目录显示 ：org - gnome - nautilus - list_view，勾选 use-tree-view。
 
 <h2 name="1">1 日常办公</h2>
@@ -432,7 +453,7 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 * 一般来说，通过软件仓库安装某个软件，系统会自动关联安装依赖库，以保障软件正常运行，但，deadbeef 依赖的必要插件 deadbeef-restricted-plugins 并未自动关联，需手工自行添加，否则 deadbeef 无法加载歌曲；
 * 要让当前播放曲目显示在播放列表窗口中可以：ctrl-j 快捷键，或者，菜单中选择 playback -> scroll follows playback；
 
-另外，关于歌曲的获取，yosong（https://github.com/yangyangwithgnu/yosong）是个不错的选择。百度音乐上面有很多优质歌曲，但没有白金 VIP 帐号，这些高品质的歌曲都无法下载，yosong 可以帮我绕开百度的各种限制，解析出高品质歌曲的最终下载地址。基本上，现在的 yosong 具备了以下能力：   
+另外，关于歌曲的获取，yosong（https://github.com/yangyangwithgnu/yosong ）是个不错的选择。百度音乐上面有很多优质歌曲，但没有白金 VIP 帐号，这些高品质的歌曲都无法下载，yosong 可以帮我绕开百度的各种限制，解析出高品质歌曲的最终下载地址。基本上，现在的 yosong 具备了以下能力：   
 0）绕开白金收费会员才能下载无损品质歌曲的限制；   
 1）绕开百毒自身版权问题歌曲而无法下载的限制；   
 2）绕开非大陆之外区域无法下载的限制；   
@@ -459,9 +480,18 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 （全屏铺满）
 </div>
 
-设置调整：全屏铺满设置：video -> aspect ratio -> disabled；
+设置调整：全屏铺满设置，video -> aspect ratio -> disabled；
 
 使用问题：全屏纵向拉伸设置只能针对单部影片有效，无法保持为永久设置，播放其他影片需要重新设置；默认设置下外挂中文字幕乱码显示，你需要在 options - preferences - subtitles 的 subtitles 中勾选 try to autodetect for this language: chinese (zh)，并且在 font and colors 中选择 enable ssa/ass subtitles。
+
+我的听力还没达到不用字幕的层级，难免有时下载回来的字幕时间轴有偏差，所以，字幕工具必须得有。aegisub 是个非常棒的字幕工具，简单易用、上手极快。如下图所示：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E5%AD%97%E5%B9%95%E5%B7%A5%E5%85%B7%E8%B0%83%E6%95%B4%E6%97%B6%E9%97%B4%E8%BD%B4.png" alt=""/><br>
+（字幕工具调整时间轴）
+</div>
+
+推荐几个网站。高清电影，http://www.xunleigang.com/forum-2-1.html 、http://www.hd1080.cn/ ；高清美剧，http://www.ttmeiju.com/ ；字幕，http://www.zimuku.net/ 、http://www.subom.net/ 。
+
 
 <h3 name="2.3">2.3 音频编辑</h3>
 听到一首喜欢的歌曲，想把它设置为手机来电铃声，但整首歌曲又太长，最好能把高潮部分提取出来，一来电就进入高潮（-\_-$，你想啥～）。
@@ -600,7 +630,7 @@ YouTube 上的视频，可由插件 1-Click YouTube Video Download 实现下载�
 2）vimFx 支持快速移动。vim 用户肯定用过 easymotion 插件，vimFx 就是 FF 的 easymotion，可以把页面上任何你能点击的元素都用不同字母标识出来，随后键入对应字母即可实现元素点击事件，完全摆脱移动鼠标、点击鼠标的麻烦，太性感了。 
 
 我常用的快捷操作如下。FF 自身相关：
-- ctrl-?，显示 vimFx 界面
+- shift-?，显示 vimFx 界面
 - esc，恢复默认状态
 - /，查找关键字
 - n，焦点移至下个关键字匹配项
@@ -746,6 +776,8 @@ python google_appengine/goagent/local/proxy.py
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/youtube.png" alt=""/><br>
 （youtube）
 </div>
+
+每次启动 goagent 后，你需要耐心等待一两分钟，才可正常使用 goagent 的代理服务。你知道，作为门槛最低的翻墙工具，goagent 普及度越来越高，这肯定会引来 GFW 的重点关注。前面提过，goagent 要正常使用得有个前提，运行 goagent 的客户端必须能访问 GAE，那么，GFW 要让 goagent 失效最简单的办法就是封锁所有连接 GAE 的请求。道高一尺、魔高一丈，goagent 相应改变策略，不再直连 GAE，而是先连入 GGC，通过 GGC 再接入 GAE，所以，goagent 查找可用 GGC 是能否成功翻墙的关键。简单科普下 GGC，google 是一家面向全球用户的公司，数据中心在美国，要想让各国用户高效享受到 google 提供的各项服务，最直接的办法是在各地建立当地的数据（或者服务）镜像，这就是所谓的 Google Global Cache，即 GGC，在逻辑上，类似 CDN。每次启动 goagent 后，你应该通过 goagent 先访问某个网页（很可能浏览器上无反馈，不影响），以便让其尽早搜寻可用 GGC 的 IP，一旦输出信息中的 good_ipaddrs 大于 0 时，则说明 goagent 成功搜寻到可用 IP。这就是你得等待片刻才能成功翻墙的原因。
 
 goagent 对证书安装成功与否的识别有小 bug，已安装成功却识别为失败，所以，在你启动 goagent 时会提示“install root certificate failed, Please run as administrator/root/sudo”，你可以安全忽略该警告信息，不影响使用。如果有洁癖，可以手工如下安装：
 
@@ -934,7 +966,7 @@ ExcludeNodes {IR},{SY},{KP},{CN},{MO},{HK}
 （在 firefox 中增加 tor 代理模式）
 </div>
 
-第四步，进入地下网络。tor 威力太大，近年被 GFW 彻底封杀，你用普通方式是无法接入索引服务器，，必须借助所谓的前置代理。顾名思义，前置代理，指你系统中先得有某种可用的代理，以此代理作为前置跳板，绕开 GFW 再连接至 tor 的索引服务器。只有 socket 或者真正的 HTTPS 代理才能作为前置代理，所以，前面介绍的 goagent 是不满足的（它是 HTTP 代理），而 shadowsocks、VPN 以及 tor 的网桥是满足的（她们都是 socket 类型代理）。接下来，我们从后往前依次验证哪种方式最适合成为 tor 的前置代理。 。
+第四步，进入地下网络。tor 威力太大，近年被 GFW 彻底封杀，你用普通方式是无法接入索引服务器，必须借助所谓的前置代理。顾名思义，前置代理，指你系统中先得有某种可用的代理，以此代理作为前置跳板，绕开 GFW 再连接至 tor 的索引服务器。只有 socket 或者真正的 HTTPS 代理才能作为前置代理，所以，前面介绍的 goagent 是不满足的（它是 HTTP 代理），而 shadowsocks、VPN 以及 tor 的网桥是满足的（她们都是 socket 类型代理）。接下来，我们从后往前依次验证哪种方式最适合成为 tor 的前置代理。
 
 **首先，尝试通过网桥进入地下网络**。何为网桥？按普通逻辑，第一步，客户端先接入 tor 的节点索引服务器，第二步，节点索引服务器按客户端配置选择三个满足要求的节点，第三步，客户端通过由这三个节点组成的地下网络路径进行匿名代理访问；现在由于 GFW 的干扰，第一步失败，这时，自然会有种思路，先别管我客户端配置说要求哪种类型的三个节点了，你先随便给我个能用的节点，好让我借助该节点连接进索引服务器再说后面的事儿，这个节点，就是网桥。地下网络中的普通中继节点是以公共形式存放在索引服务器上，网桥实际上是种私有中继节点，也就是说，你先用私有中继节点（即网桥）接入索引服务器，接着获取地下网络三个节点的网络路径，然后抛弃私有中继、采用地下网络路径进行访问。目前有两种获取网桥的方法。方法一，直接去官网获取 http://bridges.torproject.org/bridges ，简单得很，输入验证码即可获取网桥，好吧，我承认，这是我见过最复杂的验证码，你可以把网页放大到最大程度，或许你可以看清；方法二，用你的 google 邮箱给 bridges@torproject.org 写封邮件，主题和正文都为 get bridges，且正文必须是纯文本（你的邮件签名应该禁止掉），几分钟后将收到 tor 项目组自动反馈的邮件，内容正是你需要的网桥，类似：
 
@@ -1050,7 +1082,27 @@ fetchserver = http://yangyangwithgnu.ecvps.net/goagent/index.php ; 你 index.php
 
 后续，运行 proxy.py 时，根据浏览器选择的不同代理，本地的单个 goagent 可以在 GAE 和 non-GAE 见随意切换。这样，你个人专属的代理就搭建完成了。
 
-好了，翻墙部分就这样，说得多了些。就我而言，大部分时间只要浏览器能翻墙即可，虽然以上四种方式都可达到目的，但我优选 goagent，一是毕竟使用的是 google 的服务器，机器性能、网络带宽、在线时长都较好，二是 goagent 只影响浏览器，不会强制让我其他应用程序（如下载工具）走代理；当 goagent 被干扰（如，陆四期间）不可用时，换用 shadowsocks；需要全局代理时用 openVPN；需要指定地域的出口 IP 时用 openVPN + tor；需要个人专属的代理就用 non-GAE 模式的 goagent。
+<h4 name="3.2.8">3.2.8 透明代理</h4>
+
+回想下，firefox 能成功翻墙，除了 goagent、shadowsocks 等等代理工具大力协助外，它自身支持代理功能也是个关键，即，firefox 自身可配置将所有网络请求先转发至本地代理软件（如，shadowsocks 的 socks5://127.0.0.1:1080 ），如果某些软件自身无法配置代理，有办法让这类软件也失效翻墙功能么？
+
+在我的使用场景中，zypper 和 git 最为常见。前者是 openSUSE 的包管理工具，应用软件增删改、系统升级、安全补丁安装等等都离不开它，虽然大部份源可以选用国内镜像，但像是 packman 这类著名第三方源至今缺少国内镜像，在 GFW 的干扰下，运气好时还能蜗速访问 packman 源，运气不好，直接无法连接；类似，github.com 是一个代码版本控制、发布管理的在线托管网站，我在客户端通过 git 与之通信，GFW 的干扰，速度也是慢得无法忍受。代理，是解决上述问题的最好（可能也是唯一）手段。遗憾的是，zypper 和 git 都不支持代理，无法设置将网络访问请求转发至 socks5://127.0.0.1:1080 。这时，你可能会先想到 openVPN 这种全局代理，没错，是个思路，我不太喜欢这种方式，一方面 GFW 对 openVPN 封锁得非常彻底，很难找到可用的证书，另一方面，全局代理强制其他无翻墙需求的软件必须走代理，影响效率。我需要更优的方案。
+
+linux 上的任何软件，不论实现方式、开发框架、编程语言，绝大部分最终会调用 libc 中的网络相关函数，如果有某种机制，能够发现应用程序即将调用 libc 中的网络相关函数，在真实调用前，先传递给网络函数的实参从目标网络地址篡改成本地中转地址 socks5://127.0.0.1:1080 ，那么，逻辑上，该应用程序就间接具备了翻墙功能。这就是所谓的透明代理。透明代理，首推 proxychains（https://github.com/haad/proxychains ）。
+
+以 shadowsocks 为例，简单配置，编辑 ~/.proxychains/proxychains.conf：  
+```  
+[ProxyList]
+socks5 127.0.0.1 1080
+```  
+即可。下图为通过透明代理工具 proxychains 为不支持代理的软件 zypper 提供 shadowsocks 代理服务：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E9%80%8F%E6%98%8E%E4%BB%A3%E7%90%86%E4%BD%BF%E7%94%A8%20zypper.gif" alt=""/><br />
+（透明代理使用 zypper）
+</div>  
+上图输出的 |D-chain|-<>-127.0.0.1:1080-<><>-195.135.221.134:80-<><>-OK 信息，说明把真实地址 195.135.221.134:80 篡改为本地中转代理地址 127.0.0.1:1080 了，从而实现代理功能。
+
+好了，翻墙部分就这样，说得多了些。就我而言，大部分时间只要浏览器能翻墙即可，虽然以上四种方式都可达到目的，但我优选 goagent，一是毕竟使用的是 google 的服务器，机器性能、网络带宽、在线时长都较好，二是 goagent 只影响浏览器，不会强制让我其他应用程序（如下载工具）走代理；当 goagent 被干扰（如，陆四期间）不可用时，换用 shadowsocks；需要全局代理时用 openVPN；需要指定地域的出口 IP 时用 shadowsocks + tor；需要个人专属的代理就用 non-GAE 模式的 goagent；要为那些自身不支持代理的软件提供代理功能就派 proxychains 上场。
 
 
 <h2 name="4">4 系统管理 </h2>
@@ -1330,6 +1382,16 @@ echo "you get $OUTPUT"
 
 硬伤三，无法按需主动停止录屏。byzanz 是实时写文件，所以直接 ctrl-c 中断任务即可。
 
+为便于后续使用，先把这两个脚本赋予可执行权限：  
+```  
+chmod u=rwx byzanz-record-window.sh
+chmod u=rwx byzanz-record-region.sh
+```  
+再移至程序目录：  
+```  
+cp byzanz-record-window.sh /usr/bin/
+cp byzanz-record-region.sh /usr/bin/
+```  
 以后，要对窗口录屏可运行 ./byzanz-record-window.sh 脚本，要对选择区域录屏可运行 ./byzanz-record-region.sh，输出结果位于当前工作目录中。
 
 <h2 name="6">6 windows 应用</h2>
@@ -1366,7 +1428,7 @@ slmgr.vbs /ilc c:\Security-SPP-Component-SKU-Embedded-VLBA-ul-oob.xrm-ms
 slmgr.vbs /ipk XGY72-BRBBT-FF8MH-2GG8H-W7KCW
 slmgr.vbs /xpr
 ```
-重启后即可永久激活 winTPC。
+以上命令 CMD 均为异步执行，换言之，表面上看 CMD 中命令已经返回了，但实际该命令仍在后台执行，所以，请依次执行完上一条命令等待确认对话框后再执行下一条，切勿全量复制至 CMD 中执行。重启后即可永久激活 winTPC。
 
 winTPC 裁剪了大量非必要的服务和功能，其中包括中文语言包，若缺失将导致中文乱码，所以，必须自行安装中文包。先下载中文包 http://forums.mydigitallife.info/threads/27977-Windows-Embedded-Standard-7-Windows-Thin-PC-language-packs （墙外），然后将中文语言包 chinese_language_package.cab 拷贝至 C:\，最后 admin 权限执行
 
@@ -1480,29 +1542,128 @@ openSUSE 默认已经安装好相关蓝牙管理程序（核心程序 gnome-blue
 再发散思维两点：1）控制端类型不限（PC、手机、pad 等等），操作系统不限（linux、mac、windows 等等），你可以用 openSUSE 笔记本作为控制端、可以用windows phone 手机作为控制端、甚至可以用 iphone 作为控制端，只要能正常运行浏览器即可。换言之，由于苹果移动设备未开放蓝牙功能导致一直无法让老婆的 iphone 手机与你的 android 手机之间传输相片的问题将被 AirDroid 完美解决；2）控制端与被管端只需在同个局域网内，不一定非要访问互联网。
 
 <h3 name="7.3">7.3 英文翻译</h3>
-不管你英文有多好，难免会遇到几个生词，英文翻译工具必不可少（当然也可以翻译其他语言，只要安装了对应词典文件）。
+不管你英文有多好，难免会遇到几个生词，英文翻译工具必不可少。stardict，中文名星际译王，国人出品的著名翻译工具，可惜作者个人原因，项目年久失修，后来，俄国人基于 stardict 新建 goldendict 项目，经过几年发展，已成为 linux 上的标配翻译工具，以至于很多发行套件默认安装该软件。goldendict 在功能上有很多创新，词态识别、相似拼写、智能去噪，这些特点很难在同质软件中看到；在设计上低耦合、高内聚，聚焦实现高效单词查找功能，单词本身由各类词典负责，只要词典选得好，基本上，goldendict 无敌了。
 
-软件名称：stardict
+<h4 name="7.3.1">7.3.1 源码安装</h4>
 
-界面截图：
+发行套件的源中倒是含有预编译好的 goldendict，不过版本太低，源码安装最新版。goldendict 依赖库较多，得先安装：  
+```  
+zypper --no-refresh in libvorbis-devel hunspell-devel libqt4-devel libxtst-devel phonon-devel libbz2-devel libao-devel libavutil-devel libavformat-devel libqtwebkit-devel recordproto-devel
+```  
+另外，由于 openSUSE 源中不含 liblzo，必须源码安装该库的头文件和 *.so 库：  
+``` 
+wget 'http://www.oberhumer.com/opensource/lzo/download/lzo-2.09.tar.gz'
+tar -xv -f lzo-2.09.tar.gz -C .
+cd lzo-2.09/
+./configure --enable-shared && make && make install # 生成 *.so 库
+cp -r include/lzo/ /usr/include/
+```  
+接着下载最新版源码，qmake 构建即可：  
+```
+git clone git://github.com/goldendict/goldendict.git
+cd goldendict
+qmake CONFIG+=no_epwing_support
+make && make install
+```  
+
+<h4 name="7.3.2">7.3.2 词典选择</h4>
+
+对于词典的选择，我有几个要求，词汇全、英译英、图解示意、情境例句、关联词汇、真人发音（含英式和美式），首推《牛津高阶英语学习词典第八版》（http://pan.baidu.com/share/link?shareid=443301&uk=3189859145#path=%252Fgoldendict_dictionary 下的 En-En_OALD8/），牛津出品、品质保障，该词典共计收录 78534 个词汇，对于每个单词，先有清晰易懂的英文解释（孩纸，中文解释英文生词的方式，对你没好处），再配以生动形象的图片注释，接着又将该生词放入多条情境例句之中，然后罗列出多个与之相关词汇供你交叉学习，最后听下英美真人发音，这样，全套流程下来，你想忘记这个生词，难！如果觉得不够，同级别的，《朗文当代英语词典第五版》（En-En_Longman_DOCE5/）和《韦伯斯特大学词典第十一版》（En-En_Merriam_Webster11/）也不错。
+
+词典导入很简单，edit - dictionaries - sources - files - add，选择字典所在目录，勾选 recursive，点击 rescan now 进行导入即可。
+
+由于复数、过去式等等词态的存在，一个单词可能存在多种变化，比如，books、looked，goldendict 中是无法直接查找对应单词的，必须导入词态规则库以便 goldendict 正确识别。你的发行套件中可能带有词态规则库，别用，建议使用 goldendict 自制的，位于 http://sourceforge.net/projects/goldendict/files/better%20morphologies/1.0/ （墙外，en_US_1.0.zip 文件），下载后解压出来，edit - dictionaries - morphology - change 选择该词态规则库目录，然后在 available morphology dictionaries 中选中即可。
+
+如果觉得上面这些本地词典更新及时性不够，你还可以添加各类在线词典，比如，有道：edit - dictionaries - websites - add，name 中填入 youdao，address 中填入 http://dict.youdao.com/search?le=eng&q=%GDWORD%&keyfrom=dict.top 。
+
+另外，真人发音建议你使用 mplayer 播放，edit - preferences - audio - playback - use external program，填入 mplayer。由于某些真人发音存放在 *.wav 格式音频文件中，如果你发现播放无声，可以在命令行中用 mplayer 播放某个 *.wav 看看有何报错，一种常见情况是解码库未安装完整，比如，openSUSE 13.2 中缺少 libmad：  
+```  
+zypper --no-refresh in libmad0
+```  
+
+简单演示屏幕取词功能，界面截图：
 <div align="center">
-<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/stardict.png" alt=""/><br />
-（stardict）
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E5%B1%8F%E5%B9%95%E5%8F%96%E8%AF%8D.gif" alt=""/><br />
+（屏幕取词）
 </div>
 
-设置调整：
-
-* stardict 自带词典单词量不够，可以网上下载不同语种、不同领域的专业词典（由于字典版权问题，官网 http://www.stardict.cn 和项目主页 http://stardict.sourceforge.net 均无法下载，幸好有网友备份了 http://abloz.com/huzheng/stardict-dic ），下载后复制到 /usr/share/stardict/dic/ 目录，重启 stardict 即可生效；
-* stardict 支持发音功能，但作适当调整。进入 dictionary -> sound，勾选 enable sound event 和 enable TTS program，并将 command for playing sound files: 设置为 aplay。
-
-使用问题：stardict 的选词翻译是提升翻译效率的好功能，用鼠标选中某个单词或短语，stardict 自动提取选中内容并提交后台翻译引擎，再以浮窗显示翻译结果，但有时我们选中单词中有标点符号时，stardict 将无法识别。比如，选择内容为 green:，而 stardict 严格匹配 green，将无法翻译 green:。其实，优化下取词内容代码，对取词内容适当降噪应该不难，有时间我写个补丁。
+当然，goldendict 仍有提升空间，比如，屏幕取词无法设定快捷键、帮助文档太匮乏。
 
 <h3 name="7.4">7.4 中文输入</h3>
-个人认为，影响 linux 在朝内推广的最大阻碍要算输入法。linux 下常见输入法有 scim、fcitx、ibus。scim 是老牌输入法，但项目几乎停滞，长年不见更新；fcitx，俗称小企鹅输入法，有一定用户量；ibus，gnome 唯一官方集成的中文输入法，有模糊拼音、常用词汇、智能匹配、主动学习、快速输入英文单词（v）等特点，很好用。严格地说，ibus 是输入法框架，必须在此框架中选用拼音、五笔等输入法才能正常输入。刚装的操作系统是看不到 ibus 图标的，需要添加中文输入法，settings – region & language – input sources 中添加 chinese (pinyin)。如下图所示：
+个人认为，影响 linux 在朝内推广的最大阻碍得算输入法。为支持扩展，linux 下的所有输入类软件均分为输入框架和输入法两个部分，这样，既可以为某个输入框架创造自己的输入法，又可以把某个输入法复用于不同输入框架。
+
+目前主流输入框架包括 scim、ibus、fcitx。scim 是老牌输入法，但项目早已停滞，长年不见更新；ibus，虽然被 gnome 默认集成，但开放性略微欠缺；fcitx，俗称小企鹅输入法，拥有大量用户群，github.com 上仍在活跃开发，有模糊拼音、常用词汇、智能匹配、主动学习、颜文字等特点，很好用。严格地说，fcitx 是输入框架，必须在此框架中选用拼音、五笔等具体输入法后才能正常输入，对于拼音用户，fcitx-pinyin、fcitx-googlepinyin、fcitx-sunpinyin 都是不错的选择，我，选用自带的 fcitx-pinyin。
+
+openSUSE 默认源中的 fcitx 版本较低，先添加含有 fcitx 最新版 v4.2.9 的源 http://download.opensuse.org/repositories/M17N/openSUSE_13.2/ （优先级置为最高），再从中安装：  
+```  
+zypper in fcitx fcitx-pinyin fcitx-pinyin-tools # fcitx-pinyin-tools 是词库格式转换工具
+```  
+安装完后重启电脑，fcitx 将随系统自启动，将鼠标移至系统右下角，若出现一个键盘图标，说明 fcitx 安装成功。接下来，在 fcitx 图标上右键选择 configure 可对其进行详细设置，比如，外观颜色、候选词组显示数量、候选词组纵向列表显示等等，其中，最重要的是，选用拼音输入法，具体而言，在 input method 的 tab 中点击 +，取消 only show current language，选择 pinyin 和 english (us)。重启 fcitx，试试，有基本的输入功能，也有颜文字（先中文分号再键入 y (๑´ڡ`๑））这类特殊输入能力，对我而言，存在两个问题：一是无法用 tab 和 shift-tab 遍历候选词库、一是候选词库太单薄。问题一，几经折腾仍然无解，影响不大，暂缓；针对问题二，必须优先解决。
+
+<h4 name="7.4.1">7.4.1 导入搜狗细胞词库</h4>
+很多专用词组无法匹配，比如，词组“春秋窃曲纹绣”，你用默认词库试试，输入 cqqqwx，得到的第一候选词组是“从全球趣味性”，这是由于，fcitx 自带拼音输入法只含有基本词汇，你得逐字选择后形成自定义词组，fcitx 通过自学习可以识别，下次输入时会将其作为首选项。这么多专用词组都得从头创建有够麻烦，哪儿有现成可以让我直接导入就好了。
+
+搜狗拼音基于大数据收录了大量词组，取之于民用之于民，它的所有细胞词库可供大家自由下载 http://pinyin.sogou.com/dict/。这下来劲了，搜狗拼音的词库太有诱惑了，想法导入 fcitx。前例中的“春秋窃曲纹绣”明显是刺绣工艺词库（http://pinyin.sogou.com/dict/detail/index/6924）中的词组，以此为例，讲解如何让 fcitx 识别。
+
+第一步，下载钟意的细胞词库：  
+```  
+cd ~/
+mkdir scel/
+# 将下载回来的细胞词库放至 scel/
+```  
+
+第二步，将搜狗细胞词库转换为全拼/词语对应表的普通文本：  
+```  
+cd scel/
+mkdir org/
+for i in *.scel; do scel2org $i -o org/$i.org; done
+```  
+
+第三步，将多个对应表合并成一个对应表：  
+```  
+cat org/*.org > all_in_one.org
+```  
+
+第四步，对应表中内容剔重：  
+```  
+sort all_in_one.org > tmp.org
+uniq tmp.org > all_in_one.org
+```  
+
+第五步，基于 fcitx 字码表将对应表转换成 fcitx 的词库：  
+```  
+wget https://raw.github.com/fcitx/fcitx/master/src/im/pinyin/data/gbkpy.org
+createPYMB gbkpy.org all_in_one.org
+```  
+这步中你将获得最终词库 pyphrase.mb 及其配套字码库 pybase.mb。
+
+第六步，将词库及字码库移至 fcitx 目录并重启 fcitx：  
+```  
+mv pyphrase.mb ~/.config/fcitx/pinyin/
+mv pybase.mb ~/.config/fcitx/pinyin/
+fcitx -r
+```  
+这时，再输入 cqqqwx，“春秋窃曲纹绣”已作为第一候选项出来了。经过以上几步，搜狗细胞词库成功导入 fcitx！
+
+现在，你肯定想把所有的搜狗细胞词库全量下载回来，重复上面一至六步，让 fcitx 识别尽可能多的词组。搜狗细胞词库有 14 大类，每类至少又有 100+ 个词库，天，下载工作量太大了，可不能把哥给累着了，刚好其他人制作的一份全集，虽然是 2010 年的，将就用用，https://code.google.com/p/hslinuxextra/downloads/detail?name=fcitx-sougou-phrase-full.7z&can=2&q= （墙外），把解压出来的 pyPhrase.org 移至 scel/，然后再将你关注领域最新的细胞词库下载回来，融入 pyPhrase.org，执行上面几步即可。如下图所示：
 <div align="center">
-<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/ibus%20%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95.gif" alt=""/><br />
-（ibus 中文输入法）
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E9%9B%86%E6%88%90%E6%90%9C%E7%8B%97%E7%BB%86%E8%83%9E%E8%AF%8D%E5%BA%93.gif" alt=""/><br />
+（集成搜狗细胞词库）
 </div>
+
+<h4 name="7.4.2">7.4.2 安装云拼音</h4>
+前面导入的细胞词库相对静态，不可能天天更新，还得需要个云拼音功能。所谓云拼音，如下安装  
+```  
+zypper in fcitx-cloudpinyin
+```  
+云拼音实际就是在线拼音输入法，目前支持百度在线拼音和谷歌在线拼音，默认选用的是墙外的谷歌，你得手工改选为百度：configure - addon - cloud pinyin - cloud pinyin source - baidu。重启 fcitx 即可。
+
+云拼音输入法与本地输入法是融合呈现候选词组而不是互斥的，云拼音会把第一候选词组放倒本地输入法候选词组列表中，以蓝色高丽表示：
+<div align="center">
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E9%9B%86%E6%88%90%E7%99%BE%E5%BA%A6%E4%BA%91%E8%BE%93%E5%85%A5%E6%B3%95.gif" alt=""/><br />
+（集成百度云输入法）
+</div>
+
 
 <h3 name="7.5">7.5 软件开发</h3>
 这个时代，上规模的软件项目已不可能用简单的文本编辑器完成，IDE 是必然选择。linux 下 IDE 大致分为两类：品牌机和组装机。品牌机中有些（开源）产品还不错，比如：codeblocks、netbeans、eclipse、anjuta 等等，对于初涉 linux 开发的朋友而言是个不错的选择（我指的是 codeblocks），但对于老鸟来说总有这样那样的欠缺。听闻 linus torvalds 这类大牛用的是类 emacs 和一堆插件拼装而成的 IDE，为向大牛致敬，加之那颗“喜欢折腾”的心，组装机是我的选择。首要任务，选择编辑器。linux 上存在两种编辑器：神之编辑器 emacs，编辑器之神 vim。关于 emacs 与 vim 孰轻谁重之争已是世纪话题，我无意参与其中，在我眼里，二者都是创世纪的优秀编辑器，至少在这个领域作到了极致，它们让世人重新认识了编辑操作的本质——用命令而非键盘——去完成编辑任务。我是人类，选用 vim。（...此处省略64页半...），详见《所需即所获：像 IDE 一样使用 vim》（https://github.com/yangyangwithgnu/use_vim_as_ide ），作者是帅鸽 \^\_\*。基于该文配置后，vim 可实现如下 IDE 效果：
