@@ -1,7 +1,7 @@
 <h1 align="center">美丽新世界：linux 下的惬意生活</h1>
 yangyangwithgnu@yeah.net  
 http://yangyangwithgnu.github.io/  
-2015-06-12 00:41:18
+2015-06-13 22:32:11
 
 
 ##谢谢
@@ -22,6 +22,7 @@ http://yangyangwithgnu.github.io/
 
 ##【版本】
 ----
+* v0.1.11，修正，2015-06-13：0）FF 下载管理器改用 flashgot，以实现整合 aria2c；1）删除 FF 的 flash 插件安装部分；2）其他用语通顺性调整。
 * v0.1.10，新增/修正，2015-06-12：0）增加透明代理介绍；1）重写翻译工具章节；2）重新中文输入法章节。
 * v0.1.9，新增/修正，2015-05-24：0）批量解析百度歌曲下载地址工具 yosong 的介绍；1）多种方式接入 tor 地下网络介绍；2）virtualbox 性能提升的可靠措施介绍。
 * v0.1.8，新增，2015-02-04：借助插件 greasemonkey 在 FF 中随心所欲地控制任意页面，并配以实例：免登录、未付费环境下，直接下载百度音乐无损音乐。
@@ -520,10 +521,10 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 
 你对 firefox 的任何需求，几乎都可以通过其丰富的插件资源得到满足（另一个有如此庞大插件资源的软件当数 vim 了，后面有介绍）。进入 tools -> add-ons 即可在线查找需要的插件，找到后点击在线安装即可，安装完成需重启浏览器以让新装插件生效。下面介绍几款我觉得非常有用的插件。
 
-**下载管理**，download status bar。完全替代 firefox 自带的下载管理器，它可以实时查看下载进度、可以直接打开下载完的文件、可以根据当前下载速度用不同颜色高亮提示等等。如下图，第一个文件已下载完毕，第二个正在下载，实时速度为 167.2K、下载进度为 19%、橙色背景表示速度在 200K 以下，若达到 600K 则会显示为绿色：
+**下载管理**，flashgot。aria2c，linux 环境的彪悍下载利器，支持从不同协议（http(s)、ftp、bt、磁力等等）的不同来源下载同个文件，速度非同一般。aria2c 是个命令行程序，我需要个插件，将其整合进 firefox 中，flashgot 可以做到。flashgot 本身是个页面资源下载工具，它可以解析当前页面所有可下载资源的地址，将要下载地址传递给系统中已安装的外部下载工具（如，aria2c、curl、wget），实现资源排量高速下载，这非常适用那些需要下载网页上所有图片的场景。对我而言，享受的是 flashgot 的副作用，在 firefox 中直接调用 aria2c。使用很简单，在 flashgot 中选择使用 aria2c 作为外部下载工具，接着按下 alt 同时点击下载链接即可，如下所示：
 <div align="center">
-<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/download%20statusbar.png" alt=""/><br>
-（download statusbar）
+<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/FF%20%E6%95%B4%E5%90%88%20aria2c.gif" alt=""/><br>
+（FF 整合 aria2c）
 </div>
 
 **对象拖拽**，quickdrag。若拖拽链接则直接打开，若拖动文本则在当前搜索引擎中搜索。如下图所示：
@@ -553,18 +554,6 @@ linux 不是 IT 大牛的专属系统，它不仅可以支撑生产运维，同�
 <img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/%E6%81%A2%E5%A4%8D%E5%85%B3%E9%97%AD%E9%A1%B5%E9%9D%A2%E6%8F%92%E4%BB%B6%20Undo%20Closed%20Tabs%20Button.gif" alt=""/><br>
 （恢复关闭页面插件 Undo Closed Tabs Button）
 </div>
-
-**flash 播放**。目前几乎所有在线视频、在线文库等网站都通过 flash 实现（亲，我说的通过浏览器直接访问，我知道你 iphone 也可以观看在线视频，但那是通过安装本地APP 观看，与这儿说的事情没啥干系），常逛这类网站的朋友必须得装 flash 插件才能正常访问。adobe 不给力，导致很多浏览器加载 flash 文件时失败，提示 the adobe flash plugin has crashed：
-<div align="center">
-<img src="https://github.com/yangyangwithgnu/the_new_world_linux/blob/master/pics/flash%E6%8F%92%E4%BB%B6%E6%8A%A5%E9%94%99.png" alt=""/><br>
-（flash插件报错）
-</div>
-
-到 adobe 官网 http://get.adobe.com/flashplayer/otherversions/ 下载最新版的 \*.tar.gz，解压后提取 libflashplayer.so 至 /usr/lib/browser-plugins/libflashplayer.so，重启 firefox 即可正常显示 flash。
-
-另外，如果你用的是 chromium 则不太可能出现 flash 显示问题。这是因为 google 与 adobe 合作开发了一项称之为 pepper API 的新技术，google 自家的 chromium 肯定支持 pepper，这就使得 flash 可以以插件的形式运行在 chromium 浏览器中。包括 firefox 在内的其它浏览器则不支持这项技术，因此也就无法播放 flash。
-
-听闻 adobe 公告，从 11.2 以后不再支持 linux 平台，唉，乔帮主英明，adobe 要自掘坟墓咱也别拦他，全当在给 HTML5 腾位置吧。
 
 **在线视频下载**，1-Click YouTube Video Download。随着在线视频的繁荣，国外的 YouTube、国内的 PPTV 等一大批视频网站上沉淀了很多有价值的视频，考虑到天朝宽带排名全球 96 位的现状，为了不影响观影体验，我有很强的驱动力将在线视频下载到本地。
 
@@ -1088,7 +1077,7 @@ fetchserver = http://yangyangwithgnu.ecvps.net/goagent/index.php ; 你 index.php
 
 在我的使用场景中，zypper 和 git 最为常见。前者是 openSUSE 的包管理工具，应用软件增删改、系统升级、安全补丁安装等等都离不开它，虽然大部份源可以选用国内镜像，但像是 packman 这类著名第三方源至今缺少国内镜像，在 GFW 的干扰下，运气好时还能蜗速访问 packman 源，运气不好，直接无法连接；类似，github.com 是一个代码版本控制、发布管理的在线托管网站，我在客户端通过 git 与之通信，GFW 的干扰，速度也是慢得无法忍受。代理，是解决上述问题的最好（可能也是唯一）手段。遗憾的是，zypper 和 git 都不支持代理，无法设置将网络访问请求转发至 socks5://127.0.0.1:1080 。这时，你可能会先想到 openVPN 这种全局代理，没错，是个思路，我不太喜欢这种方式，一方面 GFW 对 openVPN 封锁得非常彻底，很难找到可用的证书，另一方面，全局代理强制其他无翻墙需求的软件必须走代理，影响效率。我需要更优的方案。
 
-linux 上的任何软件，不论实现方式、开发框架、编程语言，绝大部分最终会调用 libc 中的网络相关函数，如果有某种机制，能够发现应用程序即将调用 libc 中的网络相关函数，在真实调用前，先传递给网络函数的实参从目标网络地址篡改成本地中转地址 socks5://127.0.0.1:1080 ，那么，逻辑上，该应用程序就间接具备了翻墙功能。这就是所谓的透明代理。透明代理，首推 proxychains（https://github.com/haad/proxychains ）。
+linux 上的任何软件，不论实现方式、开发框架、编程语言，只要有网络访问请求，最终会调用 libc 中的网络相关函数，如果有某种机制，能够发现应用程序即将调用 libc 中的网络相关函数，在真实调用前，先传递给网络函数的实参从目标网络地址篡改成本地中转地址 socks5://127.0.0.1:1080 ，那么，逻辑上，该应用程序就间接具备了翻墙功能。这就是所谓的透明代理。透明代理，首推 proxychains（https://github.com/haad/proxychains ）。
 
 以 shadowsocks 为例，简单配置，编辑 ~/.proxychains/proxychains.conf：  
 ```  
@@ -1590,7 +1579,7 @@ zypper --no-refresh in libmad0
 当然，goldendict 仍有提升空间，比如，屏幕取词无法设定快捷键、帮助文档太匮乏。
 
 <h3 name="7.4">7.4 中文输入</h3>
-个人认为，影响 linux 在朝内推广的最大阻碍得算输入法。为支持扩展，linux 下的所有输入类软件均分为输入框架和输入法两个部分，这样，既可以为某个输入框架创造自己的输入法，又可以把某个输入法复用于不同输入框架。
+个人认为，影响 linux 在朝内推广的最大阻碍得算输入法，其实，只要你姿势对了，中文输入不会有任何负担。为支持扩展，linux 下的所有输入类软件均分为输入框架和输入法两个部分，这样，既可以为某个输入框架创造自己的输入法，又可以把某个输入法复用于不同输入框架。
 
 目前主流输入框架包括 scim、ibus、fcitx。scim 是老牌输入法，但项目早已停滞，长年不见更新；ibus，虽然被 gnome 默认集成，但开放性略微欠缺；fcitx，俗称小企鹅输入法，拥有大量用户群，github.com 上仍在活跃开发，有模糊拼音、常用词汇、智能匹配、主动学习、颜文字等特点，很好用。严格地说，fcitx 是输入框架，必须在此框架中选用拼音、五笔等具体输入法后才能正常输入，对于拼音用户，fcitx-pinyin、fcitx-googlepinyin、fcitx-sunpinyin 都是不错的选择，我，选用自带的 fcitx-pinyin。
 
@@ -1601,11 +1590,11 @@ zypper in fcitx fcitx-pinyin fcitx-pinyin-tools # fcitx-pinyin-tools 是词库�
 安装完后重启电脑，fcitx 将随系统自启动，将鼠标移至系统右下角，若出现一个键盘图标，说明 fcitx 安装成功。接下来，在 fcitx 图标上右键选择 configure 可对其进行详细设置，比如，外观颜色、候选词组显示数量、候选词组纵向列表显示等等，其中，最重要的是，选用拼音输入法，具体而言，在 input method 的 tab 中点击 +，取消 only show current language，选择 pinyin 和 english (us)。重启 fcitx，试试，有基本的输入功能，也有颜文字（先中文分号再键入 y (๑´ڡ`๑））这类特殊输入能力，对我而言，存在两个问题：一是无法用 tab 和 shift-tab 遍历候选词库、一是候选词库太单薄。问题一，几经折腾仍然无解，影响不大，暂缓；针对问题二，必须优先解决。
 
 <h4 name="7.4.1">7.4.1 导入搜狗细胞词库</h4>
-很多专用词组无法匹配，比如，词组“春秋窃曲纹绣”，你用默认词库试试，输入 cqqqwx，得到的第一候选词组是“从全球趣味性”，这是由于，fcitx 自带拼音输入法只含有基本词汇，你得逐字选择后形成自定义词组，fcitx 通过自学习可以识别，下次输入时会将其作为首选项。这么多专用词组都得从头创建有够麻烦，哪儿有现成可以让我直接导入就好了。
+很多词组无法通过拼音首写字母快速输入，比如，词组“春秋窃曲纹绣”，你用默认词库试试，输入 cqqqwx，得到的第一候选词组是“从全球趣味性”，这是由于，fcitx 自带拼音输入法只含有基本词汇，你得逐字选择后形成自定义词组，fcitx 通过自学习可以识别，下次输入时会将其作为首选项。这么多专用词组都得从头创建有够麻烦，哪儿有现成可以让我直接导入就好了。
 
 搜狗拼音基于大数据收录了大量词组，取之于民用之于民，它的所有细胞词库可供大家自由下载 http://pinyin.sogou.com/dict/ 。这下来劲了，搜狗拼音的词库太有诱惑了，想法导入 fcitx。前例中的“春秋窃曲纹绣”明显是刺绣工艺词库（http://pinyin.sogou.com/dict/detail/index/6924 ）中的词组，以此为例，讲解如何让 fcitx 识别。
 
-第一步，下载钟意的细胞词库：  
+第一步，下载钟意的细胞词库并放至指定目录：  
 ```  
 cd ~/
 mkdir scel/
@@ -1652,11 +1641,11 @@ fcitx -r
 </div>
 
 <h4 name="7.4.2">7.4.2 安装云拼音</h4>
-前面导入的细胞词库相对静态，不可能天天更新，还得需要个云拼音功能。所谓云拼音，如下安装  
+前面导入的细胞词库相对静态，不可能天天更新，还得需要个云拼音功能。如下安装  
 ```  
 zypper in fcitx-cloudpinyin
 ```  
-云拼音实际就是在线拼音输入法，目前支持百度在线拼音和谷歌在线拼音，默认选用的是墙外的谷歌，你得手工改选为百度：configure - addon - cloud pinyin - cloud pinyin source - baidu。重启 fcitx 即可。
+所谓云拼音，实际就是在线拼音输入法，目前支持百度在线拼音和谷歌在线拼音，默认选用的是墙外的谷歌，你得手工改选为百度：configure - addon - cloud pinyin - cloud pinyin source - baidu。重启 fcitx 即可。
 
 云拼音输入法与本地输入法是融合呈现候选词组而不是互斥的，云拼音只会把第一候选词组放倒本地输入法候选词组列表中，以蓝色高丽表示：
 <div align="center">
