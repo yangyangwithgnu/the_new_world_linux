@@ -1,7 +1,7 @@
 <h1 align="center">美丽新世界：linux 下的惬意生活</h1>
 yangyangwithgnu@yeah.net  
 http://yangyangwithgnu.github.io/  
-2015-06-13 22:32:11
+2015-06-15 13:02:32
 
 
 ##谢谢
@@ -22,6 +22,7 @@ http://yangyangwithgnu.github.io/
 
 ##【版本】
 ----
+* v0.1.12，修正，2015-06-15：最新源码安装的 goldendict 存在键盘鼠标控制权无法释放、剪贴板内容变更引发屏幕取词等奇怪问题，改用发行套件中预编译安装。
 * v0.1.11，修正，2015-06-13：0）FF 下载管理器改用 flashgot，以实现整合 aria2c；1）删除 FF 的 flash 插件安装部分；2）其他用语通顺性调整。
 * v0.1.10，新增/修正，2015-06-12：0）增加透明代理介绍；1）重写翻译工具章节；2）重新中文输入法章节。
 * v0.1.9，新增/修正，2015-05-24：0）批量解析百度歌曲下载地址工具 yosong 的介绍；1）多种方式接入 tor 地下网络介绍；2）virtualbox 性能提升的可靠措施介绍。
@@ -85,7 +86,7 @@ http://yangyangwithgnu.github.io/
 ........[7.1 蓝牙收发](#7.1)  
 ........[7.2 手机管理](#7.2)  
 ........[7.3 英文翻译](#7.3)  
-................[7.3.1 源码安装](#7.3.1)  
+................[7.3.1 安装最新版](#7.3.1)  
 ................[7.3.2 词典选择](#7.3.2)  
 ........[7.4 中文输入](#7.4)  
 ................[7.4.1 导入搜狗细胞词库](#7.4.1)  
@@ -1533,13 +1534,13 @@ openSUSE 默认已经安装好相关蓝牙管理程序（核心程序 gnome-blue
 <h3 name="7.3">7.3 英文翻译</h3>
 不管你英文有多好，难免会遇到几个生词，英文翻译工具必不可少。stardict，中文名星际译王，国人出品的著名翻译工具，可惜作者个人原因，项目年久失修，后来，俄国人基于 stardict 新建 goldendict 项目，经过几年发展，已成为 linux 上的标配翻译工具，以至于很多发行套件默认安装该软件。goldendict 在功能上有很多创新，词态识别、相似拼写、智能去噪，这些特点很难在同质软件中看到；在设计上低耦合、高内聚，聚焦实现高效单词查找功能，单词本身由各类词典负责，只要词典选得好，基本上，goldendict 无敌了。
 
-<h4 name="7.3.1">7.3.1 源码安装</h4>
+<h4 name="7.3.1">7.3.1 安装最新版</h4>
 
-发行套件的源中倒是含有预编译好的 goldendict，不过版本太低，源码安装最新版。goldendict 依赖库较多，得先安装：  
+添加源 http://download.opensuse.org/repositories/office:/goldendict/openSUSE_13.2/ ，安装最新版 v1.5。你知道，一般情况下，我优选源码安装，但，对于最新版的 goldendict，如果源码安装的，会出现键盘鼠标控制权无法释放、剪贴板内容变更引发屏幕取词等奇怪问题，所以，这次，强烈建议你安装预编译包而非源码安装（或许 openSUSE 针对 goldendict 作了优化）。当然，如果你非要坚持，也可以尝试，先安装依赖库：：  
 ```  
 zypper --no-refresh in libvorbis-devel hunspell-devel libqt4-devel libxtst-devel phonon-devel libbz2-devel libao-devel libavutil-devel libavformat-devel libqtwebkit-devel recordproto-devel
 ```  
-另外，由于 openSUSE 源中不含 liblzo，必须源码安装该库的头文件和 *.so 库：  
+由于 openSUSE 源中不含 liblzo，必须源码安装该库的头文件和 *.so 库：  
 ``` 
 wget 'http://www.oberhumer.com/opensource/lzo/download/lzo-2.09.tar.gz'
 tar -xv -f lzo-2.09.tar.gz -C .
@@ -1547,7 +1548,7 @@ cd lzo-2.09/
 ./configure --enable-shared && make && make install # 生成 *.so 库
 cp -r include/lzo/ /usr/include/
 ```  
-接着下载最新版源码，qmake 构建即可：  
+下载最新版源码，qmake 构建即可：  
 ```
 git clone git://github.com/goldendict/goldendict.git
 cd goldendict
@@ -1576,7 +1577,7 @@ zypper --no-refresh in libmad0
 （屏幕取词）
 </div>
 
-当然，goldendict 仍有提升空间，比如，屏幕取词无法设定快捷键、帮助文档太匮乏。
+当然，goldendict 仍有提升空间，比如，帮助文档太匮乏。
 
 <h3 name="7.4">7.4 中文输入</h3>
 个人认为，影响 linux 在朝内推广的最大阻碍得算输入法，其实，只要你姿势对了，中文输入不会有任何负担。为支持扩展，linux 下的所有输入类软件均分为输入框架和输入法两个部分，这样，既可以为某个输入框架创造自己的输入法，又可以把某个输入法复用于不同输入框架。
